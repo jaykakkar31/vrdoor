@@ -314,7 +314,7 @@ const Home = () => {
 																</span>
 															</div>
 															<div class="filter-button-area">
-																<a class="filter-btn" href="with-sidebar.html">
+																<a class="filter-btn" style={{display:"flex",alignItems:"center"}} href="with-sidebar.html">
 																	<span>Search</span>
 																	<i class="fas fa-search"></i>
 																</a>
