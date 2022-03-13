@@ -1,11 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Navigate,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Blog from "./components/Blog/Blog";
@@ -27,7 +21,6 @@ function App() {
         <Route exact path={"/properties"} element={<Properties />} />
         <Route exact path={"/single-property"} element={<SingleProperty />} />
         <Route exact path={"/single-agent"} element={<SingleAgent />} />
-
       </Routes>
     </Router>
   );

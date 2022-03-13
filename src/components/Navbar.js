@@ -12,7 +12,7 @@ const Navbar = () => {
 						<div class="row d-flex align-items-center">
 							<div class="col-xl-2 col-lg-2">
 								<div class="logo-area">
-									<a href="index.html" class="temp-logo">
+									<a href="/" class="temp-logo">
 										<img
 											src="img/logo.svg"
 											width="157"
@@ -30,10 +30,10 @@ const Navbar = () => {
 								>
 									<ul>
 										<li>
-											<a href="index.html" class="active">
+											<a href="/" class="active">
 												Home
 											</a>
-											<ul class="dropdown-menu-col-1">
+											{/* <ul class="dropdown-menu-col-1">
 												<li>
 													<a href="index.html">Home Page 1</a>
 												</li>
@@ -49,10 +49,10 @@ const Navbar = () => {
 												<li>
 													<a href="index5.html">Home Page 5</a>
 												</li>
-											</ul>
+											</ul> */}
 										</li>
 										<li>
-											<a href="about-1.html">About</a>
+											<a href="about">About</a>
 										</li>
 										<li>
 											<a href="with-sidebar2.html">Property</a>
@@ -214,12 +214,12 @@ const Navbar = () => {
 													<a href="404.html">404 Error</a>
 												</li>
 												<li>
-													<a href="contact.html">Contact</a>
+													<a href="Contactus">Contact</a>
 												</li>
 											</ul>
 										</li>
 										<li>
-											<a href="contact.html">Contact</a>
+											<a href="Contactus">Contact</a>
 										</li>
 									</ul>
 								</nav>

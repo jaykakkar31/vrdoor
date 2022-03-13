@@ -18,34 +18,32 @@ const Footer = () => {
 									/>
 								</div>
 								<p>
-									Corem ipsum dolor sit amet consecte turad pisicing elit, sed
-									do eiusmod tempor inci didunt ut labore et dolor.pisicing
-									elit, sed do eiusmod tempor inci
+								VRDOOR is India's fastest growing online Property marketplace to buy, sell, and rent residential and commercial properties. Experience every property in 360 view, VRDOOR is the most preferred real estate portal in India by various independent surveys.
 								</p>
 								<div class="item-social">
 									<ul>
 										<li>
-											<a href="https://www.facebook.com/" target="_blank">
+											<a href="https://www.facebook.com/" target="_blank"  rel="noreferrer" >
 												<i class="fab fa-facebook-f"></i>
 											</a>
 										</li>
 										<li>
-											<a href="https://twitter.com/" target="_blank">
+											<a href="https://twitter.com/" target="_blank"  rel="noreferrer">
 												<i class="fab fa-twitter"></i>
 											</a>
 										</li>
 										<li>
-											<a href="https://vimeo.com/" target="_blank">
+											<a href="https://vimeo.com/" target="_blank"  rel="noreferrer">
 												<i class="fab fa-vimeo-v"></i>
 											</a>
 										</li>
 										<li>
-											<a href="https://www.pinterest.com/" target="_blank">
+											<a href="https://www.pinterest.com/" target="_blank"  rel="noreferrer">
 												<i class="fab fa-pinterest-p"></i>
 											</a>
 										</li>
 										<li>
-											<a href="https://web.whatsapp.com/" target="_blank">
+											<a href="https://web.whatsapp.com/" target="_blank"  rel="noreferrer">
 												<i class="fab fa-whatsapp"></i>
 											</a>
 										</li>
@@ -61,19 +59,19 @@ const Footer = () => {
 								<div class="item-link">
 									<ul>
 										<li>
-											<a href="about-1.html">About Us </a>
+											<a href="about">About Us </a>
 										</li>
 										<li>
-											<a href="blog-details1.html">Blogs & Articles </a>
+											<a href="Blog">Blogs & Articles </a>
 										</li>
 										<li>
-											<a href="about-1.html">Terms & Conditions</a>
+											<a href="about">Terms & Conditions</a>
 										</li>
 										<li>
-											<a href="about-1.html">Privacy Policy </a>
+											<a href="about">Privacy Policy </a>
 										</li>
 										<li>
-											<a href="contact.html">Contact Us </a>
+											<a href="contactus">Contact Us </a>
 										</li>
 									</ul>
 								</div>
@@ -97,7 +95,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -114,7 +112,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -131,7 +129,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -148,7 +146,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -165,7 +163,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -182,7 +180,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -200,8 +198,7 @@ const Footer = () => {
 								<div class="footer-location">
 									<ul>
 										<li class="item-map">
-											<i class="fas fa-map-marker-alt"></i>121 King St,
-											Melbourne den 3000, Australia
+											<i class="fas fa-map-marker-alt"></i>Indra vihar, Delhi- 110009
 										</li>
 										<li>
 											<a href="mailto:info@example.com">
@@ -210,7 +207,7 @@ const Footer = () => {
 										</li>
 										<li>
 											<a href="tel:+123596000">
-												<i class="fas fa-phone-alt"></i>(+123) 596 000
+												<i class="fas fa-phone-alt"></i>+91 8826024495
 											</a>
 										</li>
 									</ul>
@@ -227,17 +224,17 @@ const Footer = () => {
 							<div class="copyright-area1">
 								<ul>
 									<li>
-										<a href="about-1.html">Terms of Use</a>
+										<a href="about">Terms of Use</a>
 									</li>
 									<li>
-										<a href="about-1.html">Privacy Policy</a>
+										<a href="about">Privacy Policy</a>
 									</li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-lg-6 col-md-6">
 							<div class="copyright-area2">
-								<p>2022© All rightre served by RadiusTheme</p>
+								<p>2022© All rightre served by VRDOOR</p>
 							</div>
 						</div>
 					</div>
