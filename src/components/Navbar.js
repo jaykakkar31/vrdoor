@@ -251,7 +251,7 @@ const Navbar = () => {
 										</li>
 										<li class="action-item-style my-account">
 											<a
-												href="account.html"
+												href="Login"
 												data-bs-toggle="tooltip"
 												data-bs-placement="bottom"
 												title="Sign In"
@@ -260,7 +260,7 @@ const Navbar = () => {
 											</a>
 										</li>
 										<li class="listing-button">
-											<a href="post-add.html" class="listing-btn">
+											<a href="AddPost" class="listing-btn">
 												<span>
 													<i class="fas fa-plus-circle"></i>
 												</span>
