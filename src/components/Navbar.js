@@ -121,7 +121,7 @@ const Navbar = () => {
 																	</a>
 																</li>
 																<li>
-																	<a href="blog-details1.html">
+																	<a href="BlogDetail">
 																		<i class="fas fa-chart-pie"></i>Blog Details
 																		Page
 																	</a>
