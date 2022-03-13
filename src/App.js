@@ -8,6 +8,7 @@ import Agents from "./components/Agents/Agents";
 import Properties from "./components/Properties/Properties";
 import SingleProperty from "./components/SingleProperty/SingleProperty";
 import SingleAgent from "./components/SingleAgent/SingleAgent";
+import Error from "./components/Error/Error";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route exact path={"/properties"} element={<Properties />} />
         <Route exact path={"/single-property"} element={<SingleProperty />} />
         <Route exact path={"/single-agent"} element={<SingleAgent />} />
+        <Route exact path={"*"} element={<Error />} />
+
       </Routes>
     </Router>
   );
