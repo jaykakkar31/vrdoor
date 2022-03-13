@@ -23,27 +23,27 @@ const Footer = () => {
 								<div class="item-social">
 									<ul>
 										<li>
-											<a href="https://www.facebook.com/" target="_blank">
+											<a href="https://www.facebook.com/" target="_blank"  rel="noreferrer" >
 												<i class="fab fa-facebook-f"></i>
 											</a>
 										</li>
 										<li>
-											<a href="https://twitter.com/" target="_blank">
+											<a href="https://twitter.com/" target="_blank"  rel="noreferrer">
 												<i class="fab fa-twitter"></i>
 											</a>
 										</li>
 										<li>
-											<a href="https://vimeo.com/" target="_blank">
+											<a href="https://vimeo.com/" target="_blank"  rel="noreferrer">
 												<i class="fab fa-vimeo-v"></i>
 											</a>
 										</li>
 										<li>
-											<a href="https://www.pinterest.com/" target="_blank">
+											<a href="https://www.pinterest.com/" target="_blank"  rel="noreferrer">
 												<i class="fab fa-pinterest-p"></i>
 											</a>
 										</li>
 										<li>
-											<a href="https://web.whatsapp.com/" target="_blank">
+											<a href="https://web.whatsapp.com/" target="_blank"  rel="noreferrer">
 												<i class="fab fa-whatsapp"></i>
 											</a>
 										</li>
@@ -95,7 +95,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -112,7 +112,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -129,7 +129,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -146,7 +146,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -163,7 +163,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>
@@ -180,7 +180,7 @@ const Footer = () => {
 													/>
 												</a>
 												<div class="item-overlay">
-													<a href="https://www.instagram.com/" target="_blank">
+													<a href="https://www.instagram.com/" target="_blank"  rel="noreferrer">
 														<i class="fab fa-instagram"></i>
 													</a>
 												</div>

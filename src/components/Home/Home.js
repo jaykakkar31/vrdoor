@@ -284,12 +284,22 @@ const Home = () => {
 													<div class="box-top">
 														<div class="rld-single-input item">
 															<input
+																style={{
+																	width: "fit-content",
+																	padding: "0 20px",
+																}}
 																type="text"
-																placeholder="Enter Kewword here..."
+																placeholder="Enter Keyword here..."
 															/>
 														</div>
 														<div class="rld-single-select ml-22">
-															<select class="select single-select">
+															<select
+																class="select single-select"
+																style={{
+																	width: "fit-content",
+																	padding: "0 20px",
+																}}
+															>
 																<option value="1">Property Type</option>
 																<option value="2">Family House</option>
 																<option value="3">Apartment</option>
@@ -297,7 +307,13 @@ const Home = () => {
 															</select>
 														</div>
 														<div class="rld-single-select item">
-															<select class="select single-select mr-0">
+															<select
+																class="select single-select mr-0"
+																style={{
+																	width: "100%",
+																	padding: "0 20px",
+																}}
+															>
 																<option value="1">All Cities</option>
 																<option value="2">Los Angeles</option>
 																<option value="3">Chicago</option>
@@ -314,7 +330,14 @@ const Home = () => {
 																</span>
 															</div>
 															<div class="filter-button-area">
-																<a class="filter-btn" style={{display:"flex",alignItems:"center"}} href="with-sidebar.html">
+																<a
+																	class="filter-btn"
+																	style={{
+																		display: "flex",
+																		alignItems: "center",
+																	}}
+																	href="with-sidebar.html"
+																>
 																	<span>Search</span>
 																	<i class="fas fa-search"></i>
 																</a>
@@ -322,7 +345,9 @@ const Home = () => {
 														</div>
 													</div>
 													<div
-														class={`explore__form-checkbox-list full-filter ${isclick&&"filter-block"}`}
+														class={`explore__form-checkbox-list full-filter ${
+															isclick && "filter-block"
+														}`}
 													>
 														<div class="row">
 															<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
