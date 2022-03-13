@@ -306,5 +306,5 @@ const BlogDetail = () => {
         </div>
         );
 };
-export default Blog;
+export default BlogDetail;
 	
