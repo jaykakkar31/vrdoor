@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
+import Data from "../../Apis/agentsApi";
 
 const Agents = () => {
   return (
@@ -11,21 +12,25 @@ const Agents = () => {
     <!--=   Breadcrumb     Start            =-->
     <!--=====================================--> */}
 
-        <div class="breadcrumb-wrap">
-            <div class="container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Agent</li>
-                    </ol>
-                </nav>
-            </div>
+      <div class="breadcrumb-wrap">
+        <div class="container">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Agent
+              </li>
+            </ol>
+          </nav>
         </div>
+      </div>
 
-    {/* <!--=====================================-->
+      {/* <!--=====================================-->
     <!--=   Agent     Start                 =-->
     <!--=====================================--> */}
-    
+
       <section class="agent-wrap1 agent-wrap3">
         <div class="container">
           <div class="row gutters-40">
@@ -52,786 +57,92 @@ const Agents = () => {
               </div>
 
               <div class="row">
-                <div class="col-lg-6 col-md-6">
-                  <div
-                    class="team-box1 team-box3 wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    <div class="item-img">
-                      <a href="agent-lists1.html">
-                        <img
-                          src="img/team/team17.png"
-                          alt="team"
-                          width="475"
-                          height="511"
-                        />
-                      </a>
-                      <ul class="team-social-1">
-                        <li class="social-item">
-                          <a
-                            href="https://radiustheme.com/"
-                            target="_blank"
-                            class="social-hover-icon social-link"
-                          >
-                            <i class="fas fa-share-alt"></i>
+                {Data.map((currEle) => {
+                  return (
+                    <div class="col-lg-6 col-md-6" key={currEle.id}>
+                      <div
+                        class="team-box1 team-box3 wow fadeInUp"
+                        data-wow-delay=".6s"
+                      >
+                        <div class="item-img">
+                          <a href="agent-lists1.html">
+                            <img
+                              src={currEle.image}
+                              alt="team"
+                              width="475"
+                              height="511"
+                            />
                           </a>
-                          <ul class="team-social-dropdown">
+                          <ul class="team-social-1">
                             <li class="social-item">
                               <a
-                                href="https://www.facebook.com/"
+                                href="https://radiustheme.com/"
                                 target="_blank"
-                                class="social-link"
+                                class="social-hover-icon social-link"
                               >
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fas fa-share-alt"></i>
                               </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://www.linkedin.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-linkedin-in"></i>
-                              </a>
+                              <ul class="team-social-dropdown">
+                                <li class="social-item">
+                                  <a
+                                    href="https://www.facebook.com/"
+                                    target="_blank"
+                                    class="social-link"
+                                  >
+                                    <i class="fab fa-facebook-f"></i>
+                                  </a>
+                                </li>
+                                <li class="social-item">
+                                  <a
+                                    href="https://twitter.com/"
+                                    target="_blank"
+                                    class="social-link"
+                                  >
+                                    <i class="fab fa-twitter"></i>
+                                  </a>
+                                </li>
+                                <li class="social-item">
+                                  <a
+                                    href="https://www.linkedin.com/"
+                                    target="_blank"
+                                    class="social-link"
+                                  >
+                                    <i class="fab fa-linkedin-in"></i>
+                                  </a>
+                                </li>
+                              </ul>
                             </li>
                           </ul>
-                        </li>
-                      </ul>
-                      <div class="category-box">
-                        <div class="item-category">
-                          <a href="agent-lists1.html">08 Listings</a>
+                          <div class="category-box">
+                            <div class="item-category">
+                              <a href="agent-lists1.html">
+                                <span>{currEle.listings}</span> Listings
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item-content">
+                          <div class="item-title">
+                            <h3>
+                              <a href="agent-lists1.html">{currEle.name}</a>
+                            </h3>
+                            <h4 class="item-subtitle">
+                              <a href="agency-lists1.html">{currEle.agency}</a>
+                            </h4>
+                          </div>
+                          <div class="item-contact">
+                            <div class="item-icon">
+                              <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="item-phn-no">
+                              Call: +<span>{currEle.phone}</span>{" "}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div class="item-content">
-                      <div class="item-title">
-                        <h3>
-                          <a href="agent-lists1.html">Andren Willium</a>
-                        </h3>
-                        <h4 class="item-subtitle">
-                          <a href="agency-lists1.html">Sunshine</a>
-                        </h4>
-                      </div>
-                      <div class="item-contact">
-                        <div class="item-icon">
-                          <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="item-phn-no">Call: +123 699 7700</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div
-                    class="team-box1 team-box3 wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    <div class="item-img">
-                      <a href="agent-lists1.html">
-                        <img
-                          src="img/team/team18.png"
-                          alt="team"
-                          width="475"
-                          height="511"
-                        />
-                      </a>
-                      <ul class="team-social-1">
-                        <li class="social-item">
-                          <a
-                            href="https://radiustheme.com/"
-                            target="_blank"
-                            class="social-hover-icon social-link"
-                          >
-                            <i class="fas fa-share-alt"></i>
-                          </a>
-                          <ul class="team-social-dropdown">
-                            <li class="social-item">
-                              <a
-                                href="https://www.facebook.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-facebook-f"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://www.linkedin.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-linkedin-in"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="category-box">
-                        <div class="item-category">
-                          <a href="agent-lists1.html">05 Listings</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-content">
-                      <div class="item-title">
-                        <h3>
-                          <a href="agent-lists1.html">Polly Matzinger</a>
-                        </h3>
-                        <h4 class="item-subtitle">
-                          <a href="agency-lists1.html">Sweet Home</a>
-                        </h4>
-                      </div>
-                      <div class="item-contact">
-                        <div class="item-icon">
-                          <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="item-phn-no">Call: +123 699 7700</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div
-                    class="team-box1 team-box3 wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    <div class="item-img">
-                      <a href="agent-lists1.html">
-                        <img
-                          src="img/team/team19.png"
-                          alt="team"
-                          width="475"
-                          height="511"
-                        />
-                      </a>
-                      <ul class="team-social-1">
-                        <li class="social-item">
-                          <a
-                            href="https://radiustheme.com/"
-                            target="_blank"
-                            class="social-hover-icon social-link"
-                          >
-                            <i class="fas fa-share-alt"></i>
-                          </a>
-                          <ul class="team-social-dropdown">
-                            <li class="social-item">
-                              <a
-                                href="https://www.facebook.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-facebook-f"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://www.linkedin.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-linkedin-in"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="category-box">
-                        <div class="item-category">
-                          <a href="agent-lists1.html">11 Listings</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-content">
-                      <div class="item-title">
-                        <h3>
-                          <a href="agent-lists1.html">Patty Watson</a>
-                        </h3>
-                        <h4 class="item-subtitle">
-                          <a href="agency-lists1.html">Eco Builders</a>
-                        </h4>
-                      </div>
-                      <div class="item-contact">
-                        <div class="item-icon">
-                          <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="item-phn-no">Call: +123 699 7700</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div
-                    class="team-box1 team-box3 wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    <div class="item-img">
-                      <a href="agent-lists1.html">
-                        <img
-                          src="img/team/team20.png"
-                          alt="team"
-                          width="475"
-                          height="511"
-                        />
-                      </a>
-                      <ul class="team-social-1">
-                        <li class="social-item">
-                          <a
-                            href="https://radiustheme.com/"
-                            target="_blank"
-                            class="social-hover-icon social-link"
-                          >
-                            <i class="fas fa-share-alt"></i>
-                          </a>
-                          <ul class="team-social-dropdown">
-                            <li class="social-item">
-                              <a
-                                href="https://www.facebook.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-facebook-f"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://www.linkedin.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-linkedin-in"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="category-box">
-                        <div class="item-category">
-                          <a href="agent-lists1.html">06 Listings</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-content">
-                      <div class="item-title">
-                        <h3>
-                          <a href="agent-lists1.html">Sarah Boysen</a>
-                        </h3>
-                        <h4 class="item-subtitle">
-                          <a href="agency-lists1.html">Mark Street</a>
-                        </h4>
-                      </div>
-                      <div class="item-contact">
-                        <div class="item-icon">
-                          <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="item-phn-no">Call: +123 699 7700</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div
-                    class="team-box1 team-box3 wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    <div class="item-img">
-                      <a href="agent-lists1.html">
-                        <img
-                          src="img/team/team17.png"
-                          alt="team"
-                          width="475"
-                          height="511"
-                        />
-                      </a>
-                      <ul class="team-social-1">
-                        <li class="social-item">
-                          <a
-                            href="https://radiustheme.com/"
-                            target="_blank"
-                            class="social-hover-icon social-link"
-                          >
-                            <i class="fas fa-share-alt"></i>
-                          </a>
-                          <ul class="team-social-dropdown">
-                            <li class="social-item">
-                              <a
-                                href="https://www.facebook.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-facebook-f"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://www.linkedin.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-linkedin-in"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="category-box">
-                        <div class="item-category">
-                          <a href="agent-lists1.html">08 Listings</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-content">
-                      <div class="item-title">
-                        <h3>
-                          <a href="agent-lists1.html">Andren Willium</a>
-                        </h3>
-                        <h4 class="item-subtitle">
-                          <a href="agency-lists1.html">Sunshine</a>
-                        </h4>
-                      </div>
-                      <div class="item-contact">
-                        <div class="item-icon">
-                          <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="item-phn-no">Call: +123 699 7700</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div
-                    class="team-box1 team-box3 wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    <div class="item-img">
-                      <a href="agent-lists1.html">
-                        <img
-                          src="img/team/team18.png"
-                          alt="team"
-                          width="475"
-                          height="511"
-                        />
-                      </a>
-                      <ul class="team-social-1">
-                        <li class="social-item">
-                          <a
-                            href="https://radiustheme.com/"
-                            target="_blank"
-                            class="social-hover-icon social-link"
-                          >
-                            <i class="fas fa-share-alt"></i>
-                          </a>
-                          <ul class="team-social-dropdown">
-                            <li class="social-item">
-                              <a
-                                href="https://www.facebook.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-facebook-f"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://www.linkedin.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-linkedin-in"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="category-box">
-                        <div class="item-category">
-                          <a href="agent-lists1.html">08 Listings</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-content">
-                      <div class="item-title">
-                        <h3>
-                          <a href="agent-lists1.html">Sarah Boysen</a>
-                        </h3>
-                        <h4 class="item-subtitle">
-                          <a href="agency-lists1.html">Mark Street</a>
-                        </h4>
-                      </div>
-                      <div class="item-contact">
-                        <div class="item-icon">
-                          <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="item-phn-no">Call: +123 699 7700</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div
-                    class="team-box1 team-box3 wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    <div class="item-img">
-                      <a href="agent-lists1.html">
-                        <img
-                          src="img/team/team19.png"
-                          alt="team"
-                          width="475"
-                          height="511"
-                        />
-                      </a>
-                      <ul class="team-social-1">
-                        <li class="social-item">
-                          <a
-                            href="https://radiustheme.com/"
-                            target="_blank"
-                            class="social-hover-icon social-link"
-                          >
-                            <i class="fas fa-share-alt"></i>
-                          </a>
-                          <ul class="team-social-dropdown">
-                            <li class="social-item">
-                              <a
-                                href="https://www.facebook.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-facebook-f"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://www.linkedin.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-linkedin-in"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="category-box">
-                        <div class="item-category">
-                          <a href="agent-lists1.html">11 Listings</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-content">
-                      <div class="item-title">
-                        <h3>
-                          <a href="agent-lists1.html">Patty Watson</a>
-                        </h3>
-                        <h4 class="item-subtitle">
-                          <a href="agency-lists1.html">Eco Builders</a>
-                        </h4>
-                      </div>
-                      <div class="item-contact">
-                        <div class="item-icon">
-                          <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="item-phn-no">Call: +123 699 7700</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div
-                    class="team-box1 team-box3 wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    <div class="item-img">
-                      <a href="agent-lists1.html">
-                        <img
-                          src="img/team/team20.png"
-                          alt="team"
-                          width="475"
-                          height="511"
-                        />
-                      </a>
-                      <ul class="team-social-1">
-                        <li class="social-item">
-                          <a
-                            href="https://radiustheme.com/"
-                            target="_blank"
-                            class="social-hover-icon social-link"
-                          >
-                            <i class="fas fa-share-alt"></i>
-                          </a>
-                          <ul class="team-social-dropdown">
-                            <li class="social-item">
-                              <a
-                                href="https://www.facebook.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-facebook-f"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://www.linkedin.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-linkedin-in"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="category-box">
-                        <div class="item-category">
-                          <a href="agent-lists1.html">05 Listings</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-content">
-                      <div class="item-title">
-                        <h3>
-                          <a href="agent-lists1.html">Polly Matzinger</a>
-                        </h3>
-                        <h4 class="item-subtitle">
-                          <a href="agency-lists1.html">Sweet Home</a>
-                        </h4>
-                      </div>
-                      <div class="item-contact">
-                        <div class="item-icon">
-                          <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="item-phn-no">Call: +123 699 7700</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div
-                    class="team-box1 team-box3 wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    <div class="item-img">
-                      <a href="agent-lists1.html">
-                        <img
-                          src="img/team/team17.png"
-                          alt="team"
-                          width="475"
-                          height="511"
-                        />
-                      </a>
-                      <ul class="team-social-1">
-                        <li class="social-item">
-                          <a
-                            href="https://radiustheme.com/"
-                            target="_blank"
-                            class="social-hover-icon social-link"
-                          >
-                            <i class="fas fa-share-alt"></i>
-                          </a>
-                          <ul class="team-social-dropdown">
-                            <li class="social-item">
-                              <a
-                                href="https://www.facebook.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-facebook-f"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://www.linkedin.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-linkedin-in"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="category-box">
-                        <div class="item-category">
-                          <a href="agent-lists1.html">08 Listings</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-content">
-                      <div class="item-title">
-                        <h3>
-                          <a href="agent-lists1.html">Andren Willium</a>
-                        </h3>
-                        <h4 class="item-subtitle">
-                          <a href="agency-lists1.html">Sunshine</a>
-                        </h4>
-                      </div>
-                      <div class="item-contact">
-                        <div class="item-icon">
-                          <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="item-phn-no">Call: +123 699 7700</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div
-                    class="team-box1 team-box3 wow fadeInUp"
-                    data-wow-delay=".6s"
-                  >
-                    <div class="item-img">
-                      <a href="agent-lists1.html">
-                        <img
-                          src="img/team/team18.png"
-                          alt="team"
-                          width="475"
-                          height="511"
-                        />
-                      </a>
-                      <ul class="team-social-1">
-                        <li class="social-item">
-                          <a
-                            href="https://radiustheme.com/"
-                            target="_blank"
-                            class="social-hover-icon social-link"
-                          >
-                            <i class="fas fa-share-alt"></i>
-                          </a>
-                          <ul class="team-social-dropdown">
-                            <li class="social-item">
-                              <a
-                                href="https://www.facebook.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-facebook-f"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://twitter.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li class="social-item">
-                              <a
-                                href="https://www.linkedin.com/"
-                                target="_blank"
-                                class="social-link"
-                              >
-                                <i class="fab fa-linkedin-in"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="category-box">
-                        <div class="item-category">
-                          <a href="agent-lists1.html">06 Listings</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-content">
-                      <div class="item-title">
-                        <h3>
-                          <a href="agent-lists1.html">Sarah Boysen</a>
-                        </h3>
-                        <h4 class="item-subtitle">
-                          <a href="agency-lists1.html">Mark Street</a>
-                        </h4>
-                      </div>
-                      <div class="item-contact">
-                        <div class="item-icon">
-                          <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="item-phn-no">Call: +123 699 7700</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
               <div class="pagination-style-1">
                 <ul class="pagination">
