@@ -6,7 +6,7 @@ import Navbar from "../Navbar";
 // import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
-
+import "./about.css"
 const About = () => {
 	return (
 		<div>
@@ -206,7 +206,10 @@ const About = () => {
 									We're on a Mission to Change View of RealEstate Field.
 								</h2>
 								<p>
-								VRDOOR is a unique digital platform which offers 360 degree view solution to our customers for all their property needs. The portal is completely devoted to meet every requirement of the customer. 
+									VRDOOR is a unique digital platform which offers 360 degree
+									view solution to our customers for all their property needs.
+									The portal is completely devoted to meet every requirement of
+									the customer.
 								</p>
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6">
@@ -221,7 +224,7 @@ const About = () => {
 											</div>
 											<h3 class="item-sm-title">Modern Villa</h3>
 											<p>
-											we provide credible information with maximum properties 
+												we provide credible information with maximum properties
 											</p>
 										</div>
 									</div>
@@ -236,9 +239,7 @@ const About = () => {
 												/>
 											</div>
 											<h3 class="item-sm-title">Secure Payment</h3>
-											<p>
-											a robust search mechanism with secured systems
-											</p>
+											<p>a robust search mechanism with secured systems</p>
 										</div>
 									</div>
 								</div>
@@ -277,7 +278,8 @@ const About = () => {
 									The Core Company Values Of Our main Goal.
 								</h2>
 								<p>
-								We are not only focused to provide buy, sell and rent details but also help customers in post and pre buying the property.
+									We are not only focused to provide buy, sell and rent details
+									but also help customers in post and pre buying the property.
 								</p>
 								<div class="skills-wrap-layout-2 counter-appear">
 									<div class="single-skill">
@@ -321,10 +323,7 @@ const About = () => {
 								</h2>
 								<div class="play-button">
 									<div class="item-icon">
-										<a
-											href="http://www.youtube.com/"
-											class="play-btn"
-										>
+										<a href="http://www.youtube.com/" class="play-btn">
 											<span class="play-icon style-1">
 												<i class="fas fa-play"></i>
 											</span>
@@ -368,8 +367,9 @@ const About = () => {
 										<img
 											src="img/team/team21.jpg"
 											alt="team"
-											height="500"
-											width="500"
+											height="240"
+											width="240"
+											style={{ height: "240px", width: "240px" }}
 										/>
 									</a>
 									<ul class="team-social-1">
@@ -450,8 +450,9 @@ const About = () => {
 										<img
 											src="img/team/team22.jpeg"
 											alt="team"
-											height="500"
-											width="500"
+											height="240"
+											style={{ height: "240px", width: "240px" }}
+											width="240"
 										/>
 									</a>
 									<ul class="team-social-1">
@@ -534,6 +535,7 @@ const About = () => {
 											alt="team"
 											height="240"
 											width="240"
+											style={{ height: "240px", width: "240px" }}
 										/>
 									</a>
 									<ul class="team-social-1">
@@ -612,10 +614,11 @@ const About = () => {
 								<div class="item-img">
 									<a href="agent-lists1.html">
 										<img
-											src="img/team/team24.jpeg"
+											src="img/team/team23.jpeg"
 											alt="team"
 											height="240"
 											width="240"
+											style={{ height: "240px", width: "240px" }}
 										/>
 									</a>
 									<ul class="team-social-1">

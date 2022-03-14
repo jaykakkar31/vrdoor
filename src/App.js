@@ -27,7 +27,7 @@ function App() {
         <Route exact path={"/singleagent"} element={<SingleAgent />} />
         <Route exact path={"*"} element={<Error />} />
         <Route exact path={"/blogdetail"} element={<BlogDetail />} />
-        <Route exact path={"/Login"} element={<Login />} />
+        <Route exact path={"/login"} element={<Login />} />
         <Route exact path={"/addpost"} element={<AddPost />} />
         
         
