@@ -10,6 +10,8 @@ import SingleProperty from "./components/SingleProperty/SingleProperty";
 import SingleAgent from "./components/SingleAgent/SingleAgent";
 import Error from "./components/Error/Error";
 import BlogDetail from "./components/Blog/BlogDetail"
+import Login from "./components/Login/Login";
+import AddPost from "./components/AddPost/AddPost";
 
 function App() {
   return (
@@ -25,6 +27,9 @@ function App() {
         <Route exact path={"/single-agent"} element={<SingleAgent />} />
         <Route exact path={"*"} element={<Error />} />
         <Route exact path={"/blogdetail"} element={<BlogDetail />} />
+        <Route exact path={"/Login"} element={<Login />} />
+        <Route exact path={"/addpost"} element={<AddPost />} />
+        
         
 
       </Routes>
