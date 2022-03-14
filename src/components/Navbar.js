@@ -55,15 +55,15 @@ const Navbar = () => {
 											<a href="about">About</a>
 										</li>
 										<li>
-											<a href="with-sidebar2.html">Property</a>
+											<a href="properties">Property</a>
 											<ul class="dropdown-menu-col-1">
 												<li>
-													<a href="half-map1.html">Properties Map Grid</a>
+													<a href="properties">Buy</a>
 												</li>
 												<li>
-													<a href="half-map2.html">Properties Map List</a>
+													<a href="properties">Rent</a>
 												</li>
-												<li>
+												{/* <li>
 													<a href="with-sidebar.html">Properties Grid</a>
 												</li>
 												<li>
@@ -82,10 +82,10 @@ const Navbar = () => {
 												</li>
 												<li>
 													<a href="single-listing3.html">Single Property 3</a>
-												</li>
+												</li> */}
 											</ul>
 										</li>
-										<li>
+										{/* <li>
 											<a href="agent-lists1.html">Agents</a>
 											<ul class="dropdown-menu-col-1">
 												<li>
@@ -101,8 +101,8 @@ const Navbar = () => {
 													<a href="single-agency1.html">Single Agency Page</a>
 												</li>
 											</ul>
-										</li>
-										<li class="position-static hide-on-mobile-menu">
+										</li> */}
+										{/* <li class="position-static hide-on-mobile-menu">
 											<a href="index.html">Pages</a>
 											<div class="template-mega-menu">
 												<div class="container">
@@ -217,10 +217,14 @@ const Navbar = () => {
 													<a href="Contactus">Contact</a>
 												</li>
 											</ul>
+										</li> */}
+										<li>
+											<a href="Blog">Blog</a>
 										</li>
 										<li>
 											<a href="Contactus">Contact</a>
 										</li>
+										
 									</ul>
 								</nav>
 							</div>

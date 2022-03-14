@@ -206,9 +206,7 @@ const About = () => {
 									We're on a Mission to Change View of RealEstate Field.
 								</h2>
 								<p>
-									when an unknown printer took a galley of type and scrambled it
-									to make type specimen bookt has survived not only five
-									centuries alsoey jequery the leap into electronic typesetting.
+								VRDOOR is a unique digital platform which offers 360 degree view solution to our customers for all their property needs. The portal is completely devoted to meet every requirement of the customer. 
 								</p>
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6">
@@ -223,7 +221,7 @@ const About = () => {
 											</div>
 											<h3 class="item-sm-title">Modern Villa</h3>
 											<p>
-												when unknown printer took galley of type and scrambled.
+											we provide credible information with maximum properties 
 											</p>
 										</div>
 									</div>
@@ -239,7 +237,7 @@ const About = () => {
 											</div>
 											<h3 class="item-sm-title">Secure Payment</h3>
 											<p>
-												when unknown printer took galley of type and scrambled.
+											a robust search mechanism with secured systems
 											</p>
 										</div>
 									</div>
@@ -279,8 +277,7 @@ const About = () => {
 									The Core Company Values Of Our main Goal.
 								</h2>
 								<p>
-									when an unknown printer took a galley of type and scrambled it
-									to make type specimen bookt has survived.
+								We are not only focused to provide buy, sell and rent details but also help customers in post and pre buying the property.
 								</p>
 								<div class="skills-wrap-layout-2 counter-appear">
 									<div class="single-skill">
@@ -325,7 +322,7 @@ const About = () => {
 								<div class="play-button">
 									<div class="item-icon">
 										<a
-											href="http://www.youtube.com/watch?v=1iIZeIy7TqM"
+											href="http://www.youtube.com/"
 											class="play-btn"
 										>
 											<span class="play-icon style-1">
@@ -355,9 +352,9 @@ const About = () => {
 				<div class="container">
 					<div class="item-heading-center mb-20">
 						<span class="section-subtitle">Expertise Is Here</span>
-						<h2 class="section-title">Our Exclusive Agetns</h2>
+						<h2 class="section-title">Our Exclusive Team</h2>
 						<div class="bg-title-wrap" style={{ display: "block" }}>
-							<span class="background-title solid">Our Agents</span>
+							<span class="background-title solid">Our Team</span>
 						</div>
 					</div>
 					<div class="row">
@@ -369,10 +366,10 @@ const About = () => {
 								<div class="item-img">
 									<a href="agent-lists1.html">
 										<img
-											src="img/team/team21.png"
+											src="img/team/team21.jpg"
 											alt="team"
-											height="240"
-											width="240"
+											height="500"
+											width="500"
 										/>
 									</a>
 									<ul class="team-social-1">
@@ -419,27 +416,27 @@ const About = () => {
 											</ul>
 										</li>
 									</ul>
-									<div class="category-box">
+									{/* <div class="category-box">
 										<div class="item-category">
-											<a href="single-agent1.html">08 Listings</a>
+											<a href="single-agent1.html"></a>
 										</div>
-									</div>
+									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<a href="agent-lists1.html">Andren Willium</a>
+											<a href="agent-lists1.html">Chirag Seth</a>
 										</h3>
-										<h4 class="item-subtitle">
+										{/* <h4 class="item-subtitle">
 											<a href="agency-lists1.html">Sunshine</a>
-										</h4>
+										</h4> */}
 									</div>
-									<div class="item-contact">
+									{/* <div class="item-contact">
 										<div class="item-icon">
 											<i class="fas fa-phone-alt"></i>
 										</div>
 										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>
@@ -451,10 +448,10 @@ const About = () => {
 								<div class="item-img">
 									<a href="agent-lists1.html">
 										<img
-											src="img/team/team22.png"
+											src="img/team/team22.jpeg"
 											alt="team"
-											height="240"
-											width="240"
+											height="500"
+											width="500"
 										/>
 									</a>
 									<ul class="team-social-1">
@@ -533,7 +530,7 @@ const About = () => {
 								<div class="item-img">
 									<a href="agent-lists1.html">
 										<img
-											src="img/team/team23.png"
+											src="img/team/team23.jpeg"
 											alt="team"
 											height="240"
 											width="240"
@@ -615,7 +612,7 @@ const About = () => {
 								<div class="item-img">
 									<a href="agent-lists1.html">
 										<img
-											src="img/team/team24.png"
+											src="img/team/team24.jpeg"
 											alt="team"
 											height="240"
 											width="240"
