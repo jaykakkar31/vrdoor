@@ -23,8 +23,8 @@ function App() {
         <Route exact path={"/contactus"} element={<Contact />} />
         <Route exact path={"/agents"} element={<Agents />} />
         <Route exact path={"/properties"} element={<Properties />} />
-        <Route exact path={"/single-property"} element={<SingleProperty />} />
-        <Route exact path={"/single-agent"} element={<SingleAgent />} />
+        <Route exact path={"/singleproperty"} element={<SingleProperty />} />
+        <Route exact path={"/singleagent"} element={<SingleAgent />} />
         <Route exact path={"*"} element={<Error />} />
         <Route exact path={"/blogdetail"} element={<BlogDetail />} />
         <Route exact path={"/Login"} element={<Login />} />
