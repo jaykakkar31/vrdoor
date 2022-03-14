@@ -24,7 +24,7 @@ function App() {
         <Route exact path={"/single-property"} element={<SingleProperty />} />
         <Route exact path={"/single-agent"} element={<SingleAgent />} />
         <Route exact path={"*"} element={<Error />} />
-        <Route exact path={"/BlogDetail"} element={<BlogDetail />} />
+        <Route exact path={"/blogdetail"} element={<BlogDetail />} />
         
 
       </Routes>
