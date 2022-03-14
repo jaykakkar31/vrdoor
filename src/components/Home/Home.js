@@ -1208,9 +1208,9 @@ const Home = () => {
 										<span class="background-title solid">About</span>
 									</div>
 									<p>
-										Make a type specimen book. It has survived not only five
-										centuries, but also the leap into electronic typesetting,
-										remaining essentially electronic typesettings pecimen book
+									
+
+Experience homes in a smarter way with Virtual reality. Explore your future home with timely listings and a seamless experience.
 									</p>
 								</div>
 								<div class="row">
@@ -1250,9 +1250,9 @@ const Home = () => {
 									</div>
 								</div>
 								<p>
-									Make a type specimen book. It has survived not only five
-									centuries, but also the leap into electronic typesetting,
-									remaining essentially electronic typesettings pecimen book
+								The
+                  company's promise is using technology to reduce the time and
+                  friction of buying and selling house or apartment.
 								</p>
 								<div class="banner-button about-button-2">
 									<a href="contact.html" class="banner-btn">
@@ -1445,7 +1445,7 @@ const Home = () => {
 											<span class="play-icon style-1">
 												<i class="fas fa-play"></i>
 											</span>
-											<span class="play-text">Watch Video</span>
+											<span class="play-text">Get Started</span>
 										</a>
 									</div>
 								</div>
@@ -1659,9 +1659,10 @@ const Home = () => {
 										We’re Providing the Best Real Estate Services
 									</h2>
 									<p class="item-para">
-										Make a type specimen book. It has survived not only
+									Explore places in VR. 
+A smart real estate experience using virtual reality
 									</p>
-									<p>five centuries, but also the leap into.</p>
+									<p></p>
 								</div>
 								<div class="row">
 									<div class="col-lg-6 col-md-6">
@@ -1671,7 +1672,7 @@ const Home = () => {
 											</div>
 											<div class="service-content">
 												<h3 class="info-title">Our Hot Line:</h3>
-												<p>+88 1950 555 33</p>
+												<p>+91 8826024495</p>
 											</div>
 										</div>
 									</div>
@@ -1688,7 +1689,7 @@ const Home = () => {
 									</div>
 								</div>
 								<div class="banner-button">
-									<a href="contact.html" class="banner-btn">
+									<a href="Contactus" class="banner-btn">
 										Contact With Us
 									</a>
 								</div>
@@ -1828,7 +1829,7 @@ const Home = () => {
 							<span class="background-title solid">Dream Home</span>
 						</div>
 						<div class="banner-button">
-							<a href="contact.html" class="banner-btn">
+							<a href="Contactus" class="banner-btn">
 								Contact With Us
 							</a>
 						</div>
