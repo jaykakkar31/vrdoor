@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
-
+import "./home.css"
 const Home = () => {
 	const [isclick, setIsClick] = useState(false);
     console.log(isclick);
@@ -14,7 +14,7 @@ const Home = () => {
 			>
 				<div class="mean-bar">
 					<a href="index.html">
-						<img src="img/logo_light2.svg" alt="logo" class="img-fluid" />
+						<img src="img/logo.svg" alt="logo" class="img-fluid" />
 					</a>
 					<div class="mean-bar--right">
 						<div class="actions search">
@@ -161,7 +161,7 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-			<section class="main-banner-wrap1 main-banner-wrap6 motion-effects-wrap">
+			<section class="main-banner-wrap1 main-banner-wrap6 motion-effects-wrap adj-height" >
 				<div class="shape-element">
 					<ul>
 						<li>
@@ -329,7 +329,7 @@ const Home = () => {
 																	<i class="fas fa-sliders-h"></i>
 																</span>
 															</div>
-															<div class="filter-button-area">
+															<div class="filter-button-area" style={{height:"100%",display:"flex"}}>
 																<a
 																	class="filter-btn"
 																	style={{

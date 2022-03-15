@@ -11,7 +11,7 @@ const Contact = () => {
 			>
 				<div class="mean-bar">
 					<a href="index.html">
-						<img src="img/logo_light2.svg" alt="logo" class="img-fluid" />
+						<img src="img/logo.svg" alt="logo" class="img-fluid" />
 					</a>
 					<div class="mean-bar--right">
 						<div class="actions search">
