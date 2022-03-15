@@ -110,6 +110,7 @@ const Login = () => {
             </div>
         </div>
     
+
         <div class="breadcrumb-wrap">
             <div class="container">
                 <nav aria-label="breadcrumb">
@@ -153,7 +154,7 @@ const Login = () => {
                                 </div>
                                 <div class="form-group">
                                     <p class="rtcl-forgot-password">
-                                        <a href="#">Forgot Your Password</a>
+                                        <a href="/">Forgot Your Password</a>
                                     </p>
                                 </div>
                             </form>
