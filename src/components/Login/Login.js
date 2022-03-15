@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 
@@ -147,16 +148,17 @@ const Login = () => {
                                 <button type="submit" name="rtcl-login" class="btn btn-primary" value="login">
                                     Login
                                 </button>
-                                <div class="form-check">
-                                    <input  type="checkbox" name="rememberme" id="rtcl-rememberme" value="forever"/>
-                                    <label  class="form-check-label" for="rtcl-rememberme"> Remember Me</label>
-                                </div>
-                                </div>
-                                <div class="form-group">
-                                    <p class="rtcl-forgot-password">
-                                        <a href="/">Forgot Your Password</a>
+                                </div >
+                                <div class="d-flex justify-content-between">
+                                    <p class="text-right">
+                                        <Link to="/signup" >Not registered yet? Create an Account</Link>
+                                    </p>
+                                    <p class="text-right">
+                                        <a href="/">Forgot Your Password?</a>
                                     </p>
                                 </div>
+                                
+                               
                             </form>
                         </div>
                     </div>
