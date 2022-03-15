@@ -2,6 +2,7 @@ import { USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_
 import axios from 'axios'
 const API_URL="http://localhost:4000"
 export const userRgister = (details) => async(dispatch) => {
+	console.log(details);
 	try {
 		dispatch({
 			type: USER_REGISTER_REQUEST,
@@ -16,6 +17,7 @@ export const userRgister = (details) => async(dispatch) => {
 			details,
 			config
 		);
+		
 		console.log(data);
 		dispatch({
 			type: USER_REGISTER_SUCCESS,

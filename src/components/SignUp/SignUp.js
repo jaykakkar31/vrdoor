@@ -1,8 +1,32 @@
-import React from "react";
+import React, {useState } from "react";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
+import { useDispatch } from "react-redux";
+import { userRgister } from "../../store/actions/userActions";
+
+
+
 
 const SignUp = () => {
+
+    const [details, setDetails] = useState({
+    name:"",
+    email:"",
+    phoneno:"",
+    dob:"",
+    userpass:"",
+    confirmpass:""
+    });
+    const dispatch = useDispatch();
+	
+
+	const signUpHandle = (e) => {
+		e.preventDefault();
+		console.log(details);
+		dispatch(userRgister(details));
+	};
+
+
 
   return (
     <div>
@@ -25,36 +49,99 @@ const SignUp = () => {
                     <div class="page-content-block">
                         <div class="col-md-12 rtcl-login-form-wrap">
                             <h2>Sign Up</h2>
-                            <form id="rtcl-signup-form" class="form-horizontal" method="post" novalidate="novalidate">
+                            
+                            <form id="rtcl-signup-form" class="form-horizontal" method="post" novalidate="novalidate" onSubmit={signUpHandle}>
+                            
                                 <div class="form-group">
                                     <label for="name" class="control-label">
                                         Name
                                         <strong class="rtcl-required">*</strong>
                                     </label>
-                                    <input type="text" name="name"  value="" id="name" class="form-control" required=""/>
+                                    <input type="text" name="name" id="name" class="form-control" required=""
+                                    value={details.name}
+                                    onChange={(e) => {
+                                        setDetails((prev) => {
+                                            return { ...prev, name: e.target.value };
+                                        });
+                                    }}/>
                                 </div>
+                            
                                 <div class="form-group">
                                     <label for="email" class="control-label">
                                         Email
                                         <strong class="rtcl-required">*</strong>
                                     </label>
-                                    <input type="email" name="email"  value="" id="email" class="form-control" required=""/>
+                                    <input type="email" name="email" id="email" class="form-control" required=""
+                                     value={details.email}
+                                     onChange={(e) => {
+                                         setDetails((prev) => {
+                                             return { ...prev, email: e.target.value };
+                                         });
+                                     }}/>
                                 </div>
-                                <div class="form-group">
-                                    <label for="userpass" class="control-label">
-                                        Password <strong class="rtcl-required">*</strong>
-                                    </label>
-                                    <input type="password" name="password" id="userpass"  class="form-control" required=""/>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="phoneno" class="control-label">
                                         Phone Number <strong class="rtcl-required">*</strong>
                                     </label>
-                                    <input type="tel" name="phoneno" id="phoneno"  class="form-control" required=""/>
+                                    <input type="tel" name="phoneno" id="phoneno"  class="form-control" required=""
+                                     value={details.phoneno}
+                                     onChange={(e) => {
+                                         setDetails((prev) => {
+                                             return { ...prev, phoneno: e.target.value };
+                                         });
+                                     }}/>
                                 </div>
+
+                                <div><label for="gender" class="control-label">Gender <strong class="rtcl-required">*</strong></label></div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" value="Male" name="gender" /> Male</div>
+                                    <div class="form-check form-check-inline"><input type="radio" value="Female" name="gender" /> Female</div>
+                                    <div class="form-check form-check-inline"><input type="radio" value="Other" name="gender" /> Other
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="dob" class="control-label">
+                                        Date of Birth <strong class="rtcl-required">*</strong>
+                                    </label>
+                                    <input type="date" name="dob" id="dob"  class="form-control" required=""
+                                     value={details.dob}
+                                     onChange={(e) => {
+                                         setDetails((prev) => {
+                                             return { ...prev, dob: e.target.value };
+                                         });
+                                     }}/>
+                                </div>   
                                 
+                                <div class="form-group">
+                                    <label for="userpass" class="control-label">
+                                        Password <strong class="rtcl-required">*</strong>
+                                    </label>
+                                    <input type="password" name="password" id="userpass"  class="form-control" required=""
+                                     value={details.userpass}
+                                     onChange={(e) => {
+                                         setDetails((prev) => {
+                                             return { ...prev, userpass: e.target.value };
+                                         });
+                                     }}/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmpass" class="control-label">
+                                        Confirm Password <strong class="rtcl-required">*</strong>
+                                    </label>
+                                    <input type="password" name="confirmpass" id="confirmpass"  class="form-control" required=""
+                                     value={details.confirmpass}
+                                     onChange={(e) => {
+                                         setDetails((prev) => {
+                                             return { ...prev, confirmpass: e.target.value };
+                                         });
+                                     }}/>
+                                </div>
+
+
                                 <div class="form-group d-flex align-items-center">
-                                <button type="submit" name="signup" class="btn btn-primary" value="signup">
+                                <button type="submit" name="signup" class="btn btn-primary" value="signup" onClick={signUpHandle}>
                                     Sign Up
                                 </button>
                                 </div>
