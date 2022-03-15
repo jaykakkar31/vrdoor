@@ -13,7 +13,7 @@ export const registerUser = (state = {}, actions) => {
 		case USER_REGISTER_REQUEST:
 			return { loading: true, error: null };
 		case USER_REGISTER_SUCCESS:
-			return { loading: false, userData: actions.payload };
+			return { loading: false, userInfo: actions.payload };
 		case USER_REGISTER_FAIL:
 			return { loading: false, error: actions.payload };
 
@@ -26,7 +26,7 @@ export const loginUser = (state = {}, actions) => {
 		case USER_LOGIN_REQUEST:
 			return { loading: true, error: null };
 		case USER_LOGIN_SUCCESS:
-			return { loading: false, userData: actions.payload };
+			return { loading: false, userInfo: actions.payload };
 		case USER_LOGIN_FAIL:
 			return { loading: false, error: actions.payload };
 		case USER_LOGOUT:

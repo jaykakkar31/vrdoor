@@ -1,15 +1,132 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import Data from "../../Apis/propertiesApi";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProperty } from "../../store/actions/propertiesAction";
+
 const Properties = () => {
 	const [isClick, setIsClick] = useState(false);
-
+	const dispatch = useDispatch();
+	const fetchPropertyReducer = useSelector(
+		(state) => state.fetchPropertyReducer
+	);
+	const { loading, error, propertiesData } = fetchPropertyReducer;
+	useEffect(() => {
+		dispatch(fetchProperty());
+	}, [dispatch]);
 	return (
 		<div>
 			<Navbar />
-
+<div class="rt-header-menu mean-container position-relative" id="meanmenu">
+				<div class="mean-bar">
+					<a href="index.html">
+						<img src="img/logo.svg" alt="logo" class="img-fluid"/>
+					</a>
+					<div class="mean-bar--right">
+						<div class="actions search">
+							<a href="#template-search" class="item-icon" title="Search">
+								<i class="fas fa-search"></i>
+							</a>
+						</div>
+						<div class="actions user">
+							<a href="account.html"><i class="flaticon-user"></i></a>
+						</div>
+						<span class="sidebarBtn">
+							<span class="bar"></span>
+							<span class="bar"></span>
+							<span class="bar"></span>
+							<span class="bar"></span>
+						</span>
+					</div>
+				</div>
+				<div class="rt-slide-nav">
+					<div class="offscreen-navigation">
+						<nav class="menu-main-primary-container">
+							<ul class="menu">
+								<li class="list menu-item-parent menu-item-has-children">
+									<a class="animation" href="index.html">Home</a>
+									<ul class="main-menu__dropdown sub-menu">
+										<li><a href="index.html">Home 01</a></li>
+										<li><a href="index2.html">Home 02</a></li>
+										<li><a href="index3.html">Home 03</a></li>
+										<li><a href="index4.html">Home 04</a></li>
+										<li><a href="index5.html">Home 05</a></li>
+									</ul>
+								</li>
+								<li class="list menu-item-parent menu-item-has-children">
+									<a class="animation" href="with-sidebar2.html">Listing</a>
+									<ul class="main-menu__dropdown sub-menu">
+										<li>
+											<a href="half-map1.html">Properties Map Grid</a>
+										</li>
+										<li>
+											<a href="half-map2.html">Properties Map List</a>
+										</li>
+										<li>
+											<a href="without-sidebar.html">Properties Full Width</a>
+										</li>
+										<li>
+											<a href="with-sidebar.html">Properties Grid</a>
+										</li>
+										<li>
+											<a href="single-listing1.html">Single Property 1</a>
+										</li>
+										<li>
+											<a href="single-listing2.html">Single Property 2</a>
+										</li>
+										<li>
+											<a href="single-listing3.html">Single Property 3</a>
+										</li>
+									</ul>
+								</li>
+								<li class="list menu-item-parent menu-item-has-children">
+									<a class="animation" href="index.html">Pages</a>
+									<ul class="main-menu__dropdown sub-menu">
+										<li>
+											<a href="https://www.radiustheme.com/demo/html/homlisti/about.html">About Us</a>
+										</li>
+										<li><a href="404.html">Error page</a></li>
+										<li>
+											<a href="with-sidebar.html">Properties Grid</a>
+										</li>
+										<li>
+											<a href="without-sidebar.html">Properties Full Width</a>
+										</li>
+										<li>
+											<a href="single-agency1.html">Single Agency page</a>
+										</li>
+										<li><a href="single-agent1.html">Single-agent page</a></li>
+										<li><a href="pricing-1.html">Pricing page</a></li>
+									</ul>
+								</li>
+								<li class="list menu-item-parent menu-item-has-children">
+									<a class="animation" href="index.html">Blog</a>
+									<ul class="main-menu__dropdown sub-menu">
+										<li><a href="blog1.html">Blog 1</a></li>
+										<li><a href="blog2.html">Blog 2</a></li>
+										<li><a href="blog-details1.html">Blog Details Page</a></li>
+									</ul>
+								</li>
+								<li class="list menu-item-parent menu-item-has-children">
+									<a class="animation" href="index.html">Agents</a>
+									<ul class="main-menu__dropdown sub-menu">
+										<li><a href="agency-lists1.html">Agency List page</a></li>
+										<li><a href="agent-lists1.html">Agent List Page</a></li>
+										<li>
+											<a href="agent-reviews1.html">Agent Reviews Page</a>
+										</li>
+									</ul>
+								</li>
+								<li class="list menu-item-parent">
+									<a class="animation" href="contact.html">Contact us</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
 			{/* <!--=====================================-->
     <!--=   Half Map     Start              =-->
     <!--=====================================--> */}
@@ -458,11 +575,11 @@ const Properties = () => {
 											role="tabpanel"
 										>
 											<div class="row justify-content-center">
-												{Data.map((currEle) => {
+												{propertiesData?.map((currEle) => {
 													return (
 														<div
 															class="col-xl-6 col-lg-6 col-md-6"
-															key={currEle.id}
+															key={currEle._id}
 														>
 															<div
 																class="property-box2 wow animated fadeInUp"
@@ -471,7 +588,7 @@ const Properties = () => {
 																<div class="item-img">
 																	<Link to="/singleproperty">
 																		<img
-																			src={currEle.img}
+																			src={currEle.propertyImage}
 																			alt="blog"
 																			width="660"
 																			height="440"
@@ -612,7 +729,7 @@ const Properties = () => {
 									src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14604.9440088864!2d90.42637295!3d23.774608949999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1640153797321!5m2!1sen!2sbd"
 									width="907"
 									height="2368"
-                                    title="map"
+									title="map"
 									style={{ border: "0" }}
 									allowFullScreen=""
 									loading="lazy"

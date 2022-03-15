@@ -10,8 +10,8 @@ const userInfofromStorage = localStorage.getItem("userInfo")
 const middleware = [thunk];
 
 const initialState = {
-	educatorAuthReducer: {
-		educatorInfo: userInfofromStorage,
+	loginUser: {
+		userInfo: userInfofromStorage,
 	},
 };
 const reducers = combineReducers({
