@@ -150,12 +150,15 @@ const Login = () => {
                                 </button>
                                 </div >
                                 <div class="d-flex justify-content-between">
-                                    <p class="text-right">
-                                        <Link to="/signup" >Not registered yet? Create an Account</Link>
-                                    </p>
-                                    <p class="text-right">
+                                    <div class="form-group">
+                                    
+                                    <p class="rtcl-forgot-password">
+                                    Not registered yet?<Link to="/signup" > Create an Account</Link>
+                                    </p></div>
+                                    <div class="form-group">
+                                    <p class="rtcl-forgot-password">
                                         <a href="/">Forgot Your Password?</a>
-                                    </p>
+                                    </p></div>
                                 </div>
                                 
                                

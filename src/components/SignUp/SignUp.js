@@ -164,7 +164,7 @@ const SignUp = () => {
                                     Sign Up
                                 </button>
                                 </div>
-                                <div>Already have an account? <Link to="/login" >Log in </Link> </div>
+                                <div class="form-group"><p class="rtcl-forgot-password">Already have an account? <Link to="/login" >Log in </Link></p> </div>
                             </form>
                         </div>
                     </div>
