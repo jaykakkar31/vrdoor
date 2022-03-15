@@ -1,11 +1,13 @@
 import React from "react";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
-const AddPost = () => {
-    return (
-        <div>
-            <Navbar />
-            <div class="breadcrumb-wrap">
+
+const SignUp = () => {
+
+  return (
+    <div>
+      <Navbar />
+      <div class="breadcrumb-wrap">
             <div class="container">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -22,22 +24,15 @@ const AddPost = () => {
                 <div class="col-lg-12 col-sm-12 col-12">
                     <div class="page-content-block">
                         <div class="col-md-12 rtcl-login-form-wrap">
-                            <h2>Post An Add</h2>
-                            <form id="postadd" class="form-horizontal" method="post" novalidate="novalidate">
+                            <h2>Sign Up</h2>
+                            <form id="rtcl-signup-form" class="form-horizontal" method="post" novalidate="novalidate">
                                 <div class="form-group">
-                                    <label for="addtype" class="control-label">
-                                        Select Property Add Type
+                                    <label for="name" class="control-label">
+                                        Name
                                         <strong class="rtcl-required">*</strong>
                                     </label>
-                                    <select class="form-select" aria-label="addtype">
-                                    <option value="1">Rent</option>
-                                    <option value="2">Sale</option>
-                                    </select>
+                                    <input type="text" name="name"  value="" id="name" class="form-control" required=""/>
                                 </div>
-
-                                
-
-                                
                                 <div class="form-group">
                                     <label for="email" class="control-label">
                                         Email
@@ -71,8 +66,8 @@ const AddPost = () => {
         </div>
     </main>
 
-            <Footer />
-        </div>
-    );
+      <Footer />
+      </div>
+  );
 };
-export default AddPost;
+export default SignUp;
