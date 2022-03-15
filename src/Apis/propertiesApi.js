@@ -6,7 +6,7 @@ const Data = [
     "img": "img/blog/property1.jpg",
     "type": "Apartment",
     "title": "2nd Floor DDA Flat",
-    "location": "Rohin Sec - 7, New Delhi",
+    "location": "Rohin Sec-7, New Delhi",
     "beds": 3,
     "baths": 2,
     "sqft": 931
@@ -138,7 +138,7 @@ const Data = [
     "img": "img/blog/property22.jpg",
     "type": "Apartment",
     "title": "Mukherjee Nagar House for sale",
-    "location": "Downey, California",
+    "location": "Mukherjee Nagar, New Delhi",
     "beds": 4,
     "baths": 3,
     "sqft": 931
