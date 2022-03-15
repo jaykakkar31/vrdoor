@@ -35,8 +35,32 @@ const AddPost = () => {
                                     </select>
                                 </div>
 
-                                
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="tvcable"/>
+                                    <label class="form-check-label" for="tvcable">TV Cable</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="barbeque" />
+                                    <label class="form-check-label" for="barbeque">Barbeque</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="ac" />
+                                    <label class="form-check-label" for="ac">AC</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="lawn" />
+                                    <label class="form-check-label" for="lawn">Lawn</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="laundry" />
+                                    <label class="form-check-label" for="laundry">Laundry</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="cctv" />
+                                    <label class="form-check-label" for="cctv">CCTV</label>
+                                </div>
 
+                               
                                 
                                 <div class="form-group">
                                     <label for="email" class="control-label">
