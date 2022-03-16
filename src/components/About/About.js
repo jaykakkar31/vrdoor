@@ -499,27 +499,27 @@ const About = () => {
 											</ul>
 										</li>
 									</ul>
-									<div class="category-box">
+									{/* <div class="category-box">
 										<div class="item-category">
 											<a href="single-agent1.html">05 Listings</a>
 										</div>
-									</div>
+									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<a href="agent-lists1.html">Polly Matzinger</a>
+											<a href="agent-lists1.html">Jay Kakkar</a>
 										</h3>
-										<h4 class="item-subtitle">
+										{/* <h4 class="item-subtitle">
 											<a href="agency-lists1.html">Sweet Home</a>
-										</h4>
+										</h4> */}
 									</div>
-									<div class="item-contact">
+									{/* <div class="item-contact">
 										<div class="item-icon">
 											<i class="fas fa-phone-alt"></i>
 										</div>
 										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>
@@ -582,27 +582,27 @@ const About = () => {
 											</ul>
 										</li>
 									</ul>
-									<div class="category-box">
+									{/* <div class="category-box">
 										<div class="item-category">
 											<a href="single-agent1.html">11 Listings</a>
 										</div>
-									</div>
+									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<a href="agent-lists1.html">Patty Watson</a>
+											<a href="agent-lists1.html">Avi Mittal</a>
 										</h3>
-										<h4 class="item-subtitle">
+										{/* <h4 class="item-subtitle">
 											<a href="agency-lists1.html">Eco Builders</a>
-										</h4>
+										</h4> */}
 									</div>
-									<div class="item-contact">
+									{/* <div class="item-contact">
 										<div class="item-icon">
 											<i class="fas fa-phone-alt"></i>
 										</div>
 										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>
@@ -614,7 +614,7 @@ const About = () => {
 								<div class="item-img">
 									<a href="agent-lists1.html">
 										<img
-											src="img/team/team23.jpeg"
+											src="img/team/team24.jpg"
 											alt="team"
 											height="240"
 											width="240"
@@ -665,27 +665,27 @@ const About = () => {
 											</ul>
 										</li>
 									</ul>
-									<div class="category-box">
+									{/* <div class="category-box">
 										<div class="item-category">
 											<a href="single-agent1.html">06 Listings</a>
 										</div>
-									</div>
+									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<a href="agent-lists1.html">Andren Willium</a>
+											<a href="agent-lists1.html">Kanishk Sharma</a>
 										</h3>
-										<h4 class="item-subtitle">
+										{/* <h4 class="item-subtitle">
 											<a href="agency-lists1.html">Sarah Boysen</a>
-										</h4>
+										</h4> */}
 									</div>
-									<div class="item-contact">
+									{/* <div class="item-contact">
 										<div class="item-icon">
 											<i class="fas fa-phone-alt"></i>
 										</div>
 										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>
