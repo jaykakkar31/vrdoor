@@ -1,0 +1,29 @@
+@media (max-width: 768px) {
+	.mean-bar {
+		height: 100px;
+		overflow: hidden;
+	}
+	.mean-bar img {
+		height: 140px;
+	}
+}
+@media (max-width: 426px) {
+	.mean-bar {
+		height: 70px;
+		overflow: hidden;
+	}
+	.mean-bar img {
+		height: 120px;
+	}
+}
+
+
+@media (max-width: 376px) {
+	.mean-bar {
+		height: 70px;
+		overflow: hidden;
+	}
+	.mean-bar img {
+		height: 120px;
+	}
+}
