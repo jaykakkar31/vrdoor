@@ -560,7 +560,7 @@ const Home = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<a href="single-listing1.html">Appartment</a>
+									<a href="SingleProperty">Appartment</a>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
@@ -593,7 +593,7 @@ const Home = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<a href="SingleProperty">
 										<img
 											src="img/blog/blog5.jpg"
 											alt="blog"
@@ -638,12 +638,12 @@ const Home = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<a href="single-listing1.html">Villa</a>
+									<a href="SingleProperty">Villa</a>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<a href="single-listing1.html">
+											<a href="SingleProperty">
 												Countryside Modern Lake View
 											</a>
 										</h3>
@@ -1141,7 +1141,7 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<a href="single-listing2.html">California</a>
+												<a href="single-listing2.html">Delhi</a>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1170,7 +1170,7 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<a href="single-listing2.html">Louisiana</a>
+												<a href="single-listing2.html">Mumbai</a>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1199,7 +1199,7 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<a href="single-listing2.html">Kansas</a>
+												<a href="single-listing2.html">Bangalore</a>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1230,7 +1230,7 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<a href="single-listing2.html">Abilene</a>
+												<a href="single-listing2.html">Punjab</a>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1259,7 +1259,7 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<a href="single-listing2.html">New York</a>
+												<a href="single-listing2.html">Kolkata</a>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1309,151 +1309,7 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 					</div>
 				</div>
 			</section>
-			<section class="team-wrap1 team-wrap3">
-				<div class="container">
-					<div class="item-heading-center mb-20">
-						<span class="section-subtitle">Expertise Is Here</span>
-						<h2 class="section-title">Our Exclusive Agetns</h2>
-						<div class="bg-title-wrap" style={{ display: "block" }}>
-							<span class="background-title solid">Our Agents</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xl-6 col-lg-6 col-md-12">
-							<div class="team-box-6 wow fadeInUp" data-wow-delay=".6s">
-								<div class="item-img">
-									<a href="agent-lists1.html">
-										<img
-											src="img/team/team28.png"
-											alt="team"
-											width="184"
-											height="184"
-										/>
-									</a>
-								</div>
-								<div class="item-content">
-									<div class="item-title">
-										<h3>
-											<a href="agent-lists1.html">Andren Willium</a>
-										</h3>
-										<h4 class="item-subtitle">
-											<a href="agency-lists1.html">Sunshine</a>
-										</h4>
-									</div>
-									<div class="item-category">
-										<a href="agent-lists1.html">07 Listings</a>
-									</div>
-									<div class="item-contact">
-										<div class="item-icon">
-											<i class="fas fa-phone-alt"></i>
-										</div>
-										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-6 col-lg-6 col-md-12">
-							<div class="team-box-6 wow fadeInUp" data-wow-delay=".6s">
-								<div class="item-img">
-									<a href="agent-lists1.html">
-										<img
-											src="img/team/team29.png"
-											alt="team"
-											width="184"
-											height="184"
-										/>
-									</a>
-								</div>
-								<div class="item-content">
-									<div class="item-title">
-										<h3>
-											<a href="agent-lists1.html">Patty Watson</a>
-										</h3>
-										<h4 class="item-subtitle">
-											<a href="agency-lists1.html">Eco Builders</a>
-										</h4>
-									</div>
-									<div class="item-category">
-										<a href="agent-lists1.html">08 Listings</a>
-									</div>
-									<div class="item-contact">
-										<div class="item-icon">
-											<i class="fas fa-phone-alt"></i>
-										</div>
-										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-6 col-lg-6 col-md-12">
-							<div class="team-box-6 wow fadeInUp" data-wow-delay=".6s">
-								<div class="item-img">
-									<a href="agent-lists1.html">
-										<img
-											src="img/team/team30.png"
-											alt="team"
-											width="184"
-											height="184"
-										/>
-									</a>
-								</div>
-								<div class="item-content">
-									<div class="item-title">
-										<h3>
-											<a href="agent-lists1.html">Sarah Boysen</a>
-										</h3>
-										<h4 class="item-subtitle">
-											<a href="agency-lists1.html">Mark Street</a>
-										</h4>
-									</div>
-									<div class="item-category">
-										<a href="agent-lists1.html">11 Listings</a>
-									</div>
-									<div class="item-contact">
-										<div class="item-icon">
-											<i class="fas fa-phone-alt"></i>
-										</div>
-										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-6 col-lg-6 col-md-12">
-							<div class="team-box-6 wow fadeInUp" data-wow-delay=".6s">
-								<div class="item-img">
-									<a href="agent-lists1.html">
-										<img
-											src="img/team/team31.png"
-											alt="team"
-											width="184"
-											height="184"
-										/>
-									</a>
-								</div>
-								<div class="item-content">
-									<div class="item-title">
-										<h3>
-											<a href="agent-lists1.html">Polly Martinizer</a>
-										</h3>
-										<h4 class="item-subtitle">
-											<a href="agency-lists1.html">Sweet Home</a>
-										</h4>
-									</div>
-									<div class="item-category">
-										<a href="agent-lists1.html">06 Listings</a>
-									</div>
-									<div class="item-contact">
-										<div class="item-icon">
-											<i class="fas fa-phone-alt"></i>
-										</div>
-										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			{/*  */}
 			<section class="banner-collection4 motion-effects-wrap">
 				<div class="item-element">
 					<ul>

@@ -156,16 +156,15 @@ const Contact = () => {
 									<h3 class="contact-title">Office Information</h3>
 									<div class="contact-list">
 										<ul>
-											<li>Homlisti Real Estate Agency</li>
-											<li>(United Estate Of America) Co., Ltd.</li>
-											<li>Bridge 8, Room 9201,</li>
-											<li>#25 Jocker Goru Zhong Road,</li>
-											<li>NYPD 200025 USA</li>
+											<li>VRDOOR Real Estate Agency</li>
+											<li>Indra vihar</li>
+											<li>Delhi- 110009</li>
+											
 										</ul>
 									</div>
 									<div class="phone-box">
 										<div class="item-lebel">Emergency Call :</div>
-										<div class="phone-number">+86 21 6137 9292</div>
+										<div class="phone-number">+91 8826024495</div>
 										<div class="item-icon">
 											<i class="fas fa-phone-alt"></i>
 										</div>
@@ -174,28 +173,28 @@ const Contact = () => {
 										<div class="item-lebel">Social Share :</div>
 										<ul class="item-social">
 											<li>
-												<a href="https://www.facebook.com/"
-													><i class="fab fa-facebook-f"></i
+												<a href="https://www.facebook.com/" target="_blank"  rel="noreferrer" >
+													<i class="fab fa-facebook-f"></i
 												></a>
 											</li>
 											<li>
-												<a href="https://twitter.com/"
-													><i class="fab fa-twitter"></i
+												<a href="https://twitter.com/" target="_blank"  rel="noreferrer">
+													<i class="fab fa-twitter"></i
 												></a>
 											</li>
 											<li>
-												<a href="https://vimeo.com/"
-													><i class="fab fa-vimeo-v"></i
+												<a href="https://vimeo.com/" target="_blank"  rel="noreferrer">
+													<i class="fab fa-vimeo-v"></i
 												></a>
 											</li>
 											<li>
-												<a href="https://www.pinterest.com/"
-													><i class="fab fa-pinterest-p"></i
+												<a href="https://www.pinterest.com/" target="_blank"  rel="noreferrer">
+													<i class="fab fa-pinterest-p"></i
 												></a>
 											</li>
 											<li>
-												<a href="https://web.whatsapp.com/"
-													><i class="fab fa-whatsapp"></i
+												<a href="https://web.whatsapp.com/" target="_blank"  rel="noreferrer">
+													<i class="fab fa-whatsapp"></i
 												></a>
 											</li>
 										</ul>
@@ -203,6 +202,7 @@ const Contact = () => {
 											<i class="fas fa-share-alt"></i>
 										</div>
 									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -213,7 +213,7 @@ const Contact = () => {
 						<div class="col-lg-12">
 							<div class="contact-box2">
 								<iframe
-									src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d116878.45300534296!2d90.4195470442074!3d23.731268144494663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1635221509729!5m2!1sen!2sbd"
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6998.823767550665!2d77.21048107384051!3d28.707234379553313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfde65a68e83b%3A0xb63f7396b9658b6!2sIndra%20Vihar%2C%20Mukherjee%20Nagar%2C%20Delhi%2C%20110009!5e0!3m2!1sen!2sin!4v1647420906004!5m2!1sen!2sin"
 									width="600"
                                     title='map'
 									height="550"
@@ -224,8 +224,7 @@ const Contact = () => {
 								<div class="contact-content">
 									<h3 class="contact-title">Quick Contact</h3>
 									<p>
-										Borem ipsum dolor sit amet conse ctetur adipisicing elit sed
-										do eiusmod Eorem ipsum dolor sit amet conse ctetur.
+										Contact for quick resolution of your doubts
 									</p>
 									<form class="contact-box rt-contact-form">
 										<div class="row">
