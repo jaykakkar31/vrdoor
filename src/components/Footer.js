@@ -8,11 +8,12 @@ const Footer = () => {
 					<div class="row justify-content-between">
 						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
 							<div class="footer-logo-area footer-logo-area-2">
-								<div class="item-logo">
+
+								<div className="img-container" >
 									<img
-										src="img/logo_light.svg"
-										width="157"
-										height="40"
+                                    style={{height:"50px",marginBottom:"20px"}}
+										src="img/logo.png"
+									height={100}
 										alt="logo"
 										class="img-fluid"
 									/>
