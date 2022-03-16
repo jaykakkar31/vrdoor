@@ -817,10 +817,10 @@ const SingleProperty = () => {
 											<div id="panorama">
 												<iframe
 													width="745"
-													height="400"
+													height="600"
 													allowFullScreen
 													style={{ borderStyle: "none" }}
-													src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://pannellum.org/images/alma.jpg"
+													src="https://kanishk014.github.io/WoodBox-Tour/"
 												></iframe>
 											</div>
 										</div>
