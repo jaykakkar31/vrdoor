@@ -12,8 +12,10 @@ const Properties = () => {
 	const fetchPropertyReducer = useSelector(
 		(state) => state.fetchPropertyReducer
 	);
-    const [category,setCategory]=useState(window.location.search.split("=")[1])
-    		 console.log(window.location.search);
+	const [category, setCategory] = useState(
+		window.location.search.split("=")[1]
+	);
+	console.log(window.location.search);
 
 	const { loading, error, propertiesData } = fetchPropertyReducer;
 	useEffect(() => {
@@ -22,10 +24,6 @@ const Properties = () => {
 	return (
 		<div>
 			<Navbar />
-
-			{/* <!--=====================================-->
-    <!--=   Half Map     Start              =-->
-    <!--=====================================--> */}
 
 			<div class="breadcrumb-wrap breadcrumb-wrap-2">
 				<div class="container">
@@ -41,9 +39,18 @@ const Properties = () => {
 					</nav>
 				</div>
 			</div>
-			<section class="half-map-wrap1" style={{padding:"30px 0px 30px 0px"}}>
+			<section class="half-map-wrap1" style={{ padding: "30px 0px 30px 0px" }}>
 				{!loading ? (
-					<div class="container-fluid" style={{display:"flex",justifyContent:"center",alignItems:"center",marginTop:"20px",marginBottom:"40x"}}>
+					<div
+						class="container-fluid"
+						style={{
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+							marginTop: "20px",
+							marginBottom: "40x",
+						}}
+					>
 						<img src="img/preloader.gif" alt="load" />
 					</div>
 				) : (
@@ -132,51 +139,48 @@ const Properties = () => {
 															</div>
 														</div>
 													</div>
-													<div
-														class="dropdown-filter"
-														onClick={() => {
-															setIsClick(!isClick);
-														}}
+												</div>
+												<div
+													class="dropdown-filter"
+													onClick={() => {
+														setIsClick(!isClick);
+													}}
+												>
+													<span>
+														<i class="fas fa-sliders-h"></i>
+													</span>
+												</div>
+												<div class="filter-button">
+													<Link
+														to="single-listing1.html"
+														class="filter-btn1 search-btn"
 													>
-														<span>
-															<i class="fas fa-sliders-h"></i>
-														</span>
-													</div>
-													<div class="filter-button">
-														<a
-															href="single-listing1.html"
-															class="filter-btn1 search-btn"
-														>
-															Search<i class="fas fa-search"></i>
-														</a>
-													</div>
-													<div
-														class={`explore__form-checkbox-list explore__form-checkbox-list2 full-filter ${
-															isClick && "filter-block"
-														}`}
-													>
-														<div class="row">
-															<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
-																{/* <!-- Form Property Status --> */}
-																<div class="form-group bed">
-																	<label class="item-bedrooms">Bedrooms</label>
-																	<div
-																		class="nice-select form-control wide"
-																		tabIndex="0"
-																	>
-																		<span class="current">Any</span>
-																		<ul class="list">
-																			<li
-																				data-value="1"
-																				class="option selected "
-																			>
-																				For Sale
-																			</li>
-																			<li data-value="2" class="option">
-																				For Rent
-																			</li>
-																		</ul>
-																	</div>
+														Search<i class="fas fa-search"></i>
+													</Link>
+												</div>
+												<div
+													class={`explore__form-checkbox-list explore__form-checkbox-list2 full-filter ${
+														isClick && "filter-block"
+													}`}
+												>
+													<div class="row">
+														<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
+															{/* <!-- Form Property Status --> */}
+															<div class="form-group bed">
+																<label class="item-bedrooms">Bedrooms</label>
+																<div
+																	class="nice-select form-control wide"
+																	tabIndex="0"
+																>
+																	<span class="current">Any</span>
+																	<ul class="list">
+																		<li data-value="1" class="option selected ">
+																			For Sale
+																		</li>
+																		<li data-value="2" class="option">
+																			For Rent
+																		</li>
+																	</ul>
 																</div>
 																{/* <!--/ End Form Property Status --> */}
 															</div>
@@ -443,6 +447,18 @@ const Properties = () => {
 																</a>
 															</div>
 														</div>
+														{/* <!-- /row --> */}
+														<div class="filter-button">
+															<Link to="half-map1.html" class="filter-btn1">
+																Apply Filter
+															</Link>
+															<Link
+																to="half-map1.html"
+																class="filter-btn1 reset-btn"
+															>
+																Reset Filter<i class="fas fa-redo-alt"></i>
+															</Link>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -457,38 +473,27 @@ const Properties = () => {
 												<div class="shorting-title">
 													<h4 class="item-title">Showing 1–6 of 12 results</h4>
 												</div>
-												<div class="item-shorting-box-2">
-													<div class="by-shorting">
-														<div class="shorting">Sort by:</div>
-														<select class="select single-select mr-0">
-															<option value="1">Default</option>
-															<option value="2">High Price</option>
-															<option value="3">Medium Price</option>
-															<option value="3">Low Price</option>
-														</select>
-													</div>
-													<div class="grid-button">
-														<ul class="nav nav-tabs" role="tablist">
-															<li class="nav-item">
-																<a
-																	class="nav-link active"
-																	data-bs-toggle="tab"
-																	href="#mylisting"
-																>
-																	<i class="fas fa-th"></i>
-																</a>
-															</li>
-															<li class="nav-item">
-																<a
-																	class="nav-link"
-																	data-bs-toggle="tab"
-																	href="#reviews"
-																>
-																	<i class="fas fa-list-ul"></i>
-																</a>
-															</li>
-														</ul>
-													</div>
+												<div class="grid-button">
+													<ul class="nav nav-tabs" role="tablist">
+														<li class="nav-item">
+															<Link
+																class="nav-link active"
+																data-bs-toggle="tab"
+																to="#mylisting"
+															>
+																<i class="fas fa-th"></i>
+															</Link>
+														</li>
+														<li class="nav-item">
+															<Link
+																class="nav-link"
+																data-bs-toggle="tab"
+																to="#reviews"
+															>
+																<i class="fas fa-list-ul"></i>
+															</Link>
+														</li>
+													</ul>
 												</div>
 											</div>
 										</div>
@@ -537,39 +542,39 @@ const Properties = () => {
 																		<div class="react-icon">
 																			<ul>
 																				<li>
-																					<a
-																						href="favourite.html"
+																					<Link
+																						to="favourite.html"
 																						data-bs-toggle="tooltip"
 																						data-bs-placement="top"
 																						title="Favourites"
 																					>
 																						<i class="flaticon-heart"></i>
-																					</a>
+																					</Link>
 																				</li>
 																				<li>
-																					<a
-																						href="compare.html"
+																					<Link
+																						to="compare.html"
 																						data-bs-toggle="tooltip"
 																						data-bs-placement="top"
 																						title="Compare"
 																					>
 																						<i class="flaticon-left-and-right-arrows"></i>
-																					</a>
+																					</Link>
 																				</li>
 																			</ul>
 																		</div>
 																	</div>
 																	<div class="item-category10">
-																		<a href="single-listing1.html">
+																		<Link to="single-listing1.html">
 																			{currEle.type}
-																		</a>
+																		</Link>
 																	</div>
 																	<div class="item-content">
 																		<div class="verified-area">
 																			<h3 class="item-title">
-																				<a href="single-listing1.html">
+																				<Link to="single-listing1.html">
 																					{currEle.title}
-																				</a>
+																				</Link>
 																			</h3>
 																		</div>
 																		<div class="location-area">
@@ -601,47 +606,47 @@ const Properties = () => {
 												<div class="pagination-style-1">
 													<ul class="pagination">
 														<li class="page-item">
-															<a
+															<Link
 																class="page-link"
-																href="with-sidebar2.html"
+																to="with-sidebar2.html"
 																aria-label="Previous"
 															>
 																<span aria-hidden="true">&laquo;</span>
 																<span class="sr-only">Previous</span>
-															</a>
+															</Link>
 														</li>
 														<li class="page-item">
-															<a
+															<Link
 																class="page-link active"
-																href="with-sidebar2.html"
+																to="with-sidebar2.html"
 															>
 																1
-															</a>
+															</Link>
 														</li>
 														<li class="page-item">
-															<a class="page-link" href="with-sidebar2.html">
+															<Link class="page-link" to="with-sidebar2.html">
 																2
-															</a>
+															</Link>
 														</li>
 														<li class="page-item">
-															<a class="page-link" href="with-sidebar2.html">
+															<Link class="page-link" to="with-sidebar2.html">
 																3
-															</a>
+															</Link>
 														</li>
 														<li class="page-item">
-															<a class="page-link" href="with-sidebar2.html">
+															<Link class="page-link" to="with-sidebar2.html">
 																4
-															</a>
+															</Link>
 														</li>
 														<li class="page-item">
-															<a
+															<Link
 																class="page-link"
-																href="with-sidebar2.html"
+																to="with-sidebar2.html"
 																aria-label="Next"
 															>
 																<span aria-hidden="true">&raquo;</span>
 																<span class="sr-only">Next</span>
-															</a>
+															</Link>
 														</li>
 													</ul>
 												</div>
