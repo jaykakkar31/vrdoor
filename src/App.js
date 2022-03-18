@@ -13,7 +13,7 @@ import BlogDetail from "./components/Blog/BlogDetail"
 import Login from "./components/Login/Login";
 import AddPost from "./components/AddPost/AddPost";
 import SignUp from "./components/SignUp/SignUp";
-
+import Meet from './components/jitsimeet/meet'
 function App() {
   return (
     <Router>
@@ -31,7 +31,7 @@ function App() {
         <Route exact path={"/login"} element={<Login />} />
         <Route exact path={"/addpost"} element={<AddPost />} />
         <Route exact path={"/signup"} element={<SignUp />} />
-        
+        <Route exact path={"/meet"} element={<Meet/>}/>
         
 
       </Routes>

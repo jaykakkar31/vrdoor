@@ -12,121 +12,17 @@ const Properties = () => {
 	const fetchPropertyReducer = useSelector(
 		(state) => state.fetchPropertyReducer
 	);
+    const [category,setCategory]=useState(window.location.search.split("=")[1])
+    		 console.log(window.location.search);
+
 	const { loading, error, propertiesData } = fetchPropertyReducer;
 	useEffect(() => {
-		dispatch(fetchProperty());
-	}, [dispatch]);
+		dispatch(fetchProperty(category));
+	}, [dispatch, category]);
 	return (
 		<div>
 			<Navbar />
-<div class="rt-header-menu mean-container position-relative" id="meanmenu">
-				<div class="mean-bar">
-					<a href="index.html">
-						<img src="img/logo.svg" alt="logo" class="img-fluid"/>
-					</a>
-					<div class="mean-bar--right">
-						<div class="actions search">
-							<a href="#template-search" class="item-icon" title="Search">
-								<i class="fas fa-search"></i>
-							</a>
-						</div>
-						<div class="actions user">
-							<a href="account.html"><i class="flaticon-user"></i></a>
-						</div>
-						<span class="sidebarBtn">
-							<span class="bar"></span>
-							<span class="bar"></span>
-							<span class="bar"></span>
-							<span class="bar"></span>
-						</span>
-					</div>
-				</div>
-				<div class="rt-slide-nav">
-					<div class="offscreen-navigation">
-						<nav class="menu-main-primary-container">
-							<ul class="menu">
-								<li class="list menu-item-parent menu-item-has-children">
-									<a class="animation" href="index.html">Home</a>
-									<ul class="main-menu__dropdown sub-menu">
-										<li><a href="index.html">Home 01</a></li>
-										<li><a href="index2.html">Home 02</a></li>
-										<li><a href="index3.html">Home 03</a></li>
-										<li><a href="index4.html">Home 04</a></li>
-										<li><a href="index5.html">Home 05</a></li>
-									</ul>
-								</li>
-								<li class="list menu-item-parent menu-item-has-children">
-									<a class="animation" href="with-sidebar2.html">Listing</a>
-									<ul class="main-menu__dropdown sub-menu">
-										<li>
-											<a href="half-map1.html">Properties Map Grid</a>
-										</li>
-										<li>
-											<a href="half-map2.html">Properties Map List</a>
-										</li>
-										<li>
-											<a href="without-sidebar.html">Properties Full Width</a>
-										</li>
-										<li>
-											<a href="with-sidebar.html">Properties Grid</a>
-										</li>
-										<li>
-											<a href="single-listing1.html">Single Property 1</a>
-										</li>
-										<li>
-											<a href="single-listing2.html">Single Property 2</a>
-										</li>
-										<li>
-											<a href="single-listing3.html">Single Property 3</a>
-										</li>
-									</ul>
-								</li>
-								<li class="list menu-item-parent menu-item-has-children">
-									<a class="animation" href="index.html">Pages</a>
-									<ul class="main-menu__dropdown sub-menu">
-										<li>
-											<a href="https://www.radiustheme.com/demo/html/homlisti/about.html">About Us</a>
-										</li>
-										<li><a href="404.html">Error page</a></li>
-										<li>
-											<a href="with-sidebar.html">Properties Grid</a>
-										</li>
-										<li>
-											<a href="without-sidebar.html">Properties Full Width</a>
-										</li>
-										<li>
-											<a href="single-agency1.html">Single Agency page</a>
-										</li>
-										<li><a href="single-agent1.html">Single-agent page</a></li>
-										<li><a href="pricing-1.html">Pricing page</a></li>
-									</ul>
-								</li>
-								<li class="list menu-item-parent menu-item-has-children">
-									<a class="animation" href="index.html">Blog</a>
-									<ul class="main-menu__dropdown sub-menu">
-										<li><a href="blog1.html">Blog 1</a></li>
-										<li><a href="blog2.html">Blog 2</a></li>
-										<li><a href="blog-details1.html">Blog Details Page</a></li>
-									</ul>
-								</li>
-								<li class="list menu-item-parent menu-item-has-children">
-									<a class="animation" href="index.html">Agents</a>
-									<ul class="main-menu__dropdown sub-menu">
-										<li><a href="agency-lists1.html">Agency List page</a></li>
-										<li><a href="agent-lists1.html">Agent List Page</a></li>
-										<li>
-											<a href="agent-reviews1.html">Agent Reviews Page</a>
-										</li>
-									</ul>
-								</li>
-								<li class="list menu-item-parent">
-									<a class="animation" href="contact.html">Contact us</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</div>
+
 			{/* <!--=====================================-->
     <!--=   Half Map     Start              =-->
     <!--=====================================--> */}
@@ -567,160 +463,165 @@ const Properties = () => {
 										</div>
 									</div>
 								</div>
-								<div class="tab-style-1 tab-style-3">
-									<div class="tab-content" id="myTabContent">
-										<div
-											class="tab-pane fade show active"
-											id="mylisting"
-											role="tabpanel"
-										>
-											<div class="row justify-content-center">
-												{propertiesData?.map((currEle) => {
-													return (
-														<div
-															class="col-xl-6 col-lg-6 col-md-6"
-															key={currEle._id}
-														>
+
+								{loading ? (
+									<img src="public/img/preloader.gif" />
+								) : (
+									<div class="tab-style-1 tab-style-3">
+										<div class="tab-content" id="myTabContent">
+											<div
+												class="tab-pane fade show active"
+												id="mylisting"
+												role="tabpanel"
+											>
+												<div class="row justify-content-center">
+													{propertiesData?.map((currEle) => {
+														return (
 															<div
-																class="property-box2 wow animated fadeInUp"
-																data-wow-delay=".3s"
+																class="col-xl-6 col-lg-6 col-md-6"
+																key={currEle._id}
 															>
-																<div class="item-img">
-																	<Link to="/singleproperty">
-																		<img
-																			src={currEle.propertyImage}
-																			alt="blog"
-																			width="660"
-																			height="440"
-																		/>
-																	</Link>
-																	<div class="item-category-box1">
-																		<div class="item-category">
-																			For {currEle.category}
+																<div
+																	class="property-box2 wow animated fadeInUp"
+																	data-wow-delay=".3s"
+																>
+																	<div class="item-img">
+																		<Link to="/singleproperty">
+																			<img
+																				src={currEle.propertyImage}
+																				alt="blog"
+																				width="660"
+																				height="440"
+																			/>
+																		</Link>
+																		<div class="item-category-box1">
+																			<div class="item-category">
+																				For {currEle.category}
+																			</div>
+																		</div>
+																		<div class="rent-price">
+																			<div class="item-price">
+																				${currEle.price}
+																				<span>
+																					<i>/</i>mo
+																				</span>
+																			</div>
+																		</div>
+																		<div class="react-icon">
+																			<ul>
+																				<li>
+																					<a
+																						href="favourite.html"
+																						data-bs-toggle="tooltip"
+																						data-bs-placement="top"
+																						title="Favourites"
+																					>
+																						<i class="flaticon-heart"></i>
+																					</a>
+																				</li>
+																				<li>
+																					<a
+																						href="compare.html"
+																						data-bs-toggle="tooltip"
+																						data-bs-placement="top"
+																						title="Compare"
+																					>
+																						<i class="flaticon-left-and-right-arrows"></i>
+																					</a>
+																				</li>
+																			</ul>
 																		</div>
 																	</div>
-																	<div class="rent-price">
-																		<div class="item-price">
-																			${currEle.price}
-																			<span>
-																				<i>/</i>mo
-																			</span>
+																	<div class="item-category10">
+																		<a href="single-listing1.html">
+																			{currEle.type}
+																		</a>
+																	</div>
+																	<div class="item-content">
+																		<div class="verified-area">
+																			<h3 class="item-title">
+																				<a href="single-listing1.html">
+																					{currEle.title}
+																				</a>
+																			</h3>
 																		</div>
-																	</div>
-																	<div class="react-icon">
-																		<ul>
-																			<li>
-																				<a
-																					href="favourite.html"
-																					data-bs-toggle="tooltip"
-																					data-bs-placement="top"
-																					title="Favourites"
-																				>
-																					<i class="flaticon-heart"></i>
-																				</a>
-																			</li>
-																			<li>
-																				<a
-																					href="compare.html"
-																					data-bs-toggle="tooltip"
-																					data-bs-placement="top"
-																					title="Compare"
-																				>
-																					<i class="flaticon-left-and-right-arrows"></i>
-																				</a>
-																			</li>
-																		</ul>
-																	</div>
-																</div>
-																<div class="item-category10">
-																	<a href="single-listing1.html">
-																		{currEle.type}
-																	</a>
-																</div>
-																<div class="item-content">
-																	<div class="verified-area">
-																		<h3 class="item-title">
-																			<a href="single-listing1.html">
-																				{currEle.title}
-																			</a>
-																		</h3>
-																	</div>
-																	<div class="location-area">
-																		<i class="flaticon-maps-and-flags"></i>
-																		{currEle.location}
-																	</div>
-																	<div class="item-categoery3">
-																		<ul>
-																			<li>
-																				<i class="flaticon-bed"></i>Beds:{" "}
-																				{currEle.beds}
-																			</li>
-																			<li>
-																				<i class="flaticon-shower"></i>Baths:{" "}
-																				{currEle.baths}
-																			</li>
-																			<li>
-																				<i class="flaticon-two-overlapping-square"></i>
-																				{currEle.sqft} Sqft
-																			</li>
-																		</ul>
+																		<div class="location-area">
+																			<i class="flaticon-maps-and-flags"></i>
+																			{currEle.location}
+																		</div>
+																		<div class="item-categoery3">
+																			<ul>
+																				<li>
+																					<i class="flaticon-bed"></i>Beds:{" "}
+																					{currEle.beds}
+																				</li>
+																				<li>
+																					<i class="flaticon-shower"></i>Baths:{" "}
+																					{currEle.baths}
+																				</li>
+																				<li>
+																					<i class="flaticon-two-overlapping-square"></i>
+																					{currEle.sqft} Sqft
+																				</li>
+																			</ul>
+																		</div>
 																	</div>
 																</div>
 															</div>
-														</div>
-													);
-												})}
-											</div>
-											<div class="pagination-style-1">
-												<ul class="pagination">
-													<li class="page-item">
-														<a
-															class="page-link"
-															href="with-sidebar2.html"
-															aria-label="Previous"
-														>
-															<span aria-hidden="true">&laquo;</span>
-															<span class="sr-only">Previous</span>
-														</a>
-													</li>
-													<li class="page-item">
-														<a
-															class="page-link active"
-															href="with-sidebar2.html"
-														>
-															1
-														</a>
-													</li>
-													<li class="page-item">
-														<a class="page-link" href="with-sidebar2.html">
-															2
-														</a>
-													</li>
-													<li class="page-item">
-														<a class="page-link" href="with-sidebar2.html">
-															3
-														</a>
-													</li>
-													<li class="page-item">
-														<a class="page-link" href="with-sidebar2.html">
-															4
-														</a>
-													</li>
-													<li class="page-item">
-														<a
-															class="page-link"
-															href="with-sidebar2.html"
-															aria-label="Next"
-														>
-															<span aria-hidden="true">&raquo;</span>
-															<span class="sr-only">Next</span>
-														</a>
-													</li>
-												</ul>
+														);
+													})}
+												</div>
+												<div class="pagination-style-1">
+													<ul class="pagination">
+														<li class="page-item">
+															<a
+																class="page-link"
+																href="with-sidebar2.html"
+																aria-label="Previous"
+															>
+																<span aria-hidden="true">&laquo;</span>
+																<span class="sr-only">Previous</span>
+															</a>
+														</li>
+														<li class="page-item">
+															<a
+																class="page-link active"
+																href="with-sidebar2.html"
+															>
+																1
+															</a>
+														</li>
+														<li class="page-item">
+															<a class="page-link" href="with-sidebar2.html">
+																2
+															</a>
+														</li>
+														<li class="page-item">
+															<a class="page-link" href="with-sidebar2.html">
+																3
+															</a>
+														</li>
+														<li class="page-item">
+															<a class="page-link" href="with-sidebar2.html">
+																4
+															</a>
+														</li>
+														<li class="page-item">
+															<a
+																class="page-link"
+																href="with-sidebar2.html"
+																aria-label="Next"
+															>
+																<span aria-hidden="true">&raquo;</span>
+																<span class="sr-only">Next</span>
+															</a>
+														</li>
+													</ul>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								)}
 							</div>
 						</div>
 						<div class="col-xl-6">
