@@ -8,8 +8,7 @@ const Home = () => {
 	return (
 		<div style={{ width: "100%" }}>
 			<Navbar />
-			
-			<section class="main-banner-wrap1 main-banner-wrap6 motion-effects-wrap adj-height" >
+			<section class="main-banner-wrap1 main-banner-wrap6 motion-effects-wrap adj-height">
 				<div class="shape-element">
 					<ul>
 						<li>
@@ -177,7 +176,10 @@ const Home = () => {
 																	<i class="fas fa-sliders-h"></i>
 																</span>
 															</div>
-															<div class="filter-button-area" style={{height:"100%",display:"flex"}}>
+															<div
+																class="filter-button-area"
+																style={{ height: "100%", display: "flex" }}
+															>
 																<a
 																	class="filter-btn"
 																	style={{
@@ -194,7 +196,7 @@ const Home = () => {
 													</div>
 													<div
 														class={`explore__form-checkbox-list full-filter ${
-															isclick && "filter-block"
+															isclick && "filter-block "
 														}`}
 													>
 														<div class="row">
@@ -643,9 +645,7 @@ const Home = () => {
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<a href="SingleProperty">
-												Countryside Modern Lake View
-											</a>
+											<a href="SingleProperty">Countryside Modern Lake View</a>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -1056,9 +1056,9 @@ const Home = () => {
 										<span class="background-title solid">About</span>
 									</div>
 									<p>
-									
-
-Experience homes in a smarter way with Virtual reality. Explore your future home with timely listings and a seamless experience.
+										Experience homes in a smarter way with Virtual reality.
+										Explore your future home with timely listings and a seamless
+										experience.
 									</p>
 								</div>
 								<div class="row">
@@ -1098,9 +1098,8 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 									</div>
 								</div>
 								<p>
-								The
-                  company's promise is using technology to reduce the time and
-                  friction of buying and selling house or apartment.
+									The company's promise is using technology to reduce the time
+									and friction of buying and selling house or apartment.
 								</p>
 								<div class="banner-button about-button-2">
 									<a href="contact.html" class="banner-btn">
@@ -1363,8 +1362,8 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 										We’re Providing the Best Real Estate Services
 									</h2>
 									<p class="item-para">
-									Explore places in VR. 
-A smart real estate experience using virtual reality
+										Explore places in VR. A smart real estate experience using
+										virtual reality
 									</p>
 									<p></p>
 								</div>

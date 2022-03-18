@@ -1,4 +1,7 @@
 import {
+    USER_DATA_FAIL,
+    USER_DATA_REQUEST,
+	USER_DATA_SUCCESS,
 	USER_LOGIN_FAIL,
 	USER_LOGIN_REQUEST,
 	USER_LOGIN_SUCCESS,
@@ -31,6 +34,21 @@ export const loginUser = (state = {}, actions) => {
 			return { loading: false, error: actions.payload };
 		case USER_LOGOUT:
 			return {};
+
+		default:
+			return state;
+	}
+};
+
+export const userData = (state = {}, actions) => {
+	switch (actions.type) {
+		case USER_DATA_REQUEST:
+			return { loading: true, error: null };
+		case USER_DATA_SUCCESS:
+			return { loading: false, userData: actions.payload };
+		case USER_DATA_FAIL:
+			return { loading: false, error: actions.payload };
+	
 
 		default:
 			return state;

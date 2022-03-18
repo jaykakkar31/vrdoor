@@ -78,6 +78,7 @@ const Agents = () => {
                               <a
                                 href="https://radiustheme.com/"
                                 target="_blank"
+                                rel="noreferrer"
                                 class="social-hover-icon social-link"
                               >
                                 <i class="fas fa-share-alt"></i>
@@ -87,6 +88,7 @@ const Agents = () => {
                                   <a
                                     href="https://www.facebook.com/"
                                     target="_blank"
+                                    rel="noreferrer"
                                     class="social-link"
                                   >
                                     <i class="fab fa-facebook-f"></i>
@@ -96,6 +98,7 @@ const Agents = () => {
                                   <a
                                     href="https://twitter.com/"
                                     target="_blank"
+                                    rel="noreferrer"
                                     class="social-link"
                                   >
                                     <i class="fab fa-twitter"></i>
@@ -105,6 +108,7 @@ const Agents = () => {
                                   <a
                                     href="https://www.linkedin.com/"
                                     target="_blank"
+                                    rel="noreferrer"
                                     class="social-link"
                                   >
                                     <i class="fab fa-linkedin-in"></i>
@@ -266,6 +270,7 @@ const Agents = () => {
                               href="https://www.facebook.com/"
                               class="social-link"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               <i class="fab fa-facebook-f"></i>
                             </a>
@@ -275,6 +280,7 @@ const Agents = () => {
                               href="https://twitter.com/"
                               class="social-link"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               <i class="fab fa-twitter"></i>
                             </a>
@@ -284,6 +290,7 @@ const Agents = () => {
                               href="https://www.linkedin.com/"
                               class="social-link"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               <i class="fab fa-linkedin-in"></i>
                             </a>
