@@ -10,17 +10,17 @@ const Contact = () => {
 				id="meanmenu"
 			>
 				<div class="mean-bar">
-					<a href="index.html">
+					<Link to="/">
 						<img src="img/logo.svg" alt="logo" class="img-fluid" />
-					</a>
+					</Link>
 					<div class="mean-bar--right">
 						<div class="actions search">
-							<a href="#template-search" class="item-icon" title="Search">
+							<Link  to="#template-search" class="item-icon" title="Search">
 								<i class="fas fa-search"></i>
-							</a>
+							</Link>
 						</div>
 						<div class="actions user">
-							<a href="account.html"><i class="flaticon-user"></i></a>
+							<Link  to="/profile"><i class="flaticon-user"></i></Link>
 						</div>
 						<span class="sidebarBtn">
 							<span class="bar"></span>
@@ -35,84 +35,83 @@ const Contact = () => {
 						<nav class="menu-main-primary-container">
 							<ul class="menu">
 								<li class="list menu-item-parent menu-item-has-children">
-									<a class="animation" href="index.html">Home</a>
+									<Link  class="animation" to="index.html">Home</Link>
 									<ul class="main-menu__dropdown sub-menu">
-										<li><a href="index.html">Home 01</a></li>
-										<li><a href="index2.html">Home 02</a></li>
-										<li><a href="index3.html">Home 03</a></li>
-										<li><a href="index4.html">Home 04</a></li>
-										<li><a href="index5.html">Home 05</a></li>
+										<li><Link  to="index.html">Home 01</Link></li>
+										<li><Link  to="index2.html">Home 02</Link></li>
+										<li><Link  to="index3.html">Home 03</Link></li>
+										<li><Link  to="index4.html">Home 04</Link></li>
+										<li><Link  to="index5.html">Home 05</Link></li>
 									</ul>
 								</li>
 								<li class="list menu-item-parent menu-item-has-children">
-									<a class="animation" href="with-sidebar2.html">Listing</a>
+									<Link  class="animation" to="with-sidebar2.html">Listing</Link>
 									<ul class="main-menu__dropdown sub-menu">
 										<li>
-											<a href="half-map1.html">Properties Map Grid</a>
+											<Link  to="half-map1.html">Properties Map Grid</Link>
 										</li>
 										<li>
-											<a href="half-map2.html">Properties Map List</a>
+											<Link  to="half-map2.html">Properties Map List</Link>
 										</li>
 										<li>
-											<a href="without-sidebar.html">Properties Full Width</a>
+											<Link  to="without-sidebar.html">Properties Full Width</Link>
 										</li>
 										<li>
-											<a href="with-sidebar.html">Properties Grid</a>
+											<Link  to="with-sidebar.html">Properties Grid</Link>
 										</li>
 										<li>
-											<a href="single-listing1.html">Single Property 1</a>
+											<Link  to="single-listing1.html">Single Property 1</Link>
 										</li>
 										<li>
-											<a href="single-listing2.html">Single Property 2</a>
+											<Link  to="single-listing2.html">Single Property 2</Link>
 										</li>
 										<li>
-											<a href="single-listing3.html">Single Property 3</a>
+											<Link  to="single-listing3.html">Single Property 3</Link>
 										</li>
 									</ul>
 								</li>
 								<li class="list menu-item-parent menu-item-has-children">
-									<a class="animation" href="index.html">Pages</a>
+									<Link  class="animation" to="index.html">Pages</Link>
 									<ul class="main-menu__dropdown sub-menu">
 										<li>
-											<a
-												href="https://www.radiustheme.com/demo/html/homlisti/about.html"
-												>About Us</a
-											>
+											<Link 
+												to="https://www.radiustheme.com/demo/html/homlisti/about.html"
+												>About Us</Link>
 										</li>
-										<li><a href="404.html">Error page</a></li>
+										<li><Link  to="404.html">Error page</Link></li>
 										<li>
-											<a href="with-sidebar.html">Properties Grid</a>
-										</li>
-										<li>
-											<a href="without-sidebar.html">Properties Full Width</a>
+											<Link  to="with-sidebar.html">Properties Grid</Link>
 										</li>
 										<li>
-											<a href="single-agency1.html">Single Agency page</a>
+											<Link  to="without-sidebar.html">Properties Full Width</Link>
 										</li>
-										<li><a href="single-agent1.html">Single-agent page</a></li>
-										<li><a href="pricing-1.html">Pricing page</a></li>
+										<li>
+											<Link  to="single-agency1.html">Single Agency page</Link>
+										</li>
+										<li><Link  to="single-agent1.html">Single-agent page</Link></li>
+										<li><Link  to="pricing-1.html">Pricing page</Link></li>
 									</ul>
 								</li>
 								<li class="list menu-item-parent menu-item-has-children">
-									<a class="animation" href="index.html">Blog</a>
+									<Link  class="animation" to="index.html">Blog</Link>
 									<ul class="main-menu__dropdown sub-menu">
-										<li><a href="blog1.html">Blog 1</a></li>
-										<li><a href="blog2.html">Blog 2</a></li>
-										<li><a href="blog-details1.html">Blog Details Page</a></li>
+										<li><Link  to="blog1.html">Blog 1</Link></li>
+										<li><Link  to="blog2.html">Blog 2</Link></li>
+										<li><Link  to="blog-details1.html">Blog Details Page</Link></li>
 									</ul>
 								</li>
 								<li class="list menu-item-parent menu-item-has-children">
-									<a class="animation" href="index.html">Agents</a>
+									<Link  class="animation" to="index.html">Agents</Link>
 									<ul class="main-menu__dropdown sub-menu">
-										<li><a href="agency-lists1.html">Agency List page</a></li>
-										<li><a href="agent-lists1.html">Agent List Page</a></li>
+										<li><Link  to="agency-lists1.html">Agency List page</Link></li>
+										<li><Link  to="agent-lists1.html">Agent List Page</Link></li>
 										<li>
-											<a href="agent-reviews1.html">Agent Reviews Page</a>
+											<Link  to="agent-reviews1.html">Agent Reviews Page</Link>
 										</li>
 									</ul>
 								</li>
 								<li class="list menu-item-parent">
-									<a class="animation" href="contact.html">Contact us</a>
+									<Link  class="animation" to="contact.html">Contact us</Link>
 								</li>
 							</ul>
 						</nav>
@@ -127,7 +126,7 @@ const Contact = () => {
 				<div class="container">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+							<li class="breadcrumb-item"><Link  to="index.html">Home</Link></li>
 							<li class="breadcrumb-item active" aria-current="page">
 								Contact Page
 							</li>
@@ -173,29 +172,29 @@ const Contact = () => {
 										<div class="item-lebel">Social Share :</div>
 										<ul class="item-social">
 											<li>
-												<a href="https://www.facebook.com/" target="_blank"  rel="noreferrer" >
+												<Link  to="https://www.facebook.com/" target="_blank"  rel="noreferrer" >
 													<i class="fab fa-facebook-f"></i
-												></a>
+												></Link>
 											</li>
 											<li>
-												<a href="https://twitter.com/" target="_blank"  rel="noreferrer">
+												<Link  to="https://twitter.com/" target="_blank"  rel="noreferrer">
 													<i class="fab fa-twitter"></i
-												></a>
+												></Link>
 											</li>
 											<li>
-												<a href="https://vimeo.com/" target="_blank"  rel="noreferrer">
+												<Link  to="https://vimeo.com/" target="_blank"  rel="noreferrer">
 													<i class="fab fa-vimeo-v"></i
-												></a>
+												></Link>
 											</li>
 											<li>
-												<a href="https://www.pinterest.com/" target="_blank"  rel="noreferrer">
+												<Link  to="https://www.pinterest.com/" target="_blank"  rel="noreferrer">
 													<i class="fab fa-pinterest-p"></i
-												></a>
+												></Link>
 											</li>
 											<li>
-												<a href="https://web.whatsapp.com/" target="_blank"  rel="noreferrer">
+												<Link  to="https://web.whatsapp.com/" target="_blank"  rel="noreferrer">
 													<i class="fab fa-whatsapp"></i
-												></a>
+												></Link>
 											</li>
 										</ul>
 										<div class="item-icon">
