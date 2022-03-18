@@ -7,6 +7,7 @@ import Navbar from "../Navbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "./about.css"
+import { Link } from "react-router-dom";
 const About = () => {
 	return (
 		<div>
@@ -21,7 +22,7 @@ const About = () => {
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
-								<a href="index.html">Home</a>
+								<Link to ="index.html">Home</Link>
 							</li>
 							<li class="breadcrumb-item active" aria-current="page">
 								About Us
@@ -106,14 +107,13 @@ const About = () => {
 									/>
 									<div class="play-button">
 										<div class="item-icon">
-											<a
-												href="http://www.youtube.com/watch?v=1iIZeIy7TqM"
+											<Link to ="http://www.youtube.com/watch?v=1iIZeIy7TqM"
 												class="play-btn play-btn-big"
 											>
 												<span class="play-icon style-2">
 													<i class="fas fa-play"></i>
 												</span>
-											</a>
+											</Link>
 										</div>
 									</div>
 								</div>
@@ -171,12 +171,12 @@ const About = () => {
 								</h2>
 								<div class="play-button">
 									<div class="item-icon">
-										<a href="http://www.youtube.com/" class="play-btn">
+										<Link to ="http://www.youtube.com/" class="play-btn">
 											<span class="play-icon style-1">
 												<i class="fas fa-play"></i>
 											</span>
 											<span class="play-text">Watch Video</span>
-										</a>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -211,7 +211,7 @@ const About = () => {
 								data-wow-delay=".6s"
 							>
 								<div class="item-img">
-									<a href="agent-lists1.html">
+									<Link to ="agent-lists1.html">
 										<img
 											src="img/team/team21.jpg"
 											alt="team"
@@ -219,64 +219,60 @@ const About = () => {
 											width="240"
 											style={{ height: "240px", width: "240px" }}
 										/>
-									</a>
+									</Link>
 									<ul class="team-social-1">
 										<li class="social-item">
-											<a
-												href="https://radiustheme.com/"
+											<Link to ="https://radiustheme.com/"
 												target="_blank"
 												rel="noreferrer"
 												class="social-hover-icon social-link"
 											>
 												<i class="fas fa-share-alt"></i>
-											</a>
+											</Link>
 											<ul class="team-social-dropdown">
 												<li class="social-item">
-													<a
-														href="https://www.facebook.com/"
+													<Link to ="https://www.facebook.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-facebook-f"></i>
-													</a>
+													</Link>
 												</li>
 												<li class="social-item">
-													<a
-														href="https://twitter.com/"
+													<Link to ="https://twitter.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-twitter"></i>
-													</a>
+													</Link>
 												</li>
 												<li class="social-item">
-													<a
-														href="https://www.linkedin.com/"
+													<Link to ="https://www.linkedin.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-linkedin-in"></i>
-													</a>
+													</Link>
 												</li>
 											</ul>
 										</li>
 									</ul>
 									{/* <div class="category-box">
 										<div class="item-category">
-											<a href="single-agent1.html"></a>
+											<Link to ="single-agent1.html"></Link>
 										</div>
 									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<a href="agent-lists1.html">Chirag Seth</a>
+											<Link to ="agent-lists1.html">Chirag Seth</Link>
 										</h3>
 										{/* <h4 class="item-subtitle">
-											<a href="agency-lists1.html">Sunshine</a>
+											<Link to ="agency-lists1.html">Sunshine</Link>
 										</h4> */}
 									</div>
 									{/* <div class="item-contact">
@@ -294,7 +290,7 @@ const About = () => {
 								data-wow-delay=".4s"
 							>
 								<div class="item-img">
-									<a href="agent-lists1.html">
+									<Link to ="agent-lists1.html">
 										<img
 											src="img/team/team22.jpeg"
 											alt="team"
@@ -302,64 +298,60 @@ const About = () => {
 											style={{ height: "240px", width: "240px" }}
 											width="240"
 										/>
-									</a>
+									</Link>
 									<ul class="team-social-1">
 										<li class="social-item">
-											<a
-												href="https://radiustheme.com/"
+											<Link to ="https://radiustheme.com/"
 												target="_blank"
 												rel="noreferrer"
 												class="social-hover-icon social-link"
 											>
 												<i class="fas fa-share-alt"></i>
-											</a>
+											</Link>
 											<ul class="team-social-dropdown">
 												<li class="social-item">
-													<a
-														href="https://www.facebook.com/"
+													<Link to ="https://www.facebook.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-facebook-f"></i>
-													</a>
+													</Link>
 												</li>
 												<li class="social-item">
-													<a
-														href="https://twitter.com/"
+													<Link to ="https://twitter.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-twitter"></i>
-													</a>
+													</Link>
 												</li>
 												<li class="social-item">
-													<a
-														href="https://www.linkedin.com/"
+													<Link to ="https://www.linkedin.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-linkedin-in"></i>
-													</a>
+													</Link>
 												</li>
 											</ul>
 										</li>
 									</ul>
 									{/* <div class="category-box">
 										<div class="item-category">
-											<a href="single-agent1.html">05 Listings</a>
+											<Link to ="single-agent1.html">05 Listings</Link>
 										</div>
 									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<a href="agent-lists1.html">Jay Kakkar</a>
+											<Link to ="agent-lists1.html">Jay Kakkar</Link>
 										</h3>
 										{/* <h4 class="item-subtitle">
-											<a href="agency-lists1.html">Sweet Home</a>
+											<Link to ="agency-lists1.html">Sweet Home</Link>
 										</h4> */}
 									</div>
 									{/* <div class="item-contact">
@@ -377,7 +369,7 @@ const About = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<a href="agent-lists1.html">
+									<Link to ="agent-lists1.html">
 										<img
 											src="img/team/team23.jpeg"
 											alt="team"
@@ -385,64 +377,60 @@ const About = () => {
 											width="240"
 											style={{ height: "240px", width: "240px" }}
 										/>
-									</a>
+									</Link>
 									<ul class="team-social-1">
 										<li class="social-item">
-											<a
-												href="https://radiustheme.com/"
+											<Link to ="https://radiustheme.com/"
 												target="_blank"
 												rel="noreferrer"
 												class="social-hover-icon social-link"
 											>
 												<i class="fas fa-share-alt"></i>
-											</a>
+											</Link>
 											<ul class="team-social-dropdown">
 												<li class="social-item">
-													<a
-														href="https://www.facebook.com/"
+													<Link to ="https://www.facebook.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-facebook-f"></i>
-													</a>
+													</Link>
 												</li>
 												<li class="social-item">
-													<a
-														href="https://twitter.com/"
+													<Link to ="https://twitter.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-twitter"></i>
-													</a>
+													</Link>
 												</li>
 												<li class="social-item">
-													<a
-														href="https://www.linkedin.com/"
+													<Link to ="https://www.linkedin.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-linkedin-in"></i>
-													</a>
+													</Link>
 												</li>
 											</ul>
 										</li>
 									</ul>
 									{/* <div class="category-box">
 										<div class="item-category">
-											<a href="single-agent1.html">11 Listings</a>
+											<Link to ="single-agent1.html">11 Listings</Link>
 										</div>
 									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<a href="agent-lists1.html">Avi Mittal</a>
+											<Link to ="agent-lists1.html">Avi Mittal</Link>
 										</h3>
 										{/* <h4 class="item-subtitle">
-											<a href="agency-lists1.html">Eco Builders</a>
+											<Link to ="agency-lists1.html">Eco Builders</Link>
 										</h4> */}
 									</div>
 									{/* <div class="item-contact">
@@ -460,7 +448,7 @@ const About = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<a href="agent-lists1.html">
+									<Link to ="agent-lists1.html">
 										<img
 											src="img/team/team24.jpg"
 											alt="team"
@@ -468,64 +456,60 @@ const About = () => {
 											width="240"
 											style={{ height: "240px", width: "240px" }}
 										/>
-									</a>
+									</Link>
 									<ul class="team-social-1">
 										<li class="social-item">
-											<a
-												href="https://radiustheme.com/"
+											<Link to ="https://radiustheme.com/"
 												target="_blank"
 												rel="noreferrer"
 												class="social-hover-icon social-link"
 											>
 												<i class="fas fa-share-alt"></i>
-											</a>
+											</Link>
 											<ul class="team-social-dropdown">
 												<li class="social-item">
-													<a
-														href="https://www.facebook.com/"
+													<Link to ="https://www.facebook.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-facebook-f"></i>
-													</a>
+													</Link>
 												</li>
 												<li class="social-item">
-													<a
-														href="https://twitter.com/"
+													<Link to ="https://twitter.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-twitter"></i>
-													</a>
+													</Link>
 												</li>
 												<li class="social-item">
-													<a
-														href="https://www.linkedin.com/"
+													<Link to ="https://www.linkedin.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
 													>
 														<i class="fab fa-linkedin-in"></i>
-													</a>
+													</Link>
 												</li>
 											</ul>
 										</li>
 									</ul>
 									{/* <div class="category-box">
 										<div class="item-category">
-											<a href="single-agent1.html">06 Listings</a>
+											<Link to ="single-agent1.html">06 Listings</Link>
 										</div>
 									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<a href="agent-lists1.html">Kanishk Sharma</a>
+											<Link to ="agent-lists1.html">Kanishk Sharma</Link>
 										</h3>
 										{/* <h4 class="item-subtitle">
-											<a href="agency-lists1.html">Sarah Boysen</a>
+											<Link to ="agency-lists1.html">Sarah Boysen</Link>
 										</h4> */}
 									</div>
 									{/* <div class="item-contact">
@@ -558,126 +542,126 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand1.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand2.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand3.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand4.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand5.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand6.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand1.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand2.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand3.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand4.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand5.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand6.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand1.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<a href="index.html">
+										<Link to ="index.html">
 											<img src="img/brand/brand2.svg" alt="brand" />
-										</a>
+										</Link>
 									</div>
 								</div>
 							</SwiperSlide>

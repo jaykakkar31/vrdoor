@@ -37,11 +37,8 @@ const Contact = () => {
 								<li class="list menu-item-parent menu-item-has-children">
 									<Link  class="animation" to="index.html">Home</Link>
 									<ul class="main-menu__dropdown sub-menu">
-										<li><Link  to="index.html">Home 01</Link></li>
-										<li><Link  to="index2.html">Home 02</Link></li>
-										<li><Link  to="index3.html">Home 03</Link></li>
-										<li><Link  to="index4.html">Home 04</Link></li>
-										<li><Link  to="index5.html">Home 05</Link></li>
+										<li><Link  to="/">Home</Link></li>
+										
 									</ul>
 								</li>
 								<li class="list menu-item-parent menu-item-has-children">

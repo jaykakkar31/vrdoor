@@ -124,12 +124,12 @@ const Properties = () => {
 													</span>
 												</div>
 												<div class="filter-button">
-													<a
-														href="single-listing1.html"
+													<Link 
+														to ="single-listing1.html"
 														class="filter-btn1 search-btn"
 													>
 														Search<i class="fas fa-search"></i>
-													</a>
+													</Link>
 												</div>
 												<div
 													class={`explore__form-checkbox-list explore__form-checkbox-list2 full-filter ${
@@ -402,15 +402,15 @@ const Properties = () => {
 														</div>
 														{/* <!-- /row --> */}
 														<div class="filter-button">
-															<a href="half-map1.html" class="filter-btn1">
+															<Link  to ="half-map1.html" class="filter-btn1">
 																Apply Filter
-															</a>
-															<a
-																href="half-map1.html"
+															</Link>
+															<Link 
+																to ="half-map1.html"
 																class="filter-btn1 reset-btn"
 															>
 																Reset Filter<i class="fas fa-redo-alt"></i>
-															</a>
+															</Link>
 														</div>
 													</div>
 												</div>
@@ -440,22 +440,22 @@ const Properties = () => {
 												<div class="grid-button">
 													<ul class="nav nav-tabs" role="tablist">
 														<li class="nav-item">
-															<a
+															<Link 
 																class="nav-link active"
 																data-bs-toggle="tab"
-																href="#mylisting"
+																to ="#mylisting"
 															>
 																<i class="fas fa-th"></i>
-															</a>
+															</Link>
 														</li>
 														<li class="nav-item">
-															<a
+															<Link 
 																class="nav-link"
 																data-bs-toggle="tab"
-																href="#reviews"
+																to ="#reviews"
 															>
 																<i class="fas fa-list-ul"></i>
-															</a>
+															</Link>
 														</li>
 													</ul>
 												</div>
@@ -510,39 +510,39 @@ const Properties = () => {
 																		<div class="react-icon">
 																			<ul>
 																				<li>
-																					<a
-																						href="favourite.html"
+																					<Link 
+																						to ="favourite.html"
 																						data-bs-toggle="tooltip"
 																						data-bs-placement="top"
 																						title="Favourites"
 																					>
 																						<i class="flaticon-heart"></i>
-																					</a>
+																					</Link>
 																				</li>
 																				<li>
-																					<a
-																						href="compare.html"
+																					<Link 
+																						to ="compare.html"
 																						data-bs-toggle="tooltip"
 																						data-bs-placement="top"
 																						title="Compare"
 																					>
 																						<i class="flaticon-left-and-right-arrows"></i>
-																					</a>
+																					</Link>
 																				</li>
 																			</ul>
 																		</div>
 																	</div>
 																	<div class="item-category10">
-																		<a href="single-listing1.html">
+																		<Link  to ="single-listing1.html">
 																			{currEle.type}
-																		</a>
+																		</Link>
 																	</div>
 																	<div class="item-content">
 																		<div class="verified-area">
 																			<h3 class="item-title">
-																				<a href="single-listing1.html">
+																				<Link  to ="single-listing1.html">
 																					{currEle.title}
-																				</a>
+																				</Link>
 																			</h3>
 																		</div>
 																		<div class="location-area">
@@ -574,47 +574,47 @@ const Properties = () => {
 												<div class="pagination-style-1">
 													<ul class="pagination">
 														<li class="page-item">
-															<a
+															<Link 
 																class="page-link"
-																href="with-sidebar2.html"
+																to ="with-sidebar2.html"
 																aria-label="Previous"
 															>
 																<span aria-hidden="true">&laquo;</span>
 																<span class="sr-only">Previous</span>
-															</a>
+															</Link>
 														</li>
 														<li class="page-item">
-															<a
+															<Link 
 																class="page-link active"
-																href="with-sidebar2.html"
+																to ="with-sidebar2.html"
 															>
 																1
-															</a>
+															</Link>
 														</li>
 														<li class="page-item">
-															<a class="page-link" href="with-sidebar2.html">
+															<Link  class="page-link" to ="with-sidebar2.html">
 																2
-															</a>
+															</Link>
 														</li>
 														<li class="page-item">
-															<a class="page-link" href="with-sidebar2.html">
+															<Link  class="page-link" to ="with-sidebar2.html">
 																3
-															</a>
+															</Link>
 														</li>
 														<li class="page-item">
-															<a class="page-link" href="with-sidebar2.html">
+															<Link  class="page-link" to ="with-sidebar2.html">
 																4
-															</a>
+															</Link>
 														</li>
 														<li class="page-item">
-															<a
+															<Link 
 																class="page-link"
-																href="with-sidebar2.html"
+																to ="with-sidebar2.html"
 																aria-label="Next"
 															>
 																<span aria-hidden="true">&raquo;</span>
 																<span class="sr-only">Next</span>
-															</a>
+															</Link>
 														</li>
 													</ul>
 												</div>

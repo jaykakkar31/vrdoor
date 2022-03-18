@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 const BlogDetail = () => {
@@ -10,17 +11,17 @@ const BlogDetail = () => {
             class="rt-header-menu mean-container position-relative"
             id="meanmenu">
             <div class="mean-bar">
-                <a href="index.html">
+               <Link to ="index.html">
                     <img src='img/logo.svg' alt='logo' class='img-fluid'/>
-                </a>
+                </Link>
                 <div class="mean-bar--right">
                     <div class="actions search">
-                        <a href="#template-search" class="item-icon" title="Search">
+                       <Link to ="#template-search" class="item-icon" title="Search">
                             <i class="fas fa-search"></i>
-                        </a>
+                        </Link>
                     </div>
                     <div class="actions user">
-                        <a href="account.html"><i class="flaticon-user"></i></a>
+                       <Link to ="account.html"><i class="flaticon-user"></i></Link>
                     </div>
                     <span class="sidebarBtn">
                         <span class="bar"></span>
@@ -35,73 +36,73 @@ const BlogDetail = () => {
                     <nav class="menu-main-primary-container">
                         <ul class="menu">
                             <li class="list menu-item-parent menu-item-has-children">
-                                <a class="animation" href="index.html">Home</a>
+                                <Link  class="animation" to ="index.html">Home</Link>
                                 <ul class="main-menu__dropdown sub-menu">
-                                    <li><a href="index.html">Home 01</a></li>
-                                    <li><a href="index2.html">Home 02</a></li>
-                                    <li><a href="index3.html">Home 03</a></li>
-                                    <li><a href="index4.html">Home 04</a></li>
-                                    <li><a href="index5.html">Home 05</a></li>
+                                    <li><Link to ="index.html">Home 01</Link></li>
+                                    <li><Link to ="index2.html">Home 02</Link></li>
+                                    <li><Link to ="index3.html">Home 03</Link></li>
+                                    <li><Link to ="index4.html">Home 04</Link></li>
+                                    <li><Link to ="index5.html">Home 05</Link></li>
                                 </ul>
                             </li>
                             <li class="list menu-item-parent menu-item-has-children">
-                                <a class="animation" href="with-sidebar2.html">Listing</a>
+                                <Link  class="animation" to ="with-sidebar2.html">Listing</Link>
                                 <ul class="main-menu__dropdown sub-menu">
                                     <li>
-                                        <a href="half-map1.html">Properties Map Grid</a>
+                                       <Link to ="half-map1.html">Properties Map Grid</Link>
                                     </li>
                                     <li>
-                                        <a href="half-map2.html">Properties Map List</a>
+                                       <Link to ="half-map2.html">Properties Map List</Link>
                                     </li>
                                     <li>
-                                        <a href="without-sidebar.html">Properties Full Width</a>
+                                       <Link to ="without-sidebar.html">Properties Full Width</Link>
                                     </li>
                                     <li>
-                                        <a href="with-sidebar.html">Properties Grid</a>
+                                       <Link to ="with-sidebar.html">Properties Grid</Link>
                                     </li>
                                     <li>
-                                        <a href="single-listing1.html">Single Property 1</a>
+                                       <Link to ="single-listing1.html">Single Property 1</Link>
                                     </li>
                                     <li>
-                                        <a href="single-listing2.html">Single Property 2</a>
+                                       <Link to ="single-listing2.html">Single Property 2</Link>
                                     </li>
                                     <li>
-                                        <a href="single-listing3.html">Single Property 3</a>
+                                       <Link to ="single-listing3.html">Single Property 3</Link>
                                     </li>
                                 </ul>
                             </li>
                             <li class="list menu-item-parent menu-item-has-children">
-                                <a class="animation" href="index.html">Pages</a>
+                                <Link  class="animation" to ="index.html">Pages</Link>
                                 <ul class="main-menu__dropdown sub-menu">
-                                    <li><a href="https://www.radiustheme.com/demo/html/homlisti/about.html">About Us</a></li>
-                                    <li><a href="404.html">Error page</a></li>
+                                    <li><Link to ="https://www.radiustheme.com/demo/html/homlisti/about.html">About Us</Link></li>
+                                    <li><Link to ="404.html">Error page</Link></li>
                                     <li>
-                                        <a href="with-sidebar.html">Properties Grid</a>
+                                       <Link to ="with-sidebar.html">Properties Grid</Link>
                                     </li>
-                                    <li><a href="without-sidebar.html">Properties Full Width</a></li>
-                                    <li><a href="single-agency1.html">Single Agency page</a></li>
-                                    <li><a href="single-agent1.html">Single-agent page</a></li>
-                                    <li><a href="pricing-1.html">Pricing page</a></li>
+                                    <li><Link to ="without-sidebar.html">Properties Full Width</Link></li>
+                                    <li><Link to ="single-agency1.html">Single Agency page</Link></li>
+                                    <li><Link to ="single-agent1.html">Single-agent page</Link></li>
+                                    <li><Link to ="pricing-1.html">Pricing page</Link></li>
                                 </ul>
                             </li>
                             <li class="list menu-item-parent menu-item-has-children">
-                                <a class="animation" href="index.html">Blog</a>
+                                <Link  class="animation" to ="index.html">Blog</Link>
                                 <ul class="main-menu__dropdown sub-menu">
-                                    <li><a href="blog1.html">Blog 1</a></li>
-                                    <li><a href="blog2.html">Blog 2</a></li>
-                                    <li><a href="blog-details1.html">Blog Details Page</a></li>
+                                    <li><Link to ="blog1.html">Blog 1</Link></li>
+                                    <li><Link to ="blog2.html">Blog 2</Link></li>
+                                    <li><Link to ="blog-details1.html">Blog Details Page</Link></li>
                                 </ul>
                             </li>
                             <li class="list menu-item-parent menu-item-has-children">
-                                <a class="animation" href="index.html">Agents</a>
+                                <Link  class="animation" to ="index.html">Agents</Link>
                                 <ul class="main-menu__dropdown sub-menu">
-                                    <li><a href="agency-lists1.html">Agency List page</a></li>
-                                    <li><a href="agent-lists1.html">Agent List Page</a></li>
-                                    <li><a href="agent-reviews1.html">Agent Reviews Page</a></li>
+                                    <li><Link to ="agency-lists1.html">Agency List page</Link></li>
+                                    <li><Link to ="agent-lists1.html">Agent List Page</Link></li>
+                                    <li><Link to ="agent-reviews1.html">Agent Reviews Page</Link></li>
                                 </ul>
                             </li>
                             <li class="list menu-item-parent">
-                                <a class="animation" href="contact.html">Contact us</a>
+                                <Link  class="animation" to ="contact.html">Contact us</Link>
                             </li>
                         </ul>
                     </nav>
@@ -112,7 +113,7 @@ const BlogDetail = () => {
             <div class="container">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><Link to ="index.html">Home</Link></li>
                         <li class="breadcrumb-item active" aria-current="page">Blogs</li>
                     </ol>
                 </nav>
@@ -127,19 +128,19 @@ const BlogDetail = () => {
                             <div class="col-lg-12">
                                 <div class="blog-box1 blog-box3 wow fadeInUp" data-wow-delay=".4s">
                                     <div class="item-img img-style-3">
-                                        <a href="blog1.html"><img src="img/blog/blog23.jpg" alt="blog" width="739" height="399" /></a>
+                                       <Link to ="blog1.html"><img src="img/blog/blog23.jpg" alt="blog" width="739" height="399" /></Link>
                                     </div>
                                     <div class="item-content">
                                         <div class="entry-meta">
                                             <ul>
-                                                <li class="theme-cat"><a href="blog1.html"><img src="img/theme1.png" alt="theme" width="31" height="31" />by radiustheme</a></li>
-                                                <li class="calendar-icon"><a href="blog1.html"><i class="far fa-calendar-alt"></i>February 28, 2020</a></li>
-                                                <li><a href="single-listing1.html">Apartment, Room</a></li>
-                                                <li><a href="single-listing1.html">5 mins</a></li>
+                                                <li class="theme-cat"><Link to ="blog1.html"><img src="img/theme1.png" alt="theme" width="31" height="31" />by radiustheme</Link></li>
+                                                <li class="calendar-icon"><Link to ="blog1.html"><i class="far fa-calendar-alt"></i>February 28, 2020</Link></li>
+                                                <li><Link to ="single-listing1.html">Apartment, Room</Link></li>
+                                                <li><Link to ="single-listing1.html">5 mins</Link></li>
                                             </ul>
                                         </div>
                                         <div class="heading-title title-style-2">
-                                            <h3><a href="single-listing1.html">How To Do Market Research For to Sell Faster</a></h3>
+                                            <h3><Link to ="single-listing1.html">How To Do Market Research For to Sell Faster</Link></h3>
                                             <p>Duis facilisis nibh qua sitamet interdtellsaesollicitudin tempor. Curabitur aliquis nibhquamamet intey
                                                 rdum. when an unknown printer took a galley of type and scrambled it to make a type specimen are
                                                 book has survived not only five centuries.Lorem ipsum dosectetur adipisicing elit, sed do.follow thing
@@ -178,7 +179,7 @@ const BlogDetail = () => {
                                             </div>
                                         </div>
                                         <div class="heading-title title-style-2">
-                                            <h3><a href="single-listing1.html">12 Walkable Cities Where You Can Live Affordably</a></h3>
+                                            <h3><Link to ="single-listing1.html">12 Walkable Cities Where You Can Live Affordably</Link></h3>
                                             <p class="style-3">when an unknown printer took a galley of type and scrambled it to make a type specimen bookItea 
                                                 has survived not only five centuries, but also the leap into electronic typesetting, remaining essen
                                                 tially unchanged.printer took a galley of type and scrambled it to make a type specimen bookh
@@ -214,42 +215,42 @@ const BlogDetail = () => {
                         <div class="widget widget-categoery-box">
                             <h3 class="widget-subtitle">Categories</h3>
                             <ul class="categoery-list">
-                                <li><a href="single-listing1.html">Apartments<span class="categoery-count">03</span></a></li>
-                                <li><a href="single-listing2.html">Corporate Building<span class="categoery-count">05</span></a></li>
-                                <li><a href="single-listing3.html">Home Land<span class="categoery-count">01</span></a></li>
-                                <li><a href="single-listing1.html">Family House<span class="categoery-count">05</span></a></li>
-                                <li><a href="single-listing2.html">Real Homes<span class="categoery-count">08</span></a></li>
-                                <li><a href="single-listing3.html">Realty Space<span class="categoery-count">09</span></a></li>
+                                <li><Link to ="single-listing1.html">Apartments<span class="categoery-count">03</span></Link></li>
+                                <li><Link to ="single-listing2.html">Corporate Building<span class="categoery-count">05</span></Link></li>
+                                <li><Link to ="single-listing3.html">Home Land<span class="categoery-count">01</span></Link></li>
+                                <li><Link to ="single-listing1.html">Family House<span class="categoery-count">05</span></Link></li>
+                                <li><Link to ="single-listing2.html">Real Homes<span class="categoery-count">08</span></Link></li>
+                                <li><Link to ="single-listing3.html">Realty Space<span class="categoery-count">09</span></Link></li>
                             </ul>
                         </div>
                         <div class="widget widget-listing-box1">
                             <h3 class="widget-subtitle">Latest Listing</h3>
                             <div class="widget-listing">
                                 <div class="item-img">
-                                    <a href="single-listing1.html"><img src="img/blog/widget2.jpg" alt="widget" width="120" height="102" /></a>
+                                   <Link to ="single-listing1.html"><img src="img/blog/widget2.jpg" alt="widget" width="120" height="102" /></Link>
                                 </div>
                                 <div class="item-content">
-                                    <h5 class="item-title"><a href="single-listing1.html">House Highland Ave  Los Angeles</a></h5>
+                                    <h5 class="item-title"><Link to ="single-listing1.html">House Highland Ave  Los Angeles</Link></h5>
                                     <div class="location-area"><i class="flaticon-maps-and-flags"></i>California</div>
                                     <div class="item-price">$3,000<span>/mo</span></div>
                                 </div>
                             </div>
                             <div class="widget-listing">
                                 <div class="item-img">
-                                    <a href="single-listing1.html"><img src="img/blog/widget3.jpg" alt="widget" width="120" height="102" /></a>
+                                   <Link to ="single-listing1.html"><img src="img/blog/widget3.jpg" alt="widget" width="120" height="102" /></Link>
                                 </div>
                                 <div class="item-content">
-                                    <h5 class="item-title"><a href="single-listing1.html">House Highland Ave  Los Angeles</a></h5>
+                                    <h5 class="item-title"><Link to ="single-listing1.html">House Highland Ave  Los Angeles</Link></h5>
                                     <div class="location-area"><i class="flaticon-maps-and-flags"></i>California</div>
                                     <div class="item-price">$1,200<span>/mo</span></div>
                                 </div>
                             </div>
                             <div class="widget-listing no-brd">
                                 <div class="item-img">
-                                    <a href="single-agent1.html"><img src="img/blog/widget4.jpg" alt="widget" width="120" height="102" /></a>
+                                   <Link to ="single-agent1.html"><img src="img/blog/widget4.jpg" alt="widget" width="120" height="102" /></Link>
                                 </div>
                                 <div class="item-content">
-                                    <h5 class="item-title"><a href="single-listing1.html">House Highland Ave  Los Angeles</a></h5>
+                                    <h5 class="item-title"><Link to ="single-listing1.html">House Highland Ave  Los Angeles</Link></h5>
                                     <div class="location-area"><i class="flaticon-maps-and-flags"></i>California</div>
                                     <div class="item-price">$1,900<span>/mo</span></div>
                                 </div>
@@ -258,15 +259,15 @@ const BlogDetail = () => {
                         <div class="widget widget-taglist">
                             <h3 class="widget-subtitle">Popular Tags</h3>
                             <ul class="tag-list">
-                                <li><a href="single-listing1.html">apartment</a></li>
-                                <li><a href="single-listing1.html">building</a></li>
-                                <li><a href="single-listing1.html">modern</a></li>
-                                <li><a href="single-listing1.html">luxarious</a></li>
-                                <li><a href="single-listing1.html">real estate</a></li>
-                                <li><a href="single-listing1.html">Villa</a></li>
-                                <li><a href="single-listing1.html">apartment</a></li>
-                                <li><a href="single-listing1.html">building</a></li>
-                                <li><a href="single-listing1.html">modern</a></li>
+                                <li><Link to ="single-listing1.html">apartment</Link></li>
+                                <li><Link to ="single-listing1.html">building</Link></li>
+                                <li><Link to ="single-listing1.html">modern</Link></li>
+                                <li><Link to ="single-listing1.html">luxarious</Link></li>
+                                <li><Link to ="single-listing1.html">real estate</Link></li>
+                                <li><Link to ="single-listing1.html">Villa</Link></li>
+                                <li><Link to ="single-listing1.html">apartment</Link></li>
+                                <li><Link to ="single-listing1.html">building</Link></li>
+                                <li><Link to ="single-listing1.html">modern</Link></li>
                             </ul>
                         </div>
                     </div>

@@ -178,17 +178,17 @@ const Home = () => {
 																</span>
 															</div>
 															<div class="filter-button-area" style={{height:"100%",display:"flex"}}>
-																<a
+																<Link 
 																	class="filter-btn"
 																	style={{
 																		display: "flex",
 																		alignItems: "center",
 																	}}
-																	href="with-sidebar.html"
+																	to ="with-sidebar.html"
 																>
 																	<span>Search</span>
 																	<i class="fas fa-search"></i>
-																</a>
+																</Link>
 															</div>
 														</div>
 													</div>
@@ -464,15 +464,15 @@ const Home = () => {
 																</div>
 															</div>
 															<div class="filter-button">
-																<a href="index.html" class="filter-btn1">
+																<Link to ="index.html" class="filter-btn1">
 																	Apply Filter
-																</a>
-																<a
-																	href="index.html"
+																</Link>
+																<Link 
+																	to ="index.html"
 																	class="filter-btn1 reset-btn"
 																>
 																	Reset Filter<i class="fas fa-redo-alt"></i>
-																</a>
+																</Link>
 															</div>
 														</div>
 													</div>
@@ -515,14 +515,14 @@ const Home = () => {
 								data-wow-delay=".3s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<Link to ="single-listing1.html">
 										<img
 											src="img/blog/blog4.jpg"
 											alt="blog"
 											width="510"
 											height="340"
 										/>
-									</a>
+									</Link>
 									<div class="item-category-box1">
 										<div class="item-category">For Sell</div>
 									</div>
@@ -537,35 +537,35 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<a
-													href="favourite.html"
+												<Link 
+													to ="favourite.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
 												>
 													<i class="flaticon-heart"></i>
-												</a>
+												</Link>
 											</li>
 											<li>
-												<a
-													href="compare.html"
+												<Link 
+													to ="compare.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
 												>
 													<i class="flaticon-left-and-right-arrows"></i>
-												</a>
+												</Link>
 											</li>
 										</ul>
 									</div>
 								</div>
 								<div class="item-category10">
-									<a href="SingleProperty">Appartment</a>
+									<Link to ="SingleProperty">Appartment</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<a href="single-listing1.html">Family House For Sell</a>
+											<Link to ="single-listing1.html">Family House For Sell</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -593,14 +593,14 @@ const Home = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<a href="SingleProperty">
+									<Link to ="SingleProperty">
 										<img
 											src="img/blog/blog5.jpg"
 											alt="blog"
 											width="510"
 											height="340"
 										/>
-									</a>
+									</Link>
 									<div class="item-category-box1">
 										<div class="item-category">For Rent</div>
 									</div>
@@ -615,37 +615,37 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<a
-													href="favourite.html"
+												<Link 
+													to ="favourite.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
 												>
 													<i class="flaticon-heart"></i>
-												</a>
+												</Link>
 											</li>
 											<li>
-												<a
-													href="compare.html"
+												<Link 
+													to ="compare.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
 												>
 													<i class="flaticon-left-and-right-arrows"></i>
-												</a>
+												</Link>
 											</li>
 										</ul>
 									</div>
 								</div>
 								<div class="item-category10">
-									<a href="SingleProperty">Villa</a>
+									<Link to ="SingleProperty">Villa</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<a href="SingleProperty">
+											<Link to ="SingleProperty">
 												Countryside Modern Lake View
-											</a>
+											</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -673,14 +673,14 @@ const Home = () => {
 								data-wow-delay=".1s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<Link to ="single-listing1.html">
 										<img
 											src="img/blog/blog6.jpg"
 											alt="blog"
 											width="510"
 											height="340"
 										/>
-									</a>
+									</Link>
 									<div class="item-category-box1">
 										<div class="item-category">For Sell</div>
 									</div>
@@ -695,37 +695,37 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<a
-													href="favourite.html"
+												<Link 
+													to ="favourite.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
 												>
 													<i class="flaticon-heart"></i>
-												</a>
+												</Link>
 											</li>
 											<li>
-												<a
-													href="compare.html"
+												<Link 
+													to ="compare.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
 												>
 													<i class="flaticon-left-and-right-arrows"></i>
-												</a>
+												</Link>
 											</li>
 										</ul>
 									</div>
 								</div>
 								<div class="item-category10">
-									<a href="single-listing1.html">Office</a>
+									<Link to ="single-listing1.html">Office</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<a href="single-listing1.html">
+											<Link to ="single-listing1.html">
 												Gorgeous Apartment Building
-											</a>
+											</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -753,14 +753,14 @@ const Home = () => {
 								data-wow-delay=".3s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<Link to ="single-listing1.html">
 										<img
 											src="img/blog/blog7.jpg"
 											alt="blog"
 											width="510"
 											height="340"
 										/>
-									</a>
+									</Link>
 									<div class="item-category-box1">
 										<div class="item-category">For Rent</div>
 									</div>
@@ -775,37 +775,37 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<a
-													href="favourite.html"
+												<Link 
+													to ="favourite.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
 												>
 													<i class="flaticon-heart"></i>
-												</a>
+												</Link>
 											</li>
 											<li>
-												<a
-													href="compare.html"
+												<Link 
+													to ="compare.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
 												>
 													<i class="flaticon-left-and-right-arrows"></i>
-												</a>
+												</Link>
 											</li>
 										</ul>
 									</div>
 								</div>
 								<div class="item-category10">
-									<a href="single-listing1.html">Commercial</a>
+									<Link to ="single-listing1.html">Commercial</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<a href="single-listing1.html">
+											<Link to ="single-listing1.html">
 												Countryside Modern Lake View
-											</a>
+											</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -833,14 +833,14 @@ const Home = () => {
 								data-wow-delay=".6s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<Link to ="single-listing1.html">
 										<img
 											src="img/blog/blog8.jpg"
 											alt="blog"
 											width="510"
 											height="340"
 										/>
-									</a>
+									</Link>
 									<div class="item-category-box1">
 										<div class="item-category">For Sell</div>
 									</div>
@@ -855,35 +855,35 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<a
-													href="favourite.html"
+												<Link 
+													to ="favourite.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
 												>
 													<i class="flaticon-heart"></i>
-												</a>
+												</Link>
 											</li>
 											<li>
-												<a
-													href="compare.html"
+												<Link 
+													to ="compare.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
 												>
 													<i class="flaticon-left-and-right-arrows"></i>
-												</a>
+												</Link>
 											</li>
 										</ul>
 									</div>
 								</div>
 								<div class="item-category10">
-									<a href="single-listing1.html">Villa</a>
+									<Link to ="single-listing1.html">Villa</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<a href="single-listing1.html">Family House For Sell</a>
+											<Link to ="single-listing1.html">Family House For Sell</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -911,14 +911,14 @@ const Home = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<Link to ="single-listing1.html">
 										<img
 											src="img/blog/blog9.jpg"
 											alt="blog"
 											width="510"
 											height="340"
 										/>
-									</a>
+									</Link>
 									<div class="item-category-box1">
 										<div class="item-category">For Rent</div>
 									</div>
@@ -933,37 +933,37 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<a
-													href="favourite.html"
+												<Link 
+													to ="favourite.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
 												>
 													<i class="flaticon-heart"></i>
-												</a>
+												</Link>
 											</li>
 											<li>
-												<a
-													href="compare.html"
+												<Link 
+													to ="compare.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
 												>
 													<i class="flaticon-left-and-right-arrows"></i>
-												</a>
+												</Link>
 											</li>
 										</ul>
 									</div>
 								</div>
 								<div class="item-category10">
-									<a href="single-listing1.html">Office</a>
+									<Link to ="single-listing1.html">Office</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<a href="single-listing1.html">
+											<Link to ="single-listing1.html">
 												Countryside Modern Lake View
-											</a>
+											</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -987,9 +987,9 @@ const Home = () => {
 						</div>
 					</div>
 					<div class="property-button">
-						<a href="single-listing2.html" class="item-btn">
+						<Link to ="single-listing2.html" class="item-btn">
 							View All Properties
-						</a>
+						</Link>
 					</div>
 				</div>
 			</section>
@@ -1103,9 +1103,9 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
                   friction of buying and selling house or apartment.
 								</p>
 								<div class="banner-button about-button-2">
-									<a href="contact.html" class="banner-btn">
+									<Link to ="contact.html" class="banner-btn">
 										Contact With Us
-									</a>
+									</Link>
 								</div>
 							</div>
 						</div>
@@ -1128,20 +1128,20 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 								data-wow-delay=".3s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<Link to ="single-listing1.html">
 										<img
 											src="img/blog/location-1.png"
 											alt="location"
 											width="424"
 											height="280"
 										/>
-									</a>
+									</Link>
 								</div>
 								<div class="item-content">
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<a href="single-listing2.html">Delhi</a>
+												<Link to ="single-listing2.html">Delhi</Link>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1157,20 +1157,20 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 								data-wow-delay=".4s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<Link to ="single-listing1.html">
 										<img
 											src="img/blog/location-2.png"
 											alt="location"
 											width="424"
 											height="280"
 										/>
-									</a>
+									</Link>
 								</div>
 								<div class="item-content">
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<a href="single-listing2.html">Mumbai</a>
+												<Link to ="single-listing2.html">Mumbai</Link>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1186,20 +1186,20 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 								data-wow-delay=".5s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<Link to ="single-listing1.html">
 										<img
 											src="img/blog/location-3.png"
 											alt="location"
 											width="424"
 											height="280"
 										/>
-									</a>
+									</Link>
 								</div>
 								<div class="item-content">
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<a href="single-listing2.html">Bangalore</a>
+												<Link to ="single-listing2.html">Bangalore</Link>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1217,20 +1217,20 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 								data-wow-delay=".6s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<Link to ="single-listing1.html">
 										<img
 											src="img/blog/location-4.png"
 											alt="location"
 											width="424"
 											height="280"
 										/>
-									</a>
+									</Link>
 								</div>
 								<div class="item-content">
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<a href="single-listing2.html">Punjab</a>
+												<Link to ="single-listing2.html">Punjab</Link>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1246,20 +1246,20 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 								data-wow-delay=".7s"
 							>
 								<div class="item-img">
-									<a href="single-listing1.html">
+									<Link to ="single-listing1.html">
 										<img
 											src="img/blog/location-5.png"
 											alt="location"
 											width="846"
 											height="280"
 										/>
-									</a>
+									</Link>
 								</div>
 								<div class="item-content">
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<a href="single-listing2.html">Kolkata</a>
+												<Link to ="single-listing2.html">Kolkata</Link>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1286,15 +1286,15 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 								</h3>
 								<div class="play-button">
 									<div class="item-icon">
-										<a
-											href="http://www.youtube.com/watch?v=1iIZeIy7TqM"
+										<Link 
+											to ="http://www.youtube.com/watch?v=1iIZeIy7TqM"
 											class="play-btn"
 										>
 											<span class="play-icon style-1">
 												<i class="fas fa-play"></i>
 											</span>
 											<span class="play-text">Get Started</span>
-										</a>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -1393,9 +1393,9 @@ A smart real estate experience using virtual reality
 									</div>
 								</div>
 								<div class="banner-button">
-									<a href="Contactus" class="banner-btn">
+									<Link to ="Contactus" class="banner-btn">
 										Contact With Us
-									</a>
+									</Link>
 								</div>
 							</div>
 						</div>
@@ -1533,9 +1533,9 @@ A smart real estate experience using virtual reality
 							<span class="background-title solid">Dream Home</span>
 						</div>
 						<div class="banner-button">
-							<a href="Contactus" class="banner-btn">
+							<Link to ="Contactus" class="banner-btn">
 								Contact With Us
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>
