@@ -40,7 +40,7 @@ const Properties = () => {
 				</div>
 			</div>
 			<section class="half-map-wrap1" style={{ padding: "30px 0px 30px 0px" }}>
-				{!loading ? (
+				{loading ? (
 					<div
 						class="container-fluid"
 						style={{

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css"
+import "./Navbar.css";
+import { Dropdown } from "react-bootstrap";
 const Navbar = () => {
 	return (
 		<div className="nav-head">
@@ -66,10 +67,9 @@ const Navbar = () => {
 												<li>
 													<a href="/properties?category=rent">Rent</a>
 												</li>
-												
 											</ul>
 										</li>
-									
+
 										<li>
 											<Link to="/blog">Blog</Link>
 										</li>
@@ -105,14 +105,14 @@ const Navbar = () => {
 											</a>
 										</li>
 										<li class="action-item-style my-account">
-											<a
-												href="Login"
+											<Link
+												to="/Login"
 												data-bs-toggle="tooltip"
 												data-bs-placement="bottom"
 												title="Sign In"
 											>
 												<i class="flaticon-user-1 icon-round"></i>
-											</a>
+											</Link>
 										</li>
 										<li class="listing-button">
 											<a href="AddPost" class="listing-btn">
@@ -132,7 +132,6 @@ const Navbar = () => {
 			<div
 				class="rt-header-menu mean-container position-relative"
 				id="meanmenu"
-				
 			>
 				<div class="mean-bar">
 					<a href="index.html">

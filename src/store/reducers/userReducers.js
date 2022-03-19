@@ -40,7 +40,7 @@ export const loginUser = (state = {}, actions) => {
 	}
 };
 
-export const userData = (state = {}, actions) => {
+export const userDataReducer = (state = {}, actions) => {
 	switch (actions.type) {
 		case USER_DATA_REQUEST:
 			return { loading: true, error: null };

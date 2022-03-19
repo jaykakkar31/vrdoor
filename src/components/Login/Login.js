@@ -1,13 +1,33 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
-
+import { userLogin } from "../../store/actions/userActions";
 const Login = () => {
 	const [details, setDetails] = useState({
 		email: "",
 		userpass: "",
 	});
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const loginUser = useSelector((state) => state.loginUser);
+	const { laoding, userInfo } = loginUser;
+
+	const loginHandle = (e) => {
+		e.preventDefault();
+		try {
+			dispatch(userLogin(details)).then(() => {
+				setDetails({
+					email: "",
+					userpass: "",
+				});
+				navigate("/");
+			});
+		} catch (e) {
+			throw new Error(e.message);
+		}
+	};
 	return (
 		<div>
 			<Navbar />
@@ -17,7 +37,7 @@ const Login = () => {
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
-								<a href="index.html">Home</a>
+								<Link to="/">Home</Link>
 							</li>
 							<li class="breadcrumb-item active" aria-current="page">
 								My Account
@@ -34,64 +54,90 @@ const Login = () => {
 							<div class="page-content-block">
 								<div class="col-md-12 rtcl-login-form-wrap">
 									<h2>Login</h2>
-									<form
-										id="rtcl-login-form"
-										class="form-horizontal"
-										method="post"
-										novalidate="novalidate"
-									>
-										<div class="form-group">
-											<label for="rtcl-user-login" class="control-label">
-												Username or E-mail
-												<strong class="rtcl-required">*</strong>
-											</label>
-											<input
-												type="text"
-												name="username"
-												autocomplete="username"
-												value=""
-												id="rtcl-user-login"
-												class="form-control"
-												required=""
-											/>
+									{laoding ? (
+										<div
+											class="container-fluid"
+											style={{
+												display: "flex",
+												justifyContent: "center",
+												alignItems: "center",
+												marginTop: "20px",
+												marginBottom: "40x",
+											}}
+										>
+											<img src="img/preloader.gif" alt="load" />
 										</div>
-										<div class="form-group">
-											<label for="rtcl-user-pass" class="control-label">
-												Password <strong class="rtcl-required">*</strong>
-											</label>
-											<input
-												type="password"
-												name="password"
-												id="rtcl-user-pass"
-												autocomplete="current-password"
-												class="form-control"
-												required=""
-											/>
-										</div>
-										<div class="form-group d-flex align-items-center">
-											<button
-												type="submit"
-												name="rtcl-login"
-												class="btn btn-primary"
-												value="login"
-											>
-												Login
-											</button>
-										</div>
-										<div class="d-flex justify-content-between">
+									) : (
+										<form
+											id="rtcl-login-form"
+											class="form-horizontal"
+											method="post"
+											novalidate="novalidate"
+											onSubmit={loginHandle}
+										>
 											<div class="form-group">
-												<p class="rtcl-forgot-password">
-													Not registered yet?
-													<Link to="/signup"> Create an Account</Link>
-												</p>
+												<label for="rtcl-user-login" class="control-label">
+													Username or E-mail
+													<strong class="rtcl-required">*</strong>
+												</label>
+												<input
+													type="email"
+													name="email"
+													value={details.email}
+													id="rtcl-user-login"
+													class="form-control"
+													required
+													onChange={(e) => {
+														setDetails((prev) => {
+															return { ...prev, email: e.target.value };
+														});
+													}}
+												/>
 											</div>
 											<div class="form-group">
-												<p class="rtcl-forgot-password">
-													<a href="/">Forgot Your Password?</a>
-												</p>
+												<label for="rtcl-user-pass" class="control-label">
+													Password <strong class="rtcl-required">*</strong>
+												</label>
+												<input
+													type="password"
+													name="userpass"
+													id="rtcl-user-pass"
+													autocomplete="current-password"
+													class="form-control"
+													required
+													onChange={(e) => {
+														setDetails((prev) => {
+															return { ...prev, userpass: e.target.value };
+														});
+													}}
+													value={details.userpass}
+												/>
 											</div>
-										</div>
-									</form>
+											<div class="form-group d-flex align-items-center">
+												<button
+													type="submit"
+													name="rtcl-login"
+													class="btn btn-primary"
+													value="login"
+												>
+													Login
+												</button>
+											</div>
+											<div class="d-flex justify-content-between">
+												<div class="form-group">
+													<p class="rtcl-forgot-password">
+														Not registered yet?
+														<Link to="/signup"> Create an Account</Link>
+													</p>
+												</div>
+												<div class="form-group">
+													<p class="rtcl-forgot-password">
+														<Link to="/">Forgot Your Password?</Link>
+													</p>
+												</div>
+											</div>
+										</form>
+									)}
 								</div>
 							</div>
 						</div>

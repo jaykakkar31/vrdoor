@@ -1,6 +1,6 @@
 import { USER_DATA_FAIL, USER_DATA_REQUEST, USER_DATA_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../constants/constants";
 import axios from 'axios'
-const API_URL="https://vrdoor-server.herokuapp.com"
+const API_URL="http://localhost:4000"
 export const userRgister = (details) => async(dispatch) => {
 	console.log(details);
 	try {
@@ -74,6 +74,7 @@ export const userLogin = (details) => async (dispatch) => {
 
 
 export const fetchUserData = (id) => async (dispatch) => {
+    console.log("CALLED");
 	try {
 		dispatch({
 			type: USER_DATA_REQUEST,
@@ -94,7 +95,7 @@ export const fetchUserData = (id) => async (dispatch) => {
 			payload: data,
 		});
 
-		localStorage.setItem("userInfo", JSON.stringify(data));
+		// localStorage.setItem("userInfo", JSON.stringify(data));
 	} catch (error) {
 		dispatch({
 			type: USER_DATA_FAIL,

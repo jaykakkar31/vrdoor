@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ADD_PROPERTY_FAIL, ADD_PROPERTY_REQUEST, ADD_PROPERTY_SUCCESS, GET_PROPERTIES_FAIL, GET_PROPERTIES_REQUEST, GET_PROPERTIES_SUCCESS } from "../constants/constants";
-const API_URL = "https://vrdoor-server.herokuapp.com";
+const API_URL = "http://localhost:4000";
 
 export const addProperty = (details) => async (dispatch, getState) => {
 	try {

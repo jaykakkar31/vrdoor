@@ -819,6 +819,7 @@ const SingleProperty = () => {
 												<iframe
 													width="745"
 													height="600"
+                                                    title="map"
 													allowFullScreen
 													style={{ borderStyle: "none" }}
 													src="https://kanishk014.github.io/WoodBox-Tour/"
