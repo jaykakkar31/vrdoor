@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 
 const Login = () => {
+	const [details, setDetails] = useState({
+		email: "",
+		userpass: "",
+	});
 	return (
 		<div>
 			<Navbar />
-			
 
 			<div class="breadcrumb-wrap">
 				<div class="container">

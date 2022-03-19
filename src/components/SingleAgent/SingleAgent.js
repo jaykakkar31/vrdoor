@@ -102,22 +102,22 @@ const SingleAgent = () => {
                       <div class="rt-social-item">
                         <ul class="social-item">
                           <li>
-                            <a href="https://www.facebook.com/" target="_blank">
+                            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
                               <i class="fab fa-facebook-f"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="https://twitter.com/" target="_blank">
+                            <a href="https://twitter.com/" target="_blank" rel="noreferrer">
                               <i class="fab fa-twitter"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="https://vimeo.com/" target="_blank">
+                            <a href="https://vimeo.com/" target="_blank" rel="noreferrer">
                               <i class="fab fa-vimeo-v"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="https://web.whatsapp.com/" target="_blank">
+                            <a href="https://web.whatsapp.com/" target="_blank" rel="noreferrer">
                               <i class="fab fa-whatsapp"></i>
                             </a>
                           </li>

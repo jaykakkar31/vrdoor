@@ -4,6 +4,7 @@ import Footer from "../Footer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper";
 import "./singleProperty.css";
+import { Link } from "react-router-dom";
 const SingleProperty = () => {
 	return (
 		<div>

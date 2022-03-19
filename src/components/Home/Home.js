@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import "./home.css"
@@ -8,8 +9,7 @@ const Home = () => {
 	return (
 		<div style={{ width: "100%" }}>
 			<Navbar />
-			
-			<section class="main-banner-wrap1 main-banner-wrap6 motion-effects-wrap adj-height" >
+			<section class="main-banner-wrap1 main-banner-wrap6 motion-effects-wrap adj-height">
 				<div class="shape-element">
 					<ul>
 						<li>
@@ -194,7 +194,7 @@ const Home = () => {
 													</div>
 													<div
 														class={`explore__form-checkbox-list full-filter ${
-															isclick && "filter-block"
+															isclick && "filter-block "
 														}`}
 													>
 														<div class="row">
@@ -1056,9 +1056,9 @@ const Home = () => {
 										<span class="background-title solid">About</span>
 									</div>
 									<p>
-									
-
-Experience homes in a smarter way with Virtual reality. Explore your future home with timely listings and a seamless experience.
+										Experience homes in a smarter way with Virtual reality.
+										Explore your future home with timely listings and a seamless
+										experience.
 									</p>
 								</div>
 								<div class="row">
@@ -1098,9 +1098,8 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 									</div>
 								</div>
 								<p>
-								The
-                  company's promise is using technology to reduce the time and
-                  friction of buying and selling house or apartment.
+									The company's promise is using technology to reduce the time
+									and friction of buying and selling house or apartment.
 								</p>
 								<div class="banner-button about-button-2">
 									<Link to ="contact.html" class="banner-btn">
@@ -1363,8 +1362,8 @@ Experience homes in a smarter way with Virtual reality. Explore your future home
 										We’re Providing the Best Real Estate Services
 									</h2>
 									<p class="item-para">
-									Explore places in VR. 
-A smart real estate experience using virtual reality
+										Explore places in VR. A smart real estate experience using
+										virtual reality
 									</p>
 									<p></p>
 								</div>

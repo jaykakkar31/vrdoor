@@ -1,4 +1,9 @@
-@media (max-width: 1024px) {
+@media (max-width: 1600px) {
+	.adj-height {
+		min-height: 940px;
+	}
+}
+@media (max-width: 1025px) {
 	.adj-height {
 		min-height: 900px;
 	}

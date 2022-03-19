@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import "./Blog.css";
@@ -17,7 +16,7 @@ const Blog = () => {
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
-								<Link to ="index.html">Home</Link>
+								<a href="index.html">Home</a>
 							</li>
 							<li class="breadcrumb-item active" aria-current="page">
 								Blog
@@ -41,14 +40,14 @@ const Blog = () => {
 										data-wow-delay=".4s"
 									>
 										<div class="item-img">
-											<Link to ="blog1.html">
+											<a href="blog1.html">
 												<img
 													src="img/blog/blog29.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
+											</a>
 										</div>
 										<div class="thumbnail-date">
 											<div class="popup-date">
@@ -60,10 +59,10 @@ const Blog = () => {
 											<div class="entry-meta">
 												<ul>
 													<li>
-														<Link to ="blog2.html">Apartment, Room</Link>
+														<a href="blog2.html">Apartment, Room</a>
 													</li>
 													<li>
-														<Link to ="blog2.html">5 min</Link>
+														<a href="blog2.html">5 min</a>
 													</li>
 												</ul>
 											</div>
@@ -75,9 +74,9 @@ const Blog = () => {
 												</h3>
 											</div>
 											<div class="blog-button">
-												<Link to ="blog2.html" class="item-btn">
+												<a href="blog2.html" class="item-btn">
 													Read More<i class="fas fa-arrow-right"></i>
-												</Link>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -88,14 +87,14 @@ const Blog = () => {
 										data-wow-delay=".4s"
 									>
 										<div class="item-img">
-											<Link to ="blog2.html">
+											<a href="blog2.html">
 												<img
 													src="img/blog/blog30.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
+											</a>
 										</div>
 										<div class="thumbnail-date">
 											<div class="popup-date">
@@ -107,10 +106,10 @@ const Blog = () => {
 											<div class="entry-meta">
 												<ul>
 													<li>
-														<Link to ="blog2.html">Building, Room</Link>
+														<a href="blog2.html">Building, Room</a>
 													</li>
 													<li>
-														<Link to ="blog2.html">4 min</Link>
+														<a href="blog2.html">4 min</a>
 													</li>
 												</ul>
 											</div>
@@ -122,9 +121,9 @@ const Blog = () => {
 												</h3>
 											</div>
 											<div class="blog-button">
-												<Link to ="blog1.html" class="item-btn">
+												<a href="blog1.html" class="item-btn">
 													Read More<i class="fas fa-arrow-right"></i>
-												</Link>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -135,14 +134,14 @@ const Blog = () => {
 										data-wow-delay=".4s"
 									>
 										<div class="item-img">
-											<Link to ="blog2.html">
+											<a href="blog2.html">
 												<img
 													src="img/blog/blog31.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
+											</a>
 										</div>
 										<div class="thumbnail-date">
 											<div class="popup-date">
@@ -154,10 +153,10 @@ const Blog = () => {
 											<div class="entry-meta">
 												<ul>
 													<li>
-														<Link to ="blog2.html">Entertainment, Room</Link>
+														<a href="blog2.html">Entertainment, Room</a>
 													</li>
 													<li>
-														<Link to ="blog2.html">3 min</Link>
+														<a href="blog2.html">3 min</a>
 													</li>
 												</ul>
 											</div>
@@ -170,9 +169,9 @@ const Blog = () => {
 												</h3>
 											</div>
 											<div class="blog-button">
-												<Link to ="blog1.html" class="item-btn">
+												<a href="blog1.html" class="item-btn">
 													Read More<i class="fas fa-arrow-right"></i>
-												</Link>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -183,14 +182,14 @@ const Blog = () => {
 										data-wow-delay=".4s"
 									>
 										<div class="item-img">
-											<Link to ="blog2.html">
+											<a href="blog2.html">
 												<img
 													src="img/blog/blog32.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
+											</a>
 										</div>
 										<div class="thumbnail-date">
 											<div class="popup-date">
@@ -202,10 +201,10 @@ const Blog = () => {
 											<div class="entry-meta">
 												<ul>
 													<li>
-														<Link to ="blog2.html">Apartment, Room</Link>
+														<a href="blog2.html">Apartment, Room</a>
 													</li>
 													<li>
-														<Link to ="blog2.html">5 min</Link>
+														<a href="blog2.html">5 min</a>
 													</li>
 												</ul>
 											</div>
@@ -217,9 +216,9 @@ const Blog = () => {
 												</h3>
 											</div>
 											<div class="blog-button">
-												<Link to ="blog2.html" class="item-btn">
+												<a href="blog2.html" class="item-btn">
 													Read More<i class="fas fa-arrow-right"></i>
-												</Link>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -230,14 +229,14 @@ const Blog = () => {
 										data-wow-delay=".4s"
 									>
 										<div class="item-img">
-											<Link to ="blog2.html">
+											<a href="blog2.html">
 												<img
 													src="img/blog/blog33.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
+											</a>
 										</div>
 										<div class="thumbnail-date">
 											<div class="popup-date">
@@ -249,10 +248,10 @@ const Blog = () => {
 											<div class="entry-meta">
 												<ul>
 													<li>
-														<Link to ="blog2.html">Building, Room</Link>
+														<a href="blog2.html">Building, Room</a>
 													</li>
 													<li>
-														<Link to ="blog2.html">4 min</Link>
+														<a href="blog2.html">4 min</a>
 													</li>
 												</ul>
 											</div>
@@ -264,9 +263,9 @@ const Blog = () => {
 												</h3>
 											</div>
 											<div class="blog-button">
-												<Link to ="blog1.html" class="item-btn">
+												<a href="blog1.html" class="item-btn">
 													Read More<i class="fas fa-arrow-right"></i>
-												</Link>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -277,14 +276,14 @@ const Blog = () => {
 										data-wow-delay=".4s"
 									>
 										<div class="item-img">
-											<Link to ="blog2.html">
+											<a href="blog2.html">
 												<img
 													src="img/blog/blog34.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
+											</a>
 										</div>
 										<div class="thumbnail-date">
 											<div class="popup-date">
@@ -296,10 +295,10 @@ const Blog = () => {
 											<div class="entry-meta">
 												<ul>
 													<li>
-														<Link to ="blog2.html">Entertainment, Room</Link>
+														<a href="blog2.html">Entertainment, Room</a>
 													</li>
 													<li>
-														<Link to ="blog2.html">3 min</Link>
+														<a href="blog2.html">3 min</a>
 													</li>
 												</ul>
 											</div>
@@ -312,9 +311,9 @@ const Blog = () => {
 												</h3>
 											</div>
 											<div class="blog-button">
-												<Link to ="blog1.html" class="item-btn">
+												<a href="blog1.html" class="item-btn">
 													Read More<i class="fas fa-arrow-right"></i>
-												</Link>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -325,14 +324,14 @@ const Blog = () => {
 										data-wow-delay=".4s"
 									>
 										<div class="item-img">
-											<Link to ="blog2.html">
+											<a href="blog2.html">
 												<img
 													src="img/blog/blog29.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
+											</a>
 										</div>
 										<div class="thumbnail-date">
 											<div class="popup-date">
@@ -344,10 +343,10 @@ const Blog = () => {
 											<div class="entry-meta">
 												<ul>
 													<li>
-														<Link to ="blog2.html">Building, Room</Link>
+														<a href="blog2.html">Building, Room</a>
 													</li>
 													<li>
-														<Link to ="blog2.html">4 min</Link>
+														<a href="blog2.html">4 min</a>
 													</li>
 												</ul>
 											</div>
@@ -359,9 +358,9 @@ const Blog = () => {
 												</h3>
 											</div>
 											<div class="blog-button">
-												<Link to ="blog1.html" class="item-btn">
+												<a href="blog1.html" class="item-btn">
 													Read More<i class="fas fa-arrow-right"></i>
-												</Link>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -372,14 +371,14 @@ const Blog = () => {
 										data-wow-delay=".4s"
 									>
 										<div class="item-img">
-											<Link to ="blog2.html">
+											<a href="blog2.html">
 												<img
 													src="img/blog/blog30.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
+											</a>
 										</div>
 										<div class="thumbnail-date">
 											<div class="popup-date">
@@ -391,10 +390,10 @@ const Blog = () => {
 											<div class="entry-meta">
 												<ul>
 													<li>
-														<Link to ="blog2.html">Apartment, Room</Link>
+														<a href="blog2.html">Apartment, Room</a>
 													</li>
 													<li>
-														<Link to ="blog2.html">5 min</Link>
+														<a href="blog2.html">5 min</a>
 													</li>
 												</ul>
 											</div>
@@ -406,9 +405,9 @@ const Blog = () => {
 												</h3>
 											</div>
 											<div class="blog-button">
-												<Link to ="blog2.html" class="item-btn">
+												<a href="blog2.html" class="item-btn">
 													Read More<i class="fas fa-arrow-right"></i>
-												</Link>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -417,44 +416,44 @@ const Blog = () => {
 							<div class="pagination-style-1">
 								<ul class="pagination">
 									<li class="page-item">
-										<Link
+										<a
 											class="page-link"
 											href="with-sidebar2.html"
 											aria-label="Previous"
 										>
 											<span aria-hidden="true">&laquo;</span>
 											<span class="sr-only">Previous</span>
-										</Link>
+										</a>
 									</li>
 									<li class="page-item">
-										<Link class="page-link active" href="with-sidebar2.html">
+										<a class="page-link active" href="with-sidebar2.html">
 											1
-										</Link>
+										</a>
 									</li>
 									<li class="page-item">
-										<Link class="page-link" href="with-sidebar2.html">
+										<a class="page-link" href="with-sidebar2.html">
 											2
-										</Link>
+										</a>
 									</li>
 									<li class="page-item">
-										<Link class="page-link" href="with-sidebar2.html">
+										<a class="page-link" href="with-sidebar2.html">
 											3
-										</Link>
+										</a>
 									</li>
 									<li class="page-item">
-										<Link class="page-link" href="with-sidebar2.html">
+										<a class="page-link" href="with-sidebar2.html">
 											4
-										</Link>
+										</a>
 									</li>
 									<li class="page-item">
-										<Link
+										<a
 											class="page-link"
 											href="with-sidebar2.html"
 											aria-label="Next"
 										>
 											<span aria-hidden="true">&raquo;</span>
 											<span class="sr-only">Next</span>
-										</Link>
+										</a>
 									</li>
 								</ul>
 							</div>
@@ -477,34 +476,34 @@ const Blog = () => {
 								<h3 class="widget-subtitle">Categories</h3>
 								<ul class="categoery-list">
 									<li>
-										<Link to ="single-listing1.html">
+										<a href="single-listing1.html">
 											Apartments<span class="categoery-count">03</span>
-										</Link>
+										</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">
+										<a href="single-listing1.html">
 											Corporate Building<span class="categoery-count">05</span>
-										</Link>
+										</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">
+										<a href="single-listing1.html">
 											Home Land<span class="categoery-count">01</span>
-										</Link>
+										</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">
+										<a href="single-listing1.html">
 											Family House<span class="categoery-count">05</span>
-										</Link>
+										</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">
+										<a href="single-listing1.html">
 											Real Homes<span class="categoery-count">08</span>
-										</Link>
+										</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">
+										<a href="single-listing1.html">
 											Realty Space<span class="categoery-count">09</span>
-										</Link>
+										</a>
 									</li>
 								</ul>
 							</div>
@@ -512,20 +511,20 @@ const Blog = () => {
 								<h3 class="widget-subtitle">Latest Listing</h3>
 								<div class="widget-listing">
 									<div class="item-img">
-										<Link to ="single-listing1.html">
+										<a href="single-listing1.html">
 											<img
 												src="img/blog/widget2.jpg"
 												alt="widget"
 												width="120"
 												height="102"
 											/>
-										</Link>
+										</a>
 									</div>
 									<div class="item-content">
 										<h5 class="item-title">
-											<Link to ="single-listing1.html">
+											<a href="single-listing1.html">
 												House Highland Ave Los Angeles
-											</Link>
+											</a>
 										</h5>
 										<div class="location-area">
 											<i class="flaticon-maps-and-flags"></i>California
@@ -537,20 +536,20 @@ const Blog = () => {
 								</div>
 								<div class="widget-listing">
 									<div class="item-img">
-										<Link to ="single-listing1.html">
+										<a href="single-listing1.html">
 											<img
 												src="img/blog/widget3.jpg"
 												alt="widget"
 												width="120"
 												height="102"
 											/>
-										</Link>
+										</a>
 									</div>
 									<div class="item-content">
 										<h5 class="item-title">
-											<Link to ="single-listing1.html">
+											<a href="single-listing1.html">
 												House Highland Ave Los Angeles
-											</Link>
+											</a>
 										</h5>
 										<div class="location-area">
 											<i class="flaticon-maps-and-flags"></i>California
@@ -562,20 +561,20 @@ const Blog = () => {
 								</div>
 								<div class="widget-listing no-brd">
 									<div class="item-img">
-										<Link to ="single-agent1.html">
+										<a href="single-agent1.html">
 											<img
 												src="img/blog/widget4.jpg"
 												alt="widget"
 												width="120"
 												height="102"
 											/>
-										</Link>
+										</a>
 									</div>
 									<div class="item-content">
 										<h5 class="item-title">
-											<Link to ="single-listing1.html">
+											<a href="single-listing1.html">
 												House Highland Ave Los Angeles
-											</Link>
+											</a>
 										</h5>
 										<div class="location-area">
 											<i class="flaticon-maps-and-flags"></i>California
@@ -590,31 +589,31 @@ const Blog = () => {
 								<h3 class="widget-subtitle">Popular Tags</h3>
 								<ul class="tag-list">
 									<li>
-										<Link to ="single-listing1.html">apartment</Link>
+										<a href="single-listing1.html">apartment</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">building</Link>
+										<a href="single-listing1.html">building</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">modern</Link>
+										<a href="single-listing1.html">modern</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">luxarious</Link>
+										<a href="single-listing1.html">luxarious</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">real estate</Link>
+										<a href="single-listing1.html">real estate</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">Villa</Link>
+										<a href="single-listing1.html">Villa</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">apartment</Link>
+										<a href="single-listing1.html">apartment</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">building</Link>
+										<a href="single-listing1.html">building</a>
 									</li>
 									<li>
-										<Link to ="single-listing1.html">modern</Link>
+										<a href="single-listing1.html">modern</a>
 									</li>
 								</ul>
 							</div>
