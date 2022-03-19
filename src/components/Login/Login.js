@@ -35,7 +35,7 @@ const Login = () => {
 										id="rtcl-login-form"
 										class="form-horizontal"
 										method="post"
-										novalidate="novalidate"
+										noValidate="novalidate"
 									>
 										<div class="form-group">
 											<label for="rtcl-user-login" class="control-label">
@@ -46,7 +46,7 @@ const Login = () => {
 												type="text"
 												name="username"
 												autocomplete="username"
-												value=""
+												
 												id="rtcl-user-login"
 												class="form-control"
 												required=""

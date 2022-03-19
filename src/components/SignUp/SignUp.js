@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import { useDispatch } from "react-redux";
@@ -6,6 +6,7 @@ import { userRgister } from "../../store/actions/userActions";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+	const [formErrors, setFormErrors] =useState({});
 	const [details, setDetails] = useState({
 		name: "",
 		email: "",
@@ -15,13 +16,49 @@ const SignUp = () => {
 		gender: "",
 		confirmpass: "",
 	});
+
 	const dispatch = useDispatch();
 
 	const signUpHandle = (e) => {
 		e.preventDefault();
+		setFormErrors(validate(details));
 		console.log(details);
 		dispatch(userRgister(details));
-        
+		
+	};
+	useEffect(()=>{
+		console.log(formErrors);
+
+	},[formErrors]);
+	const validate = (values) => {
+		const errors ={}
+		const regex = /^[^\s@]+@[^s@]+\.[^s@]{2,}$/i;
+		if(!values.name){
+			errors.name="Name is required!";
+		}
+		if(!values.phoneno){
+			errors.phoneno="Phone Number is required!";
+		}
+		if(!values.email){
+			errors.email="Email is required!";
+		} else if(!regex.test(values.email)){
+			errors.email="This is not a valid email format!";
+		}
+		if(!values.gender){
+			errors.gender="Gender is required!";
+		}
+		if(!values.dob){
+			errors.dob="Date of Birth is required!";
+		}
+		if(!values.userpass){
+			errors.userpass="Password is required!";
+		}
+		if(!values.confirmpass){
+			errors.confirmpass="Confirm Password is required!";
+		}else if(values.confirmpass!==values.userpass){
+			errors.confirmpass="Password does not match!";
+		}
+		return errors;
 	};
 
 	return (
@@ -54,7 +91,7 @@ const SignUp = () => {
 										id="rtcl-signup-form"
 										class="form-horizontal"
 										method="post"
-										novalidate="novalidate"
+										
 										onSubmit={signUpHandle}
 									>
 										<div class="form-group">
@@ -76,7 +113,7 @@ const SignUp = () => {
 												}}
 											/>
 										</div>
-
+											<p style={{color:'red'}}>{formErrors.name}</p>
 										<div class="form-group">
 											<label for="email" class="control-label">
 												Email
@@ -87,7 +124,7 @@ const SignUp = () => {
 												name="email"
 												id="email"
 												class="form-control"
-												required=""
+												required
 												value={details.email}
 												onChange={(e) => {
 													setDetails((prev) => {
@@ -96,13 +133,13 @@ const SignUp = () => {
 												}}
 											/>
 										</div>
-
+										<p style={{color:'red'}}>{formErrors.email}</p>
 										<div class="form-group">
 											<label for="phoneno" class="control-label">
 												Phone Number <strong class="rtcl-required">*</strong>
 											</label>
 											<input
-												type="tel"
+												type="number"
 												name="phoneno"
 												id="phoneno"
 												class="form-control"
@@ -115,7 +152,7 @@ const SignUp = () => {
 												}}
 											/>
 										</div>
-
+										<p style={{color:'red'}}>{formErrors.phoneno}</p>
 										<div>
 											<label for="gender" class="control-label">
 												Gender <strong class="rtcl-required">*</strong>
@@ -160,7 +197,7 @@ const SignUp = () => {
 											/>{" "}
 											Other
 										</div>
-
+										<p style={{color:'red'}}>{formErrors.gender}</p>	
 										<div class="form-group">
 											<label for="dob" class="control-label">
 												Date of Birth <strong class="rtcl-required">*</strong>
@@ -179,7 +216,7 @@ const SignUp = () => {
 												}}
 											/>
 										</div>
-
+										<p style={{color:'red'}}>{formErrors.dob}</p>
 										<div class="form-group">
 											<label for="userpass" class="control-label">
 												Password <strong class="rtcl-required">*</strong>
@@ -198,6 +235,7 @@ const SignUp = () => {
 												}}
 											/>
 										</div>
+										<p style={{color:'red'}}>{formErrors.userpass}</p>
 										<div class="form-group">
 											<label for="confirmpass" class="control-label">
 												Confirm Password{" "}
@@ -217,7 +255,8 @@ const SignUp = () => {
 												}}
 											/>
 										</div>
-
+										<p style={{color:'red'}}>{formErrors.confirmpass}</p>
+										
 										<div class="form-group d-flex align-items-center">
 											<button
 												type="submit"
