@@ -59,13 +59,13 @@ const Navbar = () => {
 											<Link to="/about">About</Link>
 										</li>
 										<li>
-											<Link>Property</Link>
+											<a>Property</a>
 											<ul class="dropdown-menu-col-1">
 												<li>
-													<Link to="/properties?category=buy">Buy</Link>
+													<a href="/properties?category=buy">Buy</a>
 												</li>
 												<li>
-													<Link to="/properties?category=rent">Rent</Link>
+													<a href="/properties?category=rent">Rent</a>
 												</li>
 											</ul>
 										</li>
@@ -115,7 +115,7 @@ const Navbar = () => {
 											</Link>
 										</li>
 										<li class="listing-button">
-											<Link to="AddPost" class="listing-btn">
+											<Link to="/AddPost" class="listing-btn">
 												<span>
 													<i class="fas fa-plus-circle"></i>
 												</span>
@@ -200,7 +200,6 @@ const Navbar = () => {
 									<Link class="animation" to="/">
 										Blog
 									</Link>
-								
 								</li>
 								<li class="list menu-item-parent menu-item-has-children">
 									<Link class="animation" to="/">

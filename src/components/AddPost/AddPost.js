@@ -21,6 +21,7 @@ const AddPost = () => {
 			navigate("/login");
 		}
 	});
+
 	const [propDetails, setpropDetails] = useState({
 		userId: id,
 		title: "",
@@ -45,41 +46,42 @@ const AddPost = () => {
 		feel_360: "",
 	});
 
+	console.log(propDetails);
 	const dispatch = useDispatch();
 
 	const addPostHandler = (e) => {
 		e.preventDefault();
 		setFormErrors(validate(propDetails));
 		//    console.log("FORM ERROR",Object.keys(formErrors).length===0);
-		if (Object.keys(formErrors).length === 0) {
-			console.log("called");
-			dispatch(addProperty(propDetails)).then(() => {
-				setpropDetails({
-					userId: id,
-					title: "",
-					propertyImage: "",
-					overview: "",
-					price: "",
-					beds: "",
-					baths: "",
-					sqft: "",
-					type: "",
-					category: "",
-					builtYear: "",
-					parkingSpaces: "",
-					roomCount: "",
-					location: "",
-					tvCable: false,
-					barbeque: false,
-					ac: false,
-					lawn: false,
-					laundry: false,
-					ccCam: false,
-					feel_360: "",
-				});
-				navigate("/");
+		// if (Object.keys(formErrors).length === 0) {
+		// 	console.log("called");
+		dispatch(addProperty(propDetails)).then(() => {
+			setpropDetails({
+				userId: id,
+				title: "",
+				propertyImage: "",
+				overview: "",
+				price: "",
+				beds: "",
+				baths: "",
+				sqft: "",
+				type: "",
+				category: "",
+				builtYear: "",
+				parkingSpaces: "",
+				roomCount: "",
+				location: "",
+				tvCable: false,
+				barbeque: false,
+				ac: false,
+				lawn: false,
+				laundry: false,
+				ccCam: false,
+				feel_360: "",
 			});
-		}
+			navigate("/");
+		});
+		// }
 	};
 	// console.log(propDetails);
 	useEffect(() => {
