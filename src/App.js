@@ -16,6 +16,7 @@ import SignUp from "./components/SignUp/SignUp";
 import Meet from './components/jitsimeet/meet'
 import Profile from "./components/Profile/Profile";
 import PropListing from './components/UserProperties/PropListings'
+import SinglePropertyDetails from "./components/SinglePropertyDetails/SinglePropertyDetails";
 function App() {
   return (
 		<Router>
@@ -23,6 +24,12 @@ function App() {
 				<Route exact path={"/"} element={<Home />} />
 				<Route exact path={"/about"} element={<About />} />
 				<Route exact path={"/blog"} element={<Blog />} />
+				<Route
+					exact
+					path={"/property"}
+					element={<SinglePropertyDetails />}
+				/>
+
 				<Route exact path={"/contactus"} element={<Contact />} />
 				<Route exact path={"/agents"} element={<Agents />} />
 				<Route exact path={"/properties"} element={<Properties />} />

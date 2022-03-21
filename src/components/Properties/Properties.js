@@ -39,7 +39,7 @@ const Properties = () => {
 					</nav>
 				</div>
 			</div>
-			<section class="half-map-wrap1" style={{ padding: "30px 0px 30px 0px" }}>
+			<section class="half-map-wrap1" style={{ padding: "30px 0px 0px 0px" }}>
 				{loading ? (
 					<div
 						class="container-fluid"
@@ -111,7 +111,14 @@ const Properties = () => {
 								<div class="banner-search-wrap banner-search-wrap-2">
 									<div class="rld-main-search rld-main-search2">
 										<div class="row">
-											<div class="col-sm-12">
+											<div
+												class="col-sm-12"
+												style={{
+													display: "flex",
+													justifyContent: "space-between",
+													alignItems: "center",
+												}}
+											>
 												<div class="rld-progress-box">
 													<div class="main-search-field-3">
 														{/* <!-- Area Range --> */}
@@ -129,7 +136,7 @@ const Properties = () => {
 																			class="price-range"
 																			id="price-range-min-4"
 																		></div>
-																		<div class="price-range">-</div>
+																		<div class="price-range"></div>
 																		<div
 																			class="price-range"
 																			id="price-range-max-4"
@@ -140,17 +147,19 @@ const Properties = () => {
 														</div>
 													</div>
 												</div>
-												<div
-													class="dropdown-filter"
-													onClick={() => {
-														setIsClick(!isClick);
-													}}
-												>
-													<span>
-														<i class="fas fa-sliders-h"></i>
-													</span>
-												</div>
+
 												<div class="filter-button">
+													<div
+														class="dropdown-filter"
+														onClick={() => {
+															setIsClick(!isClick);
+														}}
+                                                        style={{marginRight:"20px"}}
+													>
+														<span>
+															<i class="fas fa-sliders-h"></i>
+														</span>
+													</div>
 													<Link
 														to="single-listing1.html"
 														class="filter-btn1 search-btn"
@@ -164,7 +173,7 @@ const Properties = () => {
 													}`}
 												>
 													<div class="row">
-														<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
+														<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0" style={{width:"100%"}}>
 															{/* <!-- Form Property Status --> */}
 															<div class="form-group bed">
 																<label class="item-bedrooms">Bedrooms</label>
@@ -184,7 +193,7 @@ const Properties = () => {
 																</div>
 																{/* <!--/ End Form Property Status --> */}
 															</div>
-															<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 ">
+															<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 " style={{width:"100%"}}>
 																{/* <!-- Form Bedrooms --> */}
 																<div class="form-group bath">
 																	<label class="item-bath">Bathrooms</label>
@@ -211,7 +220,7 @@ const Properties = () => {
 																</div>
 																{/* <!--/ End Form Bedrooms --> */}
 															</div>
-															<div class="col-lg-4 col-md-6 py-1 pl-0 pr-0">
+															<div class="col-lg-4 col-md-6 py-1 pl-0 pr-0" style={{width:"100%"}}>
 																{/* <!-- Form Bathrooms --> */}
 																<div class="form-group garage">
 																	<label class="item-garage">Garage</label>
@@ -241,11 +250,11 @@ const Properties = () => {
 															{/* <!-- Price Fields --> */}
 															<div class="main-search-field-2 col-12">
 																{/* <!-- Area Range --> */}
-																<div class="row">
+																<div class="row" style={{display:"flex",alignItems:"center"}}>
 																	<div class="col-md-6 pl-0">
 																		<div class="price-range-wrapper">
 																			<div class="range-box">
-																				<div class="price-label">
+																				<div class="price-label" style={{width:"240px"}}>
 																					Flat Size:
 																				</div>
 																				<div
@@ -435,20 +444,10 @@ const Properties = () => {
 																</div>
 															</div>
 															{/* <!-- /row --> */}
-															<div class="filter-button">
-																<a href="half-map1.html" class="filter-btn1">
-																	Apply Filter
-																</a>
-																<a
-																	href="half-map1.html"
-																	class="filter-btn1 reset-btn"
-																>
-																	Reset Filter<i class="fas fa-redo-alt"></i>
-																</a>
-															</div>
+															
 														</div>
 														{/* <!-- /row --> */}
-														<div class="filter-button">
+														<div class="filter-button" style={{justifyContent:"center"}}>
 															<Link to="half-map1.html" class="filter-btn1">
 																Apply Filter
 															</Link>
@@ -522,6 +521,10 @@ const Properties = () => {
 																			<img
 																				src={currEle.propertyImage}
 																				alt="blog"
+																				style={{
+																					height: "360px",
+																					width: "660px",
+																				}}
 																				width="660"
 																				height="440"
 																			/>

@@ -8,6 +8,7 @@ import {
 } from "./reducers/propertiesReducer";
 import {
 	loginUser,
+	logoutUser,
 	registerUser,
 	userDataReducer,
 } from "./reducers/userReducers";
@@ -29,6 +30,7 @@ const reducers = combineReducers({
 	loginUser: loginUser,
 	userDataReducer: userDataReducer,
 	fetchUserPropertyReducer: fetchUserPropertyReducer,
+	logoutUser:logoutUser,
 });
 
 const store = createStore(

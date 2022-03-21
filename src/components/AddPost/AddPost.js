@@ -31,8 +31,8 @@ const AddPost = () => {
 		beds: "",
 		baths: "",
 		sqft: "",
-		type: "",
-		category: "",
+		type: "Family House",
+		category: "Rent",
 		builtYear: "",
 		parkingSpaces: "",
 		roomCount: "",
@@ -65,8 +65,8 @@ const AddPost = () => {
 				beds: "",
 				baths: "",
 				sqft: "",
-				type: "",
-				category: "",
+				type: "Family House",
+				category: "Rent",
 				builtYear: "",
 				parkingSpaces: "",
 				roomCount: "",
@@ -177,8 +177,26 @@ const AddPost = () => {
 											onSubmit={addPostHandler}
 										>
 											<div class="form-group">
+												<label htmlFor="addcategory" class="control-label">
+													Category
+													<strong class="rtcl-required">*</strong>
+												</label>
+												<select
+													class="form-select"
+													aria-label="addcategory"
+													onChange={(e) => {
+														setpropDetails((prev) => {
+															return { ...prev, category: e.target.value };
+														});
+													}}
+												>
+													<option value="Rent">Rent</option>
+													<option value="Buy">Buy</option>
+												</select>
+											</div>
+											<div class="form-group">
 												<label htmlFor="addtype" class="control-label">
-													Select Property Add Type
+													Type
 													<strong class="rtcl-required">*</strong>
 												</label>
 												<select
@@ -190,8 +208,8 @@ const AddPost = () => {
 														});
 													}}
 												>
-													<option value="0">Rent</option>
-													<option value="1">Sale</option>
+													<option value="Family House">Family House</option>
+													<option value="Apartment">Apartment</option>
 												</select>
 											</div>
 											<div class="form-group">

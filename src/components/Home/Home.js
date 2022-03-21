@@ -87,14 +87,14 @@ const Home = () => {
 								<div class="ad-type-wrapper search-radio">
 									<ul class="list-inline">
 										<li>
-											<label htmlFor="sell" class="active">
-												<span>Sell</span>
+											<label htmlFor="Buy" class="active">
+												<span>Buy</span>
 												<input
 													class="sr-only"
 													type="radio"
 													name="filters[ad_type]"
-													id="sell"
-													value="sell"
+													id="Buy"
+													value="Buy"
 												/>
 											</label>
 										</li>
@@ -177,14 +177,17 @@ const Home = () => {
 																	<i class="fas fa-sliders-h"></i>
 																</span>
 															</div>
-															<div class="filter-button-area" style={{height:"100%",display:"flex"}}>
-																<Link 
+															<div
+																class="filter-button-area"
+																style={{ height: "100%", display: "flex" }}
+															>
+																<Link
 																	class="filter-btn"
 																	style={{
 																		display: "flex",
 																		alignItems: "center",
 																	}}
-																	to ="with-sidebar.html"
+                                                                    to="/"
 																>
 																	<span>Search</span>
 																	<i class="fas fa-search"></i>
@@ -464,11 +467,11 @@ const Home = () => {
 																</div>
 															</div>
 															<div class="filter-button">
-																<Link to ="index.html" class="filter-btn1">
+																<Link to="/" class="filter-btn1">
 																	Apply Filter
 																</Link>
-																<Link 
-																	to ="index.html"
+																<Link
+																	to="/"
 																	class="filter-btn1 reset-btn"
 																>
 																	Reset Filter<i class="fas fa-redo-alt"></i>
@@ -515,7 +518,7 @@ const Home = () => {
 								data-wow-delay=".3s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="/singleproperty">
 										<img
 											src="img/blog/blog4.jpg"
 											alt="blog"
@@ -524,7 +527,7 @@ const Home = () => {
 										/>
 									</Link>
 									<div class="item-category-box1">
-										<div class="item-category">For Sell</div>
+										<div class="item-category">For Buy</div>
 									</div>
 									<div class="rent-price">
 										<div class="item-price">
@@ -537,8 +540,8 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<Link 
-													to ="favourite.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
@@ -547,8 +550,8 @@ const Home = () => {
 												</Link>
 											</li>
 											<li>
-												<Link 
-													to ="compare.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
@@ -560,12 +563,14 @@ const Home = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<Link to ="SingleProperty">Appartment</Link>
+									<Link to="SingleProperty">Appartment</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to ="single-listing1.html">Family House For Sell</Link>
+											<Link to="/singleproperty">
+												Family House For Buy
+											</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -593,7 +598,7 @@ const Home = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<Link to ="SingleProperty">
+									<Link to="SingleProperty">
 										<img
 											src="img/blog/blog5.jpg"
 											alt="blog"
@@ -615,8 +620,8 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<Link 
-													to ="favourite.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
@@ -625,8 +630,8 @@ const Home = () => {
 												</Link>
 											</li>
 											<li>
-												<Link 
-													to ="compare.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
@@ -638,12 +643,12 @@ const Home = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<Link to ="SingleProperty">Villa</Link>
+									<Link to="SingleProperty">Villa</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to ="SingleProperty">
+											<Link to="SingleProperty">
 												Countryside Modern Lake View
 											</Link>
 										</h3>
@@ -673,7 +678,7 @@ const Home = () => {
 								data-wow-delay=".1s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="/singleproperty">
 										<img
 											src="img/blog/blog6.jpg"
 											alt="blog"
@@ -682,7 +687,7 @@ const Home = () => {
 										/>
 									</Link>
 									<div class="item-category-box1">
-										<div class="item-category">For Sell</div>
+										<div class="item-category">For Buy</div>
 									</div>
 									<div class="rent-price">
 										<div class="item-price">
@@ -695,8 +700,8 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<Link 
-													to ="favourite.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
@@ -705,8 +710,8 @@ const Home = () => {
 												</Link>
 											</li>
 											<li>
-												<Link 
-													to ="compare.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
@@ -718,12 +723,12 @@ const Home = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<Link to ="single-listing1.html">Office</Link>
+									<Link to="/singleproperty">Office</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to ="single-listing1.html">
+											<Link to="/singleproperty">
 												Gorgeous Apartment Building
 											</Link>
 										</h3>
@@ -753,7 +758,7 @@ const Home = () => {
 								data-wow-delay=".3s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="/singleproperty">
 										<img
 											src="img/blog/blog7.jpg"
 											alt="blog"
@@ -775,8 +780,8 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<Link 
-													to ="favourite.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
@@ -785,8 +790,8 @@ const Home = () => {
 												</Link>
 											</li>
 											<li>
-												<Link 
-													to ="compare.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
@@ -798,12 +803,12 @@ const Home = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<Link to ="single-listing1.html">Commercial</Link>
+									<Link to="/singleproperty">Commercial</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to ="single-listing1.html">
+											<Link to="/singleproperty">
 												Countryside Modern Lake View
 											</Link>
 										</h3>
@@ -833,7 +838,7 @@ const Home = () => {
 								data-wow-delay=".6s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="/singleproperty">
 										<img
 											src="img/blog/blog8.jpg"
 											alt="blog"
@@ -842,7 +847,7 @@ const Home = () => {
 										/>
 									</Link>
 									<div class="item-category-box1">
-										<div class="item-category">For Sell</div>
+										<div class="item-category">For Buy</div>
 									</div>
 									<div class="rent-price">
 										<div class="item-price">
@@ -855,8 +860,8 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<Link 
-													to ="favourite.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
@@ -865,8 +870,8 @@ const Home = () => {
 												</Link>
 											</li>
 											<li>
-												<Link 
-													to ="compare.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
@@ -878,12 +883,14 @@ const Home = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<Link to ="single-listing1.html">Villa</Link>
+									<Link to="/singleproperty">Villa</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to ="single-listing1.html">Family House For Sell</Link>
+											<Link to="/singleproperty">
+												Family House For Buy
+											</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -911,7 +918,7 @@ const Home = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="/singleproperty">
 										<img
 											src="img/blog/blog9.jpg"
 											alt="blog"
@@ -933,8 +940,8 @@ const Home = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<Link 
-													to ="favourite.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
@@ -943,8 +950,8 @@ const Home = () => {
 												</Link>
 											</li>
 											<li>
-												<Link 
-													to ="compare.html"
+												<Link
+													to="/"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
@@ -956,12 +963,12 @@ const Home = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<Link to ="single-listing1.html">Office</Link>
+									<Link to="/singleproperty">Office</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to ="single-listing1.html">
+											<Link to="/singleproperty">
 												Countryside Modern Lake View
 											</Link>
 										</h3>
@@ -987,7 +994,7 @@ const Home = () => {
 						</div>
 					</div>
 					<div class="property-button">
-						<Link to ="single-listing2.html" class="item-btn">
+						<Link to="/" class="item-btn">
 							View All Properties
 						</Link>
 					</div>
@@ -1099,10 +1106,10 @@ const Home = () => {
 								</div>
 								<p>
 									The company's promise is using technology to reduce the time
-									and friction of buying and selling house or apartment.
+									and friction of buying and Buying house or apartment.
 								</p>
 								<div class="banner-button about-button-2">
-									<Link to ="contact.html" class="banner-btn">
+									<Link to="/contactus" class="banner-btn">
 										Contact With Us
 									</Link>
 								</div>
@@ -1127,7 +1134,7 @@ const Home = () => {
 								data-wow-delay=".3s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="/singleproperty">
 										<img
 											src="img/blog/location-1.png"
 											alt="location"
@@ -1140,7 +1147,7 @@ const Home = () => {
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<Link to ="single-listing2.html">Delhi</Link>
+												<Link to="/singleproperty">Delhi</Link>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1156,7 +1163,7 @@ const Home = () => {
 								data-wow-delay=".4s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="/singleproperty">
 										<img
 											src="img/blog/location-2.png"
 											alt="location"
@@ -1169,7 +1176,7 @@ const Home = () => {
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<Link to ="single-listing2.html">Mumbai</Link>
+												<Link to="/singleproperty">Mumbai</Link>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1185,7 +1192,7 @@ const Home = () => {
 								data-wow-delay=".5s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="/singleproperty">
 										<img
 											src="img/blog/location-3.png"
 											alt="location"
@@ -1198,7 +1205,7 @@ const Home = () => {
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<Link to ="single-listing2.html">Bangalore</Link>
+												<Link to="/singleproperty">Bangalore</Link>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1216,7 +1223,7 @@ const Home = () => {
 								data-wow-delay=".6s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="/singleproperty">
 										<img
 											src="img/blog/location-4.png"
 											alt="location"
@@ -1229,7 +1236,7 @@ const Home = () => {
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<Link to ="single-listing2.html">Punjab</Link>
+												<Link to="/singleproperty">Punjab</Link>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1245,7 +1252,7 @@ const Home = () => {
 								data-wow-delay=".7s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="/singleproperty">
 										<img
 											src="img/blog/location-5.png"
 											alt="location"
@@ -1258,7 +1265,7 @@ const Home = () => {
 									<div class="content-body">
 										<div class="item-title">
 											<h3>
-												<Link to ="single-listing2.html">Kolkata</Link>
+												<Link to="/singleproperty">Kolkata</Link>
 											</h3>
 										</div>
 										<div class="item-category">
@@ -1285,8 +1292,8 @@ const Home = () => {
 								</h3>
 								<div class="play-button">
 									<div class="item-icon">
-										<Link 
-											to ="http://www.youtube.com/watch?v=1iIZeIy7TqM"
+										<Link
+											to="http://www.youtube.com/watch?v=1iIZeIy7TqM"
 											class="play-btn"
 										>
 											<span class="play-icon style-1">
@@ -1392,7 +1399,7 @@ const Home = () => {
 									</div>
 								</div>
 								<div class="banner-button">
-									<Link to ="Contactus" class="banner-btn">
+									<Link to="Contactus" class="banner-btn">
 										Contact With Us
 									</Link>
 								</div>
@@ -1532,7 +1539,7 @@ const Home = () => {
 							<span class="background-title solid">Dream Home</span>
 						</div>
 						<div class="banner-button">
-							<Link to ="Contactus" class="banner-btn">
+							<Link to="Contactus" class="banner-btn">
 								Contact With Us
 							</Link>
 						</div>

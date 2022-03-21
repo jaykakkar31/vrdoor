@@ -34,7 +34,7 @@ const Navbar = () => {
 								>
 									<ul>
 										<li>
-											<Link to="/" class="active">
+											<Link to="/" >
 												Home
 											</Link>
 											{/* <ul class="dropdown-menu-col-1">
@@ -56,7 +56,7 @@ const Navbar = () => {
 											</ul> */}
 										</li>
 										<li>
-											<Link to="/about">About</Link>
+											<Link to="/about" >About</Link>
 										</li>
 										<li>
 											<a>Property</a>

@@ -1,4 +1,4 @@
-import { USER_DATA_FAIL, USER_DATA_REQUEST, USER_DATA_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../constants/constants";
+import { USER_DATA_FAIL, USER_DATA_REQUEST, USER_DATA_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../constants/constants";
 import axios from 'axios'
 const API_URL="http://localhost:4000"
 export const userRgister = (details) => async(dispatch) => {
@@ -38,6 +38,15 @@ export const userRgister = (details) => async(dispatch) => {
 		});
 	}
 };
+export const logout = () => (dispatch) => {
+	localStorage.removeItem("userInfo");
+	dispatch({
+		type: USER_LOGOUT,
+	});
+
+};
+
+
 
 export const userLogin = (details) => async (dispatch) => {
 	try {

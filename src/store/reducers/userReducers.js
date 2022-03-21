@@ -54,3 +54,17 @@ export const userDataReducer = (state = {}, actions) => {
 			return state;
 	}
 };
+
+export const logoutUser = (state = {}, actions) => {
+	switch (actions.type) {
+		case USER_DATA_REQUEST:
+			return { loading: true, error: null };
+		case USER_DATA_SUCCESS:
+			return { loading: false, userInfo: {} };
+		case USER_DATA_FAIL:
+			return { loading: false, error: actions.payload };
+
+		default:
+			return state;
+	}
+};
