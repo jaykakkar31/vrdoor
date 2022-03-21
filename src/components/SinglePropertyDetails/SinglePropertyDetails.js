@@ -19,10 +19,10 @@ const SingleProperty = () => {
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
-								<Link to="index.html">Home</Link>
+								<Link to="/">Home</Link>
 							</li>
 							<li class="breadcrumb-item">
-								<Link to="single-listing2.html">Comercial Property</Link>
+								<Link to="/singlelisting">Comercial Property</Link>
 							</li>
 							<li class="breadcrumb-item active" aria-current="page">
 								All Listing
@@ -55,7 +55,7 @@ const SingleProperty = () => {
 										<div class="single-verified-area">
 											<div class="item-title">
 												<h3>
-													<Link to="single-listing2.html">
+													<Link to="/singlelisting">
 														Family House For Rent
 													</Link>
 												</h3>
@@ -76,32 +76,7 @@ const SingleProperty = () => {
 											</ul>
 										</div>
 									</div>
-									<div class="col-lg-4 col-md-12">
-										<div class="side-button">
-											<ul>
-												<li>
-													<Link to="with-sidebar2.html" class="side-btn">
-														<i class="flaticon-share"></i>
-													</Link>
-												</li>
-												<li>
-													<Link to="with-sidebar2.html" class="side-btn">
-														<i class="flaticon-heart"></i>
-													</Link>
-												</li>
-												<li>
-													<Link to="with-sidebar2.html" class="side-btn">
-														<i class="flaticon-left-and-right-arrows"></i>
-													</Link>
-												</li>
-												<li>
-													<Link to="with-sidebar2.html" class="side-btn">
-														<i class="flaticon-printer"></i>
-													</Link>
-												</li>
-											</ul>
-										</div>
-									</div>
+									
 								</div>
 							</div>
 
@@ -845,7 +820,7 @@ const SingleProperty = () => {
 												<h4 class="item-title">RadiusTheme</h4>
 												<div class="item-phn">
 													+ 132 899 6XXX{" "}
-													<Link to="single-listing1.html">
+													<Link to="/property">
 														<span>(Show)</span>
 													</Link>
 												</div>
@@ -874,12 +849,12 @@ const SingleProperty = () => {
 										</div>
 										<ul class="wid-contact-button">
 											<li>
-												<Link to="contact.html">
+												<Link to="/contactus">
 													<i class="fas fa-comment"></i>Quick Chat
 												</Link>
 											</li>
 											<li>
-												<Link to="contact.html">
+												<Link to="/contactus">
 													<i class="fas fa-share-alt"></i>Share
 												</Link>
 											</li>
@@ -942,7 +917,7 @@ const SingleProperty = () => {
 									<div class="widget widget-listing-box1">
 										<h3 class="widget-subtitle">Latest Listing</h3>
 										<div class="item-img">
-											<Link to="single-listing2.html">
+											<Link to="/singlelisting">
 												<img
 													src="img/blog/widget1.jpg"
 													alt="widget"
@@ -956,10 +931,10 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-content">
 											<div class="item-category10">
-												<Link to="single-listing2.html">Villa</Link>
+												<Link to="/singlelisting">Villa</Link>
 											</div>
 											<h4 class="item-title">
-												<Link to="single-listing2.html">
+												<Link to="/singlelisting">
 													Modern Villa for House Highland Ave Los Angeles
 												</Link>
 											</h4>
@@ -973,7 +948,7 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-listing">
 											<div class="item-img">
-												<Link to="single-listing2.html">
+												<Link to="/singlelisting">
 													<img
 														src="img/blog/widget2.jpg"
 														alt="widget"
@@ -984,7 +959,7 @@ const SingleProperty = () => {
 											</div>
 											<div class="item-content">
 												<h5 class="item-title">
-													<Link to="single-listing2.html">
+													<Link to="/singlelisting">
 														House Highland Ave Los Angeles
 													</Link>
 												</h5>
@@ -998,7 +973,7 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-listing">
 											<div class="item-img">
-												<Link to="single-listing2.html">
+												<Link to="/singlelisting">
 													<img
 														src="img/blog/widget3.jpg"
 														alt="widget"
@@ -1009,7 +984,7 @@ const SingleProperty = () => {
 											</div>
 											<div class="item-content">
 												<h5 class="item-title">
-													<Link to="single-listing2.html">
+													<Link to="/singlelisting">
 														House Highland Ave Los Angeles
 													</Link>
 												</h5>
@@ -1023,7 +998,7 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-listing no-brd">
 											<div class="item-img">
-												<Link to="single-listing2.html">
+												<Link to="/singlelisting">
 													<img
 														src="img/blog/widget4.jpg"
 														alt="widget"
@@ -1034,7 +1009,7 @@ const SingleProperty = () => {
 											</div>
 											<div class="item-content">
 												<h5 class="item-title">
-													<Link to="single-listing2.html">
+													<Link to="/singlelisting">
 														House Highland Ave Los Angeles
 													</Link>
 												</h5>
@@ -1110,10 +1085,10 @@ const SingleProperty = () => {
 
 										<ul class="wid-contact-button">
 											<li>
-												<Link to="single-listing2.html">Calculate</Link>
+												<Link to="/singlelisting">Calculate</Link>
 											</li>
 											<li>
-												<Link to="single-listing2.html">
+												<Link to="/singlelisting">
 													<i class="fas fa-sync-alt"></i>Reset Form
 												</Link>
 											</li>
@@ -1130,7 +1105,7 @@ const SingleProperty = () => {
 											<h4 class="item-title">Find Your Dream House</h4>
 											<div class="item-price">$2,999</div>
 											<div class="post-button">
-												<Link to="single-listing2.html" class="item-btn">
+												<Link to="/singlelisting" class="item-btn">
 													Shop Now
 												</Link>
 											</div>
@@ -1160,7 +1135,7 @@ const SingleProperty = () => {
 						</div>
 						<div class="col-lg-6 col-md-5 col-sm-5">
 							<div class="heading-button">
-								<Link to="single-listing2.html" class="heading-btn item-btn2">
+								<Link to="/singlelisting" class="heading-btn item-btn2">
 									All Properties
 								</Link>
 							</div>
@@ -1173,7 +1148,7 @@ const SingleProperty = () => {
 								data-wow-delay=".3s"
 							>
 								<div class="item-img">
-									<Link to="single-listing1.html">
+									<Link to="/property">
 										<img
 											src="img/blog/blog4.jpg"
 											alt="blog"
@@ -1192,38 +1167,15 @@ const SingleProperty = () => {
 											</span>
 										</div>
 									</div>
-									<div class="react-icon">
-										<ul>
-											<li>
-												<Link
-													to="favourite.html"
-													data-bs-toggle="tooltip"
-													data-bs-placement="top"
-													title="Favourites"
-												>
-													<i class="flaticon-heart"></i>
-												</Link>
-											</li>
-											<li>
-												<Link
-													to="compare.html"
-													data-bs-toggle="tooltip"
-													data-bs-placement="top"
-													title="Compare"
-												>
-													<i class="flaticon-left-and-right-arrows"></i>
-												</Link>
-											</li>
-										</ul>
-									</div>
+									
 								</div>
 								<div class="item-category10">
-									<Link to="single-listing1.html">Appartment</Link>
+									<Link to="/property">Appartment</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to="single-listing1.html">
+											<Link to="/property">
 												Family House For Sell
 											</Link>
 										</h3>
@@ -1253,7 +1205,7 @@ const SingleProperty = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<Link to="single-listing1.html">
+									<Link to="/property">
 										<img
 											src="img/blog/blog5.jpg"
 											alt="blog"
@@ -1272,38 +1224,15 @@ const SingleProperty = () => {
 											</span>
 										</div>
 									</div>
-									<div class="react-icon">
-										<ul>
-											<li>
-												<Link
-													to="favourite.html"
-													data-bs-toggle="tooltip"
-													data-bs-placement="top"
-													title="Favourites"
-												>
-													<i class="flaticon-heart"></i>
-												</Link>
-											</li>
-											<li>
-												<Link
-													to="compare.html"
-													data-bs-toggle="tooltip"
-													data-bs-placement="top"
-													title="Compare"
-												>
-													<i class="flaticon-left-and-right-arrows"></i>
-												</Link>
-											</li>
-										</ul>
-									</div>
+									
 								</div>
 								<div class="item-category10">
-									<Link to="single-listing1.html">Villa</Link>
+									<Link to="/property">Villa</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to="single-listing1.html">
+											<Link to="/property">
 												Countryside Modern Lake View
 											</Link>
 										</h3>
@@ -1333,7 +1262,7 @@ const SingleProperty = () => {
 								data-wow-delay=".1s"
 							>
 								<div class="item-img">
-									<Link to="single-listing1.html">
+									<Link to="/property">
 										<img
 											src="img/blog/blog6.jpg"
 											alt="blog"
@@ -1352,38 +1281,15 @@ const SingleProperty = () => {
 											</span>
 										</div>
 									</div>
-									<div class="react-icon">
-										<ul>
-											<li>
-												<Link
-													to="favourite.html"
-													data-bs-toggle="tooltip"
-													data-bs-placement="top"
-													title="Favourites"
-												>
-													<i class="flaticon-heart"></i>
-												</Link>
-											</li>
-											<li>
-												<Link
-													to="compare.html"
-													data-bs-toggle="tooltip"
-													data-bs-placement="top"
-													title="Compare"
-												>
-													<i class="flaticon-left-and-right-arrows"></i>
-												</Link>
-											</li>
-										</ul>
-									</div>
+									
 								</div>
 								<div class="item-category10">
-									<Link to="single-listing1.html">Office</Link>
+									<Link to="/property">Office</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to="single-listing1.html">
+											<Link to="/property">
 												Gorgeous Apartment Building{" "}
 											</Link>
 										</h3>

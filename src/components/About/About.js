@@ -6,13 +6,13 @@ import Navbar from "../Navbar";
 // import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
-import "./about.css"
+import "./about.css";
 import { Link } from "react-router-dom";
 const About = () => {
 	return (
 		<div>
 			<Navbar />
-			
+
 			{/* <!--=====================================--> */}
 			{/* <!--=   Breadcrumb     Start            =--> */}
 			{/* <!--=====================================--> */}
@@ -22,7 +22,7 @@ const About = () => {
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
-								<Link to ="index.html">Home</Link>
+								<Link to="/">Home</Link>
 							</li>
 							<li class="breadcrumb-item active" aria-current="page">
 								About Us
@@ -107,7 +107,8 @@ const About = () => {
 									/>
 									<div class="play-button">
 										<div class="item-icon">
-											<Link to ="http://www.youtube.com/watch?v=1iIZeIy7TqM"
+											<Link
+												to="http://www.youtube.com/watch?v=1iIZeIy7TqM"
 												class="play-btn play-btn-big"
 											>
 												<span class="play-icon style-2">
@@ -171,7 +172,7 @@ const About = () => {
 								</h2>
 								<div class="play-button">
 									<div class="item-icon">
-										<Link to ="http://www.youtube.com/" class="play-btn">
+										<Link to="http://www.youtube.com/" class="play-btn">
 											<span class="play-icon style-1">
 												<i class="fas fa-play"></i>
 											</span>
@@ -211,7 +212,7 @@ const About = () => {
 								data-wow-delay=".6s"
 							>
 								<div class="item-img">
-									<Link to ="agent-lists1.html">
+									<Link to="/">
 										<img
 											src="img/team/team21.jpg"
 											alt="team"
@@ -222,7 +223,8 @@ const About = () => {
 									</Link>
 									<ul class="team-social-1">
 										<li class="social-item">
-											<Link to ="https://radiustheme.com/"
+											<Link
+												to="https://radiustheme.com/"
 												target="_blank"
 												rel="noreferrer"
 												class="social-hover-icon social-link"
@@ -231,7 +233,8 @@ const About = () => {
 											</Link>
 											<ul class="team-social-dropdown">
 												<li class="social-item">
-													<Link to ="https://www.facebook.com/"
+													<Link
+														to="https://www.facebook.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -240,7 +243,8 @@ const About = () => {
 													</Link>
 												</li>
 												<li class="social-item">
-													<Link to ="https://twitter.com/"
+													<Link
+														to="https://twitter.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -249,7 +253,8 @@ const About = () => {
 													</Link>
 												</li>
 												<li class="social-item">
-													<Link to ="https://www.linkedin.com/"
+													<Link
+														to="https://www.linkedin.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -260,27 +265,13 @@ const About = () => {
 											</ul>
 										</li>
 									</ul>
-									{/* <div class="category-box">
-										<div class="item-category">
-											<Link to ="single-agent1.html"></Link>
-										</div>
-									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<Link to ="agent-lists1.html">Chirag Seth</Link>
+											<Link to="/">Chirag Seth</Link>
 										</h3>
-										{/* <h4 class="item-subtitle">
-											<Link to ="agency-lists1.html">Sunshine</Link>
-										</h4> */}
 									</div>
-									{/* <div class="item-contact">
-										<div class="item-icon">
-											<i class="fas fa-phone-alt"></i>
-										</div>
-										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div> */}
 								</div>
 							</div>
 						</div>
@@ -290,7 +281,7 @@ const About = () => {
 								data-wow-delay=".4s"
 							>
 								<div class="item-img">
-									<Link to ="agent-lists1.html">
+									<Link to="/">
 										<img
 											src="img/team/team22.jpeg"
 											alt="team"
@@ -301,7 +292,8 @@ const About = () => {
 									</Link>
 									<ul class="team-social-1">
 										<li class="social-item">
-											<Link to ="https://radiustheme.com/"
+											<Link
+												to="https://radiustheme.com/"
 												target="_blank"
 												rel="noreferrer"
 												class="social-hover-icon social-link"
@@ -310,7 +302,8 @@ const About = () => {
 											</Link>
 											<ul class="team-social-dropdown">
 												<li class="social-item">
-													<Link to ="https://www.facebook.com/"
+													<Link
+														to="https://www.facebook.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -319,7 +312,8 @@ const About = () => {
 													</Link>
 												</li>
 												<li class="social-item">
-													<Link to ="https://twitter.com/"
+													<Link
+														to="https://twitter.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -328,7 +322,8 @@ const About = () => {
 													</Link>
 												</li>
 												<li class="social-item">
-													<Link to ="https://www.linkedin.com/"
+													<Link
+														to="https://www.linkedin.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -339,27 +334,13 @@ const About = () => {
 											</ul>
 										</li>
 									</ul>
-									{/* <div class="category-box">
-										<div class="item-category">
-											<Link to ="single-agent1.html">05 Listings</Link>
-										</div>
-									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<Link to ="agent-lists1.html">Jay Kakkar</Link>
+											<Link to="/">Jay Kakkar</Link>
 										</h3>
-										{/* <h4 class="item-subtitle">
-											<Link to ="agency-lists1.html">Sweet Home</Link>
-										</h4> */}
 									</div>
-									{/* <div class="item-contact">
-										<div class="item-icon">
-											<i class="fas fa-phone-alt"></i>
-										</div>
-										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div> */}
 								</div>
 							</div>
 						</div>
@@ -369,7 +350,7 @@ const About = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<Link to ="agent-lists1.html">
+									<Link to="/">
 										<img
 											src="img/team/team23.jpeg"
 											alt="team"
@@ -380,7 +361,8 @@ const About = () => {
 									</Link>
 									<ul class="team-social-1">
 										<li class="social-item">
-											<Link to ="https://radiustheme.com/"
+											<Link
+												to="https://radiustheme.com/"
 												target="_blank"
 												rel="noreferrer"
 												class="social-hover-icon social-link"
@@ -389,7 +371,8 @@ const About = () => {
 											</Link>
 											<ul class="team-social-dropdown">
 												<li class="social-item">
-													<Link to ="https://www.facebook.com/"
+													<Link
+														to="https://www.facebook.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -398,7 +381,8 @@ const About = () => {
 													</Link>
 												</li>
 												<li class="social-item">
-													<Link to ="https://twitter.com/"
+													<Link
+														to="https://twitter.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -407,7 +391,8 @@ const About = () => {
 													</Link>
 												</li>
 												<li class="social-item">
-													<Link to ="https://www.linkedin.com/"
+													<Link
+														to="https://www.linkedin.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -418,27 +403,13 @@ const About = () => {
 											</ul>
 										</li>
 									</ul>
-									{/* <div class="category-box">
-										<div class="item-category">
-											<Link to ="single-agent1.html">11 Listings</Link>
-										</div>
-									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<Link to ="agent-lists1.html">Avi Mittal</Link>
+											<Link to="/">Avi Mittal</Link>
 										</h3>
-										{/* <h4 class="item-subtitle">
-											<Link to ="agency-lists1.html">Eco Builders</Link>
-										</h4> */}
 									</div>
-									{/* <div class="item-contact">
-										<div class="item-icon">
-											<i class="fas fa-phone-alt"></i>
-										</div>
-										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div> */}
 								</div>
 							</div>
 						</div>
@@ -448,7 +419,7 @@ const About = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<Link to ="agent-lists1.html">
+									<Link to="/">
 										<img
 											src="img/team/team24.jpg"
 											alt="team"
@@ -459,7 +430,8 @@ const About = () => {
 									</Link>
 									<ul class="team-social-1">
 										<li class="social-item">
-											<Link to ="https://radiustheme.com/"
+											<Link
+												to="https://radiustheme.com/"
 												target="_blank"
 												rel="noreferrer"
 												class="social-hover-icon social-link"
@@ -468,7 +440,8 @@ const About = () => {
 											</Link>
 											<ul class="team-social-dropdown">
 												<li class="social-item">
-													<Link to ="https://www.facebook.com/"
+													<Link
+														to="https://www.facebook.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -477,7 +450,8 @@ const About = () => {
 													</Link>
 												</li>
 												<li class="social-item">
-													<Link to ="https://twitter.com/"
+													<Link
+														to="https://twitter.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -486,7 +460,8 @@ const About = () => {
 													</Link>
 												</li>
 												<li class="social-item">
-													<Link to ="https://www.linkedin.com/"
+													<Link
+														to="https://www.linkedin.com/"
 														target="_blank"
 														rel="noreferrer"
 														class="social-link"
@@ -497,27 +472,13 @@ const About = () => {
 											</ul>
 										</li>
 									</ul>
-									{/* <div class="category-box">
-										<div class="item-category">
-											<Link to ="single-agent1.html">06 Listings</Link>
-										</div>
-									</div> */}
 								</div>
 								<div class="item-content">
 									<div class="item-title">
 										<h3>
-											<Link to ="agent-lists1.html">Kanishk Sharma</Link>
+											<Link to="/">Kanishk Sharma</Link>
 										</h3>
-										{/* <h4 class="item-subtitle">
-											<Link to ="agency-lists1.html">Sarah Boysen</Link>
-										</h4> */}
 									</div>
-									{/* <div class="item-contact">
-										<div class="item-icon">
-											<i class="fas fa-phone-alt"></i>
-										</div>
-										<div class="item-phn-no">Call: +123 699 7700</div>
-									</div> */}
 								</div>
 							</div>
 						</div>
@@ -542,7 +503,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand1.svg" alt="brand" />
 										</Link>
 									</div>
@@ -551,7 +512,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand2.svg" alt="brand" />
 										</Link>
 									</div>
@@ -560,7 +521,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand3.svg" alt="brand" />
 										</Link>
 									</div>
@@ -569,7 +530,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand4.svg" alt="brand" />
 										</Link>
 									</div>
@@ -578,7 +539,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand5.svg" alt="brand" />
 										</Link>
 									</div>
@@ -587,7 +548,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand6.svg" alt="brand" />
 										</Link>
 									</div>
@@ -596,7 +557,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand1.svg" alt="brand" />
 										</Link>
 									</div>
@@ -605,7 +566,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand2.svg" alt="brand" />
 										</Link>
 									</div>
@@ -614,7 +575,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand3.svg" alt="brand" />
 										</Link>
 									</div>
@@ -623,7 +584,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand4.svg" alt="brand" />
 										</Link>
 									</div>
@@ -632,7 +593,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand5.svg" alt="brand" />
 										</Link>
 									</div>
@@ -641,7 +602,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand6.svg" alt="brand" />
 										</Link>
 									</div>
@@ -650,7 +611,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand1.svg" alt="brand" />
 										</Link>
 									</div>
@@ -659,7 +620,7 @@ const About = () => {
 							<SwiperSlide class="swiper-slide">
 								<div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
 									<div class="item-img">
-										<Link to ="index.html">
+										<Link to="/">
 											<img src="img/brand/brand2.svg" alt="brand" />
 										</Link>
 									</div>
