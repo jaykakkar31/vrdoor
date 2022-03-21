@@ -1,8 +1,9 @@
 import axios from "axios";
-import { ADD_PROPERTY_FAIL, ADD_PROPERTY_REQUEST, ADD_PROPERTY_SUCCESS, GET_PROPERTIES_FAIL, GET_PROPERTIES_REQUEST, GET_PROPERTIES_SUCCESS } from "../constants/constants";
+import { ADD_PROPERTY_FAIL, ADD_PROPERTY_REQUEST, ADD_PROPERTY_SUCCESS, GET_PROPERTIES_FAIL, GET_PROPERTIES_REQUEST, GET_PROPERTIES_SUCCESS,GET_USER_PROPERTIES_REQUEST,GET_USER_PROPERTIES_SUCCESS,GET_USER_PROPERTIES_FAIL } from "../constants/constants";
 const API_URL = "http://localhost:4000";
 
 export const addProperty = (details) => async (dispatch, getState) => {
+    console.log("action");
 	try {
 		// const userInfo = getState().educatorAuthReducer.educatorInfo;
 		// console.log(educatorInfo);
@@ -43,6 +44,32 @@ export const fetchProperty = (category) => async (dispatch, getState) => {
 	} catch (e) {
 		dispatch({
 			type: GET_PROPERTIES_FAIL,
+			payload:
+				e.response && e.response.data.message
+					? e.response.data.message
+					: e.message,
+		});
+	}
+};
+
+export const fetchPropertyForUser = (id) => async (dispatch, getState) => {
+	console.log("Caled");
+	try {
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		dispatch({ type: GET_USER_PROPERTIES_REQUEST });
+		const { data } = await axios.get(
+			`${API_URL}/api/property/getuserproperty/${id}`,
+			config
+		);
+		// console.log(data);
+		dispatch({ type: GET_USER_PROPERTIES_SUCCESS, payload: data });
+	} catch (e) {
+		dispatch({
+			type: GET_USER_PROPERTIES_FAIL,
 			payload:
 				e.response && e.response.data.message
 					? e.response.data.message

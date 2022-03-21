@@ -1,4 +1,4 @@
-import { ADD_PROPERTY_FAIL, ADD_PROPERTY_REQUEST, ADD_PROPERTY_SUCCESS, GET_PROPERTIES_FAIL, GET_PROPERTIES_REQUEST, GET_PROPERTIES_SUCCESS } from "../constants/constants";
+import { ADD_PROPERTY_FAIL, ADD_PROPERTY_REQUEST, ADD_PROPERTY_SUCCESS, GET_PROPERTIES_FAIL, GET_PROPERTIES_REQUEST, GET_PROPERTIES_SUCCESS, GET_USER_PROPERTIES_FAIL, GET_USER_PROPERTIES_REQUEST, GET_USER_PROPERTIES_SUCCESS } from "../constants/constants";
 
 export const addPropertyReducer = (state = {}, action) => {
 	switch (action.type) {
@@ -20,6 +20,18 @@ export const fetchPropertyReducer = (state = {}, action) => {
 		case GET_PROPERTIES_SUCCESS:
 			return { loading: false, success: true, propertiesData: action.payload };
 		case GET_PROPERTIES_FAIL:
+			return { loading: false, error: action.payload };
+		default:
+			return state;
+	}
+};
+export const fetchUserPropertyReducer = (state = {}, action) => {
+	switch (action.type) {
+		case GET_USER_PROPERTIES_REQUEST:
+			return { loading: true, success: false, error: null };
+		case GET_USER_PROPERTIES_SUCCESS:
+			return { loading: false, success: true, userPropertiesData: action.payload };
+		case GET_USER_PROPERTIES_FAIL:
 			return { loading: false, error: action.payload };
 		default:
 			return state;

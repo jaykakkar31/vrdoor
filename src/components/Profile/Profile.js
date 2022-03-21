@@ -3,9 +3,13 @@ import Footer from "../Footer";
 import Navbar from "../Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData, userRgister } from "../../store/actions/userActions";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { storage } from "../firebase/firebase";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {Button,ProgressBar} from 'react-bootstrap'
 const Profile = () => {
+    const [iImage, setiImage] = useState(null);
+		const [iprogress, setIProgress] = useState(0);
 	const [details, setDetails] = useState({
 		name: "",
 		email: "",
@@ -15,18 +19,47 @@ const Profile = () => {
 		gender: "",
 		confirmpass: "",
 	});
+    const navigate=useNavigate()
 	const [edit, setEdit] = useState(false);
 	const dispatch = useDispatch();
 	const userDataReducer = useSelector((state) => state.userDataReducer);
 	const { userData, loading } = userDataReducer;
 	console.log(userData);
-	const id = JSON.parse(localStorage.getItem("userInfo"))._id;
+	const id = localStorage.getItem("userInfo")?JSON.parse(localStorage.getItem("userInfo"))._id:null;
 	useEffect(() => {
+        if(id){
 		dispatch(fetchUserData(id));
+
+        }
+        else{
+            navigate("/login")
+        }
 	}, [dispatch, id]);
     const handleCancel=()=>{
         setEdit(false)
     }
+    const changeImage = () => {
+			const storageRef = ref(storage, `users/${details.name}/${iImage.name}`);
+			const uploadTask = uploadBytesResumable(storageRef, iImage);
+
+			uploadTask.on(
+				"state_changed",
+				(snapshot) => {
+					const prog = Math.round(
+						(snapshot.bytesTransferred / snapshot.totalBytes) * 100
+					);
+					setIProgress(prog);
+				},
+				(error) => console.log(error),
+				() => {
+					getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+						setDetails((prev) => {
+							return { ...prev, userImage: downloadURL };
+						});
+					});
+				}
+			);
+		};
 	return (
 		<div>
 			<Navbar />
@@ -70,6 +103,54 @@ const Profile = () => {
 										// id="rtcl-Profile-form"
 										// class="form-horizontal"
 										>
+											{edit && (
+												<div style={{ marginTop: "20px" }}>
+													<label
+														htmlFor="Userimage"
+														// style={{ fontSize: "18px", color: "#309255" }}
+													>
+														Change User Image *
+													</label>
+													<input
+														type="file"
+														id="Userimage"
+														className="form-control"
+														name="Instructor"
+														accept=".jpg,.jpeg,.png"
+														style={{ marginTop: "10px" }}
+														placeholder="User image"
+														onChange={(e) => {
+															setiImage(e.target.files[0]);
+														}}
+													/>
+													{iprogress > 0 && iprogress < 100 && (
+														<ProgressBar
+															striped
+															variant="success"
+															style={{ marginTop: "10px" }}
+															now={iprogress}
+														/>
+													)}
+
+													<Button
+														onClick={changeImage}
+														variant="btn btn-secondary btn-outline w-100"
+														style={{
+                                                            marginTop:"10px",
+															backgroundColor: "#00c194",
+															border: 0,
+															height: "30px",
+															fontSize: "16px",
+															padding: "20px ",
+															display: "flex",
+															alignItems: "center",
+															justifyContent: "center",
+														}}
+													>
+														{iprogress === 100 ? "Uploaded" : "Upload"}
+													</Button>
+												</div>
+											)}
 											<div class="form-group">
 												<label for="name" class="control-label">
 													Name

@@ -15,6 +15,7 @@ import AddPost from "./components/AddPost/AddPost";
 import SignUp from "./components/SignUp/SignUp";
 import Meet from './components/jitsimeet/meet'
 import Profile from "./components/Profile/Profile";
+import PropListing from './components/UserProperties/PropListings'
 function App() {
   return (
 		<Router>
@@ -35,6 +36,7 @@ function App() {
 				<Route exact path={"/meet"} element={<Meet />} />
 
 				<Route exact path={"/profile"} element={<Profile />} />
+				<Route exact path={"/listing"} element={<PropListing />} />
 			</Routes>
 		</Router>
 	);

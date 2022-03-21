@@ -12,7 +12,7 @@ const Login = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const loginUser = useSelector((state) => state.loginUser);
-	const { laoding, userInfo } = loginUser;
+	const { laoding, userInfo ,error} = loginUser;
 
 	const loginHandle = (e) => {
 		e.preventDefault();
@@ -28,6 +28,7 @@ const Login = () => {
 			throw new Error(e.message);
 		}
 	};
+  
 	return (
 		<div>
 			<Navbar />

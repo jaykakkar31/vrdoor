@@ -1,7 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { fetchPropertyReducer,addPropertyReducer } from "./reducers/propertiesReducer";
+import {
+	fetchPropertyReducer,
+	addPropertyReducer,
+	fetchUserPropertyReducer,
+} from "./reducers/propertiesReducer";
 import {
 	loginUser,
 	registerUser,
@@ -24,6 +28,7 @@ const reducers = combineReducers({
 	registerUser: registerUser,
 	loginUser: loginUser,
 	userDataReducer: userDataReducer,
+	fetchUserPropertyReducer: fetchUserPropertyReducer,
 });
 
 const store = createStore(
