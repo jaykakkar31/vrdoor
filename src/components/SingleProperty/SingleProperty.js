@@ -5,7 +5,45 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper";
 import "./singleProperty.css";
 import { Link } from "react-router-dom";
+import {useState} from "react";
+import { Button, ProgressBar } from "react-bootstrap";
 const SingleProperty = () => {
+	
+	const [formErrors, setFormErrors] = useState({});
+	const [emi, setemi] = useState({
+		loan: 0,
+		down: 0,
+		year: 0,
+		rate: 0,
+	});	
+	const emiHandle = (e) => {
+		e.preventDefault();
+		setFormErrors(validate(emi));
+		
+		var res =[(emi.loan-emi.down)*(emi.rate/12/100)*(1+(emi.rate/12/100))**(emi.year*12) ]/[(1+(emi.rate/12/100))**(emi.year*12)-1];
+		console.log(res);
+		if(emi.value!=0)
+			document.getElementById("result").innerHTML=" Rs. "+res;
+	};
+	const validate = (values) => {
+		const errors = {};
+		if (!values.loan) {
+			errors.loan = "Loan Amount is required!";
+		}
+		if (!values.down) {
+			errors.down = "Down Payment is required!";
+		}
+		if (!values.year) {
+			errors.year = "Years is required!";
+		}
+		if (!values.rate) {
+			errors.rate = "Interest Rate is required!";
+		}
+		
+		return errors;
+	};
+	
+	
 	return (
 		<div>
 			<Navbar />
@@ -1050,75 +1088,119 @@ const SingleProperty = () => {
 									</div>
 									<div class="widget widget-contact-box widget-price-range">
 										<h3 class="widget-subtitle">Mortgage Calculator</h3>
-										<p>
-											Dorem ipsum dolor sit amet, consectetur adipisc ing elit.
-											Nunc posuere.
-										</p>
-										<form class="contact-box">
+										
+										<form class="contact-box" onSubmit={emiHandle}>
 											<div class="row">
 												<div class="form-group col-lg-12">
 													<label class="item-loan">Loan Amount :</label>
 													<input
-														type="text"
+														id="loan"
+														type="number"
 														class="form-control"
-														name="fname"
-														placeholder="$00.00"
-														data-error="First Name is required"
-														required
+														name="loan"
+														placeholder="Rs. 000.00"
+														
+														onChange={(e) => {
+															setemi((prev) => {
+																return { ...prev, loan: e.target.value };
+															});
+														}}
 													/>
 												</div>
+												<p style={{ color: "red" }}>{formErrors.loan}</p>
 												<div class="form-group col-lg-12">
 													<label class="item-loan">Down Payment :</label>
 													<input
-														type="text"
+														id="down"
+														type="number"
 														class="form-control"
-														name="phone"
-														placeholder="$00.00"
-														data-error="Phone is required"
-														required
+														name="down"
+														placeholder="Rs. 000.00"
+														
+														onChange={(e) => {
+															setemi((prev) => {
+																return { ...prev, down: e.target.value };
+															});
+														}}
 													/>
 												</div>
+												<p style={{ color: "red" }}>{formErrors.down}</p>
 												<div class="form-group col-lg-12">
 													<label class="item-loan">Years :</label>
 													<input
-														type="text"
+														id="year"
+														type="number"
 														class="form-control"
-														name="phone"
+														name="year"
 														placeholder="12 Years"
-														data-error="Phone is required"
-														required
+														
+														onChange={(e) => {
+															setemi((prev) => {
+																return { ...prev, year: e.target.value };
+															});
+														}}
 													/>
 												</div>
+												<p style={{ color: "red" }}>{formErrors.year}</p>
+												<div class="form-group col-lg-12">
+													<label class="item-loan">Interest Rate :</label>
+													<input
+														id="rate"
+														type="number"
+														class="form-control"
+														name="rate"
+														placeholder="10 %"
+														
+														onChange={(e) => {
+															setemi((prev) => {
+																return { ...prev, rate: e.target.value };
+															});
+														}}
+													/>
+												</div>
+												<p style={{ color: "red" }}>{formErrors.rate}</p>
 											</div>
-										</form>
-
-										<div class="price-range-wrapper">
+											<div class="price-range-wrapper">
 											<div class="price-filter-wrap d-flex align-items-center">
 												<div class="price-range-select">
 													<div class="price-range range-title">
-														Interest Rate in:
+														Monthly EMI:  
 													</div>
-													<div class="price-range" id="price-range-min"></div>
-													<div class="price-range">:</div>
-													<div class="price-range" id="price-range-max"></div>
+													<div class="price-range" id="result"></div>
+													
+													
 												</div>
 											</div>
-											<div
-												id="price-range-filter"
-												class="price-range-filter"
-											></div>
 										</div>
 
-										<ul class="wid-contact-button">
-											<li>
-												<Link to ="single-listing2.html">Calculate</Link>
-											</li>
-											<li>
-												<Link to ="single-listing2.html">
-													<i class="fas fa-sync-alt"></i>Reset Form
-												</Link>
-											</li>
-										</ul>
+
+
+
+											
+											<div class="form-group d-flex align-items-center">
+											<Button
+												type="submit"
+												name="signup"
+												style={{
+													backgroundColor: "#00c194",
+													border: 0,
+													height: "30px",
+													fontSize: "16px",
+													padding: "20px ",
+                                                    display:"flex",alignItems:"center",justifyContent:"center"
+												}}
+												variant="btn btn-secondary btn-outline w-100"
+												value="signup"
+												onClick={emiHandle}
+											>
+												Calculate
+											</Button>
+										</div>
+										</form>
+
+										
+
+										
 									</div>
 									<div class="widget widget-post">
 										<div class="item-img">
