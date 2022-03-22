@@ -79,7 +79,7 @@ const Navbar = () => {
 									</ul>
 								</nav>
 							</div>
-							<div class="col-xl-2 col-lg-2 d-flex justify-content-end">	
+							<div class="col-xl-2 col-lg-2 g-0 d-flex justify-content-end">	
 								<div class="header-action-layout1">
 								<nav
 									id="dropdown"
