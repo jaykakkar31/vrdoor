@@ -3,26 +3,99 @@ import Footer from "../Footer";
 import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProperty, fetchPropertyForUser } from "../../store/actions/propertiesAction";
-
+import {
+	deleteProperty,
+	fetchProperty,
+	fetchPropertyForUser,
+} from "../../store/actions/propertiesAction";
+import { FiEdit, FiTrash2 } from "react-icons/fi";
+import "./propListing.css";
+import { Modal } from "react-bootstrap";
+import { storage } from "../firebase/firebase";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { ProgressBar, Button } from "react-bootstrap";
 const PropListings = () => {
 	const [isClick, setIsClick] = useState(false);
 	const dispatch = useDispatch();
+	const [show, setShow] = useState(false);
+	const [formErrors, setFormErrors] = useState({});
+
+	const [iImage, setiImage] = useState(null);
+
+	const [iprogress, setIProgress] = useState(0);
+
+	const id = localStorage.getItem("userInfo")
+		? JSON.parse(localStorage.getItem("userInfo"))._id
+		: null;
+	const [propDetails, setpropDetails] = useState({
+		userId: id,
+		title: "",
+		propertyImage: "",
+		overview: "",
+		price: "",
+		beds: "",
+		baths: "",
+		sqft: "",
+		type: "Family House",
+		category: "Rent",
+		builtYear: "",
+		parkingSpaces: "",
+		roomCount: "",
+		location: "",
+		tvCable: false,
+		barbeque: false,
+		ac: false,
+		lawn: false,
+		laundry: false,
+		ccCam: false,
+		feel_360: "",
+	});
+
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+
 	const fetchUserPropertyReducer = useSelector(
 		(state) => state.fetchUserPropertyReducer
 	);
 
 	console.log(window.location.search);
-	const id = localStorage.getItem("userInfo")
-		? JSON.parse(localStorage.getItem("userInfo"))._id
-		: null;
 
 	const { loading, error, userPropertiesData } = fetchUserPropertyReducer;
 	useEffect(() => {
 		dispatch(fetchPropertyForUser(id));
 	}, [dispatch]);
-    console.log(userPropertiesData);
 
+	console.log(userPropertiesData);
+
+	const handleDelete = (currId) => {
+		dispatch(deleteProperty(currId)).then(() => {
+			dispatch(fetchPropertyForUser(id));
+		});
+	};
+	const handleEdit = () => {};
+	const iImageHanlder = () => {
+		const storageRef = ref(storage, `property/${iImage.name}`);
+		const uploadTask = uploadBytesResumable(storageRef, iImage);
+
+		uploadTask.on(
+			"state_changed",
+			(snapshot) => {
+				const prog = Math.round(
+					(snapshot.bytesTransferred / snapshot.totalBytes) * 100
+				);
+				setIProgress(prog);
+			},
+			(error) => console.log(error),
+			() => {
+				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+					// setUserImage(downloadURL)
+					setpropDetails((prev) => {
+						return { ...prev, propertyImage: downloadURL };
+					});
+				});
+			}
+		);
+	};
 	return (
 		<div>
 			<Navbar />
@@ -59,421 +132,15 @@ const PropListings = () => {
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xl-6">
-								<form
-									action="https://radiustheme.com/demo/html/homlisti/half-map1.html"
-									class="map-form"
-								>
-									<input
-										type="text"
-										class="form-control"
-										placeholder="What are you looking for?"
-									/>
-									<div class="row">
-										<div class="col-lg-4 pl-15">
-											<div class="rld-single-select">
-												<select
-													class="select single-select mr-0"
-													style={{ width: "fitContent", padding: "0 20px" }}
-												>
-													<option value="1">Property Type</option>
-													<option value="2">Family House</option>
-													<option value="3">Apartment</option>
-													<option value="3">Condo</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-lg-4 pl-15">
-											<div class="rld-single-select">
-												<select
-													class="select single-select mr-0"
-													style={{ width: "fitContent", padding: "0 20px" }}
-												>
-													<option value="1">All Categories</option>
-													<option value="2">Rent</option>
-													<option value="3">Sell</option>
-													<option value="3">Buy</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-lg-4 pl-15">
-											<div class="rld-single-select">
-												<select
-													class="select single-select mr-0"
-													style={{ width: "fitContent", padding: "0 20px" }}
-												>
-													<option value="1">All Cities</option>
-													<option value="2">Los Angeles</option>
-													<option value="3">Chicago</option>
-													<option value="3">Philadelphia</option>
-												</select>
-											</div>
-										</div>
-									</div>
-								</form>
-								<div class="banner-search-wrap banner-search-wrap-2">
-									<div class="rld-main-search rld-main-search2">
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="rld-progress-box">
-													<div class="main-search-field-3">
-														{/* <!-- Area Range --> */}
-														<div class="price-range-wrapper">
-															<div class="range-box">
-																<div class="price-label">Price:</div>
-																<div
-																	id="price-range-filter-4"
-																	class="price-range-filter"
-																></div>
-																<div class="price-filter-wrap d-flex align-items-center">
-																	<div class="price-range-select">
-																		<div class="price-range range-title">$</div>
-																		<div
-																			class="price-range"
-																			id="price-range-min-4"
-																		></div>
-																		<div class="price-range">-</div>
-																		<div
-																			class="price-range"
-																			id="price-range-max-4"
-																		></div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div
-													class="dropdown-filter"
-													onClick={() => {
-														setIsClick(!isClick);
-													}}
-												>
-													<span>
-														<i class="fas fa-sliders-h"></i>
-													</span>
-												</div>
-												<div class="filter-button">
-													<Link
-														to="single-listing1.html"
-														class="filter-btn1 search-btn"
-													>
-														Search<i class="fas fa-search"></i>
-													</Link>
-												</div>
-												<div
-													class={`explore__form-checkbox-list explore__form-checkbox-list2 full-filter ${
-														isClick && "filter-block"
-													}`}
-												>
-													<div class="row">
-														<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
-															{/* <!-- Form Property Status --> */}
-															<div class="form-group bed">
-																<label class="item-bedrooms">Bedrooms</label>
-																<div
-																	class="nice-select form-control wide"
-																	tabIndex="0"
-																>
-																	<span class="current">Any</span>
-																	<ul class="list">
-																		<li data-value="1" class="option selected ">
-																			For Sale
-																		</li>
-																		<li data-value="2" class="option">
-																			For Rent
-																		</li>
-																	</ul>
-																</div>
-																{/* <!--/ End Form Property Status --> */}
-															</div>
-															<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 ">
-																{/* <!-- Form Bedrooms --> */}
-																<div class="form-group bath">
-																	<label class="item-bath">Bathrooms</label>
-																	<div
-																		class="nice-select form-control wide"
-																		tabIndex="0"
-																	>
-																		<span class="current">Any</span>
-																		<ul class="list">
-																			<li
-																				data-value="1"
-																				class="option selected"
-																			>
-																				1
-																			</li>
-																			<li data-value="2" class="option">
-																				2
-																			</li>
-																			<li data-value="3" class="option">
-																				3
-																			</li>
-																		</ul>
-																	</div>
-																</div>
-																{/* <!--/ End Form Bedrooms --> */}
-															</div>
-															<div class="col-lg-4 col-md-6 py-1 pl-0 pr-0">
-																{/* <!-- Form Bathrooms --> */}
-																<div class="form-group garage">
-																	<label class="item-garage">Garage</label>
-																	<div
-																		class="nice-select form-control wide"
-																		tabIndex="0"
-																	>
-																		<span class="current">Any</span>
-																		<ul class="list">
-																			<li
-																				data-value="1"
-																				class="option selected"
-																			>
-																				1
-																			</li>
-																			<li data-value="2" class="option">
-																				2
-																			</li>
-																			<li data-value="3" class="option">
-																				3
-																			</li>
-																		</ul>
-																	</div>
-																</div>
-																{/* <!--/ End Form Bathrooms --> */}
-															</div>
-															{/* <!-- Price Fields --> */}
-															<div class="main-search-field-2 col-12">
-																{/* <!-- Area Range --> */}
-																<div class="row">
-																	<div class="col-md-6 pl-0">
-																		<div class="price-range-wrapper">
-																			<div class="range-box">
-																				<div class="price-label">
-																					Flat Size:
-																				</div>
-																				<div
-																					id="price-range-filter-5"
-																					class="price-range-filter"
-																				></div>
-																				<div class="price-filter-wrap d-flex align-items-center">
-																					<div class="price-range-select">
-																						<div
-																							class="price-range"
-																							id="price-range-min-5"
-																						></div>
-																						<div class="price-range">-</div>
-																						<div
-																							class="price-range"
-																							id="price-range-max-5"
-																						></div>
-																						<div class="price-range range-title">
-																							sft
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="col-md-6 pl-0">
-																		<div class="price-range-wrapper">
-																			<div class="range-box">
-																				<div class="price-label">Distance:</div>
-																				<div
-																					id="price-range-filter-6"
-																					class="price-range-filter"
-																				></div>
-																				<div class="price-filter-wrap d-flex align-items-center">
-																					<div class="price-range-select">
-																						<div
-																							class="price-range"
-																							id="price-range-min-6"
-																						></div>
-																						<div class="price-range">-</div>
-																						<div
-																							class="price-range"
-																							id="price-range-max-6"
-																						></div>
-																						<div class="price-range range-title">
-																							km
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															{/* <!-- row --> */}
-															<div class="row">
-																<div class="col-lg-12 col-md-12 col-sm-12 mt-3">
-																	<h4 class="text-dark">Amenities</h4>
-																	<ul class="no-ul-list third-row">
-																		<li>
-																			<input
-																				id="a-1"
-																				class="checkbox-custom"
-																				name="a-1"
-																				type="checkbox"
-																			/>
-																			<label
-																				htmlFor="a-1"
-																				class="checkbox-custom-label"
-																			>
-																				Air Condition
-																			</label>
-																		</li>
-																		<li>
-																			<input
-																				id="a-2"
-																				class="checkbox-custom"
-																				name="a-2"
-																				type="checkbox"
-																			/>
-																			<label
-																				htmlFor="a-2"
-																				class="checkbox-custom-label"
-																			>
-																				Bedding
-																			</label>
-																		</li>
-																		<li>
-																			<input
-																				id="a-3"
-																				class="checkbox-custom"
-																				name="a-3"
-																				type="checkbox"
-																			/>
-																			<label
-																				htmlFor="a-3"
-																				class="checkbox-custom-label"
-																			>
-																				Heating
-																			</label>
-																		</li>
-																		<li>
-																			<input
-																				id="a-4"
-																				class="checkbox-custom"
-																				name="a-4"
-																				type="checkbox"
-																			/>
-																			<label
-																				htmlFor="a-4"
-																				class="checkbox-custom-label"
-																			>
-																				Internet
-																			</label>
-																		</li>
-																		<li>
-																			<input
-																				id="a-5"
-																				class="checkbox-custom"
-																				name="a-5"
-																				type="checkbox"
-																			/>
-																			<label
-																				htmlFor="a-5"
-																				class="checkbox-custom-label"
-																			>
-																				Microwave
-																			</label>
-																		</li>
-																		<li>
-																			<input
-																				id="a-6"
-																				class="checkbox-custom"
-																				name="a-6"
-																				type="checkbox"
-																			/>
-																			<label
-																				htmlFor="a-6"
-																				class="checkbox-custom-label"
-																			>
-																				Smoking Allow
-																			</label>
-																		</li>
-																		<li>
-																			<input
-																				id="a-7"
-																				class="checkbox-custom"
-																				name="a-7"
-																				type="checkbox"
-																			/>
-																			<label
-																				htmlFor="a-7"
-																				class="checkbox-custom-label"
-																			>
-																				Terrace
-																			</label>
-																		</li>
-																		<li>
-																			<input
-																				id="a-8"
-																				class="checkbox-custom"
-																				name="a-8"
-																				type="checkbox"
-																			/>
-																			<label
-																				htmlFor="a-8"
-																				class="checkbox-custom-label"
-																			>
-																				Balcony
-																			</label>
-																		</li>
-																		<li>
-																			<input
-																				id="a-9"
-																				class="checkbox-custom"
-																				name="a-9"
-																				type="checkbox"
-																			/>
-																			<label
-																				htmlFor="a-9"
-																				class="checkbox-custom-label"
-																			>
-																				Balcony
-																			</label>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-															{/* <!-- /row --> */}
-															<div class="filter-button">
-																<a href="half-map1.html" class="filter-btn1">
-																	Apply Filter
-																</a>
-																<a
-																	href="half-map1.html"
-																	class="filter-btn1 reset-btn"
-																>
-																	Reset Filter<i class="fas fa-redo-alt"></i>
-																</a>
-															</div>
-														</div>
-														{/* <!-- /row --> */}
-														<div class="filter-button">
-															<Link to="half-map1.html" class="filter-btn1">
-																Apply Filter
-															</Link>
-															<Link
-																to="half-map1.html"
-																class="filter-btn1 reset-btn"
-															>
-																Reset Filter<i class="fas fa-redo-alt"></i>
-															</Link>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									{/* <!--/ End Search Form --> */}
-								</div>
 								<div class="property-wrap3">
 									<div class="row justify-content-center">
 										<div class="col-lg-12 col-md-12">
 											<div class="item-shorting-box">
 												<div class="shorting-title">
-													<h4 class="item-title">Showing 1–6 of 12 results</h4>
+													<h4 class="item-title">
+														Showing {userPropertiesData?.length} of{" "}
+														{userPropertiesData?.length} results
+													</h4>
 												</div>
 												<div class="grid-button">
 													<ul class="nav nav-tabs" role="tablist">
@@ -524,6 +191,10 @@ const PropListings = () => {
 																			<img
 																				src={currEle.propertyImage}
 																				alt="blog"
+																				style={{
+																					height: "360px",
+																					width: "660px",
+																				}}
 																				width="660"
 																				height="440"
 																			/>
@@ -599,6 +270,929 @@ const PropListings = () => {
 																				</li>
 																			</ul>
 																		</div>
+																		<div
+																			style={{
+																				display: "flex",
+																				justifyContent: "space-between",
+																				alignItems: "center",
+																			}}
+																		>
+																			<Button
+																				onClick={() => setShow(true)}
+																				variant="btn btn-secondary btn-outline w-100"
+																				style={{
+																					backgroundColor: "#00c194",
+																					textAlign: "center",
+																					border: 0,
+																					height: "30px",
+																					display: "flex",
+																					justifyContent: "center",
+																					alignItems: "center",
+																					fontSize: "16px",
+																					padding: "20px ",
+																					marginTop: "10px",
+																					marginRight: "10px",
+																				}}
+																			>
+																				<FiEdit
+																					size={20}
+																					style={{ marginRight: "10px" }}
+																				/>
+																				Edit
+																			</Button>
+																			<Modal
+																				show={show}
+																				onHide={handleClose} // {...props}
+																				size="lg"
+																				aria-labelledby="contained-modal-title-vcenter"
+																				centered
+																			>
+																				<Modal.Header closeButton>
+																					<Modal.Title id="contained-modal-title-vcenter">
+																						Edit Property{" "}
+																					</Modal.Title>
+																				</Modal.Header>
+																				<Modal.Body>
+																					<div class="container">
+																						<div class="row">
+																							<div class="col-lg-12 col-sm-12 col-12">
+																								<div class="page-content-block">
+																									<div class="col-md-12 rtcl-login-form-wrap">
+																										{/* <h2>Add Property</h2> */}
+																										<form
+																											id="postadd"
+																											class="form-horizontal"
+																											// onSubmit={addPostHandler}
+																										>
+																											<div class="form-group">
+																												<label
+																													htmlFor="addcategory"
+																													class="control-label"
+																												>
+																													Category
+																													<strong class="rtcl-required">
+																														*
+																													</strong>
+																												</label>
+																												<select
+																													class="form-select"
+																													aria-label="addcategory"
+																													onChange={(e) => {
+																														setpropDetails(
+																															(prev) => {
+																																return {
+																																	...prev,
+																																	category:
+																																		e.target
+																																			.value,
+																																};
+																															}
+																														);
+																													}}
+																												>
+																													<option value="Rent">
+																														Rent
+																													</option>
+																													<option value="Buy">
+																														Buy
+																													</option>
+																												</select>
+																											</div>
+																											<div class="form-group">
+																												<label
+																													htmlFor="addtype"
+																													class="control-label"
+																												>
+																													Type
+																													<strong class="rtcl-required">
+																														*
+																													</strong>
+																												</label>
+																												<select
+																													class="form-select"
+																													aria-label="addtype"
+																													onChange={(e) => {
+																														setpropDetails(
+																															(prev) => {
+																																return {
+																																	...prev,
+																																	type: e.target
+																																		.value,
+																																};
+																															}
+																														);
+																													}}
+																												>
+																													<option value="Family House">
+																														Family House
+																													</option>
+																													<option value="Apartment">
+																														Apartment
+																													</option>
+																												</select>
+																											</div>
+																											<div class="form-group">
+																												<label
+																													htmlFor="Userimage"
+																													// style={{ fontSize: "18px", color: "#309255" }}
+																												>
+																													Property Image
+																													<strong class="rtcl-required">
+																														*
+																													</strong>
+																												</label>
+
+																												<input
+																													type="file"
+																													id="Userimage"
+																													className="form-control"
+																													name="Instructor"
+																													accept=".jpg,.jpeg,.png"
+																													// alt='courseImg'
+																													style={{
+																														marginTop: "10px",
+																													}}
+																													// required
+																													placeholder="User image"
+																													onChange={(e) => {
+																														setiImage(
+																															e.target.files[0]
+																														);
+																													}}
+																												/>
+																												{iprogress > 0 &&
+																													iprogress < 100 && (
+																														<ProgressBar
+																															striped
+																															variant="success"
+																															style={{
+																																marginTop:
+																																	"10px",
+																															}}
+																															now={iprogress}
+																														/>
+																													)}
+
+																												<Button
+																													onClick={
+																														iImageHanlder
+																													}
+																													variant="btn btn-secondary btn-outline w-100"
+																													style={{
+																														backgroundColor:
+																															"#00c194",
+																														textAlign: "center",
+																														border: 0,
+																														height: "30px",
+																														display: "flex",
+																														justifyContent:
+																															"center",
+																														alignItems:
+																															"center",
+																														fontSize: "16px",
+																														padding: "20px ",
+																														marginTop: "10px",
+																													}}
+																												>
+																													{iprogress === 100
+																														? "Uploaded"
+																														: "Upload"}
+																												</Button>
+																											</div>
+																											<div class="form-group">
+																												<label
+																													htmlFor="title"
+																													class="control-label"
+																												>
+																													Title
+																													<strong class="rtcl-required">
+																														*
+																													</strong>
+																												</label>
+																												<input
+																													type="text"
+																													name="title"
+																													id="title"
+																													class="form-control"
+																													required=""
+																													value={
+																														propDetails.title
+																													}
+																													onChange={(e) => {
+																														setpropDetails(
+																															(prev) => {
+																																return {
+																																	...prev,
+																																	title:
+																																		e.target
+																																			.value,
+																																};
+																															}
+																														);
+																													}}
+																												/>
+																											</div>
+																											<p
+																												style={{ color: "red" }}
+																											>
+																												{/* {formErrors.title}  */}
+																											</p>
+																											<div class="form-group">
+																												<label
+																													htmlFor="overview"
+																													class="control-label"
+																												>
+																													Overview
+																													<strong class="rtcl-required">
+																														*
+																													</strong>
+																												</label>
+																												<input
+																													type="textarea"
+																													name="overview"
+																													id="overview"
+																													class="form-control"
+																													required=""
+																													value={
+																														propDetails.overview
+																													}
+																													onChange={(e) => {
+																														setpropDetails(
+																															(prev) => {
+																																return {
+																																	...prev,
+																																	overview:
+																																		e.target
+																																			.value,
+																																};
+																															}
+																														);
+																													}}
+																												/>
+																											</div>
+																											<p
+																												style={{ color: "red" }}
+																											>
+																												{/* {formErrors.overview} */}
+																											</p>
+																											<div class="form-group">
+																												<label
+																													htmlFor="address"
+																													class="control-label"
+																												>
+																													Address
+																													<strong class="rtcl-required">
+																														*
+																													</strong>
+																												</label>
+																												<input
+																													type="text"
+																													name="address"
+																													id="address"
+																													class="form-control"
+																													required=""
+																													value={
+																														propDetails.location
+																													}
+																													onChange={(e) => {
+																														setpropDetails(
+																															(prev) => {
+																																return {
+																																	...prev,
+																																	location:
+																																		e.target
+																																			.value,
+																																};
+																															}
+																														);
+																													}}
+																												/>
+																											</div>
+																											<p
+																												style={{ color: "red" }}
+																											>
+																												{/* {formErrors.location} */}
+																											</p>
+																											<div class="form-group">
+																												<label
+																													htmlFor="price"
+																													class="control-label"
+																												>
+																													Price
+																													<strong class="rtcl-required">
+																														*
+																													</strong>
+																												</label>
+																												<input
+																													type="number"
+																													name="price"
+																													id="price"
+																													class="form-control"
+																													required=""
+																													value={
+																														propDetails.price
+																													}
+																													onChange={(e) => {
+																														setpropDetails(
+																															(prev) => {
+																																return {
+																																	...prev,
+																																	price:
+																																		e.target
+																																			.value,
+																																};
+																															}
+																														);
+																													}}
+																												/>
+																											</div>
+																											<p
+																												style={{ color: "red" }}
+																											>
+																												{/* {formErrors.price} */}
+																											</p>
+																											<div class="container">
+																												<div class="row">
+																													<div class="col-sm">
+																														<div class="form-check form-switch">
+																															<input
+																																class="form-check-input"
+																																type="checkbox"
+																																id="tvcable"
+																																value={
+																																	propDetails.tvCable
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				tvCable:
+																																					e
+																																						.target
+																																						.checked,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																															<label
+																																class="form-check-label"
+																																for="tvcable"
+																															>
+																																TV Cable
+																															</label>
+																														</div>
+																													</div>
+																													<div class="col-sm">
+																														<div class="form-check form-switch">
+																															<input
+																																class="form-check-input"
+																																type="checkbox"
+																																id="barbeque"
+																																value={
+																																	propDetails.barbeque
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				barbeque:
+																																					e
+																																						.target
+																																						.checked,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																															<label
+																																class="form-check-label"
+																																for="barbeque"
+																															>
+																																Barbeque
+																															</label>
+																														</div>
+																													</div>
+																													<div class="col-sm">
+																														<div class="form-check form-switch">
+																															<input
+																																class="form-check-input"
+																																type="checkbox"
+																																id="ac"
+																																value={
+																																	propDetails.ac
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				ac: e
+																																					.target
+																																					.checked,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																															<label
+																																class="form-check-label"
+																																for="ac"
+																															>
+																																AC
+																															</label>
+																														</div>
+																													</div>
+																												</div>
+																											</div>
+
+																											<div class="container">
+																												<div class="row">
+																													<div class="col-sm">
+																														<div class="form-check form-switch">
+																															<input
+																																class="form-check-input"
+																																type="checkbox"
+																																id="lawn"
+																																value={
+																																	propDetails.lawn
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				lawn: e
+																																					.target
+																																					.checked,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																															<label
+																																class="form-check-label"
+																																for="lawn"
+																															>
+																																Lawn
+																															</label>
+																														</div>
+																													</div>
+																													<div class="col-sm">
+																														<div class="form-check form-switch">
+																															<input
+																																class="form-check-input"
+																																type="checkbox"
+																																id="laundry"
+																																value={
+																																	propDetails.laundry
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				laundry:
+																																					e
+																																						.target
+																																						.checked,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																															<label
+																																class="form-check-label"
+																																for="laundry"
+																															>
+																																Laundry
+																															</label>
+																														</div>
+																													</div>
+																													<div class="col-sm">
+																														<div class="form-check form-switch">
+																															<input
+																																class="form-check-input"
+																																type="checkbox"
+																																id="cctv"
+																																value={
+																																	propDetails.ccCam
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				ccCam:
+																																					e
+																																						.target
+																																						.checked,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																															<label
+																																class="form-check-label"
+																																for="cctv"
+																															>
+																																CCTV
+																															</label>
+																														</div>
+																													</div>
+																												</div>
+																											</div>
+
+																											<div class="container">
+																												<div class="row">
+																													<div class="col-sm">
+																														<div class="form-group">
+																															<label
+																																htmlFor="beds"
+																																class="control-label"
+																															>
+																																No. of Bedrooms{" "}
+																																<strong class="rtcl-required">
+																																	*
+																																</strong>
+																															</label>
+																															<input
+																																type="number"
+																																name="beds"
+																																id="beds"
+																																class="form-control"
+																																required=""
+																																value={
+																																	propDetails.beds
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				beds: e
+																																					.target
+																																					.value,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																														</div>
+																														<p
+																															style={{
+																																color: "red",
+																															}}
+																														>
+																															{formErrors.beds}
+																														</p>
+																													</div>
+																													<div class="col-sm">
+																														<div class="form-group">
+																															<label
+																																htmlFor="baths"
+																																class="control-label"
+																															>
+																																No. of Bathrooms{" "}
+																																<strong class="rtcl-required">
+																																	*
+																																</strong>
+																															</label>
+																															<input
+																																type="number"
+																																name="baths"
+																																id="baths"
+																																class="form-control"
+																																required=""
+																																value={
+																																	propDetails.baths
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				baths:
+																																					e
+																																						.target
+																																						.value,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																														</div>
+																														<p
+																															style={{
+																																color: "red",
+																															}}
+																														>
+																															{formErrors.baths}
+																														</p>
+																													</div>
+																												</div>
+																												<div class="row">
+																													<div class="col-sm">
+																														<div class="form-group">
+																															<label
+																																htmlFor="roomCount"
+																																class="control-label"
+																															>
+																																No. of Rooms{" "}
+																																<strong class="rtcl-required">
+																																	*
+																																</strong>
+																															</label>
+																															<input
+																																type="number"
+																																name="roomCount"
+																																id="roomCount"
+																																class="form-control"
+																																required=""
+																																value={
+																																	propDetails.roomCount
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				roomCount:
+																																					e
+																																						.target
+																																						.value,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																														</div>
+																														<p
+																															style={{
+																																color: "red",
+																															}}
+																														>
+																															{
+																																formErrors.roomCount
+																															}
+																														</p>
+																													</div>
+																													<div class="col-sm">
+																														<div class="form-group">
+																															<label
+																																htmlFor="parkingSpaces"
+																																class="control-label"
+																															>
+																																No. of Parking
+																																Space{" "}
+																																<strong class="rtcl-required">
+																																	*
+																																</strong>
+																															</label>
+																															<input
+																																type="number"
+																																name="parkingSpaces"
+																																id="parkingSpaces"
+																																class="form-control"
+																																required=""
+																																value={
+																																	propDetails.parkingSpaces
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				parkingSpaces:
+																																					e
+																																						.target
+																																						.value,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																														</div>
+																														<p
+																															style={{
+																																color: "red",
+																															}}
+																														>
+																															{
+																																formErrors.parkingSpaces
+																															}
+																														</p>
+																													</div>
+																												</div>
+																												<div class="row">
+																													<div class="col-sm">
+																														<div class="form-group">
+																															<label
+																																htmlFor="sqft"
+																																class="control-label"
+																															>
+																																Area (in sqft){" "}
+																																<strong class="rtcl-required">
+																																	*
+																																</strong>
+																															</label>
+																															<input
+																																type="number"
+																																name="sqft"
+																																id="sqft"
+																																class="form-control"
+																																required=""
+																																value={
+																																	propDetails.sqft
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				sqft: e
+																																					.target
+																																					.value,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																														</div>
+																														<p
+																															style={{
+																																color: "red",
+																															}}
+																														>
+																															{formErrors.sqft}
+																														</p>
+																													</div>
+																													<div class="col-sm">
+																														<div class="form-group">
+																															<label
+																																htmlFor="builtyear"
+																																class="control-label"
+																															>
+																																Built Year{" "}
+																																<strong class="rtcl-required">
+																																	*
+																																</strong>
+																															</label>
+																															<input
+																																type="number"
+																																name="builtyear"
+																																id="builtyear"
+																																class="form-control"
+																																required=""
+																																value={
+																																	propDetails.builtYear
+																																}
+																																onChange={(
+																																	e
+																																) => {
+																																	setpropDetails(
+																																		(prev) => {
+																																			return {
+																																				...prev,
+																																				builtYear:
+																																					e
+																																						.target
+																																						.value,
+																																			};
+																																		}
+																																	);
+																																}}
+																															/>
+																														</div>
+																														<p
+																															style={{
+																																color: "red",
+																															}}
+																														>
+																															{
+																																formErrors.builtYear
+																															}
+																														</p>
+																													</div>
+																												</div>
+																											</div>
+																											<div class="form-group d-flex align-items-center">
+																												<Button
+																													type="submit"
+																													name="signup"
+																													style={{
+																														backgroundColor:
+																															"#00c194",
+																														border: 0,
+																														height: "30px",
+																														fontSize: "16px",
+																														padding: "20px ",
+																														display: "flex",
+																														alignItems:
+																															"center",
+																														justifyContent:
+																															"center",
+																													}}
+																													variant="btn btn-secondary btn-outline w-100"
+																													value="signup"
+																												>
+																													Update Property{" "}
+																												</Button>
+																											</div>
+																										</form>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																				</Modal.Body>
+																				<Modal.Footer>
+																					<Button
+																						style={{
+																							backgroundColor: "#00c194",
+																							border: 0,
+																							height: "30px",
+																							fontSize: "16px",
+																							padding: "20px ",
+																							display: "flex",
+																							alignItems: "center",
+																							justifyContent: "center",
+																						}}
+																						variant="btn btn-secondary btn-outline w-100"
+																						onClick={handleClose}
+																					>
+																						Close
+																					</Button>
+																					<Button
+																						style={{
+																							backgroundColor: "#00c194",
+																							border: 0,
+																							height: "30px",
+																							fontSize: "16px",
+																							padding: "20px ",
+																							display: "flex",
+																							alignItems: "center",
+																							justifyContent: "center",
+																						}}
+																						variant="btn btn-secondary btn-outline w-100"
+																						onClick={handleClose}
+																					>
+																						Save Changes
+																					</Button>
+																				</Modal.Footer>
+																			</Modal>
+
+																			<Button
+																				onClick={() => {
+																					handleDelete(currEle._id);
+																				}}
+																				variant="btn btn-secondary btn-outline w-100"
+																				style={{
+																					backgroundColor: "#00c194",
+																					textAlign: "center",
+																					border: 0,
+																					height: "30px",
+																					display: "flex",
+																					justifyContent: "center",
+																					alignItems: "center",
+																					fontSize: "16px",
+																					padding: "20px ",
+																					marginTop: "10px",
+																				}}
+																			>
+																				<FiTrash2
+																					size={20}
+																					style={{ marginRight: "10px" }}
+																				/>
+																				Delete
+																			</Button>
+																			{/* <FiEdit size={20} className="icon" />
+																			<FiTrash2 size={20} className="icon" /> */}
+																		</div>
 																	</div>
 																</div>
 															</div>
@@ -657,6 +1251,7 @@ const PropListings = () => {
 									</div>
 								</div>
 							</div>
+
 							<div class="col-xl-6">
 								<div class="location-img">
 									<iframe

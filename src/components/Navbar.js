@@ -1,8 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { Dropdown } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { logout } from "../store/actions/userActions";
 const Navbar = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	const logoutHandle = () => {
+		dispatch(logout());
+        navigate("/")
+	};
 	return (
 		<div className="nav-head">
 			{" "}
@@ -34,9 +43,7 @@ const Navbar = () => {
 								>
 									<ul>
 										<li>
-											<Link to="/" >
-												Home
-											</Link>
+											<Link to="/">Home</Link>
 											{/* <ul class="dropdown-menu-col-1">
 												<li>
 													<Link to="/">Home Page 1</Link>
@@ -56,7 +63,7 @@ const Navbar = () => {
 											</ul> */}
 										</li>
 										<li>
-											<Link to="/about" >About</Link>
+											<Link to="/about">About</Link>
 										</li>
 										<li>
 											<a>Property</a>
@@ -79,46 +86,42 @@ const Navbar = () => {
 									</ul>
 								</nav>
 							</div>
-							<div class="col-xl-2 col-lg-2 g-0 d-flex justify-content-end">	
+							<div class="col-xl-2 col-lg-2 g-0 d-flex justify-content-end">
 								<div class="header-action-layout1">
-								<nav
-									id="dropdown"
-									class="template-main-menu template-main-menu-1"
-								>
-									<ul class="action-list">
-										
-										<li class="action-item-style my-account">
-											<Link
-												to="/Login"
-												data-bs-toggle="tooltip"
-												data-bs-placement="bottom"
-												title="Sign In"
-											>
-												<i class="flaticon-user-1 icon-round"></i>
-											</Link>
-											<ul class="dropdown-menu-col-1">
-												<li>
-													<a href="/profile">Profile</a>
-												</li>
-												<li>
-													<a href="/mylisitng">My Listings</a>
-												</li>
-												<li>
-													<a href="/logout">Log Out</a>
-												</li>
-											</ul>
-										</li>
-										
-									</ul>
+									<nav
+										id="dropdown"
+										class="template-main-menu template-main-menu-1"
+									>
+										<ul class="action-list">
+											<li class="action-item-style my-account">
+												<Link
+													to="/Login"
+													data-bs-toggle="tooltip"
+													data-bs-placement="bottom"
+													title="Sign In"
+													style={{ display: "flex", alignItems: "center" }}
+												>
+													<i class="flaticon-user-1 icon-round"></i>
+												</Link>
+												<ul class="dropdown-menu-col-1">
+													<li>
+														<Link to="/profile">Profile</Link>
+													</li>
+													<li>
+														<Link to="/listing">My Listings</Link>
+													</li>
+													<li>
+														<Link to="/" onClick={logoutHandle}>Log Out</Link>
+													</li>
+												</ul>
+											</li>
+										</ul>
 									</nav>
 								</div>
 							</div>
-							<div class="col-xl-2 col-lg-2 g-0 d-flex justify-content-end">	
+							<div class="col-xl-2 col-lg-2 g-0 d-flex justify-content-end">
 								<div class="header-action-layout1">
-									
 									<ul class="action-list">
-										
-										
 										<li class="listing-button">
 											<Link to="/AddPost" class="listing-btn">
 												<span>

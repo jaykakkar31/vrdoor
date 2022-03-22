@@ -107,14 +107,14 @@ const About = () => {
 									/>
 									<div class="play-button">
 										<div class="item-icon">
-											<Link
-												to="http://www.youtube.com/watch?v=1iIZeIy7TqM"
+											<a
+												href="http://www.youtube.com/watch?v=1iIZeIy7TqM"
 												class="play-btn play-btn-big"
 											>
 												<span class="play-icon style-2">
 													<i class="fas fa-play"></i>
 												</span>
-											</Link>
+											</a>
 										</div>
 									</div>
 								</div>
@@ -172,12 +172,12 @@ const About = () => {
 								</h2>
 								<div class="play-button">
 									<div class="item-icon">
-										<Link to="http://www.youtube.com/" class="play-btn">
+										<a href="http://www.youtube.com/" class="play-btn">
 											<span class="play-icon style-1">
 												<i class="fas fa-play"></i>
 											</span>
 											<span class="play-text">Watch Video</span>
-										</Link>
+										</a>
 									</div>
 								</div>
 							</div>

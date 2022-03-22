@@ -1,9 +1,22 @@
 import axios from "axios";
-import { ADD_PROPERTY_FAIL, ADD_PROPERTY_REQUEST, ADD_PROPERTY_SUCCESS, GET_PROPERTIES_FAIL, GET_PROPERTIES_REQUEST, GET_PROPERTIES_SUCCESS,GET_USER_PROPERTIES_REQUEST,GET_USER_PROPERTIES_SUCCESS,GET_USER_PROPERTIES_FAIL } from "../constants/constants";
+import {
+	ADD_PROPERTY_FAIL,
+	ADD_PROPERTY_REQUEST,
+	ADD_PROPERTY_SUCCESS,
+	GET_PROPERTIES_FAIL,
+	GET_PROPERTIES_REQUEST,
+	GET_PROPERTIES_SUCCESS,
+	GET_USER_PROPERTIES_REQUEST,
+	GET_USER_PROPERTIES_SUCCESS,
+	GET_USER_PROPERTIES_FAIL,
+	DELETE_PROPERTY_REQUEST,
+	DELETE_PROPERTY_SUCCESS,
+	DELETE_PROPERTY_FAIL,
+} from "../constants/constants";
 const API_URL = "http://localhost:4000";
 
 export const addProperty = (details) => async (dispatch, getState) => {
-    console.log("action");
+	console.log("action");
 	try {
 		// const userInfo = getState().educatorAuthReducer.educatorInfo;
 		// console.log(educatorInfo);
@@ -31,14 +44,16 @@ export const addProperty = (details) => async (dispatch, getState) => {
 export const fetchProperty = (category) => async (dispatch, getState) => {
 	console.log("Caled");
 	try {
-
 		const config = {
 			headers: {
 				"Content-Type": "application/json",
 			},
 		};
 		dispatch({ type: GET_PROPERTIES_REQUEST });
-		const { data } = await axios.get(`${API_URL}/api/property/get/${category}`, config);
+		const { data } = await axios.get(
+			`${API_URL}/api/property/get/${category}`,
+			config
+		);
 		// console.log(data);
 		dispatch({ type: GET_PROPERTIES_SUCCESS, payload: data });
 	} catch (e) {
@@ -70,6 +85,29 @@ export const fetchPropertyForUser = (id) => async (dispatch, getState) => {
 	} catch (e) {
 		dispatch({
 			type: GET_USER_PROPERTIES_FAIL,
+			payload:
+				e.response && e.response.data.message
+					? e.response.data.message
+					: e.message,
+		});
+	}
+};
+
+export const deleteProperty = (id) => async (dispatch) => {
+	console.log("Caled");
+	try {
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		dispatch({ type: DELETE_PROPERTY_REQUEST });
+		await axios.delete(`${API_URL}/api/property/delete/${id}`, config);
+		// console.log(data);
+		dispatch({ type: DELETE_PROPERTY_SUCCESS });
+	} catch (e) {
+		dispatch({
+			type: DELETE_PROPERTY_FAIL,
 			payload:
 				e.response && e.response.data.message
 					? e.response.data.message
