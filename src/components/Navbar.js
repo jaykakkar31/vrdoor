@@ -79,31 +79,14 @@ const Navbar = () => {
 									</ul>
 								</nav>
 							</div>
-							<div class="col-xl-4 col-lg-4 d-flex justify-content-end">
+							<div class="col-xl-2 col-lg-2 d-flex justify-content-end">	
 								<div class="header-action-layout1">
+								<nav
+									id="dropdown"
+									class="template-main-menu template-main-menu-1"
+								>
 									<ul class="action-list">
-										<li class="action-item-style left-right-btn">
-											<Link
-												to="compare.html"
-												data-bs-toggle="tooltip"
-												data-bs-placement="bottom"
-												title="Compare"
-											>
-												<i class="flaticon-left-and-right-arrows icon-round"></i>
-												<div class="item-count">0</div>
-											</Link>
-										</li>
-										<li class="action-item-style wish-btn">
-											<Link
-												to="favourite.html"
-												data-bs-toggle="tooltip"
-												data-bs-placement="bottom"
-												title="Favourites"
-											>
-												<i class="flaticon-heart icon-round"></i>
-												<div class="item-count">0</div>
-											</Link>
-										</li>
+										
 										<li class="action-item-style my-account">
 											<Link
 												to="/Login"
@@ -113,7 +96,29 @@ const Navbar = () => {
 											>
 												<i class="flaticon-user-1 icon-round"></i>
 											</Link>
+											<ul class="dropdown-menu-col-1">
+												<li>
+													<a href="/profile">Profile</a>
+												</li>
+												<li>
+													<a href="/mylisitng">My Listings</a>
+												</li>
+												<li>
+													<a href="/logout">Log Out</a>
+												</li>
+											</ul>
 										</li>
+										
+									</ul>
+									</nav>
+								</div>
+							</div>
+							<div class="col-xl-2 col-lg-2 g-0 d-flex justify-content-end">	
+								<div class="header-action-layout1">
+									
+									<ul class="action-list">
+										
+										
 										<li class="listing-button">
 											<Link to="/AddPost" class="listing-btn">
 												<span>
