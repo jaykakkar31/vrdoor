@@ -5,7 +5,9 @@ import {
 	fetchPropertyReducer,
 	addPropertyReducer,
 	fetchUserPropertyReducer,
-    deletePropertyReducer,
+	deletePropertyReducer,
+	updatePropertyReducer,
+    fetchPropertyDetailsReducer,
 } from "./reducers/propertiesReducer";
 import {
 	loginUser,
@@ -33,6 +35,8 @@ const reducers = combineReducers({
 	fetchUserPropertyReducer: fetchUserPropertyReducer,
 	logoutUser: logoutUser,
 	deletePropertyReducer: deletePropertyReducer,
+	updatePropertyReducer: updatePropertyReducer,
+	fetchPropertyDetailsReducer: fetchPropertyDetailsReducer,
 });
 
 const store = createStore(

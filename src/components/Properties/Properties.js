@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import Data from "../../Apis/propertiesApi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProperty } from "../../store/actions/propertiesAction";
 
 const Properties = () => {
 	const [isClick, setIsClick] = useState(false);
+	const [data, setData] = useState();
 	const dispatch = useDispatch();
 	const fetchPropertyReducer = useSelector(
 		(state) => state.fetchPropertyReducer
@@ -15,6 +16,7 @@ const Properties = () => {
 	const [category, setCategory] = useState(
 		window.location.search.split("=")[1]
 	);
+    const navigate=useNavigate()
 	console.log(window.location.search);
 
 	const { loading, error, propertiesData } = fetchPropertyReducer;
@@ -154,7 +156,7 @@ const Properties = () => {
 														onClick={() => {
 															setIsClick(!isClick);
 														}}
-                                                        style={{marginRight:"20px"}}
+														style={{ marginRight: "20px" }}
 													>
 														<span>
 															<i class="fas fa-sliders-h"></i>
@@ -173,7 +175,10 @@ const Properties = () => {
 													}`}
 												>
 													<div class="row">
-														<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0" style={{width:"100%"}}>
+														<div
+															class="col-lg-4 col-md-6 py-1 pr-30 pl-0"
+															style={{ width: "100%" }}
+														>
 															{/* <!-- Form Property Status --> */}
 															<div class="form-group bed">
 																<label class="item-bedrooms">Bedrooms</label>
@@ -193,7 +198,10 @@ const Properties = () => {
 																</div>
 																{/* <!--/ End Form Property Status --> */}
 															</div>
-															<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 " style={{width:"100%"}}>
+															<div
+																class="col-lg-4 col-md-6 py-1 pr-30 pl-0 "
+																style={{ width: "100%" }}
+															>
 																{/* <!-- Form Bedrooms --> */}
 																<div class="form-group bath">
 																	<label class="item-bath">Bathrooms</label>
@@ -220,7 +228,10 @@ const Properties = () => {
 																</div>
 																{/* <!--/ End Form Bedrooms --> */}
 															</div>
-															<div class="col-lg-4 col-md-6 py-1 pl-0 pr-0" style={{width:"100%"}}>
+															<div
+																class="col-lg-4 col-md-6 py-1 pl-0 pr-0"
+																style={{ width: "100%" }}
+															>
 																{/* <!-- Form Bathrooms --> */}
 																<div class="form-group garage">
 																	<label class="item-garage">Garage</label>
@@ -250,11 +261,20 @@ const Properties = () => {
 															{/* <!-- Price Fields --> */}
 															<div class="main-search-field-2 col-12">
 																{/* <!-- Area Range --> */}
-																<div class="row" style={{display:"flex",alignItems:"center"}}>
+																<div
+																	class="row"
+																	style={{
+																		display: "flex",
+																		alignItems: "center",
+																	}}
+																>
 																	<div class="col-md-6 pl-0">
 																		<div class="price-range-wrapper">
 																			<div class="range-box">
-																				<div class="price-label" style={{width:"240px"}}>
+																				<div
+																					class="price-label"
+																					style={{ width: "240px" }}
+																				>
 																					Flat Size:
 																				</div>
 																				<div
@@ -444,10 +464,12 @@ const Properties = () => {
 																</div>
 															</div>
 															{/* <!-- /row --> */}
-															
 														</div>
 														{/* <!-- /row --> */}
-														<div class="filter-button" style={{justifyContent:"center"}}>
+														<div
+															class="filter-button"
+															style={{ justifyContent: "center" }}
+														>
 															<Link to="half-map1.html" class="filter-btn1">
 																Apply Filter
 															</Link>
@@ -516,8 +538,8 @@ const Properties = () => {
 																	class="property-box2 wow animated fadeInUp"
 																	data-wow-delay=".3s"
 																>
-																	<div class="item-img">
-																		<Link to="/singleproperty">
+																	<div class="item-img" onClick={()=>{navigate(`/property?id=${currEle._id}`)}}>
+																		
 																			<img
 																				src={currEle.propertyImage}
 																				alt="blog"
@@ -528,7 +550,7 @@ const Properties = () => {
 																				width="660"
 																				height="440"
 																			/>
-																		</Link>
+																		
 																		<div class="item-category-box1">
 																			<div class="item-category">
 																				For {currEle.category}
@@ -542,42 +564,18 @@ const Properties = () => {
 																				</span>
 																			</div>
 																		</div>
-																		<div class="react-icon">
-																			<ul>
-																				<li>
-																					<Link
-																						to="favourite.html"
-																						data-bs-toggle="tooltip"
-																						data-bs-placement="top"
-																						title="Favourites"
-																					>
-																						<i class="flaticon-heart"></i>
-																					</Link>
-																				</li>
-																				<li>
-																					<Link
-																						to="compare.html"
-																						data-bs-toggle="tooltip"
-																						data-bs-placement="top"
-																						title="Compare"
-																					>
-																						<i class="flaticon-left-and-right-arrows"></i>
-																					</Link>
-																				</li>
-																			</ul>
-																		</div>
+																		
 																	</div>
 																	<div class="item-category10">
-																		<Link to="single-listing1.html">
+																		
 																			{currEle.type}
-																		</Link>
+																		
 																	</div>
 																	<div class="item-content">
 																		<div class="verified-area">
 																			<h3 class="item-title">
-																				<Link to="single-listing1.html">
+																				
 																					{currEle.title}
-																				</Link>
 																			</h3>
 																		</div>
 																		<div class="location-area">

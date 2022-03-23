@@ -84,46 +84,7 @@ const Home = () => {
 								<div class="bg-title-wrap" style={{ display: "block" }}>
 									<span class="background-title solid">Properties</span>
 								</div>
-								<div class="ad-type-wrapper search-radio">
-									<ul class="list-inline">
-										<li>
-											<label htmlFor="Buy" class="active">
-												<span>Buy</span>
-												<input
-													class="sr-only"
-													type="radio"
-													name="filters[ad_type]"
-													id="Buy"
-													value="Buy"
-												/>
-											</label>
-										</li>
-										<li>
-											<label htmlFor="buy" class="">
-												<span>Buy</span>
-												<input
-													class="sr-only"
-													type="radio"
-													name="filters[ad_type]"
-													id="buy"
-													value="buy"
-												/>
-											</label>
-										</li>
-										<li>
-											<label htmlFor="rent" class="">
-												<span>Rent</span>
-												<input
-													class="sr-only"
-													type="radio"
-													name="filters[ad_type]"
-													id="rent"
-													value="rent"
-												/>
-											</label>
-										</li>
-									</ul>
-								</div>
+								
 								<div class="banner-search-wrap">
 									<div class="rld-main-search">
 										<div class="row">

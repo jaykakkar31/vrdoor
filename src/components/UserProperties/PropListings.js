@@ -7,6 +7,7 @@ import {
 	deleteProperty,
 	fetchProperty,
 	fetchPropertyForUser,
+	updateProperty,
 } from "../../store/actions/propertiesAction";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import "./propListing.css";
@@ -17,6 +18,8 @@ import { ProgressBar, Button } from "react-bootstrap";
 const PropListings = () => {
 	const [isClick, setIsClick] = useState(false);
 	const dispatch = useDispatch();
+	const [edit, setEdit] = useState(false);
+
 	const [show, setShow] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
 
@@ -27,6 +30,7 @@ const PropListings = () => {
 	const id = localStorage.getItem("userInfo")
 		? JSON.parse(localStorage.getItem("userInfo"))._id
 		: null;
+	const [data, setData] = useState();
 	const [propDetails, setpropDetails] = useState({
 		userId: id,
 		title: "",
@@ -50,6 +54,7 @@ const PropListings = () => {
 		ccCam: false,
 		feel_360: "",
 	});
+    console.log(propDetails);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -58,21 +63,24 @@ const PropListings = () => {
 		(state) => state.fetchUserPropertyReducer
 	);
 
-	console.log(window.location.search);
 
 	const { loading, error, userPropertiesData } = fetchUserPropertyReducer;
 	useEffect(() => {
 		dispatch(fetchPropertyForUser(id));
 	}, [dispatch]);
 
-	console.log(userPropertiesData);
 
 	const handleDelete = (currId) => {
 		dispatch(deleteProperty(currId)).then(() => {
 			dispatch(fetchPropertyForUser(id));
 		});
 	};
-	const handleEdit = () => {};
+	const handleEdit = () => {
+		dispatch(updateProperty(data?._id, propDetails)).then(()=>{
+            			dispatch(fetchPropertyForUser(id));
+
+        })
+	};
 	const iImageHanlder = () => {
 		const storageRef = ref(storage, `property/${iImage.name}`);
 		const uploadTask = uploadBytesResumable(storageRef, iImage);
@@ -278,7 +286,10 @@ const PropListings = () => {
 																			}}
 																		>
 																			<Button
-																				onClick={() => setShow(true)}
+																				onClick={() => {
+																					setData(currEle);
+																					setShow(true);
+																				}}
 																				variant="btn btn-secondary btn-outline w-100"
 																				style={{
 																					backgroundColor: "#00c194",
@@ -300,872 +311,6 @@ const PropListings = () => {
 																				/>
 																				Edit
 																			</Button>
-																			<Modal
-																				show={show}
-																				onHide={handleClose} // {...props}
-																				size="lg"
-																				aria-labelledby="contained-modal-title-vcenter"
-																				centered
-																			>
-																				<Modal.Header closeButton>
-																					<Modal.Title id="contained-modal-title-vcenter">
-																						Edit Property{" "}
-																					</Modal.Title>
-																				</Modal.Header>
-																				<Modal.Body>
-																					<div class="container">
-																						<div class="row">
-																							<div class="col-lg-12 col-sm-12 col-12">
-																								<div class="page-content-block">
-																									<div class="col-md-12 rtcl-login-form-wrap">
-																										{/* <h2>Add Property</h2> */}
-																										<form
-																											id="postadd"
-																											class="form-horizontal"
-																											// onSubmit={addPostHandler}
-																										>
-																											<div class="form-group">
-																												<label
-																													htmlFor="addcategory"
-																													class="control-label"
-																												>
-																													Category
-																													<strong class="rtcl-required">
-																														*
-																													</strong>
-																												</label>
-																												<select
-																													class="form-select"
-																													aria-label="addcategory"
-																													onChange={(e) => {
-																														setpropDetails(
-																															(prev) => {
-																																return {
-																																	...prev,
-																																	category:
-																																		e.target
-																																			.value,
-																																};
-																															}
-																														);
-																													}}
-																												>
-																													<option value="Rent">
-																														Rent
-																													</option>
-																													<option value="Buy">
-																														Buy
-																													</option>
-																												</select>
-																											</div>
-																											<div class="form-group">
-																												<label
-																													htmlFor="addtype"
-																													class="control-label"
-																												>
-																													Type
-																													<strong class="rtcl-required">
-																														*
-																													</strong>
-																												</label>
-																												<select
-																													class="form-select"
-																													aria-label="addtype"
-																													onChange={(e) => {
-																														setpropDetails(
-																															(prev) => {
-																																return {
-																																	...prev,
-																																	type: e.target
-																																		.value,
-																																};
-																															}
-																														);
-																													}}
-																												>
-																													<option value="Family House">
-																														Family House
-																													</option>
-																													<option value="Apartment">
-																														Apartment
-																													</option>
-																												</select>
-																											</div>
-																											<div class="form-group">
-																												<label
-																													htmlFor="Userimage"
-																													// style={{ fontSize: "18px", color: "#309255" }}
-																												>
-																													Property Image
-																													<strong class="rtcl-required">
-																														*
-																													</strong>
-																												</label>
-
-																												<input
-																													type="file"
-																													id="Userimage"
-																													className="form-control"
-																													name="Instructor"
-																													accept=".jpg,.jpeg,.png"
-																													// alt='courseImg'
-																													style={{
-																														marginTop: "10px",
-																													}}
-																													// required
-																													placeholder="User image"
-																													onChange={(e) => {
-																														setiImage(
-																															e.target.files[0]
-																														);
-																													}}
-																												/>
-																												{iprogress > 0 &&
-																													iprogress < 100 && (
-																														<ProgressBar
-																															striped
-																															variant="success"
-																															style={{
-																																marginTop:
-																																	"10px",
-																															}}
-																															now={iprogress}
-																														/>
-																													)}
-
-																												<Button
-																													onClick={
-																														iImageHanlder
-																													}
-																													variant="btn btn-secondary btn-outline w-100"
-																													style={{
-																														backgroundColor:
-																															"#00c194",
-																														textAlign: "center",
-																														border: 0,
-																														height: "30px",
-																														display: "flex",
-																														justifyContent:
-																															"center",
-																														alignItems:
-																															"center",
-																														fontSize: "16px",
-																														padding: "20px ",
-																														marginTop: "10px",
-																													}}
-																												>
-																													{iprogress === 100
-																														? "Uploaded"
-																														: "Upload"}
-																												</Button>
-																											</div>
-																											<div class="form-group">
-																												<label
-																													htmlFor="title"
-																													class="control-label"
-																												>
-																													Title
-																													<strong class="rtcl-required">
-																														*
-																													</strong>
-																												</label>
-																												<input
-																													type="text"
-																													name="title"
-																													id="title"
-																													class="form-control"
-																													required=""
-																													value={
-																														propDetails.title
-																													}
-																													onChange={(e) => {
-																														setpropDetails(
-																															(prev) => {
-																																return {
-																																	...prev,
-																																	title:
-																																		e.target
-																																			.value,
-																																};
-																															}
-																														);
-																													}}
-																												/>
-																											</div>
-																											<p
-																												style={{ color: "red" }}
-																											>
-																												{/* {formErrors.title}  */}
-																											</p>
-																											<div class="form-group">
-																												<label
-																													htmlFor="overview"
-																													class="control-label"
-																												>
-																													Overview
-																													<strong class="rtcl-required">
-																														*
-																													</strong>
-																												</label>
-																												<input
-																													type="textarea"
-																													name="overview"
-																													id="overview"
-																													class="form-control"
-																													required=""
-																													value={
-																														propDetails.overview
-																													}
-																													onChange={(e) => {
-																														setpropDetails(
-																															(prev) => {
-																																return {
-																																	...prev,
-																																	overview:
-																																		e.target
-																																			.value,
-																																};
-																															}
-																														);
-																													}}
-																												/>
-																											</div>
-																											<p
-																												style={{ color: "red" }}
-																											>
-																												{/* {formErrors.overview} */}
-																											</p>
-																											<div class="form-group">
-																												<label
-																													htmlFor="address"
-																													class="control-label"
-																												>
-																													Address
-																													<strong class="rtcl-required">
-																														*
-																													</strong>
-																												</label>
-																												<input
-																													type="text"
-																													name="address"
-																													id="address"
-																													class="form-control"
-																													required=""
-																													value={
-																														propDetails.location
-																													}
-																													onChange={(e) => {
-																														setpropDetails(
-																															(prev) => {
-																																return {
-																																	...prev,
-																																	location:
-																																		e.target
-																																			.value,
-																																};
-																															}
-																														);
-																													}}
-																												/>
-																											</div>
-																											<p
-																												style={{ color: "red" }}
-																											>
-																												{/* {formErrors.location} */}
-																											</p>
-																											<div class="form-group">
-																												<label
-																													htmlFor="price"
-																													class="control-label"
-																												>
-																													Price
-																													<strong class="rtcl-required">
-																														*
-																													</strong>
-																												</label>
-																												<input
-																													type="number"
-																													name="price"
-																													id="price"
-																													class="form-control"
-																													required=""
-																													value={
-																														propDetails.price
-																													}
-																													onChange={(e) => {
-																														setpropDetails(
-																															(prev) => {
-																																return {
-																																	...prev,
-																																	price:
-																																		e.target
-																																			.value,
-																																};
-																															}
-																														);
-																													}}
-																												/>
-																											</div>
-																											<p
-																												style={{ color: "red" }}
-																											>
-																												{/* {formErrors.price} */}
-																											</p>
-																											<div class="container">
-																												<div class="row">
-																													<div class="col-sm">
-																														<div class="form-check form-switch">
-																															<input
-																																class="form-check-input"
-																																type="checkbox"
-																																id="tvcable"
-																																value={
-																																	propDetails.tvCable
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				tvCable:
-																																					e
-																																						.target
-																																						.checked,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																															<label
-																																class="form-check-label"
-																																for="tvcable"
-																															>
-																																TV Cable
-																															</label>
-																														</div>
-																													</div>
-																													<div class="col-sm">
-																														<div class="form-check form-switch">
-																															<input
-																																class="form-check-input"
-																																type="checkbox"
-																																id="barbeque"
-																																value={
-																																	propDetails.barbeque
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				barbeque:
-																																					e
-																																						.target
-																																						.checked,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																															<label
-																																class="form-check-label"
-																																for="barbeque"
-																															>
-																																Barbeque
-																															</label>
-																														</div>
-																													</div>
-																													<div class="col-sm">
-																														<div class="form-check form-switch">
-																															<input
-																																class="form-check-input"
-																																type="checkbox"
-																																id="ac"
-																																value={
-																																	propDetails.ac
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				ac: e
-																																					.target
-																																					.checked,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																															<label
-																																class="form-check-label"
-																																for="ac"
-																															>
-																																AC
-																															</label>
-																														</div>
-																													</div>
-																												</div>
-																											</div>
-
-																											<div class="container">
-																												<div class="row">
-																													<div class="col-sm">
-																														<div class="form-check form-switch">
-																															<input
-																																class="form-check-input"
-																																type="checkbox"
-																																id="lawn"
-																																value={
-																																	propDetails.lawn
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				lawn: e
-																																					.target
-																																					.checked,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																															<label
-																																class="form-check-label"
-																																for="lawn"
-																															>
-																																Lawn
-																															</label>
-																														</div>
-																													</div>
-																													<div class="col-sm">
-																														<div class="form-check form-switch">
-																															<input
-																																class="form-check-input"
-																																type="checkbox"
-																																id="laundry"
-																																value={
-																																	propDetails.laundry
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				laundry:
-																																					e
-																																						.target
-																																						.checked,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																															<label
-																																class="form-check-label"
-																																for="laundry"
-																															>
-																																Laundry
-																															</label>
-																														</div>
-																													</div>
-																													<div class="col-sm">
-																														<div class="form-check form-switch">
-																															<input
-																																class="form-check-input"
-																																type="checkbox"
-																																id="cctv"
-																																value={
-																																	propDetails.ccCam
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				ccCam:
-																																					e
-																																						.target
-																																						.checked,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																															<label
-																																class="form-check-label"
-																																for="cctv"
-																															>
-																																CCTV
-																															</label>
-																														</div>
-																													</div>
-																												</div>
-																											</div>
-
-																											<div class="container">
-																												<div class="row">
-																													<div class="col-sm">
-																														<div class="form-group">
-																															<label
-																																htmlFor="beds"
-																																class="control-label"
-																															>
-																																No. of Bedrooms{" "}
-																																<strong class="rtcl-required">
-																																	*
-																																</strong>
-																															</label>
-																															<input
-																																type="number"
-																																name="beds"
-																																id="beds"
-																																class="form-control"
-																																required=""
-																																value={
-																																	propDetails.beds
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				beds: e
-																																					.target
-																																					.value,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																														</div>
-																														<p
-																															style={{
-																																color: "red",
-																															}}
-																														>
-																															{formErrors.beds}
-																														</p>
-																													</div>
-																													<div class="col-sm">
-																														<div class="form-group">
-																															<label
-																																htmlFor="baths"
-																																class="control-label"
-																															>
-																																No. of Bathrooms{" "}
-																																<strong class="rtcl-required">
-																																	*
-																																</strong>
-																															</label>
-																															<input
-																																type="number"
-																																name="baths"
-																																id="baths"
-																																class="form-control"
-																																required=""
-																																value={
-																																	propDetails.baths
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				baths:
-																																					e
-																																						.target
-																																						.value,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																														</div>
-																														<p
-																															style={{
-																																color: "red",
-																															}}
-																														>
-																															{formErrors.baths}
-																														</p>
-																													</div>
-																												</div>
-																												<div class="row">
-																													<div class="col-sm">
-																														<div class="form-group">
-																															<label
-																																htmlFor="roomCount"
-																																class="control-label"
-																															>
-																																No. of Rooms{" "}
-																																<strong class="rtcl-required">
-																																	*
-																																</strong>
-																															</label>
-																															<input
-																																type="number"
-																																name="roomCount"
-																																id="roomCount"
-																																class="form-control"
-																																required=""
-																																value={
-																																	propDetails.roomCount
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				roomCount:
-																																					e
-																																						.target
-																																						.value,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																														</div>
-																														<p
-																															style={{
-																																color: "red",
-																															}}
-																														>
-																															{
-																																formErrors.roomCount
-																															}
-																														</p>
-																													</div>
-																													<div class="col-sm">
-																														<div class="form-group">
-																															<label
-																																htmlFor="parkingSpaces"
-																																class="control-label"
-																															>
-																																No. of Parking
-																																Space{" "}
-																																<strong class="rtcl-required">
-																																	*
-																																</strong>
-																															</label>
-																															<input
-																																type="number"
-																																name="parkingSpaces"
-																																id="parkingSpaces"
-																																class="form-control"
-																																required=""
-																																value={
-																																	propDetails.parkingSpaces
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				parkingSpaces:
-																																					e
-																																						.target
-																																						.value,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																														</div>
-																														<p
-																															style={{
-																																color: "red",
-																															}}
-																														>
-																															{
-																																formErrors.parkingSpaces
-																															}
-																														</p>
-																													</div>
-																												</div>
-																												<div class="row">
-																													<div class="col-sm">
-																														<div class="form-group">
-																															<label
-																																htmlFor="sqft"
-																																class="control-label"
-																															>
-																																Area (in sqft){" "}
-																																<strong class="rtcl-required">
-																																	*
-																																</strong>
-																															</label>
-																															<input
-																																type="number"
-																																name="sqft"
-																																id="sqft"
-																																class="form-control"
-																																required=""
-																																value={
-																																	propDetails.sqft
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				sqft: e
-																																					.target
-																																					.value,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																														</div>
-																														<p
-																															style={{
-																																color: "red",
-																															}}
-																														>
-																															{formErrors.sqft}
-																														</p>
-																													</div>
-																													<div class="col-sm">
-																														<div class="form-group">
-																															<label
-																																htmlFor="builtyear"
-																																class="control-label"
-																															>
-																																Built Year{" "}
-																																<strong class="rtcl-required">
-																																	*
-																																</strong>
-																															</label>
-																															<input
-																																type="number"
-																																name="builtyear"
-																																id="builtyear"
-																																class="form-control"
-																																required=""
-																																value={
-																																	propDetails.builtYear
-																																}
-																																onChange={(
-																																	e
-																																) => {
-																																	setpropDetails(
-																																		(prev) => {
-																																			return {
-																																				...prev,
-																																				builtYear:
-																																					e
-																																						.target
-																																						.value,
-																																			};
-																																		}
-																																	);
-																																}}
-																															/>
-																														</div>
-																														<p
-																															style={{
-																																color: "red",
-																															}}
-																														>
-																															{
-																																formErrors.builtYear
-																															}
-																														</p>
-																													</div>
-																												</div>
-																											</div>
-																											<div class="form-group d-flex align-items-center">
-																												<Button
-																													type="submit"
-																													name="signup"
-																													style={{
-																														backgroundColor:
-																															"#00c194",
-																														border: 0,
-																														height: "30px",
-																														fontSize: "16px",
-																														padding: "20px ",
-																														display: "flex",
-																														alignItems:
-																															"center",
-																														justifyContent:
-																															"center",
-																													}}
-																													variant="btn btn-secondary btn-outline w-100"
-																													value="signup"
-																												>
-																													Update Property{" "}
-																												</Button>
-																											</div>
-																										</form>
-																									</div>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																				</Modal.Body>
-																				<Modal.Footer>
-																					<Button
-																						style={{
-																							backgroundColor: "#00c194",
-																							border: 0,
-																							height: "30px",
-																							fontSize: "16px",
-																							padding: "20px ",
-																							display: "flex",
-																							alignItems: "center",
-																							justifyContent: "center",
-																						}}
-																						variant="btn btn-secondary btn-outline w-100"
-																						onClick={handleClose}
-																					>
-																						Close
-																					</Button>
-																					<Button
-																						style={{
-																							backgroundColor: "#00c194",
-																							border: 0,
-																							height: "30px",
-																							fontSize: "16px",
-																							padding: "20px ",
-																							display: "flex",
-																							alignItems: "center",
-																							justifyContent: "center",
-																						}}
-																						variant="btn btn-secondary btn-outline w-100"
-																						onClick={handleClose}
-																					>
-																						Save Changes
-																					</Button>
-																				</Modal.Footer>
-																			</Modal>
-
 																			<Button
 																				onClick={() => {
 																					handleDelete(currEle._id);
@@ -1199,6 +344,855 @@ const PropListings = () => {
 														);
 													})}
 												</div>
+												<Modal
+													show={show}
+													onHide={handleClose} // {...props}
+													size="lg"
+													aria-labelledby="contained-modal-title-vcenter"
+													centered
+												>
+													<Modal.Header closeButton>
+														<Modal.Title id="contained-modal-title-vcenter">
+															Edit Property{" "}
+														</Modal.Title>
+													</Modal.Header>
+													<Modal.Body>
+														<div class="container">
+															<div class="row">
+																<div class="col-lg-12 col-sm-12 col-12">
+																	<div class="page-content-block">
+																		<div class="col-md-12 rtcl-login-form-wrap">
+																			{/* <h2>Add Property</h2> */}
+																			<form
+																				id="postadd"
+																				class="form-horizontal"
+																				// onSubmit={addPostHandler}
+																			>
+																				<div class="form-group">
+																					<label
+																						htmlFor="addcategory"
+																						class="control-label"
+																					>
+																						Category
+																						<strong class="rtcl-required">
+																							*
+																						</strong>
+																					</label>
+																					<select
+																						class="form-select"
+																						aria-label="addcategory"
+																						disabled={!edit}
+																						value={
+																							edit
+																								? propDetails.category
+																								: data?.category
+																						}
+																						onChange={(e) => {
+																							setpropDetails((prev) => {
+																								return {
+																									...prev,
+																									category: e.target.value,
+																								};
+																							});
+																						}}
+																					>
+																						<option value="Rent">Rent</option>
+																						<option value="Buy">Buy</option>
+																					</select>
+																				</div>
+																				<div class="form-group">
+																					<label
+																						htmlFor="addtype"
+																						class="control-label"
+																					>
+																						Type
+																						<strong class="rtcl-required">
+																							*
+																						</strong>
+																					</label>
+																					<select
+																						class="form-select"
+																						aria-label="addtype"
+																						disabled={!edit}
+																						value={
+																							edit
+																								? propDetails.type
+																								: data?.type
+																						}
+																						onChange={(e) => {
+																							setpropDetails((prev) => {
+																								return {
+																									...prev,
+																									type: e.target.value,
+																								};
+																							});
+																						}}
+																					>
+																						<option value="Family House">
+																							Family House
+																						</option>
+																						<option value="Apartment">
+																							Apartment
+																						</option>
+																					</select>
+																				</div>
+																				<div class="form-group">
+																					<label
+																						htmlFor="Userimage"
+																						// style={{ fontSize: "18px", color: "#309255" }}
+																					>
+																						Property Image
+																						<strong class="rtcl-required">
+																							*
+																						</strong>
+																					</label>
+
+																					<input
+																						readOnly={!edit}
+																						type="file"
+																						id="Userimage"
+																						className="form-control"
+																						name="Instructor"
+																						accept=".jpg,.jpeg,.png"
+																						// alt='courseImg'
+																						style={{
+																							marginTop: "10px",
+																						}}
+																						// required
+																						placeholder="User image"
+																						onChange={(e) => {
+																							setiImage(e.target.files[0]);
+																						}}
+																					/>
+																					{iprogress > 0 && iprogress < 100 && (
+																						<ProgressBar
+																							striped
+																							variant="success"
+																							style={{
+																								marginTop: "10px",
+																							}}
+																							now={iprogress}
+																						/>
+																					)}
+
+																					<Button
+																						onClick={iImageHanlder}
+																						variant="btn btn-secondary btn-outline w-100"
+																						style={{
+																							backgroundColor: "#00c194",
+																							textAlign: "center",
+																							border: 0,
+																							height: "30px",
+																							display: "flex",
+																							justifyContent: "center",
+																							alignItems: "center",
+																							fontSize: "16px",
+																							padding: "20px ",
+																							marginTop: "10px",
+																						}}
+																					>
+																						{iprogress === 100
+																							? "Uploaded"
+																							: "Upload"}
+																					</Button>
+																				</div>
+																				<div class="form-group">
+																					<label
+																						htmlFor="title"
+																						class="control-label"
+																					>
+																						Title
+																						<strong class="rtcl-required">
+																							*
+																						</strong>
+																					</label>
+																					<input
+																						type="text"
+																						name="title"
+																						id="title"
+																						class="form-control"
+																						required
+																						readOnly={!edit}
+																						value={
+																							edit
+																								? propDetails.title
+																								: data?.title
+																						}
+																						onChange={(e) => {
+																							setpropDetails((prev) => {
+																								return {
+																									...prev,
+																									title: e.target.value,
+																								};
+																							});
+																						}}
+																					/>
+																				</div>
+																				<p style={{ color: "red" }}>
+																					{/* {formErrors.title}  */}
+																				</p>
+																				<div class="form-group">
+																					<label
+																						htmlFor="overview"
+																						class="control-label"
+																					>
+																						Overview
+																						<strong class="rtcl-required">
+																							*
+																						</strong>
+																					</label>
+																					<input
+																						type="textarea"
+																						name="overview"
+																						id="overview"
+																						class="form-control"
+																						required
+																						readOnly={!edit}
+																						value={
+																							edit
+																								? propDetails.overview
+																								: data?.overview
+																						}
+																						onChange={(e) => {
+																							setpropDetails((prev) => {
+																								return {
+																									...prev,
+																									overview: e.target.value,
+																								};
+																							});
+																						}}
+																					/>
+																				</div>
+																				<p style={{ color: "red" }}>
+																					{/* {formErrors.overview} */}
+																				</p>
+																				<div class="form-group">
+																					<label
+																						htmlFor="address"
+																						class="control-label"
+																					>
+																						Address
+																						<strong class="rtcl-required">
+																							*
+																						</strong>
+																					</label>
+																					<input
+																						type="text"
+																						name="address"
+																						id="address"
+																						class="form-control"
+																						required
+																						readOnly={!edit}
+																						value={
+																							edit
+																								? propDetails.location
+																								: data?.location
+																						}
+																						onChange={(e) => {
+																							setpropDetails((prev) => {
+																								return {
+																									...prev,
+																									location: e.target.value,
+																								};
+																							});
+																						}}
+																					/>
+																				</div>
+																				<p style={{ color: "red" }}>
+																					{/* {formErrors.location} */}
+																				</p>
+																				<div class="form-group">
+																					<label
+																						htmlFor="price"
+																						class="control-label"
+																					>
+																						Price
+																						<strong class="rtcl-required">
+																							*
+																						</strong>
+																					</label>
+																					<input
+																						type="number"
+																						name="price"
+																						id="price"
+																						class="form-control"
+																						required
+																						readOnly={!edit}
+																						value={
+																							edit
+																								? propDetails.price
+																								: data?.price
+																						}
+																						onChange={(e) => {
+																							setpropDetails((prev) => {
+																								return {
+																									...prev,
+																									price: e.target.value,
+																								};
+																							});
+																						}}
+																					/>
+																				</div>
+																				<p style={{ color: "red" }}>
+																					{/* {formErrors.price} */}
+																				</p>
+																				<div class="container">
+																					<div class="row">
+																						<div class="col-sm">
+																							<div
+																								class="form-check form-switch"
+																								style={{
+																									display: "flex",
+																									alignItems: "center",
+																								}}
+																							>
+																								<input
+																									class="form-check-input"
+																									type="checkbox"
+																									readOnly={!edit}
+																									style={{ marginRight: "5px" }}
+																									id="tvcable"
+																									checked={
+																										edit
+																											? propDetails.tvCable
+																											: data?.tvCable
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												tvCable:
+																													e.target.checked,
+																											};
+																										});
+																									}}
+																								/>
+																								<label
+																									class="form-check-label"
+																									for="tvcable"
+																								>
+																									TV Cable
+																								</label>
+																							</div>
+																						</div>
+																						<div class="col-sm">
+																							<div
+																								class="form-check form-switch"
+																								style={{
+																									display: "flex",
+																									alignItems: "center",
+																								}}
+																							>
+																								<input
+																									class="form-check-input"
+																									type="checkbox"
+																									style={{ marginRight: "8px" }}
+																									id="barbeque"
+																									readOnly={!edit}
+																									checked={
+																										edit
+																											? propDetails.barbeque
+																											: data?.barbeque
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												barbeque:
+																													e.target.checked,
+																											};
+																										});
+																									}}
+																								/>
+																								<label
+																									class="form-check-label"
+																									for="barbeque"
+																								>
+																									Barbeque
+																								</label>
+																							</div>
+																						</div>
+																						<div class="col-sm">
+																							<div
+																								class="form-check form-switch"
+																								style={{
+																									display: "flex",
+																									alignItems: "center",
+																								}}
+																							>
+																								<input
+																									class="form-check-input"
+																									type="checkbox"
+																									style={{ marginRight: "5px" }}
+																									id="ac"
+																									readOnly={!edit}
+																									checked={
+																										edit
+																											? propDetails.ac
+																											: data?.ac
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												ac: e.target.checked,
+																											};
+																										});
+																									}}
+																								/>
+																								<label
+																									class="form-check-label"
+																									for="ac"
+																								>
+																									AC
+																								</label>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+																				<div class="container">
+																					<div class="row">
+																						<div class="col-sm">
+																							<div
+																								class="form-check form-switch"
+																								style={{
+																									display: "flex",
+																									alignItems: "center",
+																								}}
+																							>
+																								<input
+																									class="form-check-input"
+																									type="checkbox"
+																									style={{ marginRight: "5px" }}
+																									readOnly={!edit}
+																									id="lawn"
+																									checked={
+																										edit
+																											? propDetails.lawn
+																											: data?.lawn
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												lawn: e.target.checked,
+																											};
+																										});
+																									}}
+																								/>
+																								<label
+																									class="form-check-label"
+																									for="lawn"
+																								>
+																									Lawn
+																								</label>
+																							</div>
+																						</div>
+																						<div class="col-sm">
+																							<div
+																								class="form-check form-switch"
+																								style={{
+																									display: "flex",
+																									alignItems: "center",
+																								}}
+																							>
+																								<input
+																									class="form-check-input"
+																									type="checkbox"
+																									style={{ marginRight: "5px" }}
+																									id="laundry"
+																									readOnly={!edit}
+																									checked={
+																										edit
+																											? propDetails.laundry
+																											: data?.laundry
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												laundry:
+																													e.target.checked,
+																											};
+																										});
+																									}}
+																								/>
+																								<label
+																									class="form-check-label"
+																									for="laundry"
+																								>
+																									Laundry
+																								</label>
+																							</div>
+																						</div>
+																						<div class="col-sm">
+																							<div
+																								class="form-check form-switch"
+																								style={{
+																									display: "flex",
+																									alignItems: "center",
+																								}}
+																							>
+																								<input
+																									class="form-check-input"
+																									type="checkbox"
+																									style={{ marginRight: "5px" }}
+																									id="cctv"
+																									readOnly={!edit}
+																									checked={
+																										edit
+																											? propDetails.ccCam
+																											: data?.ccCam
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												ccCam: e.target.checked,
+																											};
+																										});
+																									}}
+																								/>
+																								<label
+																									class="form-check-label"
+																									for="cctv"
+																								>
+																									CCTV
+																								</label>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+
+																				<div class="container">
+																					<div class="row">
+																						<div class="col-sm">
+																							<div class="form-group">
+																								<label
+																									htmlFor="beds"
+																									class="control-label"
+																								>
+																									No. of Bedrooms{" "}
+																									<strong class="rtcl-required">
+																										*
+																									</strong>
+																								</label>
+																								<input
+																									type="number"
+																									name="beds"
+																									id="beds"
+																									class="form-control"
+																									required
+																									readOnly={!edit}
+																									value={
+																										edit
+																											? propDetails.beds
+																											: data?.beds
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												beds: e.target.value,
+																											};
+																										});
+																									}}
+																								/>
+																							</div>
+																							<p
+																								style={{
+																									color: "red",
+																								}}
+																							>
+																								{formErrors.beds}
+																							</p>
+																						</div>
+																						<div class="col-sm">
+																							<div class="form-group">
+																								<label
+																									htmlFor="baths"
+																									class="control-label"
+																								>
+																									No. of Bathrooms{" "}
+																									<strong class="rtcl-required">
+																										*
+																									</strong>
+																								</label>
+																								<input
+																									type="number"
+																									name="baths"
+																									readOnly={!edit}
+																									id="baths"
+																									class="form-control"
+																									required
+																									value={
+																										edit
+																											? propDetails.baths
+																											: data?.baths
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												baths: e.target.value,
+																											};
+																										});
+																									}}
+																								/>
+																							</div>
+																							<p
+																								style={{
+																									color: "red",
+																								}}
+																							>
+																								{formErrors.baths}
+																							</p>
+																						</div>
+																					</div>
+																					<div class="row">
+																						<div class="col-sm">
+																							<div class="form-group">
+																								<label
+																									htmlFor="roomCount"
+																									class="control-label"
+																								>
+																									No. of Rooms{" "}
+																									<strong class="rtcl-required">
+																										*
+																									</strong>
+																								</label>
+																								<input
+																									type="number"
+																									name="roomCount"
+																									id="roomCount"
+																									class="form-control"
+																									required
+																									readOnly={!edit}
+																									value={
+																										edit
+																											? propDetails.roomCount
+																											: data?.roomCount
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												roomCount:
+																													e.target.value,
+																											};
+																										});
+																									}}
+																								/>
+																							</div>
+																							<p
+																								style={{
+																									color: "red",
+																								}}
+																							>
+																								{formErrors.roomCount}
+																							</p>
+																						</div>
+																						<div class="col-sm">
+																							<div class="form-group">
+																								<label
+																									htmlFor="parkingSpaces"
+																									class="control-label"
+																								>
+																									No. of Parking Space{" "}
+																									<strong class="rtcl-required">
+																										*
+																									</strong>
+																								</label>
+																								<input
+																									type="number"
+																									name="parkingSpaces"
+																									id="parkingSpaces"
+																									class="form-control"
+																									required
+																									readOnly={!edit}
+																									value={
+																										edit
+																											? propDetails.parkingSpaces
+																											: data?.parkingSpaces
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												parkingSpaces:
+																													e.target.value,
+																											};
+																										});
+																									}}
+																								/>
+																							</div>
+																							<p
+																								style={{
+																									color: "red",
+																								}}
+																							>
+																								{formErrors.parkingSpaces}
+																							</p>
+																						</div>
+																					</div>
+																					<div class="row">
+																						<div class="col-sm">
+																							<div class="form-group">
+																								<label
+																									htmlFor="sqft"
+																									class="control-label"
+																								>
+																									Area (in sqft){" "}
+																									<strong class="rtcl-required">
+																										*
+																									</strong>
+																								</label>
+																								<input
+																									type="number"
+																									name="sqft"
+																									id="sqft"
+																									class="form-control"
+																									required
+																									readOnly={!edit}
+																									value={
+																										edit
+																											? propDetails.sqft
+																											: data?.sqft
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												sqft: e.target.value,
+																											};
+																										});
+																									}}
+																								/>
+																							</div>
+																							<p
+																								style={{
+																									color: "red",
+																								}}
+																							>
+																								{formErrors.sqft}
+																							</p>
+																						</div>
+																						<div class="col-sm">
+																							<div class="form-group">
+																								<label
+																									htmlFor="builtyear"
+																									class="control-label"
+																								>
+																									Built Year{" "}
+																									<strong class="rtcl-required">
+																										*
+																									</strong>
+																								</label>
+																								<input
+																									type="number"
+																									name="builtyear"
+																									id="builtyear"
+																									class="form-control"
+																									required
+																									readOnly={!edit}
+																									value={
+																										edit
+																											? propDetails.builtYear
+																											: data?.builtYear
+																									}
+																									onChange={(e) => {
+																										setpropDetails((prev) => {
+																											return {
+																												...prev,
+																												builtYear:
+																													e.target.value,
+																											};
+																										});
+																									}}
+																								/>
+																							</div>
+																							<p
+																								style={{
+																									color: "red",
+																								}}
+																							>
+																								{formErrors.builtYear}
+																							</p>
+																						</div>
+																					</div>
+																				</div>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														{edit ? (
+															<div>
+																<Button
+																	style={{
+																		backgroundColor: "#00c194",
+																		border: 0,
+																		height: "30px",
+																		fontSize: "16px",
+																		padding: "20px ",
+																		display: "flex",
+																		alignItems: "center",
+																		justifyContent: "center",
+																		marginBottom: "10px",
+																	}}
+																	variant="btn btn-secondary btn-outline w-100"
+																	onClick={() => {
+																		handleClose();
+																		setEdit(false);
+																	}}
+																>
+																	Cancel
+																</Button>
+																<Button
+																	style={{
+																		backgroundColor: "#00c194",
+																		border: 0,
+																		height: "30px",
+																		fontSize: "16px",
+																		padding: "20px ",
+																		display: "flex",
+																		alignItems: "center",
+																		justifyContent: "center",
+																	}}
+																	variant="btn btn-secondary btn-outline w-100"
+																	onClick={() => {
+																		handleEdit();
+																		handleClose();
+																		setEdit(false);
+																	}}
+																>
+																	Save Changes
+																</Button>
+															</div>
+														) : (
+															<Button
+																style={{
+																	backgroundColor: "#00c194",
+																	border: 0,
+																	height: "30px",
+																	fontSize: "16px",
+																	padding: "20px ",
+																	display: "flex",
+																	alignItems: "center",
+																	justifyContent: "center",
+																}}
+																variant="btn btn-secondary btn-outline w-100"
+																onClick={() => setEdit(true)}
+															>
+																Edit
+															</Button>
+														)}
+													</Modal.Body>
+												</Modal>
+
 												<div class="pagination-style-1">
 													<ul class="pagination">
 														<li class="page-item">

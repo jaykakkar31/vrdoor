@@ -12,6 +12,12 @@ import {
 	DELETE_PROPERTY_REQUEST,
 	DELETE_PROPERTY_SUCCESS,
 	DELETE_PROPERTY_FAIL,
+    UPDATE_PROPERTY_SUCCESS,
+    UPDATE_PROPERTY_REQUEST,
+    UPDATE_PROPERTY_FAIL,
+    GET_PROPDETAILS_REQUEST,
+    GET_PROPDETAILS_SUCCESS,
+    GET_PROPDETAILS_FAIL,
 } from "../constants/constants";
 const API_URL = "http://localhost:4000";
 
@@ -108,6 +114,55 @@ export const deleteProperty = (id) => async (dispatch) => {
 	} catch (e) {
 		dispatch({
 			type: DELETE_PROPERTY_FAIL,
+			payload:
+				e.response && e.response.data.message
+					? e.response.data.message
+					: e.message,
+		});
+	}
+};
+
+export const updateProperty = (id,details) => async (dispatch) => {
+	console.log("Caled");
+	try {
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		dispatch({ type: UPDATE_PROPERTY_REQUEST });
+		await axios.patch(`${API_URL}/api/property/update/${id}`, details,config);
+		// console.log(data);
+		dispatch({ type: UPDATE_PROPERTY_SUCCESS});
+	} catch (e) {
+		dispatch({
+			type: UPDATE_PROPERTY_FAIL,
+			payload:
+				e.response && e.response.data.message
+					? e.response.data.message
+					: e.message,
+		});
+	}
+};
+
+export const fetchPropertyDetails = (id) => async (dispatch, getState) => {
+	console.log("Caled");
+	try {
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		dispatch({ type: GET_PROPDETAILS_REQUEST });
+		const { data } = await axios.get(
+			`${API_URL}/api/property/getpropertydetails/${id}`,
+			config
+		);
+		// console.log(data);
+		dispatch({ type: GET_PROPDETAILS_SUCCESS, payload: data });
+	} catch (e) {
+		dispatch({
+			type: GET_PROPDETAILS_FAIL,
 			payload:
 				e.response && e.response.data.message
 					? e.response.data.message
