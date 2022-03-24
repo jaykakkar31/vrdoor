@@ -1,6 +1,6 @@
 import {
-    USER_DATA_FAIL,
-    USER_DATA_REQUEST,
+	USER_DATA_FAIL,
+	USER_DATA_REQUEST,
 	USER_DATA_SUCCESS,
 	USER_LOGIN_FAIL,
 	USER_LOGIN_REQUEST,
@@ -14,11 +14,11 @@ import {
 export const registerUser = (state = {}, actions) => {
 	switch (actions.type) {
 		case USER_REGISTER_REQUEST:
-			return { loading: true, error: null };
+			return { loading: true, error: null,success:false };
 		case USER_REGISTER_SUCCESS:
-			return { loading: false, userInfo: actions.payload };
+			return { loading: false, success:true,userInfo: actions.payload };
 		case USER_REGISTER_FAIL:
-			return { loading: false, error: actions.payload };
+			return { loading: false, error: actions.payload,success:false };
 
 		default:
 			return state;
@@ -48,7 +48,6 @@ export const userDataReducer = (state = {}, actions) => {
 			return { loading: false, userData: actions.payload };
 		case USER_DATA_FAIL:
 			return { loading: false, error: actions.payload };
-	
 
 		default:
 			return state;
@@ -60,7 +59,7 @@ export const logoutUser = (state = {}, actions) => {
 		case USER_DATA_REQUEST:
 			return { loading: true, error: null };
 		case USER_DATA_SUCCESS:
-			return { loading: false, userInfo: {} };
+			return { loading: false, userInfo: {}, error: null };
 		case USER_DATA_FAIL:
 			return { loading: false, error: actions.payload };
 

@@ -40,16 +40,16 @@ const Blog = () => {
 										class="blog-box1 blog-box2 wow fadeInUp"
 										data-wow-delay=".4s"
 									>
-										<div class="item-img">
-											<Link to="/blogdetail">
+										<Link to="/blogdetail">
+											<div class="item-img">
 												<img
 													src="img/blog/blog29.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
-										</div>
+											</div>
+										</Link>
 										<div class="thumbnail-date">
 											<div class="popup-date">
 												<span class="day">13</span>
@@ -87,16 +87,16 @@ const Blog = () => {
 										class="blog-box1 blog-box2 wow fadeInUp"
 										data-wow-delay=".4s"
 									>
-										<div class="item-img">
-											<Link to="/blogdetail">
+										<Link to="/blogdetail">
+											<div class="item-img">
 												<img
 													src="img/blog/blog30.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
-										</div>
+											</div>
+										</Link>
 										<div class="thumbnail-date">
 											<div class="popup-date">
 												<span class="day">13</span>
@@ -134,16 +134,16 @@ const Blog = () => {
 										class="blog-box1 blog-box2 wow fadeInUp"
 										data-wow-delay=".4s"
 									>
-										<div class="item-img">
-											<Link to="/blogdetail">
+										<Link to="/blogdetail">
+											<div class="item-img">
 												<img
 													src="img/blog/blog31.jpg"
 													alt="blog"
 													width="520"
 													height="350"
 												/>
-											</Link>
-										</div>
+											</div>
+										</Link>
 										<div class="thumbnail-date">
 											<div class="popup-date">
 												<span class="day">13</span>
@@ -417,11 +417,7 @@ const Blog = () => {
 							<div class="pagination-style-1">
 								<ul class="pagination">
 									<li class="page-item">
-										<Link
-											class="page-link"
-											href="/"
-											aria-label="Previous"
-										>
+										<Link class="page-link" to="/" aria-label="Previous">
 											<span aria-hidden="true">&laquo;</span>
 											<span class="sr-only">Previous</span>
 										</Link>
@@ -447,11 +443,7 @@ const Blog = () => {
 										</Link>
 									</li>
 									<li class="page-item">
-										<Link
-											class="page-link"
-											to="/"
-											aria-label="Next"
-										>
+										<Link class="page-link" to="/" aria-label="Next">
 											<span aria-hidden="true">&raquo;</span>
 											<span class="sr-only">Next</span>
 										</Link>

@@ -854,7 +854,7 @@ const SingleProperty = () => {
 														title="map"
 														allowFullScreen
 														style={{ borderStyle: "none", width: "100%" }}
-														src="https://kanishk014.github.io/WoodBox-Tour/"
+														src={propertyDetails?.feel_360?propertyDetails?.feel_360:"https://kanishk014.github.io/capitalcafe"}
 													></iframe>
 												</div>
 											</div>

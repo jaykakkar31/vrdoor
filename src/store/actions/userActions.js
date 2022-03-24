@@ -1,7 +1,18 @@
-import { USER_DATA_FAIL, USER_DATA_REQUEST, USER_DATA_SUCCESS, USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../constants/constants";
-import axios from 'axios'
-const API_URL="http://localhost:4000"
-export const userRgister = (details) => async(dispatch) => {
+import {
+	USER_DATA_FAIL,
+	USER_DATA_REQUEST,
+	USER_DATA_SUCCESS,
+	USER_LOGIN_FAIL,
+	USER_LOGIN_REQUEST,
+	USER_LOGIN_SUCCESS,
+	USER_LOGOUT,
+	USER_REGISTER_FAIL,
+	USER_REGISTER_REQUEST,
+	USER_REGISTER_SUCCESS,
+} from "../constants/constants";
+import axios from "axios";
+const API_URL = "https://vrdoor-server.herokuapp.com";
+export const userRgister = (details) => async (dispatch) => {
 	console.log(details);
 	try {
 		dispatch({
@@ -17,17 +28,16 @@ export const userRgister = (details) => async(dispatch) => {
 			details,
 			config
 		);
-		
+
 		console.log(data);
 		dispatch({
 			type: USER_REGISTER_SUCCESS,
-			payload: data,
+			// payload: data,
 		});
 		dispatch({
 			type: USER_LOGIN_SUCCESS,
-			payload: data,
+			// payload: data,
 		});
-		localStorage.setItem("userInfo", JSON.stringify(data));
 	} catch (error) {
 		dispatch({
 			type: USER_REGISTER_FAIL,
@@ -43,10 +53,7 @@ export const logout = () => (dispatch) => {
 	dispatch({
 		type: USER_LOGOUT,
 	});
-
 };
-
-
 
 export const userLogin = (details) => async (dispatch) => {
 	try {
@@ -68,7 +75,7 @@ export const userLogin = (details) => async (dispatch) => {
 			type: USER_LOGIN_SUCCESS,
 			payload: data,
 		});
-		
+
 		localStorage.setItem("userInfo", JSON.stringify(data));
 	} catch (error) {
 		dispatch({
@@ -81,9 +88,8 @@ export const userLogin = (details) => async (dispatch) => {
 	}
 };
 
-
 export const fetchUserData = (id) => async (dispatch) => {
-    console.log("CALLED");
+	console.log("CALLED");
 	try {
 		dispatch({
 			type: USER_DATA_REQUEST,
@@ -95,7 +101,7 @@ export const fetchUserData = (id) => async (dispatch) => {
 		};
 		const { data } = await axios.get(
 			`${API_URL}/api/users/get/${id}`,
-			
+
 			config
 		);
 		console.log(data);
@@ -105,6 +111,44 @@ export const fetchUserData = (id) => async (dispatch) => {
 		});
 
 		// localStorage.setItem("userInfo", JSON.stringify(data));
+	} catch (error) {
+		dispatch({
+			type: USER_DATA_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
+export const activateUser = (id) => async (dispatch) => {
+	console.log("CALLED");
+	try {
+		dispatch({
+			type: USER_DATA_REQUEST,
+		});
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		const { data } = await axios.get(
+			`${API_URL}/api/users/verified/${id}`,
+
+			config
+		);
+		console.log(data);
+
+		dispatch({
+			type: USER_REGISTER_SUCCESS,
+			payload: data,
+		});
+		dispatch({
+			type: USER_LOGIN_SUCCESS,
+			payload: data,
+		});
+		localStorage.setItem("userInfo", JSON.stringify(data));
 	} catch (error) {
 		dispatch({
 			type: USER_DATA_FAIL,

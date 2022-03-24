@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
-import "./home.css"
+import ScrollButton from "../scrollToTop";
+import "./home.css";
 const Home = () => {
+	const [scrollState, setScrollState] = useState(false);
+useEffect(() => {
+	window.addEventListener("scroll", (e) => {
+		var scroll = window.pageYOffset;
+		if (scroll <= 100) {
+			setScrollState(false);
+		} else {
+			setScrollState(true);
+		}
+	});
+});
 	const [isclick, setIsClick] = useState(false);
-    console.log(isclick);
+	console.log(isclick);
+	
 	return (
 		<div style={{ width: "100%" }}>
 			<Navbar />
@@ -84,7 +97,7 @@ const Home = () => {
 								<div class="bg-title-wrap" style={{ display: "block" }}>
 									<span class="background-title solid">Properties</span>
 								</div>
-								
+
 								<div class="banner-search-wrap">
 									<div class="rld-main-search">
 										<div class="row">
@@ -148,7 +161,7 @@ const Home = () => {
 																		display: "flex",
 																		alignItems: "center",
 																	}}
-                                                                    to="/"
+																	to="/"
 																>
 																	<span>Search</span>
 																	<i class="fas fa-search"></i>
@@ -427,14 +440,14 @@ const Home = () => {
 																	</ul>
 																</div>
 															</div>
-															<div class="filter-button">
+															<div
+																class="filter-button"
+																style={{ justifyContent: "center" }}
+															>
 																<Link to="/" class="filter-btn1">
 																	Apply Filter
 																</Link>
-																<Link
-																	to="/"
-																	class="filter-btn1 reset-btn"
-																>
+																<Link to="/" class="filter-btn1 reset-btn">
 																	Reset Filter<i class="fas fa-redo-alt"></i>
 																</Link>
 															</div>
@@ -529,9 +542,7 @@ const Home = () => {
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to="/singleproperty">
-												Family House For Buy
-											</Link>
+											<Link to="/singleproperty">Family House For Buy</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -849,9 +860,7 @@ const Home = () => {
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to="/singleproperty">
-												Family House For Buy
-											</Link>
+											<Link to="/singleproperty">Family House For Buy</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -1253,15 +1262,10 @@ const Home = () => {
 								</h3>
 								<div class="play-button">
 									<div class="item-icon">
-										<Link
-											to="http://www.youtube.com/watch?v=1iIZeIy7TqM"
-											class="play-btn"
-										>
-											<span class="play-icon style-1">
-												<i class="fas fa-play"></i>
-											</span>
-											<span class="play-text">Get Started</span>
-										</Link>
+										<span class="play-icon style-1">
+											<i class="fas fa-play"></i>
+										</span>
+										<span class="play-text">Get Started</span>
 									</div>
 								</div>
 							</div>
@@ -1507,6 +1511,7 @@ const Home = () => {
 					</div>
 				</div>
 			</section>{" "}
+			<ScrollButton scrollState={scrollState} />
 			<Footer />
 		</div>
 	);
