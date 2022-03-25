@@ -44,23 +44,7 @@ const Navbar = () => {
 									<ul>
 										<li>
 											<Link to="/">Home</Link>
-											{/* <ul class="dropdown-menu-col-1">
-												<li>
-													<Link to="/">Home Page 1</Link>
-												</li>
-												<li>
-													<Link to="index2.html">Home Page 2</Link>
-												</li>
-												<li>
-													<Link to="index3.html">Home Page 3</Link>
-												</li>
-												<li>
-													<Link to="index4.html">Home Page 4</Link>
-												</li>
-												<li>
-													<Link to="index5.html">Home Page 5</Link>
-												</li>
-											</ul> */}
+										
 										</li>
 										<li>
 											<Link to="/about">About</Link>
@@ -152,7 +136,7 @@ const Navbar = () => {
 							</Link>
 						</div>
 						<div class="actions user">
-							<Link to="account.html">
+							<Link to="/">
 								<i class="flaticon-user"></i>
 							</Link>
 						</div>
@@ -179,7 +163,7 @@ const Navbar = () => {
 									</ul>
 								</li>
 								<li class="list menu-item-parent menu-item-has-children">
-									<Link class="animation" to="with-sidebar2.html">
+									<Link class="animation" to="/listing">
 										Listing
 									</Link>
 									<ul class="main-menu__dropdown sub-menu">
@@ -198,7 +182,7 @@ const Navbar = () => {
 									</Link>
 									<ul class="main-menu__dropdown sub-menu">
 										<li>
-											<Link to="https://www.radiustheme.com/demo/html/homlisti/about.html">
+											<Link to="/about">
 												About Us
 											</Link>
 										</li>

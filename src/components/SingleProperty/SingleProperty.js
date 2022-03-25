@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,7 +7,19 @@ import "./singleProperty.css";
 import { Link } from "react-router-dom";
 import {useState} from "react";
 import { Button, ProgressBar } from "react-bootstrap";
+import ScrollButton from "../scrollToTop";
 const SingleProperty = () => {
+    	const [scrollState, setScrollState] = useState(false);
+			useEffect(() => {
+				window.addEventListener("scroll", (e) => {
+					var scroll = window.pageYOffset;
+					if (scroll <= 100) {
+						setScrollState(false);
+					} else {
+						setScrollState(true);
+					}
+				});
+			});
 	
 	const [formErrors, setFormErrors] = useState({});
 	const [emi, setemi] = useState({
@@ -57,10 +69,10 @@ const SingleProperty = () => {
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
-								<Link to ="index.html">Home</Link>
+								<Link to="index.html">Home</Link>
 							</li>
 							<li class="breadcrumb-item">
-								<Link to ="single-listing2.html">Comercial Property</Link>
+								<Link to="single-listing2.html">Comercial Property</Link>
 							</li>
 							<li class="breadcrumb-item active" aria-current="page">
 								All Listing
@@ -93,7 +105,7 @@ const SingleProperty = () => {
 										<div class="single-verified-area">
 											<div class="item-title">
 												<h3>
-													<Link to ="single-listing2.html">
+													<Link to="single-listing2.html">
 														Family House For Rent
 													</Link>
 												</h3>
@@ -118,22 +130,22 @@ const SingleProperty = () => {
 										<div class="side-button">
 											<ul>
 												<li>
-													<Link to ="with-sidebar2.html" class="side-btn">
+													<Link to="with-sidebar2.html" class="side-btn">
 														<i class="flaticon-share"></i>
 													</Link>
 												</li>
 												<li>
-													<Link to ="with-sidebar2.html" class="side-btn">
+													<Link to="with-sidebar2.html" class="side-btn">
 														<i class="flaticon-heart"></i>
 													</Link>
 												</li>
 												<li>
-													<Link to ="with-sidebar2.html" class="side-btn">
+													<Link to="with-sidebar2.html" class="side-btn">
 														<i class="flaticon-left-and-right-arrows"></i>
 													</Link>
 												</li>
 												<li>
-													<Link to ="with-sidebar2.html" class="side-btn">
+													<Link to="with-sidebar2.html" class="side-btn">
 														<i class="flaticon-printer"></i>
 													</Link>
 												</li>
@@ -217,7 +229,6 @@ const SingleProperty = () => {
 												</SwiperSlide>
 											</Swiper>
 										</div>
-										
 									</div>
 									<div class="single-listing-box1">
 										<div class="overview-area">
@@ -566,8 +577,8 @@ const SingleProperty = () => {
 												/>
 												<div class="play-button">
 													<div class="item-icon">
-														<Link 
-															to ="http://www.youtube.com/watch?v=1iIZeIy7TqM"
+														<Link
+															to="http://www.youtube.com/watch?v=1iIZeIy7TqM"
 															class="play-btn play-btn-big"
 														>
 															<span class="play-icon style-2">
@@ -857,7 +868,7 @@ const SingleProperty = () => {
 												<iframe
 													width="745"
 													height="600"
-                                                    title="map"
+													title="map"
 													allowFullScreen
 													style={{ borderStyle: "none" }}
 													src="https://kanishk014.github.io/WoodBox-Tour/"
@@ -884,7 +895,7 @@ const SingleProperty = () => {
 												<h4 class="item-title">RadiusTheme</h4>
 												<div class="item-phn">
 													+ 132 899 6XXX{" "}
-													<Link to ="single-listing1.html">
+													<Link to="single-listing1.html">
 														<span>(Show)</span>
 													</Link>
 												</div>
@@ -913,12 +924,12 @@ const SingleProperty = () => {
 										</div>
 										<ul class="wid-contact-button">
 											<li>
-												<Link to ="contact.html">
+												<Link to="contact.html">
 													<i class="fas fa-comment"></i>Quick Chat
 												</Link>
 											</li>
 											<li>
-												<Link to ="contact.html">
+												<Link to="contact.html">
 													<i class="fas fa-share-alt"></i>Share
 												</Link>
 											</li>
@@ -981,7 +992,7 @@ const SingleProperty = () => {
 									<div class="widget widget-listing-box1">
 										<h3 class="widget-subtitle">Latest Listing</h3>
 										<div class="item-img">
-											<Link to ="single-listing2.html">
+											<Link to="single-listing2.html">
 												<img
 													src="img/blog/widget1.jpg"
 													alt="widget"
@@ -995,10 +1006,10 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-content">
 											<div class="item-category10">
-												<Link to ="single-listing2.html">Villa</Link>
+												<Link to="single-listing2.html">Villa</Link>
 											</div>
 											<h4 class="item-title">
-												<Link to ="single-listing2.html">
+												<Link to="single-listing2.html">
 													Modern Villa for House Highland Ave Los Angeles
 												</Link>
 											</h4>
@@ -1012,7 +1023,7 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-listing">
 											<div class="item-img">
-												<Link to ="single-listing2.html">
+												<Link to="single-listing2.html">
 													<img
 														src="img/blog/widget2.jpg"
 														alt="widget"
@@ -1023,7 +1034,7 @@ const SingleProperty = () => {
 											</div>
 											<div class="item-content">
 												<h5 class="item-title">
-													<Link to ="single-listing2.html">
+													<Link to="single-listing2.html">
 														House Highland Ave Los Angeles
 													</Link>
 												</h5>
@@ -1037,7 +1048,7 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-listing">
 											<div class="item-img">
-												<Link to ="single-listing2.html">
+												<Link to="single-listing2.html">
 													<img
 														src="img/blog/widget3.jpg"
 														alt="widget"
@@ -1048,7 +1059,7 @@ const SingleProperty = () => {
 											</div>
 											<div class="item-content">
 												<h5 class="item-title">
-													<Link to ="single-listing2.html">
+													<Link to="single-listing2.html">
 														House Highland Ave Los Angeles
 													</Link>
 												</h5>
@@ -1062,7 +1073,7 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-listing no-brd">
 											<div class="item-img">
-												<Link to ="single-listing2.html">
+												<Link to="single-listing2.html">
 													<img
 														src="img/blog/widget4.jpg"
 														alt="widget"
@@ -1073,7 +1084,7 @@ const SingleProperty = () => {
 											</div>
 											<div class="item-content">
 												<h5 class="item-title">
-													<Link to ="single-listing2.html">
+													<Link to="single-listing2.html">
 														House Highland Ave Los Angeles
 													</Link>
 												</h5>
@@ -1088,7 +1099,7 @@ const SingleProperty = () => {
 									</div>
 									<div class="widget widget-contact-box widget-price-range">
 										<h3 class="widget-subtitle">Mortgage Calculator</h3>
-										
+
 										<form class="contact-box" onSubmit={emiHandle}>
 											<div class="row">
 												<div class="form-group col-lg-12">
@@ -1099,7 +1110,6 @@ const SingleProperty = () => {
 														class="form-control"
 														name="loan"
 														placeholder="Rs. 000.00"
-														
 														onChange={(e) => {
 															setemi((prev) => {
 																return { ...prev, loan: e.target.value };
@@ -1116,7 +1126,6 @@ const SingleProperty = () => {
 														class="form-control"
 														name="down"
 														placeholder="Rs. 000.00"
-														
 														onChange={(e) => {
 															setemi((prev) => {
 																return { ...prev, down: e.target.value };
@@ -1133,7 +1142,6 @@ const SingleProperty = () => {
 														class="form-control"
 														name="year"
 														placeholder="12 Years"
-														
 														onChange={(e) => {
 															setemi((prev) => {
 																return { ...prev, year: e.target.value };
@@ -1150,7 +1158,6 @@ const SingleProperty = () => {
 														class="form-control"
 														name="rate"
 														placeholder="10 %"
-														
 														onChange={(e) => {
 															setemi((prev) => {
 																return { ...prev, rate: e.target.value };
@@ -1161,46 +1168,38 @@ const SingleProperty = () => {
 												<p style={{ color: "red" }}>{formErrors.rate}</p>
 											</div>
 											<div class="price-range-wrapper">
-											<div class="price-filter-wrap d-flex align-items-center">
-												<div class="price-range-select">
-													<div class="price-range range-title">
-														Monthly EMI:  
+												<div class="price-filter-wrap d-flex align-items-center">
+													<div class="price-range-select">
+														<div class="price-range range-title">
+															Monthly EMI:
+														</div>
+														<div class="price-range" id="result"></div>
 													</div>
-													<div class="price-range" id="result"></div>
-													
-													
 												</div>
 											</div>
-										</div>
 
-
-
-
-											
 											<div class="form-group d-flex align-items-center">
-											<Button
-												type="submit"
-												name="signup"
-												style={{
-													backgroundColor: "#00c194",
-													border: 0,
-													height: "30px",
-													fontSize: "16px",
-													padding: "20px ",
-                                                    display:"flex",alignItems:"center",justifyContent:"center"
-												}}
-												variant="btn btn-secondary btn-outline w-100"
-												value="signup"
-												onClick={emiHandle}
-											>
-												Calculate
-											</Button>
-										</div>
+												<Button
+													type="submit"
+													name="signup"
+													style={{
+														backgroundColor: "#00c194",
+														border: 0,
+														height: "30px",
+														fontSize: "16px",
+														padding: "20px ",
+														display: "flex",
+														alignItems: "center",
+														justifyContent: "center",
+													}}
+													variant="btn btn-secondary btn-outline w-100"
+													value="signup"
+													onClick={emiHandle}
+												>
+													Calculate
+												</Button>
+											</div>
 										</form>
-
-										
-
-										
 									</div>
 									<div class="widget widget-post">
 										<div class="item-img">
@@ -1213,7 +1212,7 @@ const SingleProperty = () => {
 											<h4 class="item-title">Find Your Dream House</h4>
 											<div class="item-price">$2,999</div>
 											<div class="post-button">
-												<Link to ="single-listing2.html" class="item-btn">
+												<Link to="single-listing2.html" class="item-btn">
 													Shop Now
 												</Link>
 											</div>
@@ -1243,7 +1242,7 @@ const SingleProperty = () => {
 						</div>
 						<div class="col-lg-6 col-md-5 col-sm-5">
 							<div class="heading-button">
-								<Link to ="single-listing2.html" class="heading-btn item-btn2">
+								<Link to="single-listing2.html" class="heading-btn item-btn2">
 									All Properties
 								</Link>
 							</div>
@@ -1256,7 +1255,7 @@ const SingleProperty = () => {
 								data-wow-delay=".3s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="single-listing1.html">
 										<img
 											src="img/blog/blog4.jpg"
 											alt="blog"
@@ -1278,8 +1277,8 @@ const SingleProperty = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<Link 
-													to ="favourite.html"
+												<Link
+													to="favourite.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
@@ -1288,8 +1287,8 @@ const SingleProperty = () => {
 												</Link>
 											</li>
 											<li>
-												<Link 
-													to ="compare.html"
+												<Link
+													to="compare.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
@@ -1301,12 +1300,14 @@ const SingleProperty = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<Link to ="single-listing1.html">Appartment</Link>
+									<Link to="single-listing1.html">Appartment</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to ="single-listing1.html">Family House For Sell</Link>
+											<Link to="single-listing1.html">
+												Family House For Sell
+											</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -1334,7 +1335,7 @@ const SingleProperty = () => {
 								data-wow-delay=".2s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="single-listing1.html">
 										<img
 											src="img/blog/blog5.jpg"
 											alt="blog"
@@ -1356,8 +1357,8 @@ const SingleProperty = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<Link 
-													to ="favourite.html"
+												<Link
+													to="favourite.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
@@ -1366,8 +1367,8 @@ const SingleProperty = () => {
 												</Link>
 											</li>
 											<li>
-												<Link 
-													to ="compare.html"
+												<Link
+													to="compare.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
@@ -1379,12 +1380,12 @@ const SingleProperty = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<Link to ="single-listing1.html">Villa</Link>
+									<Link to="single-listing1.html">Villa</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to ="single-listing1.html">
+											<Link to="single-listing1.html">
 												Countryside Modern Lake View
 											</Link>
 										</h3>
@@ -1414,7 +1415,7 @@ const SingleProperty = () => {
 								data-wow-delay=".1s"
 							>
 								<div class="item-img">
-									<Link to ="single-listing1.html">
+									<Link to="single-listing1.html">
 										<img
 											src="img/blog/blog6.jpg"
 											alt="blog"
@@ -1436,8 +1437,8 @@ const SingleProperty = () => {
 									<div class="react-icon">
 										<ul>
 											<li>
-												<Link 
-													to ="favourite.html"
+												<Link
+													to="favourite.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Favourites"
@@ -1446,8 +1447,8 @@ const SingleProperty = () => {
 												</Link>
 											</li>
 											<li>
-												<Link 
-													to ="compare.html"
+												<Link
+													to="compare.html"
 													data-bs-toggle="tooltip"
 													data-bs-placement="top"
 													title="Compare"
@@ -1459,12 +1460,12 @@ const SingleProperty = () => {
 									</div>
 								</div>
 								<div class="item-category10">
-									<Link to ="single-listing1.html">Office</Link>
+									<Link to="single-listing1.html">Office</Link>
 								</div>
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to ="single-listing1.html">
+											<Link to="single-listing1.html">
 												Gorgeous Apartment Building{" "}
 											</Link>
 										</h3>
@@ -1533,6 +1534,8 @@ const SingleProperty = () => {
 					</div>
 				</div>
 			</section>
+			<ScrollButton scrollState={scrollState} />
+
 			<Footer />
 		</div>
 	);

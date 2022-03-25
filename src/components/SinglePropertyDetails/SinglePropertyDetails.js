@@ -8,7 +8,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { fetchPropertyDetails } from "../../store/actions/propertiesAction";
 import { fetchUserData } from "../../store/actions/userActions";
+import ScrollButton from "../scrollToTop";
 const SingleProperty = () => {
+    const [scrollState, setScrollState] = useState(false);
+		useEffect(() => {
+			window.addEventListener("scroll", (e) => {
+				var scroll = window.pageYOffset;
+				if (scroll <= 100) {
+					setScrollState(false);
+				} else {
+					setScrollState(true);
+				}
+			});
+		});
 	const dispatch = useDispatch();
 	const [id, setId] = useState(window.location.search.split("=")[1]);
 	const fetchPropertyDetailsReducer = useSelector(
@@ -854,7 +866,11 @@ const SingleProperty = () => {
 														title="map"
 														allowFullScreen
 														style={{ borderStyle: "none", width: "100%" }}
-														src={propertyDetails?.feel_360?propertyDetails?.feel_360:"https://kanishk014.github.io/capitalcafe"}
+														src={
+															propertyDetails?.feel_360
+																? propertyDetails?.feel_360
+																: "https://kanishk014.github.io/capitalcafe"
+														}
 													></iframe>
 												</div>
 											</div>
@@ -1430,6 +1446,8 @@ const SingleProperty = () => {
 					</div>
 				</div>
 			</section>
+			<ScrollButton scrollState={scrollState} />
+
 			<Footer />
 		</div>
 	);

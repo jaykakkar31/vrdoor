@@ -15,7 +15,19 @@ import { Modal } from "react-bootstrap";
 import { storage } from "../firebase/firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { ProgressBar, Button } from "react-bootstrap";
+import ScrollButton from "../scrollToTop";
 const PropListings = () => {
+    	const [scrollState, setScrollState] = useState(false);
+			useEffect(() => {
+				window.addEventListener("scroll", (e) => {
+					var scroll = window.pageYOffset;
+					if (scroll <= 100) {
+						setScrollState(false);
+					} else {
+						setScrollState(true);
+					}
+				});
+			});
 	const [isClick, setIsClick] = useState(false);
 	const dispatch = useDispatch();
 	const [edit, setEdit] = useState(false);
@@ -1263,6 +1275,8 @@ const PropListings = () => {
 					</div>
 				)}
 			</section>
+			<ScrollButton scrollState={scrollState} />
+
 			<Footer />
 		</div>
 	);

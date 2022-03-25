@@ -4,7 +4,19 @@ import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import { userLogin } from "../../store/actions/userActions";
+import ScrollButton from "../scrollToTop";
 const Login = () => {
+    	const [scrollState, setScrollState] = useState(false);
+			useEffect(() => {
+				window.addEventListener("scroll", (e) => {
+					var scroll = window.pageYOffset;
+					if (scroll <= 100) {
+						setScrollState(false);
+					} else {
+						setScrollState(true);
+					}
+				});
+			});
 	const [details, setDetails] = useState({
 		email: "",
 		userpass: "",
@@ -133,7 +145,9 @@ const Login = () => {
 												</div>
 												<div class="form-group">
 													<p class="rtcl-forgot-password">
-														<Link to="/forgotpassword">Forgot Your Password?</Link>
+														<Link to="/forgotpassword">
+															Forgot Your Password?
+														</Link>
 													</p>
 												</div>
 											</div>
@@ -145,6 +159,8 @@ const Login = () => {
 					</div>
 				</div>
 			</main>
+			<ScrollButton scrollState={scrollState} />
+
 			<Footer />
 		</div>
 	);

@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
+import ScrollButton from "../scrollToTop";
 import "./Blog.css";
 const Blog = () => {
+	const [scrollState, setScrollState] = useState(false);
+	useEffect(() => {
+		window.addEventListener("scroll", (e) => {
+			var scroll = window.pageYOffset;
+			if (scroll <= 100) {
+				setScrollState(false);
+			} else {
+				setScrollState(true);
+			}
+		});
+	});
 	return (
 		<div>
 			<Navbar />
@@ -653,6 +665,7 @@ const Blog = () => {
 					</div>
 				</div>
 			</section>
+			<ScrollButton scrollState={scrollState} />
 
 			<Footer />
 		</div>

@@ -8,7 +8,19 @@ import { addProperty } from "../../store/actions/propertiesAction";
 import { storage } from "../firebase/firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { ProgressBar, Button } from "react-bootstrap";
+import ScrollButton from "../scrollToTop";
 const AddPost = () => {
+    	const [scrollState, setScrollState] = useState(false);
+			useEffect(() => {
+				window.addEventListener("scroll", (e) => {
+					var scroll = window.pageYOffset;
+					if (scroll <= 100) {
+						setScrollState(false);
+					} else {
+						setScrollState(true);
+					}
+				});
+			});
 	const [formErrors, setFormErrors] = useState({});
 	const [iImage, setiImage] = useState(null);
 	const [iprogress, setIProgress] = useState(0);
@@ -655,6 +667,7 @@ const AddPost = () => {
 						</div>
 					</div>
 				</main>
+				<ScrollButton scrollState={scrollState} />
 
 				<Footer />
 			</div>

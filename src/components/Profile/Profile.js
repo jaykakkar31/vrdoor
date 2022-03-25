@@ -7,7 +7,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { storage } from "../firebase/firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import {Button,ProgressBar} from 'react-bootstrap'
+import ScrollButton from "../scrollToTop";
 const Profile = () => {
+    	const [scrollState, setScrollState] = useState(false);
+			useEffect(() => {
+				window.addEventListener("scroll", (e) => {
+					var scroll = window.pageYOffset;
+					if (scroll <= 100) {
+						setScrollState(false);
+					} else {
+						setScrollState(true);
+					}
+				});
+			});
     const [iImage, setiImage] = useState(null);
 		const [iprogress, setIProgress] = useState(0);
 	const [details, setDetails] = useState({
@@ -136,7 +148,7 @@ const Profile = () => {
 														onClick={changeImage}
 														variant="btn btn-secondary btn-outline w-100"
 														style={{
-                                                            marginTop:"10px",
+															marginTop: "10px",
 															backgroundColor: "#00c194",
 															border: 0,
 															height: "30px",
@@ -329,6 +341,7 @@ const Profile = () => {
 					</div>
 				</div>
 			</main>
+			<ScrollButton scrollState={scrollState} />
 
 			<Footer />
 		</div>

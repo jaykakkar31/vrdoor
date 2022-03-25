@@ -5,8 +5,20 @@ import Data from "../../Apis/propertiesApi";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProperty } from "../../store/actions/propertiesAction";
+import ScrollButton from "../scrollToTop";
 
 const Properties = () => {
+    	const [scrollState, setScrollState] = useState(false);
+			useEffect(() => {
+				window.addEventListener("scroll", (e) => {
+					var scroll = window.pageYOffset;
+					if (scroll <= 100) {
+						setScrollState(false);
+					} else {
+						setScrollState(true);
+					}
+				});
+			});
 	const [isClick, setIsClick] = useState(false);
 	const [data, setData] = useState();
 	const dispatch = useDispatch();
@@ -538,19 +550,23 @@ const Properties = () => {
 																	class="property-box2 wow animated fadeInUp"
 																	data-wow-delay=".3s"
 																>
-																	<div class="item-img" onClick={()=>{navigate(`/property?id=${currEle._id}`)}}>
-																		
-																			<img
-																				src={currEle.propertyImage}
-																				alt="blog"
-																				style={{
-																					height: "360px",
-																					width: "660px",
-																				}}
-																				width="660"
-																				height="440"
-																			/>
-																		
+																	<div
+																		class="item-img"
+																		onClick={() => {
+																			navigate(`/property?id=${currEle._id}`);
+																		}}
+																	>
+																		<img
+																			src={currEle.propertyImage}
+																			alt="blog"
+																			style={{
+																				height: "360px",
+																				width: "660px",
+																			}}
+																			width="660"
+																			height="440"
+																		/>
+
 																		<div class="item-category-box1">
 																			<div class="item-category">
 																				For {currEle.category}
@@ -564,18 +580,14 @@ const Properties = () => {
 																				</span>
 																			</div>
 																		</div>
-																		
 																	</div>
 																	<div class="item-category10">
-																		
-																			{currEle.type}
-																		
+																		{currEle.type}
 																	</div>
 																	<div class="item-content">
 																		<div class="verified-area">
 																			<h3 class="item-title">
-																				
-																					{currEle.title}
+																				{currEle.title}
 																			</h3>
 																		</div>
 																		<div class="location-area">
@@ -673,6 +685,8 @@ const Properties = () => {
 					</div>
 				)}
 			</section>
+			<ScrollButton scrollState={scrollState} />
+
 			<Footer />
 		</div>
 	);

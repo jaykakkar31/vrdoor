@@ -128,20 +128,7 @@ useEffect(() => {
 																<option value="3">Condo</option>
 															</select>
 														</div>
-														<div class="rld-single-select item">
-															<select
-																class="select single-select mr-0"
-																style={{
-																	width: "100%",
-																	padding: "0 20px",
-																}}
-															>
-																<option value="1">All Cities</option>
-																<option value="2">Los Angeles</option>
-																<option value="3">Chicago</option>
-																<option value="3">Philadelphia</option>
-															</select>
-														</div>
+
 														<div class="item rt-filter-btn">
 															<div
 																class="dropdown-filter item"
@@ -178,73 +165,87 @@ useEffect(() => {
 															<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
 																<div class="form-group bed">
 																	<label class="item-bedrooms">Bedrooms</label>
-																	<div
-																		class="nice-select form-control wide"
-																		tabIndex="0"
+																	<select
+																		class="form-select"
+																		aria-label="addcategory"
+																		// onChange={(e) => {
+																		// 	setpropDetails((prev) => {
+																		// 		return {
+																		// 			...prev,
+																		// 			category: e.target.value,
+																		// 		};
+																		// 	});
+																		// }}
 																	>
-																		<span class="current">Any</span>
-																		<ul class="list">
-																			<li
-																				data-value="1"
-																				class="option selected"
-																			>
-																				For Sale
-																			</li>
-																			<li data-value="2" class="option">
-																				For Rent
-																			</li>
-																		</ul>
-																	</div>
+																		<option value={1}>1</option>
+																		<option value={2}>2</option>
+																		<option value={3}>3</option>
+																		<option value={4}>4</option>
+																		<option value={5}>5</option>
+																	</select>
 																</div>
 															</div>
+															{/* <div class="form-group">
+																<label
+																	htmlFor="addcategory"
+																	class="control-label"
+																>
+																	Category
+																	<strong class="rtcl-required">*</strong>
+																</label>
+																<select
+																	class="form-select"
+																	aria-label="addcategory"
+																	
+																>
+																	<option value="Rent">Rent</option>
+																	<option value="Buy">Buy</option>
+																</select>
+															</div> */}
 															<div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
 																<div class="form-group bath">
 																	<label class="item-bath">Bathrooms</label>
-																	<div
-																		class="nice-select form-control wide"
-																		tabIndex="0"
+																	<select
+																		class="form-select"
+																		aria-label="addcategory"
+																		// onChange={(e) => {
+																		// 	setpropDetails((prev) => {
+																		// 		return {
+																		// 			...prev,
+																		// 			category: e.target.value,
+																		// 		};
+																		// 	});
+																		// }}
 																	>
-																		<span class="current">Any</span>
-																		<ul class="list">
-																			<li
-																				data-value="1"
-																				class="option selected"
-																			>
-																				1
-																			</li>
-																			<li data-value="2" class="option">
-																				2
-																			</li>
-																			<li data-value="3" class="option">
-																				3
-																			</li>
-																		</ul>
-																	</div>
+																		<option value={1}>1</option>
+																		<option value={2}>2</option>
+																		<option value={3}>3</option>
+																		<option value={4}>4</option>
+																		<option value={5}>5</option>
+																	</select>
 																</div>
 															</div>
 															<div class="col-lg-4 col-md-6 py-1 pl-0 pr-0">
 																<div class="form-group garage">
-																	<label class="item-garage">Garage</label>
-																	<div
-																		class="nice-select form-control wide"
-																		tabIndex="0"
+																	<label class="item-garage">Rooms</label>
+																	<select
+																		class="form-select"
+																		aria-label="addcategory"
+																		// onChange={(e) => {
+																		// 	setpropDetails((prev) => {
+																		// 		return {
+																		// 			...prev,
+																		// 			category: e.target.value,
+																		// 		};
+																		// 	});
+																		// }}
 																	>
-																		<span class="current">Any</span>
-																		<ul class="list">
-																			<li
-																				data-value="1"
-																				class="option selected"
-																			>
-																				1
-																			</li>
-																			<li data-value="2" class="option">
-																				2
-																			</li>
-																			<li data-value="3" class="option">
-																				3
-																			</li>
-																		</ul>
-																	</div>
+																		<option value={1}>1</option>
+																		<option value={2}>2</option>
+																		<option value={3}>3</option>
+																		<option value={4}>4</option>
+																		<option value={5}>5</option>
+																	</select>
 																</div>
 															</div>
 															<div class="main-search-field-2 col-12">
@@ -252,7 +253,10 @@ useEffect(() => {
 																	<div class="col-md-6 pl-0">
 																		<div class="price-range-wrapper">
 																			<div class="range-box">
-																				<div class="price-label">
+																				<div
+																					class="price-label"
+																					style={{ width: "200px" }}
+																				>
 																					Flat Size:
 																				</div>
 																				<div
@@ -307,8 +311,8 @@ useEffect(() => {
 																	</div>
 																</div>
 															</div>
-															<div class="row">
-																<div class="col-lg-12 col-md-12 col-sm-12">
+															<div class="row" style={{marginLeft:"0"}}>
+																<div class="col-lg-12 col-md-12 col-sm-12" style={{padding:0}}>
 																	<h4 class="text-dark">Amenities</h4>
 																	<ul class="no-ul-list third-row">
 																		<li>
@@ -336,7 +340,7 @@ useEffect(() => {
 																				htmlFor="a-2"
 																				class="checkbox-custom-label"
 																			>
-																				Bedding
+																				Barbeque
 																			</label>
 																		</li>
 																		<li>
@@ -350,7 +354,7 @@ useEffect(() => {
 																				htmlFor="a-3"
 																				class="checkbox-custom-label"
 																			>
-																				Heating
+																				Gym
 																			</label>
 																		</li>
 																		<li>
@@ -378,7 +382,7 @@ useEffect(() => {
 																				htmlFor="a-5"
 																				class="checkbox-custom-label"
 																			>
-																				Microwave
+																				Tv Cable
 																			</label>
 																		</li>
 																		<li>
@@ -392,7 +396,7 @@ useEffect(() => {
 																				htmlFor="a-6"
 																				class="checkbox-custom-label"
 																			>
-																				Smoking Allow
+																				Lawn
 																			</label>
 																		</li>
 																		<li>
@@ -406,7 +410,7 @@ useEffect(() => {
 																				htmlFor="a-7"
 																				class="checkbox-custom-label"
 																			>
-																				Terrace
+																				Laundry
 																			</label>
 																		</li>
 																		<li>
@@ -420,7 +424,7 @@ useEffect(() => {
 																				htmlFor="a-8"
 																				class="checkbox-custom-label"
 																			>
-																				Balcony
+																				Parking
 																			</label>
 																		</li>
 																		<li>
@@ -434,7 +438,7 @@ useEffect(() => {
 																				htmlFor="a-9"
 																				class="checkbox-custom-label"
 																			>
-																				Balcony
+																				Cc Cam
 																			</label>
 																		</li>
 																	</ul>

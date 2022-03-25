@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 // import "swiper/css";
@@ -8,7 +8,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "./about.css";
 import { Link } from "react-router-dom";
+import ScrollButton from "../scrollToTop";
 const About = () => {
+    	const [scrollState, setScrollState] = useState(false);
+			useEffect(() => {
+				window.addEventListener("scroll", (e) => {
+					var scroll = window.pageYOffset;
+					if (scroll <= 100) {
+						setScrollState(false);
+					} else {
+						setScrollState(true);
+					}
+				});
+			});
 	return (
 		<div>
 			<Navbar />
@@ -669,6 +681,7 @@ const About = () => {
 					</div>
 				</div>
 			</section>
+			<ScrollButton scrollState={scrollState} />
 
 			<Footer />
 		</div>
