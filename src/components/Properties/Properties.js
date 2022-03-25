@@ -44,7 +44,7 @@ const Properties = () => {
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
-								<a href="index.html">Home</a>
+								<Link to="/">Home</Link>
 							</li>
 							<li class="breadcrumb-item active" aria-current="page">
 								Property
@@ -72,7 +72,7 @@ const Properties = () => {
 						<div class="row">
 							<div class="col-xl-6">
 								<form
-									action="https://radiustheme.com/demo/html/homlisti/half-map1.html"
+									action="https://radiustheme.com/demo/html/homlisti//properties"
 									class="map-form"
 								>
 									<input
@@ -102,7 +102,6 @@ const Properties = () => {
 												>
 													<option value="1">All Categories</option>
 													<option value="2">Rent</option>
-													<option value="3">Sell</option>
 													<option value="3">Buy</option>
 												</select>
 											</div>
@@ -175,7 +174,7 @@ const Properties = () => {
 														</span>
 													</div>
 													<Link
-														to="single-listing1.html"
+														to="/properties"
 														class="filter-btn1 search-btn"
 													>
 														Search<i class="fas fa-search"></i>
@@ -482,11 +481,11 @@ const Properties = () => {
 															class="filter-button"
 															style={{ justifyContent: "center" }}
 														>
-															<Link to="half-map1.html" class="filter-btn1">
+															<Link to="/properties" class="filter-btn1">
 																Apply Filter
 															</Link>
 															<Link
-																to="half-map1.html"
+																to="/properties"
 																class="filter-btn1 reset-btn"
 															>
 																Reset Filter<i class="fas fa-redo-alt"></i>
@@ -621,7 +620,7 @@ const Properties = () => {
 														<li class="page-item">
 															<Link
 																class="page-link"
-																to="with-sidebar2.html"
+																to="/properties"
 																aria-label="Previous"
 															>
 																<span aria-hidden="true">&laquo;</span>
@@ -631,30 +630,30 @@ const Properties = () => {
 														<li class="page-item">
 															<Link
 																class="page-link active"
-																to="with-sidebar2.html"
+																to="/properties"
 															>
 																1
 															</Link>
 														</li>
 														<li class="page-item">
-															<Link class="page-link" to="with-sidebar2.html">
+															<Link class="page-link" to="/properties">
 																2
 															</Link>
 														</li>
 														<li class="page-item">
-															<Link class="page-link" to="with-sidebar2.html">
+															<Link class="page-link" to="/properties">
 																3
 															</Link>
 														</li>
 														<li class="page-item">
-															<Link class="page-link" to="with-sidebar2.html">
+															<Link class="page-link" to="/properties">
 																4
 															</Link>
 														</li>
 														<li class="page-item">
 															<Link
 																class="page-link"
-																to="with-sidebar2.html"
+																to="/properties"
 																aria-label="Next"
 															>
 																<span aria-hidden="true">&raquo;</span>
