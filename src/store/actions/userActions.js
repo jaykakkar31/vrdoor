@@ -1,4 +1,10 @@
 import {
+	FORGOTPASS_FAIL,
+	FORGOTPASS_REQUEST,
+	FORGOTPASS_SUCCESS,
+	RESETPASS_FAIL,
+	RESETPASS_REQUEST,
+	RESETPASS_SUCCESS,
 	USER_DATA_FAIL,
 	USER_DATA_REQUEST,
 	USER_DATA_SUCCESS,
@@ -152,6 +158,60 @@ export const activateUser = (id) => async (dispatch) => {
 	} catch (error) {
 		dispatch({
 			type: USER_DATA_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
+export const forgotPass = (details) => async (dispatch) => {
+	console.log("CALLED");
+	try {
+		dispatch({ type: FORGOTPASS_REQUEST });
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		await axios.post(`${API_URL}/api/users/forgotPassword`, details, config);
+		dispatch({ type: FORGOTPASS_SUCCESS });
+	} catch (error) {
+		dispatch({
+			type: FORGOTPASS_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message,
+		});
+	}
+};
+
+export const resetPassword = (token, details) => async (dispatch) => {
+	console.log("CALLED");
+	try {
+		dispatch({
+			type: RESETPASS_REQUEST,
+		});
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		const { data } = await axios.post(
+			`${API_URL}/api/users/resetPassword/${token}`,
+			details,
+			config
+		);
+		console.log(data);
+
+		dispatch({
+			type: RESETPASS_SUCCESS,
+		});
+	} catch (error) {
+		dispatch({
+			type: RESETPASS_FAIL,
 			payload:
 				error.response && error.response.data.message
 					? error.response.data.message

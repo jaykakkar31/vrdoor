@@ -159,9 +159,7 @@ const SignUp = () => {
 										</div>
 									) : (
 										<form
-											id="rtcl-signup-form"
-											class="form-horizontal"
-											method="post"
+										
 											onSubmit={signUpHandle}
 										>
 											<div class="form-group">
@@ -173,6 +171,8 @@ const SignUp = () => {
 													type="text"
 													name="name"
 													id="name"
+													style={{ textTransform: "capitalize" }}
+													autocapitalize="words"
 													class="form-control"
 													required
 													value={details.name}

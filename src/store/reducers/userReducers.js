@@ -1,4 +1,10 @@
 import {
+    FORGOTPASS_FAIL,
+    FORGOTPASS_REQUEST,
+	FORGOTPASS_SUCCESS,
+	RESETPASS_FAIL,
+	RESETPASS_REQUEST,
+	RESETPASS_SUCCESS,
 	USER_DATA_FAIL,
 	USER_DATA_REQUEST,
 	USER_DATA_SUCCESS,
@@ -67,3 +73,32 @@ export const logoutUser = (state = {}, actions) => {
 			return state;
 	}
 };
+export const forgotPassReducer = (state = {}, actions) => {
+	switch (actions.type) {
+		case FORGOTPASS_REQUEST:
+			return { loading: true, error: null ,success:false};
+		case FORGOTPASS_SUCCESS:
+			return { loading: false ,success:true};
+		case FORGOTPASS_FAIL:
+			return { loading: false, error: actions.payload };
+
+		default:
+			return state;
+	}
+};
+
+
+export const resetPassReducer = (state = {}, actions) => {
+	switch (actions.type) {
+		case RESETPASS_REQUEST:
+			return { loading: true, error: null, success: false };
+		case RESETPASS_SUCCESS:
+			return { loading: false, success: true };
+		case RESETPASS_FAIL:
+			return { loading: false, error: actions.payload };
+
+		default:
+			return state;
+	}
+};
+

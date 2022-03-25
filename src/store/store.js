@@ -10,9 +10,11 @@ import {
     fetchPropertyDetailsReducer,
 } from "./reducers/propertiesReducer";
 import {
+    forgotPassReducer,
 	loginUser,
 	logoutUser,
 	registerUser,
+	resetPassReducer,
 	userDataReducer,
 } from "./reducers/userReducers";
 
@@ -36,7 +38,9 @@ const reducers = combineReducers({
 	logoutUser: logoutUser,
 	deletePropertyReducer: deletePropertyReducer,
 	updatePropertyReducer: updatePropertyReducer,
+	forgotPassReducer: forgotPassReducer,
 	fetchPropertyDetailsReducer: fetchPropertyDetailsReducer,
+	resetPassReducer: resetPassReducer,
 });
 
 const store = createStore(

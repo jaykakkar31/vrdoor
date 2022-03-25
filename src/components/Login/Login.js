@@ -133,7 +133,7 @@ const Login = () => {
 												</div>
 												<div class="form-group">
 													<p class="rtcl-forgot-password">
-														<Link to="/">Forgot Your Password?</Link>
+														<Link to="/forgotpassword">Forgot Your Password?</Link>
 													</p>
 												</div>
 											</div>

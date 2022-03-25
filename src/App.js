@@ -18,6 +18,8 @@ import Profile from "./components/Profile/Profile";
 import PropListing from './components/UserProperties/PropListings'
 import SinglePropertyDetails from "./components/SinglePropertyDetails/SinglePropertyDetails";
 import Activate from "./components/Activate";
+import ForgetPassword from "./components/ForgetPass";
+import ResetPassword from "./components/ResetPassword";
 function App() {
   return (
 		<Router>
@@ -42,6 +44,8 @@ function App() {
 				<Route exact path={"/profile"} element={<Profile />} />
 				<Route exact path={"/listing"} element={<PropListing />} />
 				<Route exact path={"/activateuser"} element={<Activate />} />
+				<Route exact path={"/resetPassword"} element={<ResetPassword />} />
+				<Route exact path={"/forgotPassword"} element={<ForgetPassword />} />
 			</Routes>
 		</Router>
 	);
