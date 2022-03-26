@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProgressComponent from "@material-ui/core/CircularProgress";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { removeLectureByMeetingId } from "../../store/actions/lecturesAction";
 function JitsiMeetComponent() {
@@ -14,7 +14,10 @@ function JitsiMeetComponent() {
 		margin: 0,
 		backgroundColor: "#333",
 	};
-
+	const cId = localStorage.getItem("userInfo")
+		? JSON.parse(localStorage.getItem("userInfo"))._id
+		: null;
+	const { id } = useParams();
 	const jitsiContainerStyle = {
 		display: loading ? "none" : "block",
 		width: "100%",
@@ -28,7 +31,7 @@ function JitsiMeetComponent() {
 		try {
 			const domain = "meet.jit.si";
 			const options = {
-				roomName: "Hellp",
+				roomName: window.location.search.split("=")[1]?window.location.search.split("=")[1]:"room",
 				// height: ,
 				parentNode: document.getElementById("jitsi-container"),
 				interfaceConfigOverwrite: {
@@ -94,14 +97,14 @@ function JitsiMeetComponent() {
 
 				api.executeCommand(
 					"displayName",
-				"jay"
+					localStorage.getItem("userInfo")
+						? JSON.parse(localStorage.getItem("userInfo")).name
+						: "user"
 				);
 			});
 			api.addEventListener("readyToClose", function () {
 				//Remove from db
-				navigate("/")
-				
-				
+				navigate("/");
 			});
 		} catch (error) {
 			console.error("Failed to load Jitsi API", error);
@@ -109,7 +112,6 @@ function JitsiMeetComponent() {
 	}
 
 	useEffect(() => {
-	
 		if (window.exports.JitsiMeetExternalAPI) startConference();
 		else alert("Jitsi Meet API script not loaded");
 		// }
@@ -119,7 +121,6 @@ function JitsiMeetComponent() {
 		<div style={containerStyle}>
 			{loading && <ProgressComponent />}
 			<div id="jitsi-container" style={jitsiContainerStyle} />
-			
 		</div>
 	);
 }
