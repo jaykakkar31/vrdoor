@@ -11,6 +11,9 @@ class MessageParser {
     else if(message.toLowerCase().includes('contact')){
       this.actionProvider.handleContact();
     }
+    else if(message.toLowerCase().includes('thanks')){
+      this.actionProvider.handleThanks();
+    }
     else{
       this.actionProvider.anything();
     }
