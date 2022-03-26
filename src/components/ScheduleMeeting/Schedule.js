@@ -35,7 +35,7 @@ const Schedule = () => {
 					</div>
 
 					<div class="">
-						<div class=" " style={{width:"fitContent"}}>
+						<div class="container-prop-style" style={{ width: "fitContent" }}>
 							{loading ? (
 								<div
 									// class="col-xl-6 col-lg-6 col-md-6"
@@ -45,7 +45,7 @@ const Schedule = () => {
 										alignItems: "center",
 										marginTop: "20px",
 										marginBottom: "40x",
-                                        width:"fitContent"
+										width: "fitContent",
 									}}
 								>
 									<img src="img/preloader.gif" alt="load" />
@@ -127,8 +127,14 @@ const Schedule = () => {
 														</li>
 													</ul>
 													<ul>
-														<li>Buyer/Seller Name: Abc</li>
-														<li>Buyer/Seller Phone no.: 02</li>
+														<li>
+															Buyer Name:
+															{item?.buyerName ? item?.buyerName : "Jay"}{" "}
+														</li>
+														<li>
+															Buyer Phone no.:{" "}
+															{item?.buyerPhone ? item?.buyerPhone : "0425367483"}
+														</li>
 													</ul>
 													<ul>
 														<li>
@@ -138,7 +144,7 @@ const Schedule = () => {
 													</ul>
 													<div class="property-button">
 														<Link
-															to={`/meet/${item?.meetingID}`}
+															to={`/meet?id=${item?.meetingID}`}
 															class="item-btn"
 														>
 															Start Meeting

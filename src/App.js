@@ -42,7 +42,7 @@ function App() {
 				<Route exact path={"/login"} element={<Login />} />
 				<Route exact path={"/addpost"} element={<AddPost />} />
 				<Route exact path={"/signup"} element={<SignUp />} />
-				<Route exact path={"/meet/:id"} element={<Meet />} />
+				<Route exact path={"/meet"} element={<Meet />} />
 
 				<Route exact path={"/profile"} element={<Profile />} />
 				<Route exact path={"/listing"} element={<PropListing />} />

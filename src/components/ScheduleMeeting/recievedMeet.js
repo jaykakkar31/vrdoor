@@ -36,8 +36,8 @@ const RecievedMeet = () => {
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="">
+						<div class="container-prop-style">
 							{loading ? (
 								<div
 									class="container-fluid"
@@ -128,8 +128,16 @@ const RecievedMeet = () => {
 														</li>
 													</ul>
 													<ul>
-														<li>Buyer/Seller Name: Abc</li>
-														<li>Buyer/Seller Phone no.: 02</li>
+														<li>
+															Buyer Name:
+															{item?.buyerName ? item?.buyerName : "Jay"}{" "}
+														</li>
+														<li>
+															Buyer Phone no.:{" "}
+															{item?.buyerPhone
+																? item?.buyerPhone
+																: "0425367483"}
+														</li>
 													</ul>
 													<ul>
 														<li>
@@ -138,7 +146,10 @@ const RecievedMeet = () => {
 														</li>
 													</ul>
 													<div class="property-button">
-														<Link to={`/meet/${item?.meetingID}`} class="item-btn">
+														<Link
+															to={`/meet?id=${item?.meetingID}`}
+															class="item-btn"
+														>
 															Join Meeting
 														</Link>
 													</div>
