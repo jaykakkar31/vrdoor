@@ -4,9 +4,12 @@ import Navbar from "../Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../message/message";
-import './schedules.css'
+import "./schedules.css";
 import { getRecieverMeetingReducer } from "../../store/reducers/meetReducer";
-import { fetchMeetingCreated, fetchMeetingRecieved } from "../../store/actions/meetingActions";
+import {
+	fetchMeetingCreated,
+	fetchMeetingRecieved,
+} from "../../store/actions/meetingActions";
 const Schedule = () => {
 	const dispatch = useDispatch();
 	const getCreaterMeetingReducer = useSelector(
@@ -15,10 +18,12 @@ const Schedule = () => {
 	const cId = localStorage.getItem("userInfo")
 		? JSON.parse(localStorage.getItem("userInfo"))._id
 		: null;
-	const { meetCreateData, loading, error } = getCreaterMeetingReducer;
+	const { meetCreateData, loading, error, success } = getCreaterMeetingReducer;
 
 	useEffect(() => {
-		dispatch(fetchMeetingCreated(cId));
+		// if (success) {
+			dispatch(fetchMeetingCreated(cId));
+		// }
 	}, [dispatch]);
 	return (
 		<div>
@@ -133,7 +138,9 @@ const Schedule = () => {
 														</li>
 														<li>
 															Buyer Phone no.:{" "}
-															{item?.buyerPhone ? item?.buyerPhone : "0425367483"}
+															{item?.buyerPhone
+																? item?.buyerPhone
+																: "0425367483"}
 														</li>
 													</ul>
 													<ul>
@@ -164,6 +171,6 @@ const Schedule = () => {
 			<Footer />
 		</div>
 	);
-};;
+};
 
 export default Schedule;

@@ -11,9 +11,9 @@ import Message from "../message/message";
 const ScheduleMeeting = () => {
 	const [formErrors, setFormErrors] = useState({});
 	const id = window.location?.search?.split("=")[1];
-    const cId  = localStorage.getItem("userInfo")
+	const cId = localStorage.getItem("userInfo")
 		? JSON.parse(localStorage.getItem("userInfo"))._id
-		: null;;
+		: null;
 	const [details, setDetails] = useState({
 		meetingID: shortid.generate(),
 		date: "",
@@ -35,6 +35,7 @@ const ScheduleMeeting = () => {
 		console.log(details);
 		await dispatch(addMeeting(details));
 		if (success) {
+			nav();
 			setDetails({
 				meetingID: "",
 				date: "",
@@ -42,12 +43,18 @@ const ScheduleMeeting = () => {
 				buyerName: "",
 				buyerPhone: "",
 			});
-			navigate("/schedule");
 		}
 	};
-    console.log(details);
+	const nav = () => {
+		setTimeout(() => {
+			navigate("/schedule");
+		}, 2000);
+	};
+	console.log(details);
 	useEffect(() => {
 		if (success) {
+			nav();
+
 			setDetails({
 				meetingID: "",
 				date: "",
@@ -55,7 +62,6 @@ const ScheduleMeeting = () => {
 				buyerName: "",
 				buyerPhone: "",
 			});
-			navigate("/schedule");
 		}
 	}, [navigate, success]);
 	useEffect(() => {
@@ -213,7 +219,6 @@ const ScheduleMeeting = () => {
 													class="form-control"
 													required
 													value={details?.meetingID}
-													
 												/>
 											</div>
 
