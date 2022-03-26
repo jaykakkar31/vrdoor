@@ -38,6 +38,9 @@ const Navbar = () => {
 		<Link to="/listing">My Listings</Link>
 	</li>
 	<li>
+		<Link to="/schedule">Meeting Schedule</Link>
+	</li>
+	<li>
 		<Link to="/" onClick={logoutHandle}>Log Out</Link>
 	</li>
 </ul>
