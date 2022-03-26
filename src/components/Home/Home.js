@@ -3,15 +3,8 @@ import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import ScrollButton from "../scrollToTop";
-import "react-chatbot-kit/build/main.css";
+import Chatbotbtn from "../../chatbot/Chatbotbtn";
 import "./home.css";
-
-import Chatbot from "react-chatbot-kit";
-
-
-import config from "../../chatbot/config";
-import ActionProvider from "../../chatbot/ActionProvider";
-import MessageParser from "../../chatbot/MessageParser";
 
 const Home = () => {
   const [scrollState, setScrollState] = useState(false);
@@ -1528,8 +1521,8 @@ const Home = () => {
         </div>
       </section>{" "}
       <ScrollButton scrollState={scrollState} />
-      <div className="chatbot-modal">
-        <Chatbot config={config} messageParser={MessageParser} actionProvider={ActionProvider}/>
+      <div>
+        <Chatbotbtn />
       </div>
       <Footer />
     </div>

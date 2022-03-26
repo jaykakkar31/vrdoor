@@ -5,25 +5,37 @@ class ActionProvider {
     this.createClientMessage = createClientMessage;
   }
 
-  handleProperty(){
-    const message = this.createChatbotMessage('Please go to property page.');
+  anything(){
+    const message = this.createChatbotMessage("Hi, How may I help you?");
 
-    this.setState(prev => ({
+    this.setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-    }))
+    }));
+  }
+
+  handleProperty() {
+    const message = this.createChatbotMessage(
+      "You can find the list of all our properties here:",  
+      { widget: "properties" }
+    );
+
+    this.setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+    }));
   }
 
   handleContact() {
-    const message = this.createChatbotMessage('Hi, Thanks you for contacting us!, Please call us at +91 9871500975');
+    const message = this.createChatbotMessage(
+      "Hi, Thanks you for contacting us!, Please call us at +91 9871500975"
+    );
 
-    this.setState(prev => ({
+    this.setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
-    }))
+    }));
   }
 }
-
-
 
 export default ActionProvider;

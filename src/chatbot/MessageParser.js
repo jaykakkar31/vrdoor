@@ -8,9 +8,11 @@ class MessageParser {
     if(message.toLowerCase().includes('property')) {
       this.actionProvider.handleProperty();
     }
-
-    if(message.toLowerCase().includes('contact')){
+    else if(message.toLowerCase().includes('contact')){
       this.actionProvider.handleContact();
+    }
+    else{
+      this.actionProvider.anything();
     }
   }
 }
