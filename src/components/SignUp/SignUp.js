@@ -38,28 +38,45 @@ const SignUp = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const registerUser = useSelector((state) => state.registerUser);
-	const {  error,success, loading } = registerUser;
-	const signUpHandle = (e) => {
+	const { error, success, loading } = registerUser;
+
+	const signUpHandle = async (e) => {
 		e.preventDefault();
 		setFormErrors(validate(details));
 		console.log(details);
-		dispatch(userRgister(details)).then(() => {
-            console.log(success,"SUCCEs");
-			if (success) {
-				setDetails({
-					name: "",
-					userImage: "",
-					email: "",
-					phoneno: "",
-					dob: "",
-					userpass: "",
-					gender: "",
-					confirmpass: "",
-				});
-				navigate("/activateuser");
-			}
-		});
+		await dispatch(userRgister(details));
+		// console.log(success,"success");
+		if (success) {
+			setDetails({
+				name: "",
+				userImage: "",
+				email: "",
+				phoneno: "",
+				dob: "",
+				userpass: "",
+				gender: "",
+				confirmpass: "",
+			});
+			navigate("/activateuser");
+		}
 	};
+	useEffect(() => {
+		if (success) {
+			setDetails({
+				name: "",
+				userImage: "",
+				email: "",
+				phoneno: "",
+				dob: "",
+				userpass: "",
+				gender: "",
+				confirmpass: "",
+			});
+			navigate("/activateuser");
+            
+		}
+	}, [success, navigate]);
+	console.log();
 	useEffect(() => {
 		// console.log(formErrors);
 	}, [formErrors]);
@@ -158,10 +175,7 @@ const SignUp = () => {
 											<img src="img/preloader.gif" alt="load" />
 										</div>
 									) : (
-										<form
-										
-											onSubmit={signUpHandle}
-										>
+										<form onSubmit={signUpHandle}>
 											<div class="form-group">
 												<label for="name" class="control-label">
 													Name

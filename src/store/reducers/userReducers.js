@@ -20,12 +20,13 @@ import {
 export const registerUser = (state = {}, actions) => {
 	switch (actions.type) {
 		case USER_REGISTER_REQUEST:
-			return { loading: true, error: null,success:false };
+			return { loading: true, error: null, success: false };
 		case USER_REGISTER_SUCCESS:
-			return { loading: false, success:true,userInfo: actions.payload };
+			return { loading: false, success: true, userInfo: actions.payload };
 		case USER_REGISTER_FAIL:
-			return { loading: false, error: actions.payload,success:false };
-
+			return { loading: false, error: actions.payload, success: false };
+		case USER_LOGOUT:
+			return {};
 		default:
 			return state;
 	}
@@ -33,9 +34,9 @@ export const registerUser = (state = {}, actions) => {
 export const loginUser = (state = {}, actions) => {
 	switch (actions.type) {
 		case USER_LOGIN_REQUEST:
-			return { loading: true, error: null };
+			return { loading: true, error: null ,success:false};
 		case USER_LOGIN_SUCCESS:
-			return { loading: false, userInfo: actions.payload };
+			return { loading: false, userInfo: actions.payload ,success:true};
 		case USER_LOGIN_FAIL:
 			return { loading: false, error: actions.payload };
 		case USER_LOGOUT:
@@ -65,7 +66,7 @@ export const logoutUser = (state = {}, actions) => {
 		case USER_DATA_REQUEST:
 			return { loading: true, error: null };
 		case USER_DATA_SUCCESS:
-			return { loading: false, userInfo: {}, error: null };
+			return { loading: false, userInfo: {}, error: null,success:false };
 		case USER_DATA_FAIL:
 			return { loading: false, error: actions.payload };
 
