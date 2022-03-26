@@ -34,16 +34,16 @@ const ScheduleMeeting = () => {
 		setFormErrors(validate(details));
 		console.log(details);
 		await dispatch(addMeeting(details));
-		if (success) {
-			setDetails({
-				meetingID: "",
-				date: "",
-				time: "",
-				buyerName: "",
-				buyerPhone: "",
-			});
-			navigate("/schedule");
-		}
+		// if (success) {
+		// 	setDetails({
+		// 		meetingID: "",
+		// 		date: "",
+		// 		time: "",
+		// 		buyerName: "",
+		// 		buyerPhone: "",
+		// 	});
+			// navigate("/schedule");
+		// }
 	};
     console.log(details);
 	useEffect(() => {
