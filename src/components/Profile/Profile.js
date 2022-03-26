@@ -6,22 +6,22 @@ import { fetchUserData, userRgister } from "../../store/actions/userActions";
 import { Link, useNavigate } from "react-router-dom";
 import { storage } from "../firebase/firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import {Button,ProgressBar} from 'react-bootstrap'
+import { Button, ProgressBar } from "react-bootstrap";
 import ScrollButton from "../scrollToTop";
 const Profile = () => {
-    	const [scrollState, setScrollState] = useState(false);
-			useEffect(() => {
-				window.addEventListener("scroll", (e) => {
-					var scroll = window.pageYOffset;
-					if (scroll <= 100) {
-						setScrollState(false);
-					} else {
-						setScrollState(true);
-					}
-				});
-			});
-    const [iImage, setiImage] = useState(null);
-		const [iprogress, setIProgress] = useState(0);
+	const [scrollState, setScrollState] = useState(false);
+	useEffect(() => {
+		window.addEventListener("scroll", (e) => {
+			var scroll = window.pageYOffset;
+			if (scroll <= 100) {
+				setScrollState(false);
+			} else {
+				setScrollState(true);
+			}
+		});
+	});
+	const [iImage, setiImage] = useState(null);
+	const [iprogress, setIProgress] = useState(0);
 	const [details, setDetails] = useState({
 		name: "",
 		email: "",
@@ -31,47 +31,51 @@ const Profile = () => {
 		gender: "",
 		confirmpass: "",
 	});
-    const navigate=useNavigate()
+	const navigate = useNavigate();
 	const [edit, setEdit] = useState(false);
 	const dispatch = useDispatch();
 	const userDataReducer = useSelector((state) => state.userDataReducer);
 	const { userData, loading } = userDataReducer;
 	console.log(userData);
-	const id = localStorage.getItem("userInfo")?JSON.parse(localStorage.getItem("userInfo"))._id:null;
+	const id = localStorage.getItem("userInfo")
+		? JSON.parse(localStorage.getItem("userInfo"))._id
+		: null;
 	useEffect(() => {
-        if(id){
-		dispatch(fetchUserData(id));
-
-        }
-        else{
-            navigate("/login")
-        }
+		if (id) {
+			dispatch(fetchUserData(id));
+		} else {
+			navigate("/login");
+		}
 	}, [dispatch, id]);
-    const handleCancel=()=>{
-        setEdit(false)
-    }
-    const changeImage = () => {
-			const storageRef = ref(storage, `users/${details.name}/${iImage.name}`);
-			const uploadTask = uploadBytesResumable(storageRef, iImage);
+	const handleCancel = () => {
+		setEdit(false);
+	};
+	const handleSubmit = (e) => {
+		// e.preventDefault;
+        dispatch()
+	};
+	const changeImage = () => {
+		const storageRef = ref(storage, `users/${details.name}/${iImage.name}`);
+		const uploadTask = uploadBytesResumable(storageRef, iImage);
 
-			uploadTask.on(
-				"state_changed",
-				(snapshot) => {
-					const prog = Math.round(
-						(snapshot.bytesTransferred / snapshot.totalBytes) * 100
-					);
-					setIProgress(prog);
-				},
-				(error) => console.log(error),
-				() => {
-					getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-						setDetails((prev) => {
-							return { ...prev, userImage: downloadURL };
-						});
+		uploadTask.on(
+			"state_changed",
+			(snapshot) => {
+				const prog = Math.round(
+					(snapshot.bytesTransferred / snapshot.totalBytes) * 100
+				);
+				setIProgress(prog);
+			},
+			(error) => console.log(error),
+			() => {
+				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+					setDetails((prev) => {
+						return { ...prev, userImage: downloadURL };
 					});
-				}
-			);
-		};
+				});
+			}
+		);
+	};
 	return (
 		<div>
 			<Navbar />
@@ -198,7 +202,7 @@ const Profile = () => {
 													class="form-control"
 													readOnly={!edit}
 													value={
-														!edit ? userData && userData.email : details.name
+														!edit ? userData && userData.email : details.email
 													}
 													onChange={(e) => {
 														setDetails((prev) => {
@@ -320,7 +324,7 @@ const Profile = () => {
 													<button
 														style={{ background: "#00c194", border: 0 }}
 														className="btn btn-primary btn-hover-dark w-100"
-														// onClick={() => handleSubmit(true)}
+														onClick={() => handleSubmit()}
 													>
 														Save Details
 													</button>

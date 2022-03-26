@@ -106,9 +106,7 @@ const SingleProperty = () => {
 										<div class="single-verified-area">
 											<div class="item-title">
 												<h3>
-													<Link to="/properties">
-														Family House For Rent
-													</Link>
+													<Link to="/properties">Family House For Rent</Link>
 												</h3>
 											</div>
 										</div>
@@ -993,7 +991,7 @@ const SingleProperty = () => {
 									<div class="widget widget-listing-box1">
 										<h3 class="widget-subtitle">Latest Listing</h3>
 										<div class="item-img">
-											<Link to="/properties">
+											<Link to="/singlelisting">
 												<img
 													src="img/blog/widget1.jpg"
 													alt="widget"
@@ -1007,10 +1005,10 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-content">
 											<div class="item-category10">
-												<Link to="/properties">Villa</Link>
+												<Link to="/singlelisting">Villa</Link>
 											</div>
 											<h4 class="item-title">
-												<Link to="/properties">
+												<Link to="/singlelisting">
 													Modern Villa for House Highland Ave Los Angeles
 												</Link>
 											</h4>
@@ -1024,7 +1022,7 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-listing">
 											<div class="item-img">
-												<Link to="/properties">
+												<Link to="/singlelisting">
 													<img
 														src="img/blog/widget2.jpg"
 														alt="widget"
@@ -1035,7 +1033,7 @@ const SingleProperty = () => {
 											</div>
 											<div class="item-content">
 												<h5 class="item-title">
-													<Link to="/properties">
+													<Link to="/singlelisting">
 														House Highland Ave Los Angeles
 													</Link>
 												</h5>
@@ -1049,7 +1047,7 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-listing">
 											<div class="item-img">
-												<Link to="/properties">
+												<Link to="/singlelisting">
 													<img
 														src="img/blog/widget3.jpg"
 														alt="widget"
@@ -1060,7 +1058,7 @@ const SingleProperty = () => {
 											</div>
 											<div class="item-content">
 												<h5 class="item-title">
-													<Link to="/properties">
+													<Link to="/singlelisting">
 														House Highland Ave Los Angeles
 													</Link>
 												</h5>
@@ -1074,7 +1072,7 @@ const SingleProperty = () => {
 										</div>
 										<div class="widget-listing no-brd">
 											<div class="item-img">
-												<Link to="/properties">
+												<Link to="/singlelisting">
 													<img
 														src="img/blog/widget4.jpg"
 														alt="widget"
@@ -1085,7 +1083,7 @@ const SingleProperty = () => {
 											</div>
 											<div class="item-content">
 												<h5 class="item-title">
-													<Link to="/properties">
+													<Link to="/singlelisting">
 														House Highland Ave Los Angeles
 													</Link>
 												</h5>
@@ -1275,7 +1273,6 @@ const SingleProperty = () => {
 											</span>
 										</div>
 									</div>
-									
 								</div>
 								<div class="item-category10">
 									<Link to="/properties">Appartment</Link>
@@ -1283,9 +1280,7 @@ const SingleProperty = () => {
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to="/properties">
-												Family House For Sell
-											</Link>
+											<Link to="/properties">Family House For Sell</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -1332,7 +1327,6 @@ const SingleProperty = () => {
 											</span>
 										</div>
 									</div>
-									
 								</div>
 								<div class="item-category10">
 									<Link to="/properties">Villa</Link>
@@ -1340,9 +1334,7 @@ const SingleProperty = () => {
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to="/properties">
-												Countryside Modern Lake View
-											</Link>
+											<Link to="/properties">Countryside Modern Lake View</Link>
 										</h3>
 									</div>
 									<div class="location-area">
@@ -1389,7 +1381,6 @@ const SingleProperty = () => {
 											</span>
 										</div>
 									</div>
-									
 								</div>
 								<div class="item-category10">
 									<Link to="/properties">Office</Link>
@@ -1397,9 +1388,7 @@ const SingleProperty = () => {
 								<div class="item-content">
 									<div class="verified-area">
 										<h3 class="item-title">
-											<Link to="/properties">
-												Gorgeous Apartment Building{" "}
-											</Link>
+											<Link to="/properties">Gorgeous Apartment Building </Link>
 										</h3>
 									</div>
 									<div class="location-area">
