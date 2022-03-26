@@ -196,9 +196,9 @@ const Profile = () => {
 													name="email"
 													id="email"
 													class="form-control"
-													readOnly={!edit}
+													readOnly
 													value={
-														!edit ? userData && userData.email : details.name
+														userData && userData.email
 													}
 													onChange={(e) => {
 														setDetails((prev) => {
