@@ -20,6 +20,7 @@ import SinglePropertyDetails from "./components/SinglePropertyDetails/SingleProp
 import Activate from "./components/Activate";
 import ForgetPassword from "./components/ForgetPass";
 import ResetPassword from "./components/ResetPassword";
+import ScheduleMeeting from "./components/ScheduleMeeting/ScheduleMeeting";
 function App() {
   return (
 		<Router>
@@ -46,6 +47,7 @@ function App() {
 				<Route exact path={"/activateuser"} element={<Activate />} />
 				<Route exact path={"/resetPassword"} element={<ResetPassword />} />
 				<Route exact path={"/forgotPassword"} element={<ForgetPassword />} />
+				<Route exact path={"/schedulemeeting"} element={<ScheduleMeeting />} />
 			</Routes>
 		</Router>
 	);

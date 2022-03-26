@@ -12,6 +12,38 @@ const Navbar = () => {
 		dispatch(logout());
         navigate("/")
 	};
+	const id = localStorage.getItem("userInfo")
+		? JSON.parse(localStorage.getItem("userInfo"))._id
+		: null;
+	let link;
+	let link2;
+	if(!id){
+		link = <ul class="action-list">
+		<li class="listing-button">
+			<Link to="/login" class="listing-btn">
+				
+				<span class="item-text">Login</span>
+			</Link>
+		</li>
+	</ul>
+	}else{
+		link = 
+		<i class="flaticon-user-1 icon-round"></i>
+	
+	link2=<ul class="dropdown-menu-col-1">
+	<li>
+		<Link to="/profile">Profile</Link>
+	</li>
+	<li>
+		<Link to="/listing">My Listings</Link>
+	</li>
+	<li>
+		<Link to="/" onClick={logoutHandle}>Log Out</Link>
+	</li>
+</ul>
+	}
+
+
 	return (
 		<div className="nav-head">
 			{" "}
@@ -70,6 +102,7 @@ const Navbar = () => {
 									</ul>
 								</nav>
 							</div>
+							
 							<div class="col-xl-2 col-lg-2 g-0 d-flex justify-content-end">
 								<div class="header-action-layout1">
 									<nav
@@ -78,26 +111,8 @@ const Navbar = () => {
 									>
 										<ul class="action-list">
 											<li class="action-item-style my-account">
-												<Link
-													to="/Login"
-													data-bs-toggle="tooltip"
-													data-bs-placement="bottom"
-													title="Sign In"
-													style={{ display: "flex", alignItems: "center" }}
-												>
-													<i class="flaticon-user-1 icon-round"></i>
-												</Link>
-												<ul class="dropdown-menu-col-1">
-													<li>
-														<Link to="/profile">Profile</Link>
-													</li>
-													<li>
-														<Link to="/listing">My Listings</Link>
-													</li>
-													<li>
-														<Link to="/" onClick={logoutHandle}>Log Out</Link>
-													</li>
-												</ul>
+												{link}
+												{link2}
 											</li>
 										</ul>
 									</nav>

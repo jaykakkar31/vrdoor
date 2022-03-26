@@ -22,6 +22,7 @@ const SingleProperty = () => {
 			});
 	
 	const [formErrors, setFormErrors] = useState({});
+	
 	const [emi, setemi] = useState({
 		loan: 0,
 		down: 0,

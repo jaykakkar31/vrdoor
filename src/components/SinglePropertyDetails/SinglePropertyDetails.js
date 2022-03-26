@@ -949,7 +949,7 @@ const SingleProperty = () => {
 												</div>
 												<ul class="wid-contact-button">
 													<li>
-														<Link to="/contactus">
+														<Link to="/schedulemeeting">
 															<i class="fas fa-comment"></i>Schedule Meeting
 														</Link>
 													</li>
