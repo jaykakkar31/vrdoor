@@ -5,18 +5,19 @@ import Footer from "../Footer";
 import Navbar from "../Navbar";
 import { userLogin } from "../../store/actions/userActions";
 import ScrollButton from "../scrollToTop";
+import Message from "../message/message";
 const Login = () => {
-    	const [scrollState, setScrollState] = useState(false);
-			useEffect(() => {
-				window.addEventListener("scroll", (e) => {
-					var scroll = window.pageYOffset;
-					if (scroll <= 100) {
-						setScrollState(false);
-					} else {
-						setScrollState(true);
-					}
-				});
-			});
+	const [scrollState, setScrollState] = useState(false);
+	useEffect(() => {
+		window.addEventListener("scroll", (e) => {
+			var scroll = window.pageYOffset;
+			if (scroll <= 100) {
+				setScrollState(false);
+			} else {
+				setScrollState(true);
+			}
+		});
+	});
 	const [details, setDetails] = useState({
 		email: "",
 		userpass: "",
@@ -24,23 +25,26 @@ const Login = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const loginUser = useSelector((state) => state.loginUser);
-	const { laoding, userInfo ,error} = loginUser;
+	const { laoding, userInfo, error, success } = loginUser;
 
 	const loginHandle = (e) => {
 		e.preventDefault();
 		try {
-			dispatch(userLogin(details)).then(() => {
-				setDetails({
-					email: "",
-					userpass: "",
-				});
-				navigate("/");
-			});
+			dispatch(userLogin(details));
 		} catch (e) {
 			throw new Error(e.message);
 		}
 	};
-  
+	useEffect(() => {
+		if (success) {
+			setDetails({
+				email: "",
+				userpass: "",
+			});
+			navigate("/");
+		}
+	}, [success, navigate]);
+
 	return (
 		<div>
 			<Navbar />
@@ -67,6 +71,7 @@ const Login = () => {
 							<div class="page-content-block">
 								<div class="col-md-12 rtcl-login-form-wrap">
 									<h2>Login</h2>
+									{error && (<Message variant={"danger"}>{error}</Message>)}
 									{laoding ? (
 										<div
 											class="container-fluid"

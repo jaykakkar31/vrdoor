@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -15,14 +15,14 @@ const ForgetPass = () => {
 	const { loading, error, success } = forgotPassReducer;
 	const resetPasswordHandle = (e) => {
 		e.preventDefault();
-		dispatch(forgotPass(details)).then(() => {
-            console.log(success);
-			if (success) {
-				navigate("/resetpassword");
-			}
-		});
+		dispatch(forgotPass(details));
+		console.log(success);
 	};
-
+	useEffect(() => {
+		if (success) {
+			navigate("/resetpassword");
+		}
+	}, [navigate, success]);
 	return (
 		<div>
 			<Navbar />
@@ -54,7 +54,14 @@ const ForgetPass = () => {
 						<Message variant={"danger"}>{error}</Message>
 					) : (
 						<form onSubmit={resetPasswordHandle}>
-							<div class="single-form" style={{display:"flex",flexDirection:"column",marginBottom:'10px'}}>
+							<div
+								class="single-form"
+								style={{
+									display: "flex",
+									flexDirection: "column",
+									marginBottom: "10px",
+								}}
+							>
 								<label for="name" class="control-label">
 									Email
 									<strong class="rtcl-required">*</strong>
