@@ -5,38 +5,43 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper";
 import "./singleProperty.css";
 import { Link } from "react-router-dom";
-import {useState} from "react";
+import { useState } from "react";
 import { Button, ProgressBar } from "react-bootstrap";
 import ScrollButton from "../scrollToTop";
 const SingleProperty = () => {
-    	const [scrollState, setScrollState] = useState(false);
-			useEffect(() => {
-				window.addEventListener("scroll", (e) => {
-					var scroll = window.pageYOffset;
-					if (scroll <= 100) {
-						setScrollState(false);
-					} else {
-						setScrollState(true);
-					}
-				});
-			});
-	
+	const [scrollState, setScrollState] = useState(false);
+	useEffect(() => {
+		window.addEventListener("scroll", (e) => {
+			var scroll = window.pageYOffset;
+			if (scroll <= 100) {
+				setScrollState(false);
+			} else {
+				setScrollState(true);
+			}
+		});
+	});
+
 	const [formErrors, setFormErrors] = useState({});
-	
+
 	const [emi, setemi] = useState({
 		loan: 0,
 		down: 0,
 		year: 0,
 		rate: 0,
-	});	
+	});
 	const emiHandle = (e) => {
 		e.preventDefault();
 		setFormErrors(validate(emi));
-		
-		var res =[(emi.loan-emi.down)*(emi.rate/12/100)*(1+(emi.rate/12/100))**(emi.year*12) ]/[(1+(emi.rate/12/100))**(emi.year*12)-1];
+
+		var res =
+			[
+				(emi.loan - emi.down) *
+					(emi.rate / 12 / 100) *
+					(1 + emi.rate / 12 / 100) ** (emi.year * 12),
+			] / [(1 + emi.rate / 12 / 100) ** (emi.year * 12) - 1];
 		console.log(res);
-		if(emi.value!=0)
-			document.getElementById("result").innerHTML=" Rs. "+res;
+		if (emi.value != 0)
+			document.getElementById("result").innerHTML = " Rs. " + res;
 	};
 	const validate = (values) => {
 		const errors = {};
@@ -52,11 +57,10 @@ const SingleProperty = () => {
 		if (!values.rate) {
 			errors.rate = "Interest Rate is required!";
 		}
-		
+
 		return errors;
 	};
-	
-	
+
 	return (
 		<div>
 			<Navbar />
@@ -880,25 +884,29 @@ const SingleProperty = () => {
 									<div class="widget widget-contact-box">
 										<h3 class="widget-subtitle">Contact Agent</h3>
 										<div class="media d-flex">
-											<div class="flex-shrink-0">
+											<div
+												class="flex-shrink-0"
+												style={{ display: "flex", alignItems: "center" }}
+											>
 												<div class="item-logo">
 													<img
-														src="img/theme2.png"
+														src="img/logo.png"
 														alt="logo"
+														style={{ height: "50px" }}
 														width="100"
-														height="100"
+														height="200"
 													/>
 												</div>
 											</div>
 											<div class="media-body flex-grow-1 ms-3">
-												<h4 class="item-title">RadiusTheme</h4>
+												<h4 class="item-title">VRDOOR</h4>
 												<div class="item-phn">
-													+ 132 899 6XXX{" "}
-													<Link to="/properties">
+													+91 1234567890
+													<Link to="/property">
 														<span>(Show)</span>
 													</Link>
 												</div>
-												<div class="item-mail">agent@radiustheme.com</div>
+												<div class="item-mail">info@vrdoor.com</div>
 												<div class="item-rating">
 													<ul>
 														<li>
@@ -923,13 +931,10 @@ const SingleProperty = () => {
 										</div>
 										<ul class="wid-contact-button">
 											<li>
-												<Link to="/contactus">
-													<i class="fas fa-comment"></i>Quick Chat
-												</Link>
-											</li>
-											<li>
-												<Link to="/contactus">
-													<i class="fas fa-share-alt"></i>Share
+												<Link
+													to={`/schedulemeeting`}
+												>
+													<i class="fas fa-comment"></i>Schedule Meeting
 												</Link>
 											</li>
 										</ul>
