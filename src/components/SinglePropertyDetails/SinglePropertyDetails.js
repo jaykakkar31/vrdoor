@@ -10,17 +10,17 @@ import { fetchPropertyDetails } from "../../store/actions/propertiesAction";
 import { fetchUserData } from "../../store/actions/userActions";
 import ScrollButton from "../scrollToTop";
 const SingleProperty = () => {
-    const [scrollState, setScrollState] = useState(false);
-		useEffect(() => {
-			window.addEventListener("scroll", (e) => {
-				var scroll = window.pageYOffset;
-				if (scroll <= 100) {
-					setScrollState(false);
-				} else {
-					setScrollState(true);
-				}
-			});
+	const [scrollState, setScrollState] = useState(false);
+	useEffect(() => {
+		window.addEventListener("scroll", (e) => {
+			var scroll = window.pageYOffset;
+			if (scroll <= 100) {
+				setScrollState(false);
+			} else {
+				setScrollState(true);
+			}
 		});
+	});
 	const dispatch = useDispatch();
 	const [id, setId] = useState(window.location.search.split("=")[1]);
 	const fetchPropertyDetailsReducer = useSelector(
@@ -29,12 +29,15 @@ const SingleProperty = () => {
 
 	const userDataReducer = useSelector((state) => state.userDataReducer);
 	const { loading: userLoading, userData } = userDataReducer;
-	const { loading, propertyDetails } = fetchPropertyDetailsReducer;
+	const { loading, propertyDetails, success } = fetchPropertyDetailsReducer;
 	useEffect(() => {
-		dispatch(fetchPropertyDetails(id)).then(() => {
-			dispatch(fetchUserData(propertyDetails?.userId));
-		});
+		dispatch(fetchPropertyDetails(id));
 	}, [dispatch]);
+	useEffect(() => {
+		if (success) {
+			dispatch(fetchUserData(propertyDetails?.userId));
+		}
+	}, [success, dispatch]);
 	// console.log(propertyDetails);
 	return (
 		<div>
@@ -949,7 +952,7 @@ const SingleProperty = () => {
 												</div>
 												<ul class="wid-contact-button">
 													<li>
-														<Link to="/schedulemeeting">
+														<Link to={`/schedulemeeting?id=${propertyDetails?.userId}`}>
 															<i class="fas fa-comment"></i>Schedule Meeting
 														</Link>
 													</li>

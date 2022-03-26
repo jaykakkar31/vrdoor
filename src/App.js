@@ -21,6 +21,8 @@ import Activate from "./components/Activate";
 import ForgetPassword from "./components/ForgetPass";
 import ResetPassword from "./components/ResetPassword";
 import ScheduleMeeting from "./components/ScheduleMeeting/ScheduleMeeting";
+import Schedule from "./components/ScheduleMeeting/Schedule";
+import RecievedMeet from "./components/ScheduleMeeting/recievedMeet";
 function App() {
   return (
 		<Router>
@@ -48,6 +50,8 @@ function App() {
 				<Route exact path={"/resetPassword"} element={<ResetPassword />} />
 				<Route exact path={"/forgotPassword"} element={<ForgetPassword />} />
 				<Route exact path={"/schedulemeeting"} element={<ScheduleMeeting />} />
+				<Route exact path={"/schedule"} element={<Schedule />} />
+				<Route exact path={"/scheduledmeetings"} element={<RecievedMeet />} />
 			</Routes>
 		</Router>
 	);

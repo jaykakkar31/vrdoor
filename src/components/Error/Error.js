@@ -11,7 +11,7 @@ const Error = () => {
             <div class="container">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">404 Page</li>
                     </ol>
                 </nav>
@@ -31,7 +31,7 @@ const Error = () => {
                             </div>
                             <h2 class="error-title">Sorry! This Page is  Not Available</h2>
                             <div class="error-button">
-                                <a href="index.html" class="item-btn">Go Back To Home Page</a>
+                                <a href="/" class="item-btn">Go Back To Home Page</a>
                             </div>
                         </div>
                         <div class="error-shape-list">

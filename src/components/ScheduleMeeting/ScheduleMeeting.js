@@ -5,41 +5,59 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button, ProgressBar } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { userRgister } from "../../store/actions/userActions";
+import shortid from "shortid";
+import { addMeeting } from "../../store/actions/meetingActions";
+import Message from "../message/message";
 const ScheduleMeeting = () => {
-	
 	const [formErrors, setFormErrors] = useState({});
+	const id = window.location?.search?.split("=")[1];
+    const cId  = localStorage.getItem("userInfo")
+		? JSON.parse(localStorage.getItem("userInfo"))._id
+		: null;;
 	const [details, setDetails] = useState({
-		meetingID: "",
+		meetingID: shortid.generate(),
 		date: "",
-		time:"",
-		buyerName:"",
-		buyerPhone:"",
+		time: "",
+		buyerName: "",
+		buyerPhone: "",
 
-	
+		createrId: cId,
+		recieverId: id,
 	});
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const registerUser = useSelector((state) => state.registerUser);
-	const {  error,success, loading } = registerUser;
-	const signUpHandle = (e) => {
+
+	const addMeetingReducer = useSelector((state) => state.addMeetingReducer);
+	const { error, success, loading, meetingInfo } = addMeetingReducer;
+	const meetingHandle = async (e) => {
 		e.preventDefault();
 		setFormErrors(validate(details));
 		console.log(details);
-		dispatch(userRgister(details)).then(() => {
-            console.log(success,"SUCCEs");
-			if (success) {
-				setDetails({
-					meetingID: "",
-					date: "",
-					time:"",
-					buyerName:"",
-					buyerPhone:"",
-
-				});
-				navigate("/");
-			}
-		});
+		await dispatch(addMeeting(details));
+		if (success) {
+			setDetails({
+				meetingID: "",
+				date: "",
+				time: "",
+				buyerName: "",
+				buyerPhone: "",
+			});
+			navigate("/schedule");
+		}
 	};
+    console.log(details);
+	useEffect(() => {
+		if (success) {
+			setDetails({
+				meetingID: "",
+				date: "",
+				time: "",
+				buyerName: "",
+				buyerPhone: "",
+			});
+			navigate("/schedule");
+		}
+	}, [navigate, success]);
 	useEffect(() => {
 		// console.log(formErrors);
 	}, [formErrors]);
@@ -53,14 +71,13 @@ const ScheduleMeeting = () => {
 		}
 		if (!values.date) {
 			errors.date = "Meeting Date is required!";
-		} 
+		}
 		if (!values.time) {
 			errors.time = "Meeting Time is required!";
 		}
-		
+
 		return errors;
 	};
-
 
 	return (
 		<div>
@@ -70,7 +87,7 @@ const ScheduleMeeting = () => {
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
-								<a href="index.html">Home</a>
+								<a href="/">Home</a>
 							</li>
 							<li class="breadcrumb-item active" aria-current="page">
 								Schedule Meeting
@@ -87,11 +104,22 @@ const ScheduleMeeting = () => {
 							<div class="page-content-block">
 								<div class="col-md-12 rtcl-login-form-wrap">
 									<h2>Schedule Meeting</h2>
-									
-										<form
-										
-											onSubmit={signUpHandle}
+									{error && <Message variant={"danger"}>{error}</Message>}
+									{loading ? (
+										<div
+											class="container-fluid"
+											style={{
+												display: "flex",
+												justifyContent: "center",
+												alignItems: "center",
+												marginTop: "20px",
+												marginBottom: "40x",
+											}}
 										>
+											<img src="img/preloader.gif" alt="load" />
+										</div>
+									) : (
+										<form onSubmit={meetingHandle}>
 											<div class="form-group">
 												<label for="buyerName" class="control-label">
 													Name
@@ -152,7 +180,7 @@ const ScheduleMeeting = () => {
 												/>
 											</div>
 											<p style={{ color: "red" }}>{formErrors.date}</p>
-											
+
 											<div class="form-group">
 												<label for="time" class="control-label">
 													Meeting Time <strong class="rtcl-required">*</strong>
@@ -178,21 +206,17 @@ const ScheduleMeeting = () => {
 													Meeting ID <strong class="rtcl-required">*</strong>
 												</label>
 												<input
-													type="number"
+													type="text"
 													readOnly="true"
 													name="meetingID"
 													id="meetingID"
 													class="form-control"
 													required
-													value={details.meetingID}
-													onChange={(e) => {
-														setDetails((prev) => {
-															return { ...prev, meetingID: e.target.value };
-														});
-													}}
+													value={details?.meetingID}
+													
 												/>
 											</div>
-											
+
 											<div class="form-group d-flex align-items-center">
 												<Button
 													type="submit"
@@ -209,14 +233,12 @@ const ScheduleMeeting = () => {
 													}}
 													variant="btn btn-secondary btn-outline w-100"
 													value="schedule"
-													onClick={signUpHandle}
 												>
 													Schedule Meeting
 												</Button>
 											</div>
-											
 										</form>
-									
+									)}
 								</div>
 							</div>
 						</div>

@@ -30,17 +30,27 @@ const Navbar = () => {
 		link = 
 		<i class="flaticon-user-1 icon-round"></i>
 	
-	link2=<ul class="dropdown-menu-col-1">
-	<li>
-		<Link to="/profile">Profile</Link>
-	</li>
-	<li>
-		<Link to="/listing">My Listings</Link>
-	</li>
-	<li>
-		<Link to="/" onClick={logoutHandle}>Log Out</Link>
-	</li>
-</ul>
+	link2 = (
+		<ul class="dropdown-menu-col-1">
+			<li>
+				<Link to="/profile">Profile</Link>
+			</li>
+			<li>
+				<Link to="/listing">My Listings</Link>
+			</li>
+			<li>
+				<Link to="/schedule">Created Meetings</Link>
+			</li>
+			<li>
+				<Link to="/scheduledmeetings">Meetings Scheduled</Link>
+			</li>
+			<li>
+				<Link to="/" onClick={logoutHandle}>
+					Log Out
+				</Link>
+			</li>
+		</ul>
+	);
 	}
 
 
