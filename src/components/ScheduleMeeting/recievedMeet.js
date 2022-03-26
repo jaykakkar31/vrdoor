@@ -4,21 +4,23 @@ import Navbar from "../Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../message/message";
-import './schedules.css'
 import { getRecieverMeetingReducer } from "../../store/reducers/meetReducer";
-import { fetchMeetingCreated, fetchMeetingRecieved } from "../../store/actions/meetingActions";
-const Schedule = () => {
+import {
+	fetchMeetingCreated,
+	fetchMeetingRecieved,
+} from "../../store/actions/meetingActions";
+const RecievedMeet = () => {
 	const dispatch = useDispatch();
-	const getCreaterMeetingReducer = useSelector(
-		(state) => state.getCreaterMeetingReducer
+	const getRecieverMeetingReducer = useSelector(
+		(state) => state.getRecieverMeetingReducer
 	);
 	const cId = localStorage.getItem("userInfo")
 		? JSON.parse(localStorage.getItem("userInfo"))._id
 		: null;
-	const { meetCreateData, loading, error } = getCreaterMeetingReducer;
+	const { meetRecievedData, loading, error } = getRecieverMeetingReducer;
 
 	useEffect(() => {
-		dispatch(fetchMeetingCreated(cId));
+		dispatch(fetchMeetingRecieved(cId));
 	}, [dispatch]);
 	return (
 		<div>
@@ -34,18 +36,17 @@ const Schedule = () => {
 						</div>
 					</div>
 
-					<div class="">
-						<div class=" " style={{width:"fitContent"}}>
+					<div class="row">
+						<div class="col-xl-4 col-lg-6 col-md-6">
 							{loading ? (
 								<div
-									// class="col-xl-6 col-lg-6 col-md-6"
+									class="container-fluid"
 									style={{
 										display: "flex",
 										justifyContent: "center",
 										alignItems: "center",
 										marginTop: "20px",
 										marginBottom: "40x",
-                                        width:"fitContent"
 									}}
 								>
 									<img src="img/preloader.gif" alt="load" />
@@ -53,13 +54,13 @@ const Schedule = () => {
 							) : error ? (
 								<Message variant={"danger"}>{error}</Message>
 							) : (
-								meetCreateData?.map((item) => {
+								meetRecievedData?.map((item) => {
 									return (
 										<div
 											class="property-box2 wow animated fadeInUp"
 											data-wow-delay=".3s"
 										>
-											<div class="item-img" style={{ width: "fitContent" }}>
+											<div class="item-img">
 												<Link to="/singleproperty">
 													<img
 														src="img/blog/blog4.jpg"
@@ -105,7 +106,7 @@ const Schedule = () => {
 											<div class="item-category10">
 												<Link to="SingleProperty">Appartment</Link>
 											</div>
-											<div class="item-content" style={{ width: "fitContent" }}>
+											<div class="item-content">
 												<div class="verified-area">
 													<h3 class="item-title">
 														<Link to="/singleproperty">
@@ -133,15 +134,12 @@ const Schedule = () => {
 													<ul>
 														<li>
 															Meeting ID:{" "}
-															{item?.meetingID ? item?.meetingID : "03sdfst"}
+															{item?.meetingID ? item?.meetingID : "03"}
 														</li>
 													</ul>
 													<div class="property-button">
-														<Link
-															to={`/meet/${item?.meetingID}`}
-															class="item-btn"
-														>
-															Start Meeting
+														<Link to={`/meet/${item?.meetingID}`} class="item-btn">
+															Join Meeting
 														</Link>
 													</div>
 												</div>
@@ -158,6 +156,6 @@ const Schedule = () => {
 			<Footer />
 		</div>
 	);
-};;
+};
 
-export default Schedule;
+export default RecievedMeet;

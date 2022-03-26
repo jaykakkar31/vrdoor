@@ -17,6 +17,7 @@ import {
 	resetPassReducer,
 	userDataReducer,
 } from "./reducers/userReducers";
+import { addMeetingReducer, getCreaterMeetingReducer, getRecieverMeetingReducer } from "./reducers/meetReducer";
 
 const userInfofromStorage = localStorage.getItem("userInfo")
 	? JSON.parse(localStorage.getItem("userInfo"))
@@ -41,6 +42,9 @@ const reducers = combineReducers({
 	forgotPassReducer: forgotPassReducer,
 	fetchPropertyDetailsReducer: fetchPropertyDetailsReducer,
 	resetPassReducer: resetPassReducer,
+	addMeetingReducer: addMeetingReducer,
+	getRecieverMeetingReducer: getRecieverMeetingReducer,
+	getCreaterMeetingReducer: getCreaterMeetingReducer,
 });
 
 const store = createStore(

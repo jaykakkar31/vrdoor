@@ -99,7 +99,7 @@ function JitsiMeetComponent() {
 			});
 			api.addEventListener("readyToClose", function () {
 				//Remove from db
-				
+				navigate("/")
 				
 				
 			});
