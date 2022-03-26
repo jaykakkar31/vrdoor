@@ -52,7 +52,7 @@ const Profile = () => {
 	};
 	const handleSubmit = (e) => {
 		// e.preventDefault;
-        dispatch()
+		dispatch();
 	};
 	const changeImage = () => {
 		const storageRef = ref(storage, `users/${details.name}/${iImage.name}`);
@@ -200,10 +200,8 @@ const Profile = () => {
 													name="email"
 													id="email"
 													class="form-control"
-													readOnly={!edit}
-													value={
-														!edit ? userData && userData.email : details.email
-													}
+													readOnly
+													value={userData && userData.email}
 													onChange={(e) => {
 														setDetails((prev) => {
 															return { ...prev, email: e.target.value };

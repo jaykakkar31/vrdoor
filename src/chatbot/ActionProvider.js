@@ -5,8 +5,19 @@ class ActionProvider {
     this.createClientMessage = createClientMessage;
   }
 
-  anything(){
+  anything() {
     const message = this.createChatbotMessage("Hi, How may I help you?");
+
+    this.setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, message],
+    }));
+  }
+
+  handleThanks() {
+    const message = this.createChatbotMessage(
+      "Your Welcome! Say, Hi to start the conversation again."
+    );
 
     this.setState((prev) => ({
       ...prev,
@@ -16,7 +27,7 @@ class ActionProvider {
 
   handleProperty() {
     const message = this.createChatbotMessage(
-      "You can find the list of all our properties here:",  
+      "You can find the list of all our properties here:",
       { widget: "properties" }
     );
 

@@ -93,7 +93,7 @@ const BlogDetail = () => {
 																width="31"
 																height="31"
 															/>
-															by radiustheme
+															by Admin
 														</Link>
 													</li>
 													<li class="calendar-icon">
