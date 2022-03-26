@@ -1,34 +1,41 @@
 @media (max-width: 1600px) {
-	.adj-height {
-		min-height: 940px;
-	}
+  .adj-height {
+    min-height: 940px;
+  }
 }
 @media (max-width: 1025px) {
-	.adj-height {
-		min-height: 900px;
-	}
+  .adj-height {
+    min-height: 900px;
+  }
 }
 @media (max-width: 768px) {
-	.adj-height{
-		min-height: 910px;
-	}
+  .adj-height {
+    min-height: 910px;
+  }
 }
 
-
 @media (max-width: 425px) {
-	.adj-height{
-		min-height: 1385px;
-	}
+  .adj-height {
+    min-height: 1385px;
+  }
 }
 
 @media (max-width: 375px) {
-	.adj-height{
-		min-height: 1445px;
-	}
+  .adj-height {
+    min-height: 1445px;
+  }
 }
 
 @media (max-width: 325px) {
-	.adj-height{
-		min-height: 1595px;
-	}
+  .adj-height {
+    min-height: 1595px;
+  }
+}
+
+.chatbot-modal {
+  position: fixed;
+  right: 25px;
+  bottom: 50px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;  
+  z-index: 1000;
 }
