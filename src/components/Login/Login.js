@@ -29,11 +29,9 @@ const Login = () => {
 
 	const loginHandle = (e) => {
 		e.preventDefault();
-		try {
+	
 			dispatch(userLogin(details));
-		} catch (e) {
-			throw new Error(e.message);
-		}
+	
 	};
 	useEffect(() => {
 		if (success) {
