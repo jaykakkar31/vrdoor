@@ -4,13 +4,13 @@ VRDOOR is a real-estate platform making a different approach for real estate dea
 
 
 ## Some salient features:
-- 360 view of all properties.\
-- Exact property location using Google Map API.\
-- Blogs for latest news and information regarding Real Estate.\
-- Integrated EMI Calculator.\
-- Buyers and sellers can interact directly through virtual call. (Inbuilt virtual meeting)\
-- Sellers can list their property on their own.\
-- Filters and AI Chatbot for shortlisting properties.\
+- 360 view of all properties.
+- Exact property location using Google Map API.
+- Blogs for latest news and information regarding Real Estate.
+- Integrated EMI Calculator.
+- Buyers and sellers can interact directly through virtual call. (Inbuilt virtual meeting)
+- Sellers can list their property on their own.
+- Filters and AI Chatbot for shortlisting properties.
 
 ## Technologies Used:
 - React Js
