@@ -15,6 +15,7 @@ import {
 	logoutUser,
 	registerUser,
 	resetPassReducer,
+	updateUserReducer,
 	userDataReducer,
 } from "./reducers/userReducers";
 import { addMeetingReducer, getCreaterMeetingReducer, getRecieverMeetingReducer } from "./reducers/meetReducer";
@@ -45,6 +46,7 @@ const reducers = combineReducers({
 	addMeetingReducer: addMeetingReducer,
 	getRecieverMeetingReducer: getRecieverMeetingReducer,
 	getCreaterMeetingReducer: getCreaterMeetingReducer,
+	updateUserReducer: updateUserReducer,
 });
 
 const store = createStore(

@@ -5,6 +5,9 @@ import {
 	RESETPASS_FAIL,
 	RESETPASS_REQUEST,
 	RESETPASS_SUCCESS,
+	UPDATE_USER_DATA_FAIL,
+	UPDATE_USER_DATA_REQUEST,
+	UPDATE_USER_DATA_SUCCESS,
 	USER_DATA_FAIL,
 	USER_DATA_REQUEST,
 	USER_DATA_SUCCESS,
@@ -216,6 +219,29 @@ export const resetPassword = (token, details) => async (dispatch) => {
 				error.response && error.response.data.message
 					? error.response.data.message
 					: error.message,
+		});
+	}
+};
+
+export const updateUser = (id, details) => async (dispatch) => {
+	console.log("Caled");
+	try {
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+		dispatch({ type: UPDATE_USER_DATA_REQUEST });
+		const {data}=await axios.patch(`${API_URL}/api/users/update/${id}`, details, config);
+		// console.log(data);
+		dispatch({ type: UPDATE_USER_DATA_SUCCESS,payload:data });
+	} catch (e) {
+		dispatch({
+			type: UPDATE_USER_DATA_FAIL,
+			payload:
+				e.response && e.response.data.message
+					? e.response.data.message
+					: e.message,
 		});
 	}
 };

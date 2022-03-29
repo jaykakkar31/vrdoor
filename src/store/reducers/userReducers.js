@@ -1,10 +1,13 @@
 import {
-    FORGOTPASS_FAIL,
-    FORGOTPASS_REQUEST,
+	FORGOTPASS_FAIL,
+	FORGOTPASS_REQUEST,
 	FORGOTPASS_SUCCESS,
 	RESETPASS_FAIL,
 	RESETPASS_REQUEST,
 	RESETPASS_SUCCESS,
+	UPDATE_USER_DATA_FAIL,
+	UPDATE_USER_DATA_REQUEST,
+	UPDATE_USER_DATA_SUCCESS,
 	USER_DATA_FAIL,
 	USER_DATA_REQUEST,
 	USER_DATA_SUCCESS,
@@ -34,9 +37,9 @@ export const registerUser = (state = {}, actions) => {
 export const loginUser = (state = {}, actions) => {
 	switch (actions.type) {
 		case USER_LOGIN_REQUEST:
-			return { loading: true, error: null ,success:false};
+			return { loading: true, error: null, success: false };
 		case USER_LOGIN_SUCCESS:
-			return { loading: false, userInfo: actions.payload ,success:true};
+			return { loading: false, userInfo: actions.payload, success: true };
 		case USER_LOGIN_FAIL:
 			return { loading: false, error: actions.payload };
 		case USER_LOGOUT:
@@ -66,7 +69,7 @@ export const logoutUser = (state = {}, actions) => {
 		case USER_DATA_REQUEST:
 			return { loading: true, error: null };
 		case USER_DATA_SUCCESS:
-			return { loading: false, userInfo: {}, error: null,success:false };
+			return { loading: false, userInfo: {}, error: null, success: false };
 		case USER_DATA_FAIL:
 			return { loading: false, error: actions.payload };
 
@@ -77,9 +80,9 @@ export const logoutUser = (state = {}, actions) => {
 export const forgotPassReducer = (state = {}, actions) => {
 	switch (actions.type) {
 		case FORGOTPASS_REQUEST:
-			return { loading: true, error: null ,success:false};
+			return { loading: true, error: null, success: false };
 		case FORGOTPASS_SUCCESS:
-			return { loading: false ,success:true};
+			return { loading: false, success: true };
 		case FORGOTPASS_FAIL:
 			return { loading: false, error: actions.payload };
 
@@ -87,7 +90,6 @@ export const forgotPassReducer = (state = {}, actions) => {
 			return state;
 	}
 };
-
 
 export const resetPassReducer = (state = {}, actions) => {
 	switch (actions.type) {
@@ -103,3 +105,19 @@ export const resetPassReducer = (state = {}, actions) => {
 	}
 };
 
+export const updateUserReducer = (state = {}, action) => {
+	switch (action.type) {
+		case UPDATE_USER_DATA_REQUEST:
+			return { loading: true, success: false, error: null };
+		case UPDATE_USER_DATA_SUCCESS:
+			return {
+				loading: false,
+				success: true,
+				userInfo: action.payload,
+			};
+		case UPDATE_USER_DATA_FAIL:
+			return { loading: false, error: action.payload };
+		default:
+			return state;
+	}
+};

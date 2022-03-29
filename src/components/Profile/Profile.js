@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserData, userRgister } from "../../store/actions/userActions";
+import {
+	fetchUserData,
+	updateUser,
+	userRgister,
+} from "../../store/actions/userActions";
 import { Link, useNavigate } from "react-router-dom";
 import { storage } from "../firebase/firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { Button, ProgressBar } from "react-bootstrap";
 import ScrollButton from "../scrollToTop";
+import Message from "../message/message";
+import { async } from "@firebase/util";
 const Profile = () => {
 	const [scrollState, setScrollState] = useState(false);
 	useEffect(() => {
@@ -22,21 +28,30 @@ const Profile = () => {
 	});
 	const [iImage, setiImage] = useState(null);
 	const [iprogress, setIProgress] = useState(0);
-	const [details, setDetails] = useState({
-		name: "",
-		email: "",
-		phoneno: "",
-		dob: "",
-		userpass: "",
-		gender: "",
-		confirmpass: "",
-	});
+
 	const navigate = useNavigate();
 	const [edit, setEdit] = useState(false);
 	const dispatch = useDispatch();
 	const userDataReducer = useSelector((state) => state.userDataReducer);
-	const { userData, loading } = userDataReducer;
-	console.log(userData);
+
+	const { userData, loading, error } = userDataReducer;
+	const [gender, setGender] = useState();
+	const updateUserReducer = useSelector((state) => state.updateUserReducer);
+	const {
+		loading: loadingUpdate,
+		success,
+		error: errorUpdate,
+	} = updateUserReducer;
+
+	const [details, setDetails] = useState({
+		name: "",
+		email: userData?.email,
+		phoneno: "",
+		dob: "",
+		gender: "",
+		userImage: "",
+	});
+	console.log(details);
 	const id = localStorage.getItem("userInfo")
 		? JSON.parse(localStorage.getItem("userInfo"))._id
 		: null;
@@ -46,14 +61,41 @@ const Profile = () => {
 		} else {
 			navigate("/login");
 		}
-	}, [dispatch, id]);
+	}, [dispatch, id, navigate]);
 	const handleCancel = () => {
 		setEdit(false);
 	};
-	const handleSubmit = (e) => {
-		// e.preventDefault;
-		dispatch();
+	const handleSubmit =async (e) => {
+		e.preventDefault();
+		setEdit(false);
+		console.log("SUB<+MIT");
+		await dispatch(updateUser(id, details)).then(()=>{
+            			nav();
+
+        })
+		if (success) {
+			setDetails({
+				name: "",
+				email: userData?.email,
+				phoneno: "",
+				dob: "",
+				gender: "",
+				userImage: "",
+			});
+		}
 	};
+	const nav = () => {
+		setTimeout(() => {
+					// 
+                    navigate("/")
+
+		}, 1000);
+	};
+	// useEffect(() => {
+	// 	if (success) {
+	// 		dispatch(fetchUserData(id));
+	// 	}
+	// }, [success, dispatch, id]);
 	const changeImage = () => {
 		const storageRef = ref(storage, `users/${details.name}/${iImage.name}`);
 		const uploadTask = uploadBytesResumable(storageRef, iImage);
@@ -76,6 +118,7 @@ const Profile = () => {
 			}
 		);
 	};
+	console.log(gender);
 	return (
 		<div>
 			<Navbar />
@@ -101,7 +144,26 @@ const Profile = () => {
 							<div class="page-content-block">
 								<div class="col-md-12 rtcl-login-form-wrap">
 									<h2>Profile</h2>
-									{loading ? (
+
+									{error && <Message variant={"danger"}>{error}</Message>}
+
+									{errorUpdate && (
+										<Message variant={"danger"}>{errorUpdate}</Message>
+									)}
+									{loadingUpdate ? (
+										<div
+											class="container-fluid"
+											style={{
+												display: "flex",
+												justifyContent: "center",
+												alignItems: "center",
+												marginTop: "20px",
+												marginBottom: "40x",
+											}}
+										>
+											<img src="img/preloader.gif" alt="load" />
+										</div>
+									) : loading ? (
 										<div
 											class="container-fluid"
 											style={{
@@ -116,8 +178,9 @@ const Profile = () => {
 										</div>
 									) : (
 										<form
-										// id="rtcl-Profile-form"
-										// class="form-horizontal"
+											// id="rtcl-Profile-form"
+											// class="form-horizontal"
+											onSubmit={handleSubmit}
 										>
 											{edit && (
 												<div style={{ marginTop: "20px" }}>
@@ -200,13 +263,14 @@ const Profile = () => {
 													name="email"
 													id="email"
 													class="form-control"
-													readOnly
 													value={userData && userData.email}
-													onChange={(e) => {
-														setDetails((prev) => {
-															return { ...prev, email: e.target.value };
-														});
-													}}
+													readOnly
+													// value={userData && userData.email}
+													// onChange={(e) => {
+													// 	setDetails((prev) => {
+													// 		return { ...prev, email: e.target.value };
+													// 	});
+													// }}
 												/>
 											</div>
 
@@ -242,49 +306,70 @@ const Profile = () => {
 												<input
 													type="radio"
 													name="gender"
+													value="Male"
+													id="f0"
 													readOnly={!edit}
-													value={
-														!edit ? userData && userData.gender : details.gender
+													checked={
+														!edit
+															? userData && userData.gender === "Male"
+															: details.gender === "Male"
 													}
 													onChange={(e) => {
+														// setGender(e.target.value);
 														setDetails((prev) => {
-															return { ...prev, gender: "Male" };
+															return { ...prev, gender: e.target.value };
 														});
 													}}
 												/>{" "}
-												Male
+												<label class="form-check-label" for="f0">
+													Male
+												</label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input
 													type="radio"
 													name="gender"
+													id={"f1"}
 													readOnly={!edit}
-													value={
-														!edit ? userData && userData.gender : details.gender
+													value="Female"
+													checked={
+														!edit
+															? userData && userData.gender === "Female"
+															: details.gender === "Female"
 													}
 													onChange={(e) => {
+														// setGender(e.target.value);
+
 														setDetails((prev) => {
-															return { ...prev, gender: "Female" };
+															return { ...prev, gender: e.target.value };
 														});
 													}}
 												/>{" "}
-												Female
+												<label class="form-check-label" for="f1">
+													Female
+												</label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input
 													type="radio"
 													name="gender"
+													id="f2"
+													value="Other"
 													readOnly={!edit}
-													value={
-														!edit ? userData && userData.gender : details.gender
-													}
 													onChange={(e) => {
 														setDetails((prev) => {
-															return { ...prev, gender: "Other" };
+															return { ...prev, gender: e.target.value };
 														});
 													}}
+													checked={
+														!edit
+															? userData && userData.gender === "Other"
+															: details.gender === "Other"
+													}
 												/>{" "}
-												Other
+												<label class="form-check-label" for="f1">
+													Other
+												</label>{" "}
 											</div>
 
 											<div class="form-group">
@@ -317,12 +402,14 @@ const Profile = () => {
 													</button>
 												</div>
 											)}
+
 											{edit && (
 												<div className="single-form">
 													<button
 														style={{ background: "#00c194", border: 0 }}
 														className="btn btn-primary btn-hover-dark w-100"
-														onClick={() => handleSubmit()}
+														// onSubmit={handleSubmit}
+														type="submit"
 													>
 														Save Details
 													</button>
